@@ -4,6 +4,8 @@ package reflect
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
+import scala.util.control.NonFatal
+
 object Reflect {
   def companionOf(cls: Class[_]): AnyRef =
     companionOfName(cls.getName)
@@ -15,14 +17,14 @@ object Reflect {
     objectOf(Class.forName(name))
 
   def objectOf(cls: Class[_]): AnyRef =
-    cls.getField("MODULE$").get(null)
+    try cls.getField("MODULE$").get(null)
+    catch { case NonFatal(e) => throw new RuntimeException(s"Could not find companion object for ${cls}", e) }
 
-  def invoke[A: Manifest](target: AnyRef, method: String, args: Array[AnyRef] = null): A = {
+  def invoke[A: Manifest](target: AnyRef, method: String, args: Array[AnyRef] = Array()): A = try {
     val cls = target.getClass
     val m = cls.getMethod(method)
-    var targetType = implicitly[Manifest[A]].runtimeClass.asInstanceOf[Class[A]]
-    targetType.cast(m.invoke(target, target))
-  }
+    m.invoke(target, args:_*).asInstanceOf[A]
+  } catch { case NonFatal(e) => throw new RuntimeException(s"""Could not find invoke method <${method}> on <${target.getClass}> with args <${Option(args).map(_.toList.mkString(", ")).getOrElse("null")}>, and with expected types of <${target.getClass.getMethod(method).getParameterTypes.toList}>""", e)  }
 
   def parameterizedTypeOf1(generic: Type): Type = {
     val args = generic.asInstanceOf[ParameterizedType].getActualTypeArguments()

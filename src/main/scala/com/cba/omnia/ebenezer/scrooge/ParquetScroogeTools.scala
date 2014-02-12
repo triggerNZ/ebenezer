@@ -12,7 +12,6 @@ object ParquetScroogeTools {
   def iteratorFromPath[A <: ThriftStruct](conf: Configuration, path: Path)(implicit m: Manifest[A]): Iterator[A] = {
     val cls = m.runtimeClass.asSubclass[ThriftStruct](classOf[ThriftStruct])
     ScroogeReadWriteSupport.setThriftClass(conf, cls)
-    val buffer = new scala.collection.mutable.ListBuffer[A]()
     val reader = new ParquetReader[A](conf, path, new ScroogeReadSupport[A])
     new Iterator[A] {
       var state: A = reader.read

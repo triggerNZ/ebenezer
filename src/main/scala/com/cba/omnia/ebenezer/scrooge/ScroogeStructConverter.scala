@@ -74,7 +74,7 @@ class ScroogeStructConverter {
   }
 
   def enum(f: ThriftStructField[_]): ThriftType = {
-    val companion = Reflect.objectOfName(f.method.getReturnType.getName)
+    val companion = Reflect.companionOfName(f.method.getReturnType.getName)
     val enums = Reflect.invoke[Seq[AnyRef]](companion, "list").toList
     val values = enums.map(raw => {
       val id = Reflect.invoke[Int](raw, "value")
