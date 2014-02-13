@@ -7,7 +7,7 @@ import com.twitter.scalding._
 import com.twitter.scalding.TDsl._
 import com.twitter.scrooge._
 
-import com.cba.omnia.ebenezer.test._
+import com.cba.omnia.ebenezer.test._, ThriftArbitraries._
 import com.cba.omnia.ebenezer.scrooge._
 import com.cba.omnia.thermometer.core._, Thermometer._
 import com.cba.omnia.thermometer.tools._
@@ -27,17 +27,22 @@ object ParquetIntrospectToolsSpec extends ThermometerSpec { def is = s2"""
 Introspect Usage
 ================
 
-  Read arbitrary parquet                    read
-  Read doubles                              doublish
-  Read bytes                                bytish
-  Read shorts                               shortish
-  Read ints                                 intish
-  Read longs                                longish
-  Read strings                              stringish
-  Read structs                              nestedish
-  Read lists                                listish
+  Read arbitrary parquet                    $read
+
+Introspect Types
+================
+
+  Read booleans                             $boolish
+  Read doubles                              $doublish
+  Read bytes                                $bytish
+  Read shorts                               $shortish
+  Read ints                                 $intish
+  Read longs                                $longish
+  Read strings                              $stringish
+  Read structs                              $nestedish
+  Read lists                                $listish
   Read maps                                 $mapish
-  Read emums                                enumish
+  Read emums                                $enumish
 
 """
   val data = List(
@@ -53,6 +58,11 @@ Introspect Usage
       Field("name", StringValue(customer.name)),
       Field("address", StringValue(customer.address)),
       Field("age", IntValue(customer.age))
+    )))
+
+  def boolish =
+    typed("boolish", List(Boolish(true)))(d => Record(List(
+      Field("value", BooleanValue(d.value))
     )))
 
   def doublish =
@@ -100,21 +110,16 @@ Introspect Usage
     )))
 
   def mapish =
-    debug("mapish", List(Mapish(Map("yo" -> "lo", "lo" -> "yo"))))
+    typed("mapish", List(Mapish(Map("yo" -> "lo", "lo" -> "yo"))))(r => Record(List(
+      Field("values", MapValue(Map(r.values.toList.map({
+        case (k, v) => StringValue(k) -> StringValue(v)
+      }):_*)))
+    )))
 
-  def enumish =
-    debug("enumish", List(Enumish(SomethingOrOther.Some)))
-
-  def debug[A <: ThriftStruct](name: String, data: List[A])(implicit M: Manifest[A]) =
-    ThermometerSource(data)
-      .write(ParquetScroogeSource[A](name))
-      .withExpectations(context => {
-        val result = context.glob(name </> "*.parquet").flatMap(
-          ParquetIntrospectTools.listFromPath(conf, _))
-        println(s"========   debugging     $name     =======")
-        result.foreach(println)
-        ok
-      })
+  def enumish = prop((data: List[Enumish]) =>
+    typed("enumish", data)(r => Record(List(
+      Field("value", EnumValue(r.value.name.toUpperCase))
+    )))).set(minTestsOk = 1, workers = 1)
 
   def typed[A <: ThriftStruct](name: String, data: List[A])(expected: A => Record)(implicit M: Manifest[A]) =
     ThermometerSource(data)
@@ -124,13 +129,4 @@ Introspect Usage
           ParquetIntrospectTools.listFromPath(conf, _))
         result.toSet must_== data.map(expected).toSet
       })
-
-
-  def buffered(s: String): ByteBuffer = {
-    val bytes = s.getBytes("UTF-8")
-    val buffer = ByteBuffer.allocate(bytes.length)
-    buffer.put(bytes)
-    buffer
-  }
-
 }

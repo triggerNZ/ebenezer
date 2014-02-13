@@ -25,7 +25,7 @@ class ScroogeStructConverter {
   }
 
   def fromCodec(codec: ThriftStructCodec[_ <: ThriftStruct]): ThriftType.StructType = {
-    val fields = codec.metaData.fields.toList.map(toThriftField)
+    val fields = stripEnumDuplicates(codec.metaData.fields.toList).map(toThriftField)
     new ThriftType.StructType(fields.asJava)
   }
 
@@ -119,4 +119,33 @@ class ScroogeStructConverter {
 
   def argsOf(field: ThriftStructField[_]): List[Class[_]] =
     field.manifest.get.typeArguments.map(_.runtimeClass)
+
+  /*
+   * Ere' be dragons. Scrooge generates two fields for an ENUM,
+   *  1. The actual enum field.
+   *  2. An I32 of the same name.
+   *
+   * It is not entirely clear how this should be handled generally,
+   * but the code looks like it generated specifically to support
+   * different thift generators, some of which send ENUM and some of
+   * which send I32.
+   *
+   * For deriving the parquet schema type we must only use one of the
+   * fields, and it makes the most sense for that to be the ENUM
+   * version of it.
+   */
+  def stripEnumDuplicates(fields: List[ThriftStructField[_]]): List[ThriftStructField[_]] =
+    fields.groupBy(_.tfield.id).values.toList.flatMap({
+      case xs @ x :: y :: Nil =>
+        val xType = ThriftTypeID.fromByte(x.tfield.`type`)
+        val yType = ThriftTypeID.fromByte(y.tfield.`type`)
+        if (xType == ENUM && yType == I32)
+          List(x)
+        else if (xType == I32 && yType == ENUM)
+          List(y)
+        else
+          xs
+      case xs =>
+        xs
+    }).sortBy(_.tfield.id)
 }

@@ -5,8 +5,11 @@ struct Nested {
 }
 
 enum SomethingOrOther {
-  SOME,
-  OTHER
+  SOME, OTHER
+}
+
+struct Boolish {
+  1: bool value
 }
 
 struct Doublish {

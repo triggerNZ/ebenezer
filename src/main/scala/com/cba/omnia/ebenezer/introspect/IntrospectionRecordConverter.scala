@@ -18,10 +18,14 @@ class IntrospectionRecordConverter(val schema: GroupType, done: Record => Unit) 
     converters(n)
 
   lazy val converters = fields.map({
+    case field if field.isPrimitive && field.getOriginalType == OriginalType.ENUM =>
+      new IntrospectionEnumConverter(value => builder.add(field.getName, value))
     case field if field.isPrimitive =>
       new IntrospectionPrimitiveConverter(value => builder.add(field.getName, value))
     case field if field.getOriginalType == OriginalType.LIST =>
       new IntrospectionListConverter(field.asGroupType, value => builder.add(field.getName, ListValue(value)))
+    case field if field.getOriginalType == OriginalType.MAP =>
+      new IntrospectionMapConverter(field.asGroupType, value => builder.add(field.getName, MapValue(value)))
     case field =>
       new IntrospectionRecordConverter(field.asGroupType, record =>
         builder.add(field.getName, RecordValue(record)))
