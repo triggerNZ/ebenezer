@@ -27,17 +27,17 @@ object ParquetIntrospectToolsSpec extends ThermometerSpec { def is = s2"""
 Introspect Usage
 ================
 
-  Read arbitrary parquet                    $read
-  Read doubles                              $doublish
-  Read bytes                                $bytish
-  Read shorts                               $shortish
-  Read ints                                 $intish
-  Read longs                                $longish
-  Read strings                              $stringish
-  Read structs                              $nestedish
-  Read lists                                $listish
+  Read arbitrary parquet                    read
+  Read doubles                              doublish
+  Read bytes                                bytish
+  Read shorts                               shortish
+  Read ints                                 intish
+  Read longs                                longish
+  Read strings                              stringish
+  Read structs                              nestedish
+  Read lists                                listish
   Read maps                                 $mapish
-  Read emums                                $enumish
+  Read emums                                enumish
 
 """
   val data = List(
@@ -95,10 +95,12 @@ Introspect Usage
     )))
 
   def listish =
-    debug("listish", List(Listish(List("hello"))))
+    typed("listish", List(Listish(List("hello", "world"))))(r => Record(List(
+      Field("values", ListValue(r.values.toList.map(StringValue)))
+    )))
 
   def mapish =
-    debug("mapish", List(Mapish(Map("yo" -> "lo"))))
+    debug("mapish", List(Mapish(Map("yo" -> "lo", "lo" -> "yo"))))
 
   def enumish =
     debug("enumish", List(Enumish(SomethingOrOther.Some)))

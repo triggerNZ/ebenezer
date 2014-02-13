@@ -4,22 +4,22 @@ package introspect
 import parquet.io.api.Binary
 import parquet.io.api.PrimitiveConverter
 
-class IntrospectionPrimitiveConverter(name: String, builder: RecordBuilder) extends PrimitiveConverter {
+class IntrospectionPrimitiveConverter(done: Value => Unit) extends PrimitiveConverter {
   override def addBinary(value: Binary) =
-    builder.add(name, StringValue(value.toStringUsingUTF8))
+    done(StringValue(value.toStringUsingUTF8))
 
   override def addBoolean(value: Boolean) =
-    builder.add(name, BooleanValue(value))
+    done(BooleanValue(value))
 
   override def addDouble(value: Double) =
-    builder.add(name, DoubleValue(value))
+    done(DoubleValue(value))
 
   override def addFloat(value: Float) =
-    builder.add(name, FloatValue(value))
+    done(FloatValue(value))
 
   override def addInt(value: Int) =
-    builder.add(name, IntValue(value))
+    done(IntValue(value))
 
   override def addLong(value: Long) =
-    builder.add(name, LongValue(value))
+    done(LongValue(value))
 }
