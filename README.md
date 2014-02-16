@@ -58,6 +58,13 @@ integrations, and in practice you can leverage those quite heavily. For example,
 support in ebenezer works on top of the parquet-thrift integration and doesn't start from
 scratch.
 
+The integrations included in ebenezer are largely based on code structures from the parquet-mr
+project (and its submodules). For example the scrooge integration closely matches what exists
+for the libthrift integration included in parquet-mr.
+
+NOTE: parquet-mr includes a scrooge integration but it is not complete (no write support) and
+      will unlikely ever be generally useable as there is no infrastructure for doing cross-compiles
+      and other essentials for existing in a scala world.
 
 Introspection
 -------------
