@@ -15,6 +15,9 @@ import parquet.thrift.ThriftSchemaConverter
 import parquet.thrift.struct.ThriftType.StructType
 
 class ScroogeWriteSupport[A <: ThriftStruct] extends WriteSupport[A] {
+  /* these rely on the WriteSupport lifecycle, it is horrible and unpleasant,
+     but they are left as nullable fields to avoid unpacking on every write
+     (with no recourse for failure anyway) */
   var schema: MessageType = null
   var struct: StructType = null
   var parquetWriteProtocol: ParquetWriteProtocol = null

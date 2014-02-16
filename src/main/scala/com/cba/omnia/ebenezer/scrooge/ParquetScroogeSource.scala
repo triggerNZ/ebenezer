@@ -11,7 +11,6 @@ import org.apache.thrift._
 
 import parquet.cascading._
 
-
 case class ParquetScroogeSource[T <: ThriftStruct](p : String, inFields: Fields = Fields.NONE)(implicit m : Manifest[T], conv: TupleConverter[T], set: TupleSetter[T])
   extends FixedPathSource(p)
   with TypedSink[T]
