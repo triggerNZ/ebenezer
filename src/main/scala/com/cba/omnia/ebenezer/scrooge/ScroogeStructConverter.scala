@@ -121,7 +121,7 @@ class ScroogeStructConverter {
     field.manifest.get.typeArguments.map(_.runtimeClass)
 
   /*
-   * Ere' be dragons. Scrooge generates two fields for an ENUM,
+   * 'Ere be dragons. Scrooge generates two fields for an ENUM,
    *  1. The actual enum field.
    *  2. An I32 of the same name.
    *
