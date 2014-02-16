@@ -5,8 +5,94 @@ ebenezer
 Scalding and Cascading support for using scrooge with parquet.
 ```
 
-Parquet Integrations
---------------------
+Usage
+-----
+
+### Introspection API
+
+Iterator of records for a path:
+```scala
+
+import com.cba.omnia.ebenezer.introspect.ParquetIntrospectTools
+import org.apache.hadoop.conf.Configuration
+import org.apache.hadoop.fs.Path
+
+val conf = new Configuration
+ParquetIntrospectTools.iteratorFromPath(conf, new Path("some/path/x.parquet")).foreach(record =>
+  println(record)
+)
+```
+
+### Introspection CLI
+
+```
+java -cp ebenezer-$VERSION.jar com.cba.ombnia.ebenezer.Cat some/path/x.parquet
+```
+
+### Read Parquet / Scrooge via Scalding
+
+Given a thrift record of:
+```thrift
+#@namespace scala com.cba.omnia.ebenezer.example
+
+struct Customer {
+  1: string id
+  2: string name
+  3: string address
+  4: i32 age
+}
+```
+
+Create a scalding `TypedPipe` with:
+
+```scala
+
+import com.cba.omnia.ebenezer.example.Customer
+import com.cba.omnia.ebenezer.scrooge.ParquetScroogeSorce
+import com.twitter.scalding._
+
+/* create a consumable TypedPipe of any ThriftStruct from parquet file(s). */
+val pipe: TypedPipe[Customer] =
+  ParquetScroogeSource[Customer]("customers")
+
+```
+
+
+### Write Parquet / Scrooge via Scalding
+
+Given same `Customer` thrift record.
+
+Write out a scalding `TypedPipe` with:
+
+```scala
+
+import cascading.flow.FlowDef
+import com.cba.omnia.ebenezer.example.Customer
+import com.cba.omnia.ebenezer.scrooge.ParquetScroogeSorce
+import com.twitter.scalding._
+import com.twitter.scalding.typed.IterablePipe
+
+val data = List(
+  Customer("CUSTOMER-1", "Fred", "Bedrock", 40),
+  Customer("CUSTOMER-2", "Wilma", "Bedrock", 40),
+  Customer("CUSTOMER-3", "Barney", "Bedrock", 39),
+  Customer("CUSTOMER-4", "BamBam", "Bedrock", 2)
+)
+
+/* given any TypedPipe of a ThriftStruct */
+val pipe: TypedPipe[Customer] =
+  IterablePipe[Customer](data, implicitly[FlowDef], implicitly[Mode])
+
+/* write using a ParquetScroogeSource of that type. */
+pipe.write(
+  ParquetScroogeSource[Customer]("customers"))
+
+```
+
+Internals
+---------
+
+### Parquet Integrations
 
 Lets just say they are horribly complex. And even more so when you are dealing with
 things like thift/scrooge that don't easily map onto the underlying structure.
@@ -66,8 +152,7 @@ NOTE: parquet-mr includes a scrooge integration but it is not complete (no write
       will unlikely ever be generally useable as there is no infrastructure for doing cross-compiles
       and other essentials for existing in a scala world.
 
-Introspection
--------------
+### Introspection
 
 The purpose of the introspection integration is to be able to read files in a parquet format
 with an unknown structure.
@@ -87,8 +172,7 @@ what they say on the box, but List and Map converters will match on their intern
 and may loop back onto any of the other converters.
 
 
-Scrooge
--------
+### Scrooge
 
 The purpose of the scrooge integration is to be able to read files in a parquet format
 with a structure defined by Scrooge generate Struct/Codecs.
