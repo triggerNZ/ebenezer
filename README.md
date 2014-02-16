@@ -15,26 +15,41 @@ From top to bottom we have these components:
 
 ```
 *Source                 -- Scalding integration
+
 *Scheme                 -- Cascading integration
+
 *{Input,Output}Formats  -- Hadoop integration, note that there are 4 provided versions,
                            ParquetInputFormat, ParquetOutputFormat, DeprecatedParquetInputFormat and
-                           DeprecatedParquetOutputFormat. There Deprecated* versions are for Hadoop 1.x,
-                           the other versions are for Hadoop 2.x. However, there are some configuration
-                           mechanisms that are done under ParquetInputFormat/ParquetOutputFormat that are
-                           for _both_ the 1.x and 2.x versions (for example, setReadSupport).
+                           DeprecatedParquetOutputFormat. There Deprecated* versions are for Hadoop
+                           1.x, the other versions are for Hadoop 2.x. However, there are some
+                           configuration mechanisms that are done under ParquetInputFormat/
+                           ParquetOutputFormat that are for _both_ the 1.x and 2.x versions (for
+                           example, setReadSupport).
+
 {Read,Write}Support     -- Used by the {Deprecated}Parquet{Input,Output}Formats for customization of
                            record reading and writing.
+
 *{Read,Write}Support    -- Implementations of {Read,Write}Support for a specific integration.
-*RecordMaterializer     -- Top level of ReadSupport responsible for reading all records via a RecordConverter
+
+*RecordMaterializer     -- Top level of ReadSupport responsible for reading all records via a
+                           RecordConverter
+
 *RecordConverter        -- Conver one parquet record into one target record.
-*StructConverter        -- Map integration library structs (e.g. Thrift) onto the Parquet schema, used in both read and write.
-                           Closely related to *SchemaConverter just at a different layer. *StructConverters are normally for
-                           intra format conversion (i.e. thrift to parquet-thrift).
-*SchemaConverter        -- Map integration library structs (e.g. Thrift) onto the Parquet schema, used in both read and write.
-                           Closely related to *StructConverter just at a different layer. *StructConverters are normally for
-                           inter format conversion (i.e. parquet-thrift to raw parquet).
+
+*StructConverter        -- Map integration library structs (e.g. Thrift) onto the Parquet schema,
+                           used in both read and write. Closely related to *SchemaConverter just
+                           at a different layer. *StructConverters are normally for intra format
+                           conversion (i.e. thrift to parquet-thrift).
+
+*SchemaConverter        -- Map integration library structs (e.g. Thrift) onto the Parquet schema,
+                           used in both read and write. Closely related to *StructConverter just
+                           at a different layer. *StructConverters are normally for inter format
+                           conversion (i.e. parquet-thrift to raw parquet).
+
 *WriteProtocol          -- Does actual conversion from data structure to bytes.
+
 *ReadProtocol           -- Does actual conversion from byte to data structure.
+
 ```
 
 This is a lot of things that fit together to do not very much. But they are all essential to
