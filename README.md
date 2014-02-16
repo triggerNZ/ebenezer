@@ -120,6 +120,7 @@ Read pipeline (driven by `DeprecatedParquetInputFormat`):
 
 Write pipeline (driven by `DeprecatedParquetOutputFormat`):
 
+```
       [ ScroogeWriteSupport: Wires together write pipeline ]--- (configured by) ---> [ ScroogeReadWriteSupport: holds thrift struct class name ]
                         |       \
                         |        \ (Builds a parquet-thrift StructType via a scrooge.ThriftStructCodec)
