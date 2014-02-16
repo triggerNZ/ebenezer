@@ -22,4 +22,4 @@ case class EnumValue(v: String) extends Value { override def toString = "<" + v.
 
 case class ListValue(vs: List[Value]) extends Value { override def toString =  "[" + vs.mkString(", ") + "]" }
 
-case class MapValue(vs: Map[Value, Value]) extends Value { override def toString =  "{" + vs.toList.sortBy(_.toString).map({ case (k, v) => k + ": " + v }).mkString(", ") + "}" }
+case class MapValue(vs: Map[Value, Value]) extends Value { override def toString =  "{" + vs.toList.map({ case (k, v) => k + " -> " + v }).mkString(", ") + "}" }
