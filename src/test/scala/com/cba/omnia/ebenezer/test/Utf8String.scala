@@ -3,6 +3,7 @@ package test
 
 import org.scalacheck._, Gen._, Arbitrary._
 
+/* A random string containing only valid UTF-8 characters. */
 case class Utf8String(value: String)
 
 object Utf8String {

@@ -6,13 +6,14 @@ import parquet.io.api.GroupConverter
 import parquet.schema.GroupType
 import parquet.schema.OriginalType
 import scala.collection.JavaConverters._
+import scalaz._, Scalaz._
 
 class IntrospectionRecordConverter(val schema: GroupType, done: Record => Unit) extends GroupConverter {
   val builder: RecordBuilder = RecordBuilder()
   val fields = schema.getFields.asScala.toList
 
   override def start = { }
-  override def end = { done(builder.toRecord) }
+  override def end = { done(builder.toRecord) <| (_ => builder.clear) }
 
   override def getConverter(n: Int) =
     converters(n)

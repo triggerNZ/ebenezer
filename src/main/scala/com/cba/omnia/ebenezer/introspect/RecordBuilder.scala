@@ -12,5 +12,8 @@ case class RecordBuilder(data: scala.collection.mutable.ListBuffer[Field] = scal
     data += Field(name, value)
 
   def toRecord: Record =
-    Record(data.toList <| (_ => data.clear))
+    Record(data.toList)
+
+  def clear() =
+    data.clear
 }

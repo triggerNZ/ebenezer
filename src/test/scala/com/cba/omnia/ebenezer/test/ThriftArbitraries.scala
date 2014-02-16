@@ -5,7 +5,7 @@ import org.scalacheck._, Gen._, Arbitrary._
 
 object ThriftArbitraries {
   implicit def NestedArbitrary: Arbitrary[Nested] =
-    Arbitrary(arbitrary[String] map Nested.apply)
+    Arbitrary(arbitrary[Utf8String] map (s => Nested(s.value)))
 
   implicit def SomethingOrOtherArbitrary: Arbitrary[SomethingOrOther] =
     Arbitrary(oneOf(SomethingOrOther.Some, SomethingOrOther.Other))
@@ -38,8 +38,16 @@ object ThriftArbitraries {
     Arbitrary(arbitrary[List[Utf8String]] map (ss => Listish(ss.map(_.value))))
 
   implicit def MapishArbitrary: Arbitrary[Mapish] =
-    Arbitrary(arbitrary[List[(Utf8String, Utf8String)]] map (ss => Mapish(Map(ss.map({ case (k, v) => (k.value, v.value) }):_*))))
+    Arbitrary(arbitrary[List[(Utf8String, Utf8String)]] map (ss => Mapish(Map(ss.take(10).map({ case (k, v) => (k.value, v.value) }):_*))))
 
   implicit def EnumishArbitrary: Arbitrary[Enumish] =
     Arbitrary(arbitrary[SomethingOrOther] map Enumish.apply)
+
+  implicit def CustomerArbitrary: Arbitrary[Customer] =
+    Arbitrary(for {
+      id <- arbitrary[Utf8String]
+      name <- arbitrary[Utf8String]
+      address <- arbitrary[Utf8String]
+      age <- arbitrary[Int]
+    } yield Customer(id.value, name.value, address.value, age))
 }

@@ -14,7 +14,7 @@ class IntrospectionMapConverter(val schema: GroupType, done: Map[Value, Value] =
   val fields = schema.getFields.asScala.toList
 
   override def start = { }
-  override def end = { done(Map(values: _*)) }
+  override def end = { done(Map(values: _*)) <| (_ => values.clear) }
 
   override def getConverter(n: Int) =
     converters(n)

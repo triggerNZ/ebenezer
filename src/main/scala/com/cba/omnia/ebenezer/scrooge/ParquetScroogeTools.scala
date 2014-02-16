@@ -1,6 +1,9 @@
 package com.cba.omnia.ebenezer
 package scrooge
 
+import com.twitter.scalding._
+import com.twitter.scalding.TDsl._
+
 import com.twitter.scrooge.ThriftStruct
 
 import org.apache.hadoop.conf.Configuration

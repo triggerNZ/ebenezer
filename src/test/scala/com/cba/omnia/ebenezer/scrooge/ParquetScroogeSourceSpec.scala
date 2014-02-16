@@ -18,10 +18,11 @@ import scalaz.effect.IO
 
 object ParquetScroogeSourceSpec extends ThermometerSpec { def is = s2"""
 
-ParquetSource Usage
+ParquetSource usage
 ===================
 
   Write to parquet                          $write
+  Read from parquet                         $read
 
 """
   val data = List(
@@ -36,13 +37,17 @@ ParquetSource Usage
       .write(ParquetScroogeSource[Customer]("customers"))
       .withFacts(
         "customers" </> "_SUCCESS"   ==> exists
-      , "customers" </> "*.parquet"  ==> records(format[Customer](conf), data)
+      , "customers" </> "*.parquet"  ==> records(ParquetThermometerRecordReader[Customer], data)
       )
 
-
-  def format[A <: ThriftStruct : Manifest](conf: JobConf): ThermometerFormat[IO, A] =
-    ThermometerFormat(
-      path         => IO { ParquetScroogeTools.listFromPath[A](conf, path) }
-    , (path, data) => IO { () }
-    )
+  def read = withDependency(write) {
+    ParquetScroogeSource[Customer]("customers")
+      .map(customer => (customer.id, customer.name, customer.address, customer.age))
+      .write(TypedPsv("customers.psv"))
+      .withFacts(
+        "customers.psv" </> "_SUCCESS"   ==> exists
+      , "customers.psv" </> "part-*"     ==> lines(data.map(customer =>
+        List(customer.id, customer.name, customer.address, customer.age).mkString("|")))
+      )
+  }
 }
