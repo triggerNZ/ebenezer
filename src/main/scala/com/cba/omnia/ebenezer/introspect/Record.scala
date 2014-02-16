@@ -17,9 +17,6 @@ case class FloatValue(v: Float) extends Value { override def toString = v.toStri
 case class DoubleValue(v: Double) extends Value { override def toString = v.toString + "d" }
 case class LongValue(v: Long) extends Value { override def toString = v.toString + "l" }
 case class BooleanValue(v: Boolean) extends Value { override def toString = v.toString }
-
 case class EnumValue(v: String) extends Value { override def toString = "<" + v.toString + ">" }
-
 case class ListValue(vs: List[Value]) extends Value { override def toString =  "[" + vs.mkString(", ") + "]" }
-
 case class MapValue(vs: Map[Value, Value]) extends Value { override def toString =  "{" + vs.toList.map({ case (k, v) => k + " -> " + v }).mkString(", ") + "}" }
