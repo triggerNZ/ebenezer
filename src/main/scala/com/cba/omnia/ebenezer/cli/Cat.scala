@@ -1,4 +1,4 @@
-package com.cba.ombnia.ebenezer
+package com.cba.omnia.ebenezer
 package cli
 
 import com.cba.omnia.ebenezer.introspect._
