@@ -65,7 +65,7 @@ case class TemplateParquetScroogeSource[A, T <: ThriftStruct](template: String, 
   /* ☠ Create a converter which is the union of value and partition, it is _not_ safe to pull this out as a generic
        converter, because if anyone forgets to explicitly type annotate the A infers to Any and you get default
        coverters (yes, scala libraries, particularly scalding do this, it is not ok, but we must deal with it),
-       so we hide it inside the Source so it can't be messed up. See also converter. ☠ */
+       so we hide it inside the Source so it can't be messed up. See also setter. ☠ */
   override def converter[U >: (A, T)] =
     TupleConverter.asSuperConverter[(A, T), U](new TupleConverter[(A, T)] {
       import cascading.tuple.TupleEntry
