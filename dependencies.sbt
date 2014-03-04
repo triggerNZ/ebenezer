@@ -1,5 +1,6 @@
 libraryDependencies ++= Seq(
-  "com.twitter"             %% "scalding-core"      % "0.9.0rc1"
+  "com.cba.omnia"           %% "thermometer"        % "0.0.1-20140304115416"
+, "com.twitter"             %% "scalding-core"      % "0.9.0rc1"
 , "com.twitter"             %  "parquet-cascading"  % "1.3.2"
 , "com.twitter"             %% "scrooge-core"       % "3.12.0"
 , "com.twitter"             %% "scrooge-runtime"    % "3.12.0"
@@ -22,3 +23,4 @@ resolvers ++= Seq(
 , "Hadoop Releases" at "https://repository.cloudera.com/content/repositories/releases/"
 , "cloudera" at "https://repository.cloudera.com/artifactory/cloudera-repos/"
 )
+
