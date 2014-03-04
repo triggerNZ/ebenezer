@@ -251,3 +251,10 @@ Future
    but writes always go via MR).
  - Push down stream changes into scrooge which would help remove some of the reflection code
    used to interogate the generated ThriftCodec.
+
+
+Development
+-----------
+
+If you want to depend on the thermometer source, copy `project/source.scala.source-dependencies` to `project/source.scala`.
+`source.scala` is in `.gitignore` so it can not be accidently checked in.

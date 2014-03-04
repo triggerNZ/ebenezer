@@ -1,17 +1,18 @@
 libraryDependencies ++= Seq(
-  "com.cba.omnia"           %% "thermometer"        % "0.0.1-20140304115416"
-, "com.twitter"             %% "scalding-core"      % "0.9.0rc1"
+  "com.twitter"             %% "scalding-core"      % "0.9.0rc4"
 , "com.twitter"             %  "parquet-cascading"  % "1.3.2"
 , "com.twitter"             %% "scrooge-core"       % "3.12.0"
 , "com.twitter"             %% "scrooge-runtime"    % "3.12.0"
 , "org.apache.thrift"       %  "libthrift"          % "0.8.0"
 , "org.apache.hadoop"       %  "hadoop-client"      % "2.0.0-mr1-cdh4.3.0"  % "provided"
 , "org.apache.hadoop"       %  "hadoop-core"        % "2.0.0-mr1-cdh4.3.0"  % "provided"
+, "org.scalaz"              %% "scalaz-core"        % "7.0.5"
 )
 
 libraryDependencies ++= Seq(
-  "org.specs2"              %% "specs2"             % "2.2.2"        % "test"
-, "org.scalacheck"          %% "scalacheck"         % "1.10.1"       % "test"
+  "com.cba.omnia"           %% "thermometer"        % "0.0.1-20140304115416" % "test"
+, "org.specs2"              %% "specs2"             % "2.2.2"                % "test"
+, "org.scalacheck"          %% "scalacheck"         % "1.10.1"               % "test"
 )
 
 resolvers ++= Seq(
@@ -23,4 +24,3 @@ resolvers ++= Seq(
 , "Hadoop Releases" at "https://repository.cloudera.com/content/repositories/releases/"
 , "cloudera" at "https://repository.cloudera.com/artifactory/cloudera-repos/"
 )
-
