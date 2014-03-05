@@ -13,3 +13,8 @@ credentials += Credentials("Artifactory Realm",
                            "<your artifactory username>",
                            "<your artifactory password>")
 ```
+
+speeding things up
+------------------
+
+If you want to depend on thermometer as source, copy `project/source.scala.source-dependencies` to `project/source.scala`. `source.scala` is in `.gitignore` so it can not be accidently checked in.
