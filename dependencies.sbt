@@ -10,7 +10,7 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "com.cba.omnia"           %% "thermometer"        % "0.0.1-20140305011349-efe2e0f" % "test"
+  "com.cba.omnia"           %% "thermometer"        % "" % "test"
 , "org.specs2"              %% "specs2"             % "2.2.2"                        % "test"
 , "org.scalacheck"          %% "scalacheck"         % "1.10.1"                       % "test"
 )

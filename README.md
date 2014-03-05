@@ -13,7 +13,7 @@ Usage
 Iterator of records for a path:
 ```scala
 
-import com.cba.omnia.ebenezer.introspect.ParquetIntrospectTools
+import au.com.cba.omnia.ebenezer.introspect.ParquetIntrospectTools
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.Path
 
@@ -47,8 +47,8 @@ Create a scalding `TypedPipe` with:
 
 ```scala
 
-import com.cba.omnia.ebenezer.example.Customer
-import com.cba.omnia.ebenezer.scrooge.ParquetScroogeSorce
+import au.com.cba.omnia.ebenezer.example.Customer
+import au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSorce
 import com.twitter.scalding._
 
 /* create a consumable TypedPipe of any ThriftStruct from parquet file(s). */
@@ -67,8 +67,8 @@ Write out a scalding `TypedPipe` with:
 ```scala
 
 import cascading.flow.FlowDef
-import com.cba.omnia.ebenezer.example.Customer
-import com.cba.omnia.ebenezer.scrooge.ParquetScroogeSorce
+import au.com.cba.omnia.ebenezer.example.Customer
+import au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSorce
 import com.twitter.scalding._
 import com.twitter.scalding.typed.IterablePipe
 
@@ -251,3 +251,4 @@ Future
    but writes always go via MR).
  - Push down stream changes into scrooge which would help remove some of the reflection code
    used to interogate the generated ThriftCodec.
+g

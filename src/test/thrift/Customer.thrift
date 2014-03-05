@@ -1,4 +1,4 @@
-#@namespace scala com.cba.omnia.ebenezer.test
+#@namespace scala au.com.cba.omnia.ebenezer.test
 
 struct Customer {
   1: string id

@@ -1,4 +1,4 @@
-#@namespace scala com.cba.omnia.ebenezer.test
+#@namespace scala au.com.cba.omnia.ebenezer.test
 
 struct Nested {
   1: string value
