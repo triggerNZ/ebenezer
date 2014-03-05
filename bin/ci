@@ -1,0 +1,3 @@
+#!/bin/sh
+
+$(dirname "$0")/../sbt ';set credentials += Credentials(file("/etc/sbt.credentials")) ; set publishTo := Some("commbank-releases" at "http://commbank.artifactoryonline.com/commbank/ext-releases-local"); set publishMavenStyle := true; +publish'
