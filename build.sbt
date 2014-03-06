@@ -5,4 +5,7 @@ uniformThriftSettings
 uniformDependencySettings
 
 libraryDependencies ++=
-  depend.omnia("thermometer", "0.0.1-20140306032214-cbd9529") ++ depend.hadoop() ++ depend.testing()
+  depend.hadoop() ++ depend.scalding() ++ depend.scalaz() ++ depend.testing() ++ Seq(
+    "com.twitter"             %  "parquet-cascading"  % "1.3.2",
+    "au.com.cba.omnia"        %% "thermometer"        % "0.0.1-20140306032214-cbd9529" % "test"
+  )
