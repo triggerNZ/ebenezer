@@ -1,18 +1,8 @@
-organization := "com.cba.omnia"
+uniform.project("ebenezer", "au.com.cba.omnia.ebenezer")
 
-name := "ebenezer"
+uniformThriftSettings
 
-scalaVersion := "2.10.3"
+uniformDependencySettings
 
-scalacOptions := Seq(
-  "-deprecation"
-, "-unchecked"
-, "-optimise"
-, "-Ywarn-all"
-, "-Xlint"
-, "-Xfatal-warnings"
-, "-feature"
-, "-language:_"
-)
-
-com.twitter.scrooge.ScroogeSBT.newSettings
+libraryDependencies ++=
+  depend.omnia("thermometer", "0.0.1-20140306032214-cbd9529") ++ depend.hadoop() ++ depend.testing()
