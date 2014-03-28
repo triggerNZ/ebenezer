@@ -251,4 +251,3 @@ Future
    but writes always go via MR).
  - Push down stream changes into scrooge which would help remove some of the reflection code
    used to interogate the generated ThriftCodec.
-g
