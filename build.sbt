@@ -4,6 +4,8 @@ uniformThriftSettings
 
 uniformDependencySettings
 
+uniformAssemblySettings
+
 libraryDependencies ++=
   depend.hadoop() ++ depend.scalding() ++ depend.scalaz() ++ depend.testing() ++ Seq(
     "com.twitter"             %  "parquet-cascading"  % "1.3.2",

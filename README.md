@@ -25,8 +25,17 @@ ParquetIntrospectTools.iteratorFromPath(conf, new Path("some/path/x.parquet")).f
 
 ### Introspection CLI
 
+The introspection tool can be packaged in a fat jar using `./sbt assembly` and the run using
+Hadoop
 ```
-java -cp ebenezer-$VERSION.jar com.cba.ombnia.ebenezer.Cat some/path/x.parquet
+hadoop jar ebenezer-assembly-$VERSION.jar au.com.cba.omnia.ebenezer.cli.Cat some/path/x.parquet
+```
+This process may take some time as Hadoop unpacks the fat jar prior to running.  Running under
+OS X (or other case-insensitive filesystems) may result in an error relating to a file called
+`META-INF/LICENSE` conflicting with a lower-case file of the same name.  If this occurs, a
+workaround is to remove `META-INF/LICENSE` from the fat jar as follows:
+```
+zip -d ebenezer-assembly-$VERSION.jar META-INF/LICENSE
 ```
 
 ### Read Parquet / Scrooge via Scalding
@@ -245,7 +254,8 @@ Write pipeline (driven by `DeprecatedParquetOutputFormat`):
 Future
 ------
 
- - Add sbt-assembly and a shell exec wrapper around cli tools so they are easier to deploy.
+ - Add a shell exec wrapper around cli tools so they are easier to deploy.  Avoid a fat jar
+   if possible, to make execution faster.
  - Add more interesting introspection / query tools.
  - Add a more direct way of writing data (at the moment, reads can happen via MR or directly,
    but writes always go via MR).

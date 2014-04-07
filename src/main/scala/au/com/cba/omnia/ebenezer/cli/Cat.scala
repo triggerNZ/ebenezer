@@ -18,5 +18,5 @@ object Cat {
   }
 
   def main(args: Array[String]): Unit =
-    run(args.toList)
+    run(args.toList.tail)
 }
