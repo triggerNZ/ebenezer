@@ -1,0 +1,26 @@
+language: scala
+jdk:
+- oraclejdk7
+cache:
+  directories:
+  - $HOME/.ivy2
+  - $HOME/.m2
+install:
+- git clone https://omnia-bamboo:$OMNIA_CI_PASSWORD@github.com/CommBank/ci.git
+- ci/sbt-setup.sh
+script:
+- sbt -Dsbt.global.base=$TRAVIS_BUILD_DIR/ci '; test; package'
+- ci/sbt-deploy.sh
+after_script:
+- rm -rf ci
+notifications:
+  webhooks:
+    urls:
+    - https://webhooks.gitter.im/e/1befda9a908413f84c55
+    on_success: always
+    on_failure: always
+    on_start: false
+env:
+  global:
+  - secure: hazloNX2slgYf22T8TZcQnU1ozGYJxNPoj9QvEQQ0GzztSh8U98dXjCKnuzaJkGFCPRHeTeaoPL61JtTFxqHLBFanrBap2cQprvIDvZSZ4s/Pd+NgzvF65xbNkio4POppvPMYiCFUbUIC6pEFd4ivjJiZPjMpJ+fYhZJPbdPL7M=
+  - secure: AEiD2XjWi0HQ/6PPDuVFbUi1c6ZLLlRJZQSo6PcYKB0gRI0zNeFPkM4oCsO52IIGi5704GgSgl3vyS5Br2QOhx7yhnoq0geYkVMOSCSqxJ99LobNaazKfXmdol7bTBiEEUHC2yaf+DkKy1BKUyMJ49csO4fxx93EzSt6IJIUAXg=
