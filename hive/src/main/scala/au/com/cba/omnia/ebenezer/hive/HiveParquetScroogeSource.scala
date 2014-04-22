@@ -53,3 +53,17 @@ case class HiveParquetScroogeSource[T <: ThriftStruct](database: String, table: 
   override def setter[U <: T] =
     TupleSetter.asSubSetter[T, U](TupleSetter.of[T])
 }
+
+import com.twitter.scalding.TDsl._
+import com.twitter.scalding.typed.IterablePipe
+class TestJob(args: Args) extends Job(args) {
+  val data = List(
+    Customer("CUSTOMER-A", "Fred", "Bedrock", 40),
+    Customer("CUSTOMER-2", "Wilma", "Bedrock", 40),
+    Customer("CUSTOMER-3", "Barney", "Bedrock", 39),
+    Customer("CUSTOMER-4", "BamBam", "Bedrock", 2)
+  )
+
+  IterablePipe(data, flowDef, mode)
+    .write(ParquetScroogeSource[Customer](args("output")))
+}

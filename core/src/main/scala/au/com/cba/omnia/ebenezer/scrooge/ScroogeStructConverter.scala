@@ -18,14 +18,17 @@ import parquet.thrift.struct.ThriftTypeID._
 
 import scala.collection.JavaConverters._
 
-class ScroogeStructConverter {
+class ScroogeStructConverter(partitionColumns: Set[String] = Set.empty) {
   def convert[A <: ThriftStruct](cls: Class[A]): ThriftType.StructType = {
     val companion = Reflect.companionOf(cls).asInstanceOf[ThriftStructCodec[_ <: ThriftStruct]]
     fromCodec(companion)
   }
 
   def fromCodec(codec: ThriftStructCodec[_ <: ThriftStruct]): ThriftType.StructType = {
-    val fields = stripEnumDuplicates(codec.metaData.fields.toList).map(toThriftField)
+    val fields =
+      stripEnumDuplicates(codec.metaData.fields.toList)
+        .map(toThriftField)
+        .filter(f => !partitionColumns.contains(f.getName))
     new ThriftType.StructType(fields.asJava)
   }
 

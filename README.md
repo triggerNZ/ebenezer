@@ -61,12 +61,19 @@ Create a scalding `TypedPipe` with:
 ```scala
 
 import au.com.cba.omnia.ebenezer.example.Customer
-import au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSorce
+import au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource
+import au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource
 import com.twitter.scalding._
 
 /* create a consumable TypedPipe of any ThriftStruct from parquet file(s). */
 val pipe: TypedPipe[Customer] =
   ParquetScroogeSource[Customer]("customers")
+
+val conf = new HiveConf
+
+vap pipe2: TypedPipe[Customer] =
+  PartitionHiveParquetScroogeSource[Customer](args("db"), args("table"), List(("id", "string")), conf)
+
 
 ```
 
@@ -81,7 +88,8 @@ Write out a scalding `TypedPipe` with:
 
 import cascading.flow.FlowDef
 import au.com.cba.omnia.ebenezer.example.Customer
-import au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSorce
+import au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource
+import au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink
 import com.twitter.scalding._
 import com.twitter.scalding.typed.IterablePipe
 
@@ -100,7 +108,14 @@ val pipe: TypedPipe[Customer] =
 pipe.write(
   ParquetScroogeSource[Customer]("customers"))
 
+pipe.map(c => (c.id, c))
+  .write(PartitionHiveParquetScroogeSink[String, Customer](args("db"), args("table"), List(("id", "string")), conf))
+
 ```
+
+
+
+
 
 Internals
 ---------
