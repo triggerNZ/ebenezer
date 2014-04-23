@@ -56,8 +56,8 @@ case class TemplateParquetScroogeSource[A, T <: ThriftStruct](template: String, 
       case (hdfsMode @ Hdfs(_, _), Read) =>
         createHdfsReadTap(hdfsMode)
       case (Hdfs(_, c), Write) =>
-        val hfs = new Hfs(hdfsScheme, hdfsWritePath, SinkMode.UPDATE)
-        new TemplateTap(hfs, template, templateFields)
+        val hfs = new Hfs(hdfsScheme, hdfsWritePath, SinkMode.REPLACE)
+        new TemplateTap(hfs, template, templateFields, SinkMode.UPDATE)
       case (_, _) =>
         super.createTap(readOrWrite)(mode)
     }
