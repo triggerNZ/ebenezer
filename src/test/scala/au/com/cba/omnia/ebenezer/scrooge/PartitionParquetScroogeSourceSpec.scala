@@ -16,9 +16,9 @@ import org.apache.hadoop.mapred.JobConf
 
 import scalaz.effect.IO
 
-object TemplateParquetScroogeSourceSpec extends ThermometerSpec { def is = s2"""
+object PartitionParquetScroogeSourceSpec extends ThermometerSpec { def is = s2"""
 
-TemplateParquetScroogeSource usage
+PartitionParquetScroogeSource usage
 ==================================
 
   Write to partitioned parquet w/ single field        $single
@@ -35,7 +35,7 @@ TemplateParquetScroogeSource usage
   def write =
     ThermometerSource(data)
       .map(customer => (customer.address, customer.age)  -> customer)
-      .write(TemplateParquetScroogeSource[(String, Int), Customer]("%s/%s", "partitioned"))
+      .write(PartitionParquetScroogeSource[(String, Int), Customer]("%s/%s", "partitioned"))
       .withFacts(
         "partitioned" </> "Bedrock" </> "40" </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 2)
       , "partitioned" </> "Bedrock" </> "39" </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 1)
@@ -45,7 +45,7 @@ TemplateParquetScroogeSource usage
   def single =
     ThermometerSource(data)
       .map(customer => customer.age  -> customer)
-      .write(TemplateParquetScroogeSource[Int, Customer]("%s", "partitioned"))
+      .write(PartitionParquetScroogeSource[Int, Customer]("%s", "partitioned"))
       .withFacts(
         "partitioned" </> "40" </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 2)
       , "partitioned" </> "39" </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 1)

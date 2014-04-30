@@ -24,7 +24,7 @@ import org.apache.thrift._
 
 import parquet.cascading._
 
-case class TemplateParquetScroogeSource[A, T <: ThriftStruct](template: String, path: String)(implicit m : Manifest[T], valueConverter: TupleConverter[T], valueSet: TupleSetter[T], ma : Manifest[A], partitionConverter: TupleConverter[A], partitionSet: TupleSetter[A])
+case class PartitionParquetScroogeSource[A, T <: ThriftStruct](template: String, path: String)(implicit m : Manifest[T], valueConverter: TupleConverter[T], valueSet: TupleSetter[T], ma : Manifest[A], partitionConverter: TupleConverter[A], partitionSet: TupleSetter[A])
     extends FixedPathSource(path)
     with TypedSink[(A, T)]
     with Mappable[(A, T)]
