@@ -6,8 +6,9 @@ import com.twitter.scalding._
 
 import cascading.tap.SinkMode
 import cascading.tap.Tap
-import cascading.tap.hadoop.TemplateTap
+import cascading.tap.hadoop.PartitionTap
 import cascading.tap.hadoop.Hfs
+import cascading.tap.partition.DelimitedPartition
 import cascading.tuple.Tuple
 import cascading.tuple.Fields
 
@@ -57,7 +58,7 @@ case class TemplateParquetScroogeSource[A, T <: ThriftStruct](template: String, 
         createHdfsReadTap(hdfsMode)
       case (Hdfs(_, c), Write) =>
         val hfs = new Hfs(hdfsScheme, hdfsWritePath, SinkMode.REPLACE)
-        new TemplateTap(hfs, template, templateFields, SinkMode.UPDATE)
+        new PartitionTap(hfs, new DelimitedPartition( templateFields ), SinkMode.UPDATE)
       case (_, _) =>
         super.createTap(readOrWrite)(mode)
     }
