@@ -1,4 +1,4 @@
-uniform.project("ebenezer-hive", "au.com.cba.omnia.ebenezer.hive")
+uniform.project("ebenezer-hive", "au.com.cba.omnia.ebenezer.scrooge.hive")
 
 uniformThriftSettings
 
