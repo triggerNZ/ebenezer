@@ -37,3 +37,6 @@ build.number
 .ensime
 
 project/source.scala
+derby.log
+metastore_db/*
+

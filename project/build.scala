@@ -10,7 +10,10 @@ object build extends Build {
   type Sett = Project.Setting[_]
 
   lazy val core = project.in(file("core"))
-  lazy val hive = project.in(file("hive")).dependsOn(core)
+  lazy val hive = project.in(file("hive"))
+                    .dependsOn(core)
+                    .dependsOn(file("../cascading-hive"))
+                    .dependsOn(file("../cascading-beehaus"))
   lazy val example = project.in(file("example")).dependsOn(hive)
 
   lazy val all = Project(
