@@ -1,6 +1,7 @@
 package au.com.cba.omnia.ebenezer
 package example
 
+import scalaz._, Scalaz._
 import scrooge.hive._
 import com.twitter.scalding._
 import cascading.flow.FlowDef
@@ -32,8 +33,9 @@ object TestHQLJob {
     import scala.collection.JavaConversions._
     val conf = new HiveConf()
     val args = Args(argsS)
-    val lmode = ScaldingSupport.mode
-    val lflow = ScaldingSupport.flow
+    val lmode = Hdfs(false, conf)
+    val lflow = new FlowDef <| (_.setName("hql-example"))
+    Mode.putMode(lmode, Args("--hdfs"))
     
     val inputSource = PartitionHiveParquetScroogeSource[Customer]("example", "customers", List("id" -> "string"), conf)
     FlowStateMap.mutate(lflow) { st =>
@@ -59,7 +61,6 @@ object TestHQLJob {
     // new HiveFlow("hivego", "SELECT * FROM customers", Array(IterablePipe(data, flowDef, mode)).to,
     //   PartitionHiveParquetScroogeSink[String, Customer](args("db"), args("table"), List("id" -> "string"), conf))
     
-    // val result = Flows.runFlow(args, hiveFlow, mode)
     val result = Jobs.runJob(job)
     println(result)
   }
