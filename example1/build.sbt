@@ -1,4 +1,4 @@
-uniform.project("ebenezer-example", "au.com.cba.omnia.ebenezer.example")
+uniform.project("ebenezer-example1", "au.com.cba.omnia.ebenezer.example1")
 
 uniformThriftSettings
 

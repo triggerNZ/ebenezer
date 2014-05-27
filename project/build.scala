@@ -12,7 +12,8 @@ object build extends Build {
   lazy val core = project.in(file("core"))
   lazy val hive = project.in(file("hive"))
                     .dependsOn(core)
-  lazy val example = project.in(file("example")).dependsOn(hive)
+  lazy val example1 = project.in(file("example1")).dependsOn(hive)
+  lazy val example2 = project.in(file("example2")).dependsOn(hive)
 
   lazy val all = Project(
     id = "all",

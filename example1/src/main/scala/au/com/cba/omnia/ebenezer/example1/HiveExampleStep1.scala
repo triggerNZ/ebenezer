@@ -1,6 +1,7 @@
 package au.com.cba.omnia.ebenezer
-package example
+package example1
 
+import example._
 import scalaz._, Scalaz._
 import scrooge.hive._
 import com.twitter.scalding._
