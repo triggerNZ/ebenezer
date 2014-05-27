@@ -17,7 +17,7 @@ import cascading.pipe.Pipe
 object HiveExampleStep2 {
   def main(argsS: Array[String]) {
     import scala.collection.JavaConversions._
-    val conf = new HiveConf()
+    val conf = new HiveConf() <| (_.setVar(HiveConf.ConfVars.DYNAMICPARTITIONINGMODE, "nonstrict"))
     val args = Args(argsS)
     val lmode = Hdfs(false, conf)
     val lflow = new FlowDef <| (_.setName("hql-example"))
@@ -36,7 +36,7 @@ object HiveExampleStep2 {
       .createTap(Write)(lmode)
     
     val job = new HiveJob(args, "example",
-      "SELECT * FROM customers",
+      "INSERT OVERWRITE TABLE customers2 PARTITION (id) SELECT id,name,address,age FROM customers",
        inputTaps, outputTap) {
       override val flowDef: FlowDef = lflow
       override def mode: Mode = lmode
@@ -45,9 +45,9 @@ object HiveExampleStep2 {
     
     // val hiveFlow = new HiveFlow("example", "SELECT * FROM customers", seqAsJavaList(inputTaps), outputTap)
     // new HiveFlow("hivego", "SELECT * FROM customers", Array(IterablePipe(data, flowDef, mode)).to,
-    //   PartitionHiveParquetScroogeSink[String, Customer](args("db"), args("table"), List("id" -> "string"), conf))
-    
+    //   PartitionHiveParquetScroogeSink[String, Customer](args("db"), args("table"), List("id" -> "string"), conf)) 
     val result = Jobs.runJob(job)
+    println("Job Result:")
     println(result)
   }
 }
