@@ -13,17 +13,17 @@ import com.twitter.scalding.typed.IterablePipe
 import au.com.cba.omnia.thermometer.tools._
 import cascading.pipe.Pipe
 
-// class HiveExampleStep1(args: Args) extends Job(args) {
-//   val data = List(
-//     Customer("CUSTOMER-A", "Fred", "Bedrock", 40),
-//     Customer("CUSTOMER-2", "Wilma", "Bedrock", 40),
-//     Customer("CUSTOMER-3", "Barney", "Bedrock", 39),
-//     Customer("CUSTOMER-4", "BamBam", "Bedrock", 2)
-//   )
-// 
-//   val conf = new HiveConf
-// 
-//   IterablePipe(data, flowDef, mode)
-//     .map(c => c.id -> c)
-//     .write(PartitionHiveParquetScroogeSink[String, Customer](args("db"), args("table"), List("id" -> "string"), conf))
-// }
+class HiveExampleStep1(args: Args) extends Job(args) {
+  val data = List(
+    Customer("CUSTOMER-A", "Fred", "Bedrock", 40),
+    Customer("CUSTOMER-2", "Wilma", "Bedrock", 40),
+    Customer("CUSTOMER-3", "Barney", "Bedrock", 39),
+    Customer("CUSTOMER-4", "BamBam", "Bedrock", 2)
+  )
+
+  val conf = new HiveConf
+
+  IterablePipe(data, flowDef, mode)
+    .map(c => c.id -> c)
+    .write(PartitionHiveParquetScroogeSink[String, Customer](args("db"), args("table"), List("id" -> "string"), conf))
+}
