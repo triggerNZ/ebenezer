@@ -1,0 +1,12 @@
+#!/bin/sh -eux
+example1/bin/run-hive 
+example2/bin/run-hive 
+
+scp example1/target/scala-2.10/ebenezer-example*.jar mgmt:job1.jar
+scp example2/target/scala-2.10/ebenezer-example*.jar mgmt:job2.jar
+
+# Commands to run jars:
+# export HADOOP_CLASSPATH=job1.jar
+# HADOOP_USER_NAME=hdfs hadoop jar job1.jar com.twitter.scalding.Tool au.com.cba.omnia.ebenezer.example1.HiveExampleStep1 --hdfs --env default --db default --table customers
+# export HADOOP_CLASSPATH=job2.jar
+# HADOOP_USER_NAME=hdfs hadoop jar job2.jar --hdfs
