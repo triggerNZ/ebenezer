@@ -40,3 +40,6 @@ project/source.scala
 derby.log
 metastore_db/*
 
+example1/src/main/resources/hive-site.xml
+example2/src/main/resources/hive-site.xml
+
