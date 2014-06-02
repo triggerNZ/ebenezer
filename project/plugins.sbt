@@ -9,5 +9,3 @@ addSbtPlugin("au.com.cba.omnia" % "uniform-dependency" % uniformVersion)
 addSbtPlugin("au.com.cba.omnia" % "uniform-thrift"     % uniformVersion)
 
 addSbtPlugin("au.com.cba.omnia" % "uniform-assembly"   % uniformVersion)
-
-addSbtPlugin("au.com.cba.omnia" % "abject-jar" % "0.0.4")

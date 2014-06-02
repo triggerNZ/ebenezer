@@ -6,8 +6,6 @@ uniformDependencySettings
 
 uniformAssemblySettings
 
-abjectJarSettings
-
 javacOptions ++= Seq("-source", "1.6", "-target", "1.6")
 
 scalacOptions ++= Seq("-target:jvm-1.6")
