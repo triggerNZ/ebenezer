@@ -270,6 +270,20 @@ Write pipeline (driven by `DeprecatedParquetOutputFormat`):
       [ ParquetWriteProtocol*: Does actual writing of records ] --- (wraps) --> [ ColumnIO*: manages read / write with column schema  }
 ```
 
+Example Apps
+------------
+
+The example apps are in `example1` and `example2`. You need to copy a `hive-site.xml` into
+`example{1,2}/src/main/resources/hive-site.xml` from either the `hive-site.xml.local`
+(if you are running locally) or `hive-site.xml.remote` (if you are running on the cluster).
+
+To run locally, use `example{1,2}/bin/test-local`.
+
+To run on a cluster, it will scp the jar to `mgmt`, use `example{1,2}/bin/test-remote`.
+
+Job 1 populates hive with some parquet data. Job 2 must run after Job 1. Job 2 queries that
+data with HQL and creates a new table.
+
 Future
 ------
 
