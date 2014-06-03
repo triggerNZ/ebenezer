@@ -277,6 +277,19 @@ The example apps are in `example1` and `example2`. You need to copy a `hive-site
 `example{1,2}/src/main/resources/hive-site.xml` from either the `hive-site.xml.local`
 (if you are running locally) or `hive-site.xml.remote` (if you are running on the cluster).
 
+`hive-site.xml.remote` should be the cluster's `hive-site.xml` but with two extra properties:
+
+```xml
+<property>
+  <name>hive.metastore.uris</name>
+  <value>thrift://data-2.cluster:9083</value>
+</property>
+<property>
+  <name>hive.exec.dynamic.partition.mode</name>
+  <value>nonstrict</value>
+</property>
+```
+
 To run locally, use `example{1,2}/bin/test-local`.
 
 To run on a cluster, it will scp the jar to `mgmt`, use `example{1,2}/bin/test-remote`.
