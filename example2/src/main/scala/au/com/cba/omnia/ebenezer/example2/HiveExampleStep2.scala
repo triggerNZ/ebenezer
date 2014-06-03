@@ -42,9 +42,6 @@ object HiveExampleStep2 {
       override def mode: Mode = lmode
     }
 
-    // val hiveFlow = new HiveFlow("example", "SELECT * FROM customers", seqAsJavaList(inputTaps), outputTap)
-    // new HiveFlow("hivego", "SELECT * FROM customers", Array(IterablePipe(data, flowDef, mode)).to,
-    //   PartitionHiveParquetScroogeSink[String, Customer](args("db"), args("table"), List("id" -> "string"), conf)) 
     val result = Jobs.runJob(job)
     println("Job Result:")
     println(result)
