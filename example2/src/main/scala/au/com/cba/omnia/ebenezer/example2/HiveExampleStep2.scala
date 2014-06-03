@@ -23,24 +23,11 @@ object HiveExampleStep2 {
     val lflow = new FlowDef <| (_.setName("hql-example"))
     Mode.putMode(lmode, args)
     
-    val inputSource = PartitionHiveParquetScroogeSource[Customer]("default", "customers", List("id" -> "string"), conf)
-    FlowStateMap.mutate(lflow) { st =>
-      val newPipe = new Pipe(inputSource.toString)
-      st.getReadPipe(inputSource, newPipe)
-    }
-    
-    val inputTaps = List(inputSource.createTap(Read)(lmode).asInstanceOf[Tap[_, _, _]])
-    
-    val outputTap =
-      PartitionHiveParquetScroogeSink[String, Customer]("default", "customers2", List("id" -> "string"), conf)
-      .createTap(Write)(lmode)
-    
-    val job = new HiveJob(args, "example",
+    val inputs = List(PartitionHiveParquetScroogeSource[Customer]("default", "customers", List("id" -> "string"), conf, lflow))
+    val output = PartitionHiveParquetScroogeSink[String, Customer]("default", "customers2", List("id" -> "string"), conf)
+    val job = ew HiveJob(args, "example", lmode, lflow,
       "INSERT OVERWRITE TABLE customers2 PARTITION (id) SELECT id,name,address,age FROM customers",
-       inputTaps, outputTap) {
-      override val flowDef: FlowDef = lflow
-      override def mode: Mode = lmode
-    }
+       inputs, output)
 
     val result = Jobs.runJob(job)
     println("Job Result:")

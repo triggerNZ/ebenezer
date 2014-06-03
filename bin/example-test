@@ -1,6 +1,6 @@
 #!/bin/sh -eux
-example1/bin/run-hive 
-example2/bin/run-hive 
+example1/bin/test-remote
+example2/bin/test-remote
 
 scp example1/target/scala-2.10/ebenezer-example*.jar mgmt:job1.jar
 scp example2/target/scala-2.10/ebenezer-example*.jar mgmt:job2.jar
