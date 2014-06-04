@@ -25,8 +25,9 @@ object HiveExampleStep2 {
     
     val inputs = List(PartitionHiveParquetScroogeSource[Customer]("default", "customers", List("id" -> "string"), conf, lflow))
     val output = PartitionHiveParquetScroogeSink[String, Customer]("default", "customers2", List("id" -> "string"), conf)
-    val job = ew HiveJob(args, "example", lmode, lflow,
+    val job = new HiveJob(args, "example",
       "INSERT OVERWRITE TABLE customers2 PARTITION (id) SELECT id,name,address,age FROM customers",
+       lflow, lmode,
        inputs, output)
 
     val result = Jobs.runJob(job)
