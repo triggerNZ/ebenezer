@@ -1,28 +1,40 @@
 package au.com.cba.omnia.ebenezer
 package scrooge
 
-import au.com.cba.omnia.ebenezer.scrooge._
-import com.twitter.scalding._
+import scala.collection.JavaConverters._
 
-import cascading.tap.SinkMode
-import cascading.tap.Tap
-import cascading.tap.hadoop.PartitionTap
-import cascading.tap.hadoop.Hfs
-import cascading.tap.partition.DelimitedPartition
-import cascading.tuple.Tuple
-import cascading.tuple.Fields
+import cascading.tap.{SinkMode, Tap}
+import cascading.tap.hadoop.{Hfs, PartitionTap}
+import cascading.tap.partition.Partition
+import cascading.tuple.{Fields, Tuple, TupleEntry}
+import cascading.scheme.Scheme
 
 import com.twitter.scalding._, TDsl._
 
-import cascading.scheme.Scheme
-import cascading.tuple.Fields
+import com.twitter.scrooge.ThriftStruct
 
-import com.twitter.scalding._
-import com.twitter.scrooge._
+/** Creates a partition using the given template string. The template string needs to have %s as placeholder for a given field. */
+case class TemplatePartition(partitionFields: Fields, template: String) extends Partition {
+  assert(partitionFields.size == "%s".r.findAllMatchIn(template).length)
 
-import org.apache.thrift._
+  lazy val pattern = template.replaceAll("%s", "(.*)").r.pattern
 
-import parquet.cascading._
+  override def getPathDepth(): Int = partitionFields.size
+
+  override def getPartitionFields(): Fields = partitionFields
+
+  override def toTuple(partition: String, tupleEntry: TupleEntry): Unit = {
+    val m = pattern.matcher(partition)
+    m.matches
+    val parts: Array[Object] = (1 to partitionFields.size).map(i => m.group(i)).toArray
+    tupleEntry.setCanonicalValues(parts)
+  }
+
+  override def toPartition(tupleEntry: TupleEntry): String = {
+    val fields = tupleEntry.asIterableOf(classOf[String]).asScala.toList
+    template.format(fields: _*)
+  }
+}
 
 case class PartitionParquetScroogeSource[A, T <: ThriftStruct](template: String, path: String)(implicit m : Manifest[T], valueConverter: TupleConverter[T], valueSet: TupleSetter[T], ma : Manifest[A], partitionConverter: TupleConverter[A], partitionSet: TupleSetter[A])
     extends FixedPathSource(path)
@@ -58,7 +70,7 @@ case class PartitionParquetScroogeSource[A, T <: ThriftStruct](template: String,
         createHdfsReadTap(hdfsMode)
       case (Hdfs(_, c), Write) =>
         val hfs = new Hfs(hdfsScheme, hdfsWritePath, SinkMode.REPLACE)
-        new PartitionTap(hfs, new DelimitedPartition( templateFields ), SinkMode.UPDATE)
+        new PartitionTap(hfs, new TemplatePartition(templateFields, template), SinkMode.UPDATE)
       case (_, _) =>
         super.createTap(readOrWrite)(mode)
     }
