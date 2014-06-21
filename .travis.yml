@@ -12,8 +12,8 @@ install:
 script:
 - sbt -Dsbt.global.base=$TRAVIS_BUILD_DIR/ci '; project example1; compile; project
   example2; compile; project core; test; package'
-- ci/sbt-deploy.sh
 after_script:
+- ci/sbt-deploy.sh
 - rm -rf ci
 notifications:
   webhooks:

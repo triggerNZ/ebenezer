@@ -1,7 +1,7 @@
 ebenezer
 ========
 
-[![Build Status](https://magnum.travis-ci.com/CommBank/ebenezer.svg?token=A3xq7fpHLyey1yCrNASy&branch=master)](https://magnum.travis-ci.com/CommBank/ebenezer)
+[![Build Status](https://travis-ci.org/CommBank/ebenezer.svg?branch=master)](https://travis-ci.org/CommBank/ebenezer)
 [![Gitter chat](https://badges.gitter.im/CommBank/maestro.png)](https://gitter.im/CommBank/maestro)
 
 
