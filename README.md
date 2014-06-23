@@ -307,3 +307,17 @@ Future
    but writes always go via MR).
  - Push down stream changes into scrooge which would help remove some of the reflection code
    used to interogate the generated ThriftCodec.
+
+Known Issues
+------------
+
+Writing out hive files currently only works if the metastore is specified as thrift endpoint instead of database.
+
+```
+  <property>
+    <name>hive.metastore.uris</name>
+    <value>thrift://metastore:9083</value>
+  </property>
+```
+
+
