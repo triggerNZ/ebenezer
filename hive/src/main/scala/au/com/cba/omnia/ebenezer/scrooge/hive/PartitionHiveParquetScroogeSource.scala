@@ -42,6 +42,8 @@ import au.com.cba.omnia.ebenezer.reflect.Reflect
   * Unfortunately read does not work since the ParquetInputSplit is an instance of mapreduce.FileSplit
   * and cascading will ignore any partitioned input splits that aren't part of mapred.FileSplit.
   * Instead use [[PartitionHiveParquetScroogeSource]] for read.
+  * 
+  * @param partitionColumns a list of the partition columns formatted as `[(column name, column type.)]`.
   */
 case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct]
   (database: String, table: String, partitionColumns: List[(String, String)], conf: HiveConf)
