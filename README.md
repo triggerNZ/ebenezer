@@ -277,7 +277,7 @@ The example apps are in `example1` and `example2`. You need to copy a `hive-site
 `example{1,2}/src/main/resources/hive-site.xml` from either the `hive-site.xml.local`
 (if you are running locally) or `hive-site.xml.remote` (if you are running on the cluster).
 
-`hive-site.xml.remote` should be the cluster's `hive-site.xml` but with two extra properties:
+`hive-site.xml.remote` should be the cluster's `hive-site.xml` but with three extra properties:
 
 ```xml
 <property>
@@ -287,6 +287,10 @@ The example apps are in `example1` and `example2`. You need to copy a `hive-site
 <property>
   <name>hive.exec.dynamic.partition.mode</name>
   <value>nonstrict</value>
+</property>
+<property>
+  <name>yarn.resourcemanager.address</name>
+  <value>bogus</value>
 </property>
 ```
 
@@ -311,13 +315,26 @@ Future
 Known Issues
 ------------
 
-Writing out hive files currently only works if the metastore is specified as thrift endpoint instead of database.
-
-```
-  <property>
-    <name>hive.metastore.uris</name>
-    <value>thrift://metastore:9083</value>
-  </property>
-```
-
-
+* Writing out hive files currently only works if the metastore is specified as thrift endpoint
+  instead of database.
+  ```
+    <property>
+      <name>hive.metastore.uris</name>
+      <value>thrift://metastore:9083</value>
+    </property>
+    ```
+* In order to run queries the hive-site.xml need to include the `yarn.resourcemanager.address`
+  property even if the value is bogus.
+  ```
+    <property>
+      <name>yarn.resourcemanager.address</name>
+      <value>bogus</value>
+    </property>
+  ```
+* In order to run queries with partitioning the partition mode needs to be set to nonstrict.
+  ```
+    <property>
+      <name>hive.exec.dynamic.partition.mode</name>
+      <value>nonstrict</value>
+    </property>
+  ```
