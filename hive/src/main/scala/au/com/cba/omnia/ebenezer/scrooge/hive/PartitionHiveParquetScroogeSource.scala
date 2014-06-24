@@ -21,7 +21,6 @@ import org.apache.hadoop.mapred.{JobConf, RecordReader, OutputCollector}
 import org.apache.hadoop.hive.conf.HiveConf
 
 import cascading.scheme.Scheme
-import cascading.tuple.Tuple
 import cascading.tap.{Tap, SinkMode}
 import cascading.flow.FlowDef
 import cascading.pipe.Pipe
@@ -30,11 +29,7 @@ import cascading.tap.hive.{HiveTap, HivePartitionTap, HiveTableDescriptor}
 
 import com.twitter.scalding._
 
-import com.twitter.scrooge.{ThriftStruct, ThriftStructCodec}
-
-import au.com.cba.omnia.beehaus.ParquetTableDescriptor
-
-import au.com.cba.omnia.ebenezer.reflect.Reflect
+import com.twitter.scrooge.ThriftStruct
 
 /**
   * A scalding sink to write out Scrooge Thrift structs to a partitioned hive table using parquet as
@@ -54,18 +49,7 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct]
 
   assert(partitionSet.arity == partitionColumns.length)
 
-  val thrift: Class[T]     = m.runtimeClass.asInstanceOf[Class[T]]
-  val codec                = Reflect.companionOf(thrift).asInstanceOf[ThriftStructCodec[_ <: ThriftStruct]]
-  val metadata             = codec.metaData
-  val partitionColumnNames = partitionColumns.map(_._1)
-  val partitionColumnTypes = partitionColumns.map(_._2)
-  val structColumns        = metadata.fields.filter(f => !partitionColumnNames.contains(f.name))
-  val structColumnNames    = structColumns.map(_.name)
-  val structColumnTypes    = structColumns.map(t => Util.mapType(t.`type`))
-  val columns              = (structColumnNames ++ partitionColumnNames).toArray
-  val types                = (structColumnTypes ++ partitionColumnTypes).toArray
-
-  val tableDescriptor = new ParquetTableDescriptor(database, table, columns, types, partitionColumns.map(_._1).toArray)
+  val tableDescriptor = Util.createHiveTableDescriptor[T](database, table, partitionColumns)
 
   val  hdfsScheme = HadoopSchemeInstance(new ParquetScroogeScheme[T].asInstanceOf[Scheme[_, _, _, _, _]])
   hdfsScheme.setSinkFields(Dsl.strFields(List("0")))
@@ -92,24 +76,10 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct]
    coverters (yes, scala libraries, particularly scalding do this, it is not ok, but we must deal with it),
    so we hide it inside the Source so it can't be messed up. See also converter.
    */
-  override def setter[U <: (A, T)] =
-    TupleSetter.asSubSetter[(A, T), U](new TupleSetter[(A, T)] {
-
-      def arity = valueSet.arity + partitionSet.arity
-
-      def apply(arg: (A, T)) = {
-        val (a, t) = arg
-        val partition = partitionSet(a)
-        val value = valueSet(t)
-        val output = Tuple.size(partition.size + value.size)
-          (0 until value.size).foreach(idx => output.set(idx, value.getObject(idx)))
-          (0 until partition.size).foreach(idx => output.set(idx + value.size, partition.getObject(idx)))
-        output
-      }
-    })
+  override def setter[U <: (A, T)] = Util.partitionSetter[T, A, U](valueSet, partitionSet)
 
   override def toString: String =
-    s"PartitionHiveParquetScroogeSink[${metadata.structName}]($database, $table, $partitionColumns)"
+    s"PartitionHiveParquetScroogeSink[${m.runtimeClass}]($database, $table, $partitionColumns)"
 }
 
 /**
@@ -135,20 +105,8 @@ case class PartitionHiveParquetScroogeSource[T <: ThriftStruct]
     with Mappable[T]
     with java.io.Serializable {
 
-  val thrift: Class[T]     = m.runtimeClass.asInstanceOf[Class[T]]
-  val codec                = Reflect.companionOf(thrift).asInstanceOf[ThriftStructCodec[_ <: ThriftStruct]]
-  val metadata             = codec.metaData
-  val partitionColumnNames = partitionColumns.map(_._1)
-  val partitionColumnTypes = partitionColumns.map(_._2)
-  val structColumns        = metadata.fields.filter(f => !partitionColumnNames.contains(f.name))
-  val structColumnNames    = structColumns.map(_.name)
-  val structColumnTypes    = structColumns.map(t => Util.mapType(t.`type`))
-  val columns              = (structColumnNames ++ partitionColumnNames).toArray
-  val types                = (structColumnTypes ++ partitionColumnTypes).toArray
-
-  val tableDescriptor = new ParquetTableDescriptor(database, table, columns, types, partitionColumns.map(_._1).toArray)
-
-  val  hdfsScheme = HadoopSchemeInstance(new ParquetScroogeScheme[T].asInstanceOf[Scheme[_, _, _, _, _]])
+  val tableDescriptor = Util.createHiveTableDescriptor(database, table, partitionColumns)
+  val hdfsScheme = HadoopSchemeInstance(new ParquetScroogeScheme[T].asInstanceOf[Scheme[_, _, _, _, _]])
 
   override def createTap(readOrWrite: AccessMode)(implicit mode: Mode): Tap[_, _, _] = mode match {
     case Local(_)              => sys.error("Local mode is currently not supported for ${toString}")
@@ -175,5 +133,5 @@ case class PartitionHiveParquetScroogeSource[T <: ThriftStruct]
     TupleConverter.asSuperConverter[T, U](conv)
 
   override def toString: String =
-    s"PartitionHiveParquetScroogeSource[${metadata.structName}]($database, $table, $partitionColumns)"
+    s"PartitionHiveParquetScroogeSource[${m.runtimeClass}]($database, $table, $partitionColumns)"
 }

@@ -18,9 +18,15 @@ package hive
 
 import org.apache.thrift.protocol.TType
 
-import cascading.tuple.Fields
+import cascading.tuple.{Fields, Tuple}
 
-import com.twitter.scalding.{Dsl, TupleConverter}
+import com.twitter.scalding.{Dsl, TupleConverter, TupleSetter}
+
+import com.twitter.scrooge.{ThriftStruct, ThriftStructCodec}
+
+import au.com.cba.omnia.beehaus.ParquetTableDescriptor
+
+import au.com.cba.omnia.ebenezer.reflect.Reflect
 
 object Util {
   /*
@@ -44,6 +50,44 @@ object Util {
         (partitionConverter(partition), valueConverter(value))
       }
     })
+
+  /** A tuple setter for a pair of types which are flattened into a cascading tuple.*/
+  def partitionSetter[T, A, U <: (A, T)](valueSet: TupleSetter[T], partitionSet: TupleSetter[A])
+    : TupleSetter[U] =
+    TupleSetter.asSubSetter[(A, T), U](new TupleSetter[(A, T)] {
+
+      def arity = valueSet.arity + partitionSet.arity
+
+      def apply(arg: (A, T)) = {
+        val (a, t) = arg
+        val partition = partitionSet(a)
+        val value = valueSet(t)
+        val output = Tuple.size(partition.size + value.size)
+          (0 until value.size).foreach(idx => output.set(idx, value.getObject(idx)))
+          (0 until partition.size).foreach(idx =>
+            output.set(idx + value.size, partition.getObject(idx))
+          )
+        output
+      }
+    })
+
+  /** Creates a hive parquet table descriptor based on a thrift struct.*/
+  def createHiveTableDescriptor[T <: ThriftStruct]
+    (database: String, table: String, partitionColumns: List[(String, String)])
+    (implicit m: Manifest[T])= {
+    val thrift: Class[T]     = m.runtimeClass.asInstanceOf[Class[T]]
+    val codec                = Reflect.companionOf(thrift).asInstanceOf[ThriftStructCodec[_ <: ThriftStruct]]
+    val metadata             = codec.metaData
+    val partitionColumnNames = partitionColumns.map(_._1)
+    val partitionColumnTypes = partitionColumns.map(_._2)
+    val structColumns        = metadata.fields.filter(f => !partitionColumnNames.contains(f.name))
+    val structColumnNames    = structColumns.map(_.name)
+    val structColumnTypes    = structColumns.map(t => Util.mapType(t.`type`))
+    val columns              = (structColumnNames ++ partitionColumnNames).toArray
+    val types                = (structColumnTypes ++ partitionColumnTypes).toArray
+
+    new ParquetTableDescriptor(database, table, columns, types, partitionColumns.map(_._1).toArray)
+  }
 
   // TODO: complex type handling
   def mapType(thriftType: Byte): String = thriftType match {
