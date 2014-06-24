@@ -28,6 +28,10 @@ import au.com.cba.omnia.beehaus.ParquetTableDescriptor
 
 import au.com.cba.omnia.ebenezer.reflect.Reflect
 
+/**
+  * Utility methods used by the Hive sources in this packages to avoid serialisation issues and code
+  * duplication.
+  */
 object Util {
   /*
    DO NOT USE intFields, scalding / cascading Fields.merge is broken and gets called in bowels of
@@ -36,7 +40,9 @@ object Util {
   def toFields(start: Int, end: Int): Fields =
     Dsl.strFields((start until end).map(_.toString))
 
-  def converter[A, T, U >: (A, T)](valueConverter: TupleConverter[T], partitionConverter: TupleConverter[A]) =
+  /** A tuple converter that splits a cascading tuple into a pair of types.*/
+  def converter[A, T, U >: (A, T)]
+    (valueConverter: TupleConverter[T], partitionConverter: TupleConverter[A]) =
     TupleConverter.asSuperConverter[(A, T), U](new TupleConverter[(A, T)] {
       import cascading.tuple.TupleEntry
 
@@ -46,7 +52,9 @@ object Util {
         val value = new TupleEntry(toFields(0, valueConverter.arity))
         val partition = new TupleEntry(toFields(0, partitionConverter.arity))
           (0 until valueConverter.arity).foreach(idx => value.setObject(idx, te.getObject(idx)))
-          (0 until partitionConverter.arity).foreach(idx => partition.setObject(idx, te.getObject(idx + valueConverter.arity)))
+          (0 until partitionConverter.arity).foreach(idx =>
+            partition.setObject(idx, te.getObject(idx + valueConverter.arity)))
+        
         (partitionConverter(partition), valueConverter(value))
       }
     })
@@ -89,6 +97,7 @@ object Util {
     new ParquetTableDescriptor(database, table, columns, types, partitionColumns.map(_._1).toArray)
   }
 
+  /** Maps Thrift types to Hive types.*/
   // TODO: complex type handling
   def mapType(thriftType: Byte): String = thriftType match {
     case TType.BOOL   => "boolean"

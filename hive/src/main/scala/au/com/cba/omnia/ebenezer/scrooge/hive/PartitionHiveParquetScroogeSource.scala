@@ -34,11 +34,13 @@ import com.twitter.scrooge.ThriftStruct
 /**
   * A scalding sink to write out Scrooge Thrift structs to a partitioned hive table using parquet as
   * underlying storage format.
-  * Unfortunately read does not work since the ParquetInputSplit is an instance of mapreduce.FileSplit
-  * and cascading will ignore any partitioned input splits that aren't part of mapred.FileSplit.
+  * 
+  * Unfortunately read does not work since the ParquetInputSplit is an instance of
+  * mapreduce.FileSplit and cascading will ignore any partitioned input splits that aren't part of
+  * mapred.FileSplit.
   * Instead use [[PartitionHiveParquetScroogeSource]] for read.
   * 
-  * @param partitionColumns a list of the partition columns formatted as `[(column name, column type.)]`.
+  * @param partitionColumns a list of the partition columns formatted as `[(name, type.)]`.
   */
 case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct]
   (database: String, table: String, partitionColumns: List[(String, String)], conf: HiveConf)
@@ -51,7 +53,9 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct]
 
   val tableDescriptor = Util.createHiveTableDescriptor[T](database, table, partitionColumns)
 
-  val  hdfsScheme = HadoopSchemeInstance(new ParquetScroogeScheme[T].asInstanceOf[Scheme[_, _, _, _, _]])
+  val  hdfsScheme =
+    HadoopSchemeInstance(new ParquetScroogeScheme[T].asInstanceOf[Scheme[_, _, _, _, _]])
+
   hdfsScheme.setSinkFields(Dsl.strFields(List("0")))
 
   override def createTap(readOrWrite: AccessMode)(implicit mode: Mode): Tap[_, _, _] = mode match {
@@ -71,13 +75,15 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct]
     case x       => sys.error(s"$x mode is currently not supported for ${toString}")
   }
 
-  override def sinkFields = Dsl.strFields((0 until valueSet.arity).map(_.toString) ++ partitionColumns.map(_._1))
+  override def sinkFields =
+    Dsl.strFields((0 until valueSet.arity).map(_.toString) ++ partitionColumns.map(_._1))
 
   /*
-   Create a setter which is the union of value and partition, it is _not_ safe to pull this out as a generic
-   converter, because if anyone forgets to explicitly type annotate the A infers to Any and you get default
-   coverters (yes, scala libraries, particularly scalding do this, it is not ok, but we must deal with it),
-   so we hide it inside the Source so it can't be messed up. See also converter.
+   Create a setter which is the union of value and partition, it is _not_ safe to pull this out as a
+   generic converter, because if anyone forgets to explicitly type annotate the A infers to Any and
+   you get default coverters (yes, scala libraries, particularly scalding do this, it is not ok, but
+   we must deal with it), so we hide it inside the Source so it can't be messed up. See also
+   converter.
    */
   override def setter[U <: (A, T)] = Util.partitionSetter[T, A, U](valueSet, partitionSet)
 
@@ -90,7 +96,9 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct]
   * for why this is needed. This will add globs for all the underlying partitions to the path of the
   * hive table.
   */
-class PartitionHiveParquetReadTap(tableDescriptor: HiveTableDescriptor, hdfsScheme: Scheme[_, _, _, _, _]) extends HiveTap(tableDescriptor, hdfsScheme, SinkMode.KEEP, true){
+class PartitionHiveParquetReadTap(
+  tableDescriptor: HiveTableDescriptor, hdfsScheme: Scheme[_, _, _, _, _]
+) extends HiveTap(tableDescriptor, hdfsScheme, SinkMode.KEEP, true){
   override def setStringPath(path: String): Unit = {
     super.setStringPath(s"$path/${tableDescriptor.getPartitionKeys.map(_ => "*").mkString("/")}")
   }
@@ -101,15 +109,17 @@ class PartitionHiveParquetReadTap(tableDescriptor: HiveTableDescriptor, hdfsSche
   * from the parquet file.
   * Use [[PartitionHiveParquetScroogeSink]] for write.
   */
-case class PartitionHiveParquetScroogeSource[T <: ThriftStruct]
-  (database: String, table: String, partitionColumns: List[(String, String)], conf: HiveConf, lflow: FlowDef)
-  (implicit m : Manifest[T], conv: TupleConverter[T])
+case class PartitionHiveParquetScroogeSource[T <: ThriftStruct](
+  database: String, table: String, partitionColumns: List[(String, String)],
+  conf: HiveConf, lflow: FlowDef
+) (implicit m : Manifest[T], conv: TupleConverter[T])
     extends Source
     with Mappable[T]
     with java.io.Serializable {
 
   val tableDescriptor = Util.createHiveTableDescriptor(database, table, partitionColumns)
-  val hdfsScheme = HadoopSchemeInstance(new ParquetScroogeScheme[T].asInstanceOf[Scheme[_, _, _, _, _]])
+  val hdfsScheme =
+    HadoopSchemeInstance(new ParquetScroogeScheme[T].asInstanceOf[Scheme[_, _, _, _, _]])
 
   override def createTap(readOrWrite: AccessMode)(implicit mode: Mode): Tap[_, _, _] = mode match {
     case Local(_)              => sys.error("Local mode is currently not supported for ${toString}")
