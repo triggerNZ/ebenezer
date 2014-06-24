@@ -61,7 +61,10 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct]
         sys.error(s"HDFS read mode is currently not supported for ${toString}. Use PartitionHiveParquetScroogeSource instead.")
       case Write => {
         //TODO strict should be true
-        val tap = new HivePartitionTap(new HiveTap(tableDescriptor, hdfsScheme, SinkMode.REPLACE, true))
+        val tap = new HivePartitionTap(
+          new HiveTap(tableDescriptor, hdfsScheme, SinkMode.REPLACE, true), SinkMode.UPDATE
+        )
+
         tap.asInstanceOf[Tap[JobConf, RecordReader[_, _], OutputCollector[_, _]]]
       }
     }
