@@ -12,26 +12,12 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-package au.com.cba.omnia.ebenezer
-package example2
-
-import scala.collection.JavaConversions._
-
-import scalaz._, Scalaz._
+package au.com.cba.omnia.ebenezer.example
 
 import com.twitter.scalding._, TDsl._
-import com.twitter.scalding.typed.IterablePipe
-
-import cascading.flow.FlowDef
-import cascading.pipe.Pipe
-import cascading.flow.hive.HiveFlow
-import cascading.tap.{Tap, SinkMode}
 
 import org.apache.hadoop.hive.conf.HiveConf
 
-import au.com.cba.omnia.thermometer.tools._
-
-import au.com.cba.omnia.ebenezer.example._
 import au.com.cba.omnia.ebenezer.scrooge.hive._
 
 class HiveExampleStep2(args: Args) extends CascadeJob(args) {

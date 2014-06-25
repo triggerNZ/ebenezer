@@ -12,7 +12,7 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-uniform.project("ebenezer-example1", "au.com.cba.omnia.ebenezer.example1")
+uniform.project("ebenezer-example", "au.com.cba.omnia.ebenezer.example")
 
 uniformThriftSettings
 

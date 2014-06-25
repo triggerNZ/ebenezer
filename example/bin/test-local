@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+
+JOB1="au.com.cba.omnia.ebenezer.example.HiveExampleStep1"
+JOB2="au.com.cba.omnia.ebenezer.example.HiveExampleStep2"
+
+
+PROJECT=example
+JAR=${PROJECT}/target/scala-2.10/ebenezer-example*.jar
+
+hadoop jar ${JAR} com.twitter.scalding.Tool ${JOB1} --hdfs --db default --table customers
+hadoop jar ${JAR} com.twitter.scalding.Tool ${JOB2} --hdfs --db default --src-table customers --dst-table customers2

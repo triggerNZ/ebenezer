@@ -12,21 +12,14 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-package au.com.cba.omnia.ebenezer
-package example1
+package au.com.cba.omnia.ebenezer.example
 
-import example._
-import scalaz._, Scalaz._
-import scrooge.hive._
-import com.twitter.scalding._
-import cascading.flow.FlowDef
-import cascading.flow.hive.HiveFlow
-import cascading.tap.{Tap, SinkMode}
-import org.apache.hadoop.hive.conf.HiveConf
-import com.twitter.scalding.TDsl._
+import com.twitter.scalding._, TDsl._
 import com.twitter.scalding.typed.IterablePipe
-import au.com.cba.omnia.thermometer.tools._
-import cascading.pipe.Pipe
+
+import org.apache.hadoop.hive.conf.HiveConf
+
+import au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink
 
 class HiveExampleStep1(args: Args) extends Job(args) {
   val data = List(
