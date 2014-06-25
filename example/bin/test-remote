@@ -2,6 +2,7 @@
 
 JOB1="au.com.cba.omnia.ebenezer.example.HiveExampleStep1"
 JOB2="au.com.cba.omnia.ebenezer.example.HiveExampleStep2"
+JOB3="au.com.cba.omnia.ebenezer.example.HiveExampleStep3"
 
 PROJECT=example
 JAR=${PROJECT}/target/scala-2.10/ebenezer-example*.jar
@@ -11,3 +12,4 @@ JAR_NAME=$(basename ${JAR})
 
 # hadoop jar ${JAR} com.twitter.scalding.Tool ${JOB1} --hdfs --env default --db default --table customers
 # hadoop jar ${JAR} com.twitter.scalding.Tool ${JOB2} --hdfs --db default --src-table customers --dst-table customers2
+# hadoop jar ${JAR} com.twitter.scalding.Tool ${JOB3} --hdfs --db default --src-table customers3 --dst-table customers4
