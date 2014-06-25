@@ -15,27 +15,34 @@
 package au.com.cba.omnia.ebenezer.scrooge
 package hive
 
-import scalding._
-import com.twitter.scalding._
-import org.apache.hadoop.hive.conf.HiveConf
-import cascading.scheme.Scheme
-import cascading.flow.FlowDef
+import collection.JavaConverters._
+
+import com.twitter.scalding.{Source, Args, Read, Write}
+
+import cascading.pipe.Pipe
+import cascading.tap.Tap
+
 import cascading.flow.hive.HiveFlow
-import cascading.tap.hive.{HiveTap, HiveTableDescriptor}
-import cascading.tap.{Tap, SinkMode}
-import au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeScheme
-import org.apache.hadoop.mapred.{OutputCollector, RecordReader, JobConf}
 
-class HiveJob(args: Args, name : String, query: String, lflow: FlowDef, lmode: Mode, inputTaps: List[Source], outputTap: Source) extends UniqueJob(args) {
-  override val flowDef: FlowDef = lflow
-  override def mode: Mode = lmode
+import au.com.cba.omnia.ebenezer.scrooge.scalding.UniqueJob
 
-  import collection.JavaConversions._
+class HiveJob(args: Args, name: String, query: String, inputs: List[Source], output: Source)
+    extends UniqueJob(args) {
+  // Call the read method on each tap in order to add that tap to the flowDef.
+  inputs.foreach(_.read(flowDef, mode))
 
   override def buildFlow = {
     new HiveFlow(name, query
-      , inputTaps.map(_.createTap(Read)(mode).asInstanceOf[Tap[_, _, _]])
-      , outputTap.createTap(Write)(mode))
+      , inputs.map(_.createTap(Read)(mode).asInstanceOf[Tap[_, _, _]]).asJava
+      , output.createTap(Write)(mode))
   }
+}
+
+object HiveJob {
+  def apply(args: Args, name: String, query: String, inputs: List[Source], output: Source) =
+    new HiveJob(args, name, query, inputs, output)
+
+  def apply(args: Args, name: String, query: String, input: Source, output: Source) =
+    new HiveJob(args, name, query, List(input), output)
 
 }

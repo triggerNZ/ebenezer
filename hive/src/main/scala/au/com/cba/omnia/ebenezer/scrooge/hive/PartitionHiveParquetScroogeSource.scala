@@ -22,8 +22,6 @@ import org.apache.hadoop.hive.conf.HiveConf
 
 import cascading.scheme.Scheme
 import cascading.tap.{Tap, SinkMode}
-import cascading.flow.FlowDef
-import cascading.pipe.Pipe
 
 import cascading.tap.hive.{HiveTap, HivePartitionTap, HiveTableDescriptor}
 
@@ -110,8 +108,7 @@ class PartitionHiveParquetReadTap(
   * Use [[PartitionHiveParquetScroogeSink]] for write.
   */
 case class PartitionHiveParquetScroogeSource[T <: ThriftStruct](
-  database: String, table: String, partitionColumns: List[(String, String)],
-  conf: HiveConf, lflow: FlowDef
+  database: String, table: String, partitionColumns: List[(String, String)], conf: HiveConf
 ) (implicit m : Manifest[T], conv: TupleConverter[T])
     extends Source
     with Mappable[T]
@@ -126,13 +123,6 @@ case class PartitionHiveParquetScroogeSource[T <: ThriftStruct](
     case hdfsMode @ Hdfs(_, jobConf) => readOrWrite match {
       case Read  => {
         //TODO strict should be true
-        
-        // mutate global flow state map
-        FlowStateMap.mutate(lflow) { st =>
-          val newPipe = new Pipe(this.toString)
-          st.getReadPipe(this, newPipe)
-        }
-        
         val tap = new PartitionHiveParquetReadTap(tableDescriptor, hdfsScheme)
         tap.asInstanceOf[Tap[JobConf, RecordReader[_, _], OutputCollector[_, _]]]
       }

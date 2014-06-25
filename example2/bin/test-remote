@@ -7,4 +7,4 @@ JAR_NAME=$(basename ${JAR})
 
 ./sbt '; project example2; clean; assembly'
 
-# hadoop jar ${JAR} ${JOB2} --hdfs
+# hadoop jar ${JAR} com.twitter.scalding.Tool ${JOB2} --hdfs --db default --src-table customers --dst-table customers2
