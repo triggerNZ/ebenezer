@@ -10,8 +10,7 @@ install:
 - chmod ugo+x  ci/*
 - ci/sbt-setup.sh
 script:
-- sbt -Dsbt.global.base=$TRAVIS_BUILD_DIR/ci '; project example1; compile; project
-  example2; compile; project core; test; package'
+- sbt -Dsbt.global.base=$TRAVIS_BUILD_DIR/ci '; project example; compile; project core; test; package'
 after_script:
 - ci/sbt-deploy.sh
 - rm -rf ci
