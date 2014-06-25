@@ -26,6 +26,12 @@ import cascading.flow.hive.HiveFlow
 
 import au.com.cba.omnia.ebenezer.scrooge.scalding.UniqueJob
 
+/**
+  * Creates a Scalding job to run the specified query against hive.
+  * 
+  * The specified inputs and outputs are not directly used as part of the query. Instead they are
+  * used by Cascade to determine how to schedule this job in relation to other jobs.
+  */
 class HiveJob(args: Args, name: String, query: String, inputs: List[Source], output: Source)
     extends UniqueJob(args) {
   // Call the read method on each tap in order to add that tap to the flowDef.
