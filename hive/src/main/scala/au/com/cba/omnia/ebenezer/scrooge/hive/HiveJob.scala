@@ -21,6 +21,7 @@ import com.twitter.scalding.{Source, Args, Read, Write}
 
 import cascading.pipe.Pipe
 import cascading.tap.Tap
+import cascading.flow.{Flow, FlowSkipStrategy}
 
 import cascading.tap.hive.HiveNullTap
 import cascading.flow.hive.HiveFlow
@@ -39,11 +40,14 @@ class HiveJob(args: Args, name: String, query: String, inputs: List[Source], out
   inputs.foreach(_.read(flowDef, mode))
 
   override def buildFlow = {
-    new HiveFlow(
+    val flow = new HiveFlow(
       name, query,
       inputs.map(_.createTap(Read)(mode).asInstanceOf[Tap[_, _, _]]).asJava,
       output.fold[Tap[_, _, _]](HiveNullTap.DEV_NULL)(_.createTap(Write)(mode))
     )
+
+    flow.setFlowSkipStrategy(DontSkipStrategy)
+    flow
   }
 }
 
@@ -54,4 +58,8 @@ object HiveJob {
   def apply(args: Args, name: String, query: String, input: Source, output: Option[Source]) =
     new HiveJob(args, name, query, List(input), output)
 
+}
+
+object DontSkipStrategy extends FlowSkipStrategy {
+  def skipFlow(flow: Flow[_]): Boolean = false
 }
