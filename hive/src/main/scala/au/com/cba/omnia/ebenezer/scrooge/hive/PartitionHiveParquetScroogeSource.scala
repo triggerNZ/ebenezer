@@ -113,8 +113,7 @@ case class PartitionHiveParquetScroogeSource[T <: ThriftStruct](
     extends Source
     with Mappable[T]
     with java.io.Serializable {
-
-  val tableDescriptor = Util.createHiveTableDescriptor(database, table, partitionColumns)
+  val tableDescriptor = Util.createHiveTableDescriptor[T](database, table, partitionColumns)
   val hdfsScheme =
     HadoopSchemeInstance(new ParquetScroogeScheme[T].asInstanceOf[Scheme[_, _, _, _, _]])
 
