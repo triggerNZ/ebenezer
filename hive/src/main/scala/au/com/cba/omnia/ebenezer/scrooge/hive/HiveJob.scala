@@ -22,6 +22,7 @@ import com.twitter.scalding.{Source, Args, Read, Write}
 import cascading.pipe.Pipe
 import cascading.tap.Tap
 
+import cascading.tap.hive.HiveNullTap
 import cascading.flow.hive.HiveFlow
 
 import au.com.cba.omnia.ebenezer.scrooge.scalding.UniqueJob
@@ -32,23 +33,25 @@ import au.com.cba.omnia.ebenezer.scrooge.scalding.UniqueJob
   * The specified inputs and outputs are not directly used as part of the query. Instead they are
   * used by Cascade to determine how to schedule this job in relation to other jobs.
   */
-class HiveJob(args: Args, name: String, query: String, inputs: List[Source], output: Source)
+class HiveJob(args: Args, name: String, query: String, inputs: List[Source], output: Option[Source])
     extends UniqueJob(args) {
   // Call the read method on each tap in order to add that tap to the flowDef.
   inputs.foreach(_.read(flowDef, mode))
 
   override def buildFlow = {
-    new HiveFlow(name, query
-      , inputs.map(_.createTap(Read)(mode).asInstanceOf[Tap[_, _, _]]).asJava
-      , output.createTap(Write)(mode))
+    new HiveFlow(
+      name, query,
+      inputs.map(_.createTap(Read)(mode).asInstanceOf[Tap[_, _, _]]).asJava,
+      output.fold[Tap[_, _, _]](HiveNullTap.DEV_NULL)(_.createTap(Write)(mode))
+    )
   }
 }
 
 object HiveJob {
-  def apply(args: Args, name: String, query: String, inputs: List[Source], output: Source) =
+  def apply(args: Args, name: String, query: String, inputs: List[Source], output: Option[Source]) =
     new HiveJob(args, name, query, inputs, output)
 
-  def apply(args: Args, name: String, query: String, input: Source, output: Source) =
+  def apply(args: Args, name: String, query: String, input: Source, output: Option[Source]) =
     new HiveJob(args, name, query, List(input), output)
 
 }

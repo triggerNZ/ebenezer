@@ -31,7 +31,7 @@ class HiveExampleStep3(args: Args) extends CascadeJob(args) {
     HiveJob(
       args, "example",
       s"INSERT OVERWRITE TABLE $db.$dstTable PARTITION (id) SELECT id,name,address,age FROM $db.$srcTable",
-      intermediate, output
+      intermediate, Some(output)
     )
   )
 }
