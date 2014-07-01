@@ -100,6 +100,22 @@ class PartitionHiveParquetReadTap(
   override def setStringPath(path: String): Unit = {
     super.setStringPath(s"$path/${tableDescriptor.getPartitionKeys.map(_ => "*").mkString("/")}")
   }
+
+  /**
+    * Overrides the identifier and remove the globed out partitions so that it matches the one used
+    * for reading partitioned data and they are, therefore, the same for scheduling cascades.
+    */
+  override def getIdentifier(): String =
+    getPath.toString.take(getPath.toString.length - 2 * tableDescriptor.getPartitionKeys.length)
+
+  /**
+    * Overrides the identifier and remove the globed out partitions so that it matches the one used
+    * for reading partitioned data and they are, therefore, the same for scheduling cascades.
+    */
+  override def getFullIdentifier(conf: JobConf): String = {
+    val id = super.getFullIdentifier(conf)
+    id.take(id.length - 2 * tableDescriptor.getPartitionKeys.length)
+  }
 }
 /**
   * A scalding source to read Scrooge Thrift structs from a partitioned hive table using parquet as
