@@ -113,8 +113,14 @@ pipe.map(c => (c.id, c))
 
 ```
 
+#### Partitioning
 
+Currently it is not possible to read the partition information back in. Instead only the actual
+content of the files can be read back in. Hence to read Hive information it is important to not have
+information as part of the partition columns/path that is not in the files themselves.
 
+In order to avoid confusing Hive and Impala the name for partition columns has to be different to
+the name of fields in the thrift structure.
 
 
 Internals
