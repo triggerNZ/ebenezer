@@ -47,7 +47,10 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct]
     with TypedSink[(A, T)]
     with java.io.Serializable {
 
-  assert(partitionSet.arity == partitionColumns.length)
+  assert(
+    partitionSet.arity == partitionColumns.length,
+    "The size of the partition type needs to match the number of specified partion columns"
+  )
 
   val tableDescriptor = Util.createHiveTableDescriptor[T](database, table, partitionColumns)
 

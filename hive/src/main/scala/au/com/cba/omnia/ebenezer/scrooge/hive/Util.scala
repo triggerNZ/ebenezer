@@ -88,11 +88,16 @@ object Util {
     val metadata             = codec.metaData
     val partitionColumnNames = partitionColumns.map(_._1)
     val partitionColumnTypes = partitionColumns.map(_._2)
-    val structColumns        = metadata.fields.filter(f => !partitionColumnNames.contains(f.name))
+    val structColumns        = metadata.fields
     val structColumnNames    = structColumns.map(_.name)
     val structColumnTypes    = structColumns.map(t => Util.mapType(t.`type`))
     val columns              = (structColumnNames ++ partitionColumnNames).toArray
     val types                = (structColumnTypes ++ partitionColumnTypes).toArray
+
+    assert(
+      partitionColumnNames.intersect(metadata.fields.map(_.name)).isEmpty,
+      "Partition columns must be different from the fields in the thrift struct"
+    )
 
     new ParquetTableDescriptor(database, table, columns, types, partitionColumns.map(_._1).toArray)
   }
