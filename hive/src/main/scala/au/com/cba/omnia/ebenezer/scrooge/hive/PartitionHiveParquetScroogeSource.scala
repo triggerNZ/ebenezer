@@ -39,10 +39,12 @@ import com.twitter.scrooge.ThriftStruct
   * Instead use [[PartitionHiveParquetScroogeSource]] for read.
   * 
   * @param partitionColumns a list of the partition columns formatted as `[(name, type.)]`.
+  * @param append iff true will add new files to an existing partition instead of overwritting it.
   */
-case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct]
-  (database: String, table: String, partitionColumns: List[(String, String)], conf: HiveConf)
-  (implicit m: Manifest[T], valueSet: TupleSetter[T], ma: Manifest[A], partitionSet: TupleSetter[A])
+case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct](
+  database: String, table: String, partitionColumns: List[(String, String)],
+  conf: HiveConf, append: Boolean = false
+) (implicit m: Manifest[T], valueSet: TupleSetter[T], ma: Manifest[A], partitionSet: TupleSetter[A])
     extends Source
     with TypedSink[(A, T)]
     with java.io.Serializable {
@@ -60,12 +62,15 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct]
   hdfsScheme.setSinkFields(Dsl.strFields(List("0")))
 
   override def createTap(readOrWrite: AccessMode)(implicit mode: Mode): Tap[_, _, _] = mode match {
-    case Local(_)              => sys.error("Local mode is currently not supported for ${toString}")
     case hdfsMode @ Hdfs(_, jobConf) => readOrWrite match {
       case Read  =>
         sys.error(s"HDFS read mode is currently not supported for ${toString}. Use PartitionHiveParquetScroogeSource instead.")
       case Write => {
-        //TODO strict should be true
+        if (append) {
+          // Include a timestamp as part of the file name so that subsequent jobs don't override the
+          // existing files.
+          jobConf.set("cascading.tapcollector.partname", s"%s%spart-${System.currentTimeMillis}-%05d-%05d")
+        }
         val tap = new HivePartitionTap(
           new HiveTap(tableDescriptor, hdfsScheme, SinkMode.REPLACE, true), SinkMode.UPDATE
         )
@@ -73,7 +78,8 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct]
         tap.asInstanceOf[Tap[JobConf, RecordReader[_, _], OutputCollector[_, _]]]
       }
     }
-    case x       => sys.error(s"$x mode is currently not supported for ${toString}")
+    case Local(_) => sys.error("Local mode is currently not supported for ${toString}")
+    case x        => sys.error(s"$x mode is currently not supported for ${toString}")
   }
 
   override def sinkFields =
