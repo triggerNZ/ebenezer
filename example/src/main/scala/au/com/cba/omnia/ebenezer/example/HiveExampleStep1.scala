@@ -33,5 +33,5 @@ class HiveExampleStep1(args: Args) extends Job(args) {
 
   IterablePipe(data, flowDef, mode)
     .map(c => c.id -> c)
-    .write(PartitionHiveParquetScroogeSink[String, Customer](args("db"), args("table"), List("id" -> "string"), conf))
+    .write(PartitionHiveParquetScroogeSink[String, Customer](args("db"), args("table"), List("pid" -> "string"), conf))
 }

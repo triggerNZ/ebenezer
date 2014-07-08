@@ -14,7 +14,7 @@ class HiveExampleStep3(args: Args) extends CascadeJob(args) {
   val dstTable = args("dst-table")
 
   val intermediate = HiveParquetScroogeSource[Customer](db, srcTable, conf)
-  val output       = PartitionHiveParquetScroogeSink[String, Customer](db, dstTable, List("id" -> "string"), conf)
+  val output       = PartitionHiveParquetScroogeSink[String, Customer](db, dstTable, List("pid" -> "string"), conf)
 
   val data = List(
     Customer("CUSTOMER-A", "Fred", "Bedrock", 40),
@@ -30,7 +30,7 @@ class HiveExampleStep3(args: Args) extends CascadeJob(args) {
     },
     HiveJob(
       args, "example",
-      s"INSERT OVERWRITE TABLE $db.$dstTable PARTITION (id) SELECT id,name,address,age FROM $db.$srcTable",
+      s"INSERT OVERWRITE TABLE $db.$dstTable PARTITION (pid) SELECT id, name, address, age, id as pid FROM $db.$srcTable",
       intermediate, Some(output)
     )
   )

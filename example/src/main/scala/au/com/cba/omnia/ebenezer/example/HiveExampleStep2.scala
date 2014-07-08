@@ -26,12 +26,12 @@ class HiveExampleStep2(args: Args) extends CascadeJob(args) {
   val srcTable = args("src-table")
   val dstTable = args("dst-table")
 
-  val inputs = List(PartitionHiveParquetScroogeSource[Customer](db, srcTable, List("id" -> "string"), conf))
-  val output = PartitionHiveParquetScroogeSink[String, Customer](db, dstTable, List("id" -> "string"), conf)
+  val inputs = List(PartitionHiveParquetScroogeSource[Customer](db, srcTable, List("pid" -> "string"), conf))
+  val output = PartitionHiveParquetScroogeSink[String, Customer](db, dstTable, List("pid" -> "string"), conf)
 
   val jobs = List(HiveJob(
     args, "example",
-    s"INSERT OVERWRITE TABLE $db.$dstTable PARTITION (id) SELECT id,name,address,age FROM $db.$srcTable",
+    s"INSERT OVERWRITE TABLE $db.$dstTable PARTITION (pid) SELECT id, name, address, age, id as pid FROM $db.$srcTable",
     inputs, Some(output)
   ))
 }
