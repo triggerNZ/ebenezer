@@ -12,9 +12,7 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import sbt._
-import Keys._
-
+import sbt._, Keys._
 
 import au.com.cba.omnia.uniform.core.standard.StandardProjectPlugin._
 import au.com.cba.omnia.uniform.core.version.UniqueVersionPlugin._
@@ -24,14 +22,19 @@ import au.com.cba.omnia.uniform.assembly.UniformAssemblyPlugin._
 
 object build extends Build {
   lazy val standardSettings =
-    Defaults.defaultSettings ++ uniformDependencySettings
+    Defaults.defaultSettings ++
+    uniformDependencySettings ++
+    uniform.docSettings("https://github.com/CommBank/ebenezer")
 
   lazy val all = Project(
     id = "all",
     base = file("."),
-    settings = standardSettings ++ Seq(
-      publishArtifact := false
-    ),
+    settings =
+      standardSettings
+        ++ uniform.ghsettings
+        ++ Seq(
+          publishArtifact := false
+        ),
     aggregate = Seq(core, hive)
   )
 

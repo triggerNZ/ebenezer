@@ -1,0 +1,3 @@
+name: ebenezer
+exclude: [Gemfile]
+markdown: kramdown
