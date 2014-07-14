@@ -12,6 +12,8 @@ Scalding and Cascading support for using scrooge with parquet.
 Usage
 -----
 
+See https://commbank.github.io/ebenezer/index.html
+
 ### Introspection API
 
 Iterator of records for a path:
