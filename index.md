@@ -6,7 +6,7 @@ title: Ebenezer
 Ebenezer
 ========
 
-Hdfs tools, taps, sinks, sources and alike for use with cascading and scalding.
+Scalding and Cascading support for using scrooge with parquet.
 
 
 * [Readme](https://github.com/CommBank/ebenezer/)
