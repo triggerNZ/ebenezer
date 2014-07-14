@@ -9,6 +9,7 @@ install:
 - git clone https://github.com/CommBank/ci.git
 - chmod ugo+x  ci/*
 - ci/sbt-setup.sh
+- ci/sbt-setup-version.sh
 script:
 - sbt -Dsbt.global.base=$TRAVIS_BUILD_DIR/ci ';  project all; test; package; project
   example; assembly; project tools; assembly' && ci/sbt-deploy.sh && ci/gh-pages.sh
