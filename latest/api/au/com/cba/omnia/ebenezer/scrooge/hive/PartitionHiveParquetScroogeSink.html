@@ -45,7 +45,7 @@ mapreduce.FileSplit and cascading will ignore any partitioned input splits that 
 mapred.FileSplit.
 Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource">PartitionHiveParquetScroogeSource</a> for read.
 </p></div><dl class="paramcmts block"><dt class="param">partitionColumns</dt><dd class="cmt"><p>a list of the partition columns formatted as <code>[(name, type.)]</code>.</p></dd><dt class="param">append</dt><dd class="cmt"><p>iff true will add new files to an existing partition instead of overwritting it.
-</p></dd></dl><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/369df9e34cd810110083d4f7a43c9a15d33e821d//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/PartitionHiveParquetScroogeSource.scala" target="_blank">PartitionHiveParquetScroogeSource.scala</a></dd></dl><div class="toggleContainer block">
+</p></dd></dl><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/7a690095c43d0f64bc49054c2e8cc32b6c552203//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/PartitionHiveParquetScroogeSource.scala" target="_blank">PartitionHiveParquetScroogeSource.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)], <span class="extype" name="com.twitter.scalding.Source">Source</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -200,7 +200,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="com.twitter.scalding.Source#checkFlowDefNotNull" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="checkFlowDefNotNull(implicitflowDef:cascading.flow.FlowDef,implicitmode:com.twitter.scalding.Mode):Unit"></a>
+      <a id="checkFlowDefNotNull(implicitflowDef:&lt;?&gt;,implicitmode:&lt;?&gt;):Unit"></a>
       <a id="checkFlowDefNotNull(FlowDef,Mode):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -485,7 +485,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink">PartitionHiveParquetScroogeSink</a> → AnyRef → Any</dd></dl></div>
     </li><li name="com.twitter.scalding.Source#transformForRead" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="transformForRead(pipe:cascading.pipe.Pipe):cascading.pipe.Pipe"></a>
+      <a id="transformForRead(pipe:&lt;?&gt;):cascading.pipe.Pipe"></a>
       <a id="transformForRead(Pipe):Pipe"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -498,7 +498,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Source</dd></dl></div>
     </li><li name="com.twitter.scalding.Source#transformForWrite" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="transformForWrite(pipe:cascading.pipe.Pipe):cascading.pipe.Pipe"></a>
+      <a id="transformForWrite(pipe:&lt;?&gt;):cascading.pipe.Pipe"></a>
       <a id="transformForWrite(Pipe):Pipe"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -614,7 +614,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <div id="values" class="values members">
               <h3>Deprecated Value Members</h3>
               <ol><li name="com.twitter.scalding.Source#readAtSubmitter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="readAtSubmitter[T](implicitmode:com.twitter.scalding.Mode,implicitconv:com.twitter.scalding.TupleConverter[T]):Stream[T]"></a>
+      <a id="readAtSubmitter[T&lt;:&lt;?&gt;](implicitmode:&lt;?&gt;,implicitconv:&lt;?&gt;):Stream[T]"></a>
       <a id="readAtSubmitter[T](Mode,TupleConverter[T]):Stream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
