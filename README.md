@@ -9,6 +9,8 @@ ebenezer
 Scalding and Cascading support for using scrooge with parquet.
 ```
 
+[Scaladoc](https://commbank.github.io/ebenezer/latest/api/index.html)
+
 Usage
 -----
 
