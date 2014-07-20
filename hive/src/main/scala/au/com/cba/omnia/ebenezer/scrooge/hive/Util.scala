@@ -24,8 +24,6 @@ import com.twitter.scalding.{Dsl, TupleConverter, TupleSetter}
 
 import com.twitter.scrooge.{ThriftStruct, ThriftStructCodec}
 
-import au.com.cba.omnia.beehaus.ParquetTableDescriptor
-
 import au.com.cba.omnia.ebenezer.reflect.Reflect
 
 /**
