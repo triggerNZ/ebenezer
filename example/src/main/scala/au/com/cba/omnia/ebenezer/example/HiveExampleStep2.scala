@@ -31,7 +31,8 @@ class HiveExampleStep2(args: Args) extends CascadeJob(args) {
 
   val jobs = List(HiveJob(
     args, "example",
+    inputs, Some(output),
     s"INSERT OVERWRITE TABLE $db.$dstTable PARTITION (pid) SELECT id, name, address, age, id as pid FROM $db.$srcTable",
-    inputs, Some(output)
+    s"SELECT COUNT(*) FROM $db.$srcTable"
   ))
 }

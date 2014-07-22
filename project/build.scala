@@ -21,6 +21,8 @@ import au.com.cba.omnia.uniform.thrift.UniformThriftPlugin._
 import au.com.cba.omnia.uniform.assembly.UniformAssemblyPlugin._
 
 object build extends Build {
+  val thermometerVersion = "0.3.1-20140728002504-0d721d2"
+
   lazy val standardSettings =
     Defaults.defaultSettings ++
     uniformDependencySettings ++
@@ -49,7 +51,7 @@ object build extends Build {
           libraryDependencies ++=
             depend.hadoop() ++ depend.scalding() ++ depend.scalaz() ++ depend.testing() ++ Seq(
               "com.twitter"             %  "parquet-cascading"  % "1.4.1",
-              "au.com.cba.omnia"        %% "thermometer"        % "0.1.0-20140604034707-ce7a9d3" % "test"
+              "au.com.cba.omnia"        %% "thermometer"        % thermometerVersion % "test"
             )
         )
   )
@@ -66,7 +68,7 @@ object build extends Build {
             depend.hadoop() ++ depend.scalding() ++ depend.testing() ++
             depend.omnia("cascading-hive", "1.2.0-20140721065812-4a3ea74") ++
             Seq(
-              "au.com.cba.omnia"  %% "thermometer" % "0.1.0-20140604034707-ce7a9d3" % "test"
+              "au.com.cba.omnia"  %% "thermometer" % thermometerVersion % "test"
             )
         )
   ).dependsOn(core)
@@ -95,7 +97,7 @@ object build extends Build {
         ++ uniformAssemblySettings
         ++ Seq(
           libraryDependencies ++=
-            depend.hadoop() ++ depend.scalding() ++ depend.testing()
+            depend.hadoop() ++ depend.scalding()
         )
   ).dependsOn(hive)
 }
