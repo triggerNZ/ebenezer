@@ -37,7 +37,7 @@ object build extends Build {
         ++ Seq(
           publishArtifact := false
         ),
-    aggregate = Seq(core, hive)
+    aggregate = Seq(core, test, hive)
   )
 
   lazy val core = Project(
@@ -50,11 +50,24 @@ object build extends Build {
         ++ Seq(
           libraryDependencies ++=
             depend.hadoop() ++ depend.scalding() ++ depend.scalaz() ++ depend.testing() ++ Seq(
-              "com.twitter"             %  "parquet-cascading"  % "1.4.1",
-              "au.com.cba.omnia"        %% "thermometer"        % thermometerVersion % "test"
+              "com.twitter"       % "parquet-cascading" % "1.4.1",
+              "au.com.cba.omnia" %% "thermometer"       % thermometerVersion % "test"
             )
         )
   )
+
+  lazy val test = Project(
+    id = "test",
+    base = file("test"),
+    settings =
+      standardSettings
+        ++ uniform.project("ebenezer-test", "au.com.cba.omnia.ebenezer.test")
+        ++ Seq(
+          libraryDependencies ++=
+            depend.hadoop() ++ depend.scalaz() ++ depend.testing() ++
+            depend.omnia("thermometer", thermometerVersion)
+        )
+  ).dependsOn(core)
 
   lazy val hive = Project(
     id = "hive",
@@ -68,7 +81,7 @@ object build extends Build {
             depend.hadoop() ++ depend.scalding() ++ depend.testing() ++
             depend.omnia("cascading-hive", "1.2.0-20140721065812-4a3ea74") ++
             Seq(
-              "au.com.cba.omnia"  %% "thermometer" % thermometerVersion % "test"
+              "au.com.cba.omnia" %% "thermometer" % thermometerVersion % "test"
             )
         )
   ).dependsOn(core)
@@ -83,7 +96,9 @@ object build extends Build {
         ++ uniformAssemblySettings
         ++ Seq(
           libraryDependencies ++=
-            depend.hadoop() ++ depend.scalding() ++ depend.scalaz() ++ depend.testing()
+            depend.hadoop() ++ depend.scalding() ++ depend.scalaz() ++ depend.testing() ++ Seq(
+              "com.twitter" % "parquet-tools" % "1.4.1"
+            )
         )
   ).dependsOn(core)
 
@@ -96,8 +111,13 @@ object build extends Build {
         ++ uniformThriftSettings
         ++ uniformAssemblySettings
         ++ Seq(
+          parallelExecution in Test := false,
           libraryDependencies ++=
-            depend.hadoop() ++ depend.scalding()
+            depend.hadoop() ++ depend.scalding() ++ depend.testing() ++
+            depend.omnia("thermometer-hive", thermometerVersion) ++ Seq(
+              "com.twitter" % "parquet-hive" % "1.2.5-cdh4.6.0" % "test"
+            )
         )
   ).dependsOn(hive)
+   .dependsOn(test % "test")
 }
