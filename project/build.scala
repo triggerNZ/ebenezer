@@ -79,7 +79,7 @@ object build extends Build {
         ++ Seq(
           libraryDependencies ++=
             depend.hadoop() ++ depend.scalding() ++ depend.testing() ++
-            depend.omnia("cascading-hive", "1.2.0-20140721065812-4a3ea74") ++
+            depend.omnia("cascading-hive", "1.3.0-20140728015456-7f6ec3f") ++
             Seq(
               "au.com.cba.omnia" %% "thermometer" % thermometerVersion % "test"
             )

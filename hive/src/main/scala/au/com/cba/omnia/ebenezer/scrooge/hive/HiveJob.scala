@@ -26,6 +26,8 @@ import cascading.flow.{Flow, FlowSkipStrategy}
 import cascading.tap.hive.HiveNullTap
 import cascading.flow.hive.HiveFlow
 
+import org.apache.hadoop.hive.conf.HiveConf.ConfVars
+
 import au.com.cba.omnia.ebenezer.scrooge.scalding.UniqueJob
 
 /**
@@ -34,7 +36,10 @@ import au.com.cba.omnia.ebenezer.scrooge.scalding.UniqueJob
   * The specified inputs and output are not directly used as part of the query. Instead they are
   * used by Cascade to determine how to schedule this job in relation to other jobs.
   */
-class HiveJob(args: Args, name: String, inputs: List[Source], output: Option[Source], queries: Seq[String])
+class HiveJob(
+  args: Args, name: String, inputs: List[Source], output: Option[Source],
+  hiveSettings: Map[String, String], queries: Seq[String]
+)
     extends UniqueJob(args) {
   // Call the read method on each tap in order to add that tap to the flowDef.
   inputs.foreach(_.read(flowDef, mode))
@@ -43,7 +48,8 @@ class HiveJob(args: Args, name: String, inputs: List[Source], output: Option[Sou
     val flow = new HiveFlow(
       name, queries.toArray,
       inputs.map(_.createTap(Read)(mode).asInstanceOf[Tap[_, _, _]]).asJava,
-      output.fold[Tap[_, _, _]](HiveNullTap.DEV_NULL)(_.createTap(Write)(mode))
+      output.fold[Tap[_, _, _]](HiveNullTap.DEV_NULL)(_.createTap(Write)(mode)),
+      hiveSettings.asJava
     )
 
     flow.setFlowSkipStrategy(DontSkipStrategy)
@@ -59,7 +65,7 @@ object HiveJob {
     * used by Cascading to determine how to schedule this job in relation to other jobs.
     */
   def apply(args: Args, name: String, inputs: List[Source], output: Option[Source], query: String*) =
-    new HiveJob(args, name, inputs, output, query)
+    new HiveJob(args, name, inputs, output, Map.empty, query)
 
   /**
     * Creates a Scalding job to run the specified queries against hive.
@@ -68,8 +74,37 @@ object HiveJob {
     * used by Cascading to determine how to schedule this job in relation to other jobs.
     */
   def apply(args: Args, name: String, input: Source, output: Option[Source], query: String*) =
-    new HiveJob(args, name, List(input), output, query)
+    new HiveJob(args, name, List(input), output, Map.empty, query)
 
+  /**
+    * Creates a Scalding job to run the specified queries against hive.
+    * 
+    * The specified inputs and output are not directly used as part of the query. Instead they are
+    * used by Cascading to determine how to schedule this job in relation to other jobs.
+    */
+  def apply(
+    args: Args, name: String, inputs: List[Source], output: Option[Source],
+    hiveSettings: Map[ConfVars, String], query: String*
+  ) = new HiveJob(
+    args, name, inputs, output,
+    hiveSettings.map { case (key, value) => key.varname -> value },
+    query
+  )
+
+  /**
+    * Creates a Scalding job to run the specified queries against hive.
+    * 
+    * The specified input and output are not directly used as part of the query. Instead they are
+    * used by Cascading to determine how to schedule this job in relation to other jobs.
+    */
+  def apply(
+    args: Args, name: String, input: Source, output: Option[Source],
+    hiveSettings: Map[ConfVars, String], query: String*
+  ) = new HiveJob(
+    args, name, List(input), output,
+    hiveSettings.map { case (key, value) => key.varname -> value },
+    query
+  )
 }
 
 /** Cascading flow skip strategy that does not skip a flow.*/
