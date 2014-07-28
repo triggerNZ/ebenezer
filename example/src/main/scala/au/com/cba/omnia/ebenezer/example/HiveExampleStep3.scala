@@ -4,6 +4,7 @@ import com.twitter.scalding._, TDsl._
 import com.twitter.scalding.typed.IterablePipe
 
 import org.apache.hadoop.hive.conf.HiveConf
+import org.apache.hadoop.hive.conf.HiveConf.ConfVars._
 
 import au.com.cba.omnia.ebenezer.scrooge.hive._
 
@@ -33,7 +34,8 @@ class HiveExampleStep3(args: Args) extends CascadeJob(args) {
     HiveJob(
       args, "example",
       intermediateIn, Some(output),
-      s"INSERT OVERWRITE TABLE $db.$dstTable PARTITION (pid) SELECT id, generate_hash(name), address, age, id as pid FROM $db.$srcTable",
+      Map(HIVEMERGEMAPFILES -> "true"),
+      s"INSERT OVERWRITE TABLE $db.$dstTable PARTITION (pid) SELECT id, name, address, age, id as pid FROM $db.$srcTable",
       "CREATE TABLE test (id string, age int)",
       s"INSERT OVERWRITE TABLE TEST SELECT name, age from $db.$srcTable"
     )
