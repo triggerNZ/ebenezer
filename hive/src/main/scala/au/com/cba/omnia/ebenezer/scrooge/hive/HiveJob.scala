@@ -56,7 +56,7 @@ object HiveJob {
     * Creates a Scalding job to run the specified queries against hive.
     * 
     * The specified inputs and output are not directly used as part of the query. Instead they are
-    * used by Cascade to determine how to schedule this job in relation to other jobs.
+    * used by Cascading to determine how to schedule this job in relation to other jobs.
     */
   def apply(args: Args, name: String, inputs: List[Source], output: Option[Source], query: String*) =
     new HiveJob(args, name, inputs, output, query)
@@ -65,7 +65,7 @@ object HiveJob {
     * Creates a Scalding job to run the specified queries against hive.
     * 
     * The specified input and output are not directly used as part of the query. Instead they are
-    * used by Cascade to determine how to schedule this job in relation to other jobs.
+    * used by Cascading to determine how to schedule this job in relation to other jobs.
     */
   def apply(args: Args, name: String, input: Source, output: Option[Source], query: String*) =
     new HiveJob(args, name, List(input), output, query)
