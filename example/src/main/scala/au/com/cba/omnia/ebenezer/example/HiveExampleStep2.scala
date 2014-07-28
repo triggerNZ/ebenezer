@@ -16,18 +16,15 @@ package au.com.cba.omnia.ebenezer.example
 
 import com.twitter.scalding._, TDsl._
 
-import org.apache.hadoop.hive.conf.HiveConf
-
 import au.com.cba.omnia.ebenezer.scrooge.hive._
 
 class HiveExampleStep2(args: Args) extends CascadeJob(args) {
-  val conf = new HiveConf()
   val db = args("db")
   val srcTable = args("src-table")
   val dstTable = args("dst-table")
 
-  val inputs = List(PartitionHiveParquetScroogeSource[Customer](db, srcTable, List("pid" -> "string"), conf))
-  val output = PartitionHiveParquetScroogeSink[String, Customer](db, dstTable, List("pid" -> "string"), conf)
+  val inputs = List(PartitionHiveParquetScroogeSource[Customer](db, srcTable, List("pid" -> "string")))
+  val output = PartitionHiveParquetScroogeSink[String, Customer](db, dstTable, List("pid" -> "string"))
 
   val jobs = List(HiveJob(
     args, "example",

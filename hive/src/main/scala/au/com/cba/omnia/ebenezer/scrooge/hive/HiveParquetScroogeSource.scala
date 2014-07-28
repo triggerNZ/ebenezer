@@ -16,8 +16,6 @@ package au.com.cba.omnia.ebenezer
 package scrooge
 package hive
 
-import org.apache.hadoop.hive.conf.HiveConf
-
 import cascading.scheme.Scheme
 import cascading.tap.{Tap, SinkMode}
 
@@ -32,7 +30,7 @@ import com.twitter.scrooge.ThriftStruct
   * in Parquet format.
   */
 case class HiveParquetScroogeSource[T <: ThriftStruct]
-  (database: String, table: String, conf: HiveConf)
+  (database: String, table: String)
   (implicit m : Manifest[T], conv: TupleConverter[T], set: TupleSetter[T])
   extends Source
   with TypedSink[T]

@@ -17,8 +17,6 @@ package au.com.cba.omnia.ebenezer.example
 import com.twitter.scalding._, TDsl._
 import com.twitter.scalding.typed.IterablePipe
 
-import org.apache.hadoop.hive.conf.HiveConf
-
 import au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink
 
 class HiveExampleStep1(args: Args) extends Job(args) {
@@ -29,9 +27,7 @@ class HiveExampleStep1(args: Args) extends Job(args) {
     Customer("CUSTOMER-4", "BamBam", "Bedrock", 2)
   )
 
-  val conf = new HiveConf
-
   IterablePipe(data, flowDef, mode)
     .map(c => c.id -> c)
-    .write(PartitionHiveParquetScroogeSink[String, Customer](args("db"), args("table"), List("pid" -> "string"), conf))
+    .write(PartitionHiveParquetScroogeSink[String, Customer](args("db"), args("table"), List("pid" -> "string")))
 }

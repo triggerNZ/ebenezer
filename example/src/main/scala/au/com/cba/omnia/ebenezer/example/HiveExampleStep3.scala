@@ -3,20 +3,18 @@ package au.com.cba.omnia.ebenezer.example
 import com.twitter.scalding._, TDsl._
 import com.twitter.scalding.typed.IterablePipe
 
-import org.apache.hadoop.hive.conf.HiveConf
 import org.apache.hadoop.hive.conf.HiveConf.ConfVars._
 
 import au.com.cba.omnia.ebenezer.scrooge.hive._
 
 class HiveExampleStep3(args: Args) extends CascadeJob(args) {
-  val conf     = new HiveConf()
   val db       = args("db")
   val srcTable = args("src-table")
   val dstTable = args("dst-table")
 
-  val intermediateOut = PartitionHiveParquetScroogeSink[String, Customer](db, srcTable, List("pid" -> "string"), conf)
-  val intermediateIn  = PartitionHiveParquetScroogeSource[Customer](db, srcTable, List("pid" -> "string"), conf)
-  val output          = PartitionHiveParquetScroogeSink[String, Customer](db, dstTable, List("pid" -> "string"), conf)
+  val intermediateOut = PartitionHiveParquetScroogeSink[String, Customer](db, srcTable, List("pid" -> "string"))
+  val intermediateIn  = PartitionHiveParquetScroogeSource[Customer](db, srcTable, List("pid" -> "string"))
+  val output          = PartitionHiveParquetScroogeSink[String, Customer](db, dstTable, List("pid" -> "string"))
 
   val data = List(
     Customer("CUSTOMER-A", "Fred", "Bedrock", 40),

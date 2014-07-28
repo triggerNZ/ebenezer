@@ -18,8 +18,6 @@ package hive
 
 import org.apache.hadoop.mapred.{JobConf, RecordReader, OutputCollector}
 
-import org.apache.hadoop.hive.conf.HiveConf
-
 import cascading.scheme.Scheme
 import cascading.tap.{Tap, SinkMode}
 
@@ -42,8 +40,7 @@ import com.twitter.scrooge.ThriftStruct
   * @param append iff true will add new files to an existing partition instead of overwritting it.
   */
 case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct](
-  database: String, table: String, partitionColumns: List[(String, String)],
-  conf: HiveConf, append: Boolean = false
+  database: String, table: String, partitionColumns: List[(String, String)], append: Boolean = false
 ) (implicit m: Manifest[T], valueSet: TupleSetter[T], ma: Manifest[A], partitionSet: TupleSetter[A])
     extends Source
     with TypedSink[(A, T)]
@@ -133,7 +130,7 @@ class PartitionHiveParquetReadTap(
   * Use [[PartitionHiveParquetScroogeSink]] for write.
   */
 case class PartitionHiveParquetScroogeSource[T <: ThriftStruct](
-  database: String, table: String, partitionColumns: List[(String, String)], conf: HiveConf
+  database: String, table: String, partitionColumns: List[(String, String)]
 ) (implicit m : Manifest[T], conv: TupleConverter[T])
     extends Source
     with Mappable[T]
