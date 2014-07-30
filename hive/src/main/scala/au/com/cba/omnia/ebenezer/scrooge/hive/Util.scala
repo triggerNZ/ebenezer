@@ -20,6 +20,8 @@ import org.apache.thrift.protocol.TType
 
 import cascading.tuple.{Fields, Tuple}
 
+import org.apache.hadoop.fs.Path
+
 import com.twitter.scalding.{Dsl, TupleConverter, TupleSetter}
 
 import com.twitter.scrooge.{ThriftStruct, ThriftStructCodec}
@@ -79,7 +81,7 @@ object Util {
 
   /** Creates a hive parquet table descriptor based on a thrift struct.*/
   def createHiveTableDescriptor[T <: ThriftStruct]
-    (database: String, table: String, partitionColumns: List[(String, String)])
+    (database: String, table: String, partitionColumns: List[(String, String)], location: Option[Path] = None)
     (implicit m: Manifest[T])= {
     val thrift: Class[T]     = m.runtimeClass.asInstanceOf[Class[T]]
     val codec                = Reflect.companionOf(thrift).asInstanceOf[ThriftStructCodec[_ <: ThriftStruct]]
@@ -92,12 +94,17 @@ object Util {
     val columns              = (structColumnNames ++ partitionColumnNames).toArray
     val types                = (structColumnTypes ++ partitionColumnTypes).toArray
 
+
+
     assert(
       partitionColumnNames.intersect(metadata.fields.map(_.name)).isEmpty,
       "Partition columns must be different from the fields in the thrift struct"
     )
 
-    new ParquetTableDescriptor(database, table, columns, types, partitionColumns.map(_._1).toArray)
+    new ParquetTableDescriptor(
+      database, table, columns, types,
+      partitionColumns.map(_._1).toArray, location.getOrElse(null)
+    )
   }
 
   /** Maps Thrift types to Hive types.*/

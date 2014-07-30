@@ -14,6 +14,8 @@
 
 package au.com.cba.omnia.ebenezer.scrooge.hive;
 
+import org.apache.hadoop.fs.Path;
+
 import org.apache.hadoop.hive.metastore.api.Table;
 import org.apache.hadoop.hive.metastore.api.StorageDescriptor;
 
@@ -44,7 +46,23 @@ public class ParquetTableDescriptor extends HiveTableDescriptor {
                                   String[] columnTypes, String[] partitionColumns) {
         super(databaseName, tableName, columnNames, columnTypes,
               partitionColumns, HiveTableDescriptor.HIVE_DEFAULT_DELIMITER,
-              PARQUET_SERIALIZATION_LIB);
+              PARQUET_SERIALIZATION_LIB, null);
+    }
+
+    /**
+     * Constructs a new ParquetHiveTableDescriptor object.
+     *
+     * @param tableName        The table name.
+     * @param columnNames      Names of the columns.
+     * @param columnTypes      Hive types of the columns.
+     * @param partitionColumns The columns used for partitioning. Must be a subset of `columnNames`.
+     * @param location         Override the location of the table
+     */
+    public ParquetTableDescriptor(String databaseName, String tableName, String[] columnNames,
+                                  String[] columnTypes, String[] partitionColumns, Path location) {
+        super(databaseName, tableName, columnNames, columnTypes,
+              partitionColumns, HiveTableDescriptor.HIVE_DEFAULT_DELIMITER,
+              PARQUET_SERIALIZATION_LIB, location);
     }
     
     /**

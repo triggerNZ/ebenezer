@@ -21,6 +21,8 @@ import cascading.tap.{Tap, SinkMode}
 
 import cascading.tap.hive.HiveTap
 
+import org.apache.hadoop.fs.{FileSystem, Path}
+
 import com.twitter.scalding._
 
 import com.twitter.scrooge.ThriftStruct
@@ -30,24 +32,34 @@ import com.twitter.scrooge.ThriftStruct
   * in Parquet format.
   */
 case class HiveParquetScroogeSource[T <: ThriftStruct]
-  (database: String, table: String)
+  (database: String, table: String, location: Option[String] = None)
   (implicit m : Manifest[T], conv: TupleConverter[T], set: TupleSetter[T])
   extends Source
   with TypedSink[T]
   with Mappable[T]
   with java.io.Serializable {
 
-  lazy val tableDescriptor = Util.createHiveTableDescriptor[T](database, table, List())
   lazy val hdfsScheme =
     HadoopSchemeInstance(new ParquetScroogeScheme[T].asInstanceOf[Scheme[_, _, _, _, _]])
 
   override def createTap(readOrWrite: AccessMode)(implicit mode: Mode): Tap[_, _, _] = mode match {
     case Local(_)              => sys.error("Local mode is currently not supported for ${toString}")
-    case hdfsMode @ Hdfs(_, jobConf) => readOrWrite match {
-      case Read  => CastHfsTap(new HiveTap(tableDescriptor, hdfsScheme, SinkMode.REPLACE, true))
-      case Write => {
-        val tap = new HiveTap(tableDescriptor, hdfsScheme, SinkMode.REPLACE, true)
-        CastHfsTap(tap)
+    case hdfsMode @ Hdfs(_, jobConf) => {
+      val path = location.map { l  =>
+        val fs = FileSystem.get(jobConf)
+        val p = fs.makeQualified(new Path(l))
+        p
+      }
+
+      val tableDescriptor =
+        Util.createHiveTableDescriptor[T](database, table, List(), path)
+
+      readOrWrite match {
+        case Read  => CastHfsTap(new HiveTap(tableDescriptor, hdfsScheme, SinkMode.REPLACE, true))
+        case Write => {
+          val tap = new HiveTap(tableDescriptor, hdfsScheme, SinkMode.REPLACE, true)
+          CastHfsTap(tap)
+        }
       }
     }
     case x                     => sys.error(s"$x mode is currently not supported for ${toString}")
@@ -60,4 +72,15 @@ case class HiveParquetScroogeSource[T <: ThriftStruct]
 
   override def setter[U <: T] =
     TupleSetter.asSubSetter[T, U](TupleSetter.of[T])
+}
+
+/** Constructors for HiveParquetScroogeSource. */
+object HiveParquetScroogeSource {
+  /**
+    * Source to read unpartitioned Hive tables where the data is the specified thrift struct stored
+    * in Parquet format.
+    */
+  def apply[T <: ThriftStruct : Manifest : TupleConverter : TupleSetter]
+  (database: String, table: String, location: String) =
+    new HiveParquetScroogeSource[T](database, table, Some(location))
 }

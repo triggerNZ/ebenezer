@@ -17,6 +17,7 @@ package scrooge
 package hive
 
 import org.apache.hadoop.mapred.{JobConf, RecordReader, OutputCollector}
+import org.apache.hadoop.fs.{FileSystem, Path}
 
 import cascading.scheme.Scheme
 import cascading.tap.{Tap, SinkMode}
@@ -40,8 +41,9 @@ import com.twitter.scrooge.ThriftStruct
   * @param append iff true will add new files to an existing partition instead of overwritting it.
   */
 case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct](
-  database: String, table: String, partitionColumns: List[(String, String)], append: Boolean = false
-) (implicit m: Manifest[T], valueSet: TupleSetter[T], ma: Manifest[A], partitionSet: TupleSetter[A])
+  database: String, table: String, partitionColumns: List[(String, String)],
+  location: Option[String] = None, append: Boolean = false
+) (implicit m: Manifest[T], valueSet: TupleSetter[T], partitionSet: TupleSetter[A])
     extends Source
     with TypedSink[(A, T)]
     with java.io.Serializable {
@@ -50,9 +52,6 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct](
     partitionSet.arity == partitionColumns.length,
     "The size of the partition type needs to match the number of specified partion columns"
   )
-
-  val tableDescriptor = Util.createHiveTableDescriptor[T](database, table, partitionColumns)
-
   val  hdfsScheme =
     HadoopSchemeInstance(new ParquetScroogeScheme[T].asInstanceOf[Scheme[_, _, _, _, _]])
 
@@ -68,6 +67,16 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct](
           // existing files.
           jobConf.set("cascading.tapcollector.partname", s"%s%spart-${System.currentTimeMillis}-%05d-%05d")
         }
+
+        val path = location.map { l  =>
+          val fs = FileSystem.get(jobConf)
+          val p = fs.makeQualified(new Path(l))
+          p
+        }
+
+        val tableDescriptor =
+          Util.createHiveTableDescriptor[T](database, table, partitionColumns, path)
+
         val tap = new HivePartitionTap(
           new HiveTap(tableDescriptor, hdfsScheme, SinkMode.REPLACE, true), SinkMode.UPDATE
         )
@@ -93,6 +102,45 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct](
 
   override def toString: String =
     s"PartitionHiveParquetScroogeSink[${m.runtimeClass}]($database, $table, $partitionColumns)"
+}
+
+/** Constructors for PartitionHiveParquetScroogeSink. */
+object PartitionHiveParquetScroogeSink {
+  /**
+    * A scalding sink to write out Scrooge Thrift structs to a partitioned hive table using parquet as
+    * underlying storage format.
+    * 
+    * Unfortunately read does not work since the ParquetInputSplit is an instance of
+    * mapreduce.FileSplit and cascading will ignore any partitioned input splits that aren't part of
+    * mapred.FileSplit.
+    * Instead use [[PartitionHiveParquetScroogeSource]] for read.
+    * 
+    * @param partitionColumns a list of the partition columns formatted as `[(name, type.)]`.
+    */
+  def apply[A, T <: ThriftStruct](
+    database: String, table: String, partitionColumns: List[(String, String)], location: String
+  ) (implicit m: Manifest[T], valueSet: TupleSetter[T], partitionSet: TupleSetter[A]) = {
+    new PartitionHiveParquetScroogeSink(database, table, partitionColumns, Some(location))(m, valueSet, partitionSet)
+  }
+
+  /**
+    * A scalding sink to write out Scrooge Thrift structs to a partitioned hive table using parquet as
+    * underlying storage format.
+    * 
+    * Unfortunately read does not work since the ParquetInputSplit is an instance of
+    * mapreduce.FileSplit and cascading will ignore any partitioned input splits that aren't part of
+    * mapred.FileSplit.
+    * Instead use [[PartitionHiveParquetScroogeSource]] for read.
+    * 
+    * @param partitionColumns a list of the partition columns formatted as `[(name, type.)]`.
+    * @param append iff true will add new files to an existing partition instead of overwritting it.
+    */
+  def apply[A, T <: ThriftStruct](
+    database: String, table: String, partitionColumns: List[(String, String)],
+    location: String, append: Boolean
+  ) (implicit m: Manifest[T], valueSet: TupleSetter[T], partitionSet: TupleSetter[A]) = {
+    new PartitionHiveParquetScroogeSink(database, table, partitionColumns, Some(location), append)(m, valueSet, partitionSet)
+  }
 }
 
 /**
@@ -143,7 +191,6 @@ case class PartitionHiveParquetScroogeSource[T <: ThriftStruct](
     case Local(_)              => sys.error("Local mode is currently not supported for ${toString}")
     case hdfsMode @ Hdfs(_, jobConf) => readOrWrite match {
       case Read  => {
-        //TODO strict should be true
         val tap = new PartitionHiveParquetReadTap(tableDescriptor, hdfsScheme)
         tap.asInstanceOf[Tap[JobConf, RecordReader[_, _], OutputCollector[_, _]]]
       }
