@@ -50,17 +50,10 @@ case class HiveParquetScroogeSource[T <: ThriftStruct]
         val p = fs.makeQualified(new Path(l))
         p
       }
-
       val tableDescriptor =
         Util.createHiveTableDescriptor[T](database, table, List(), path)
 
-      readOrWrite match {
-        case Read  => CastHfsTap(new HiveTap(tableDescriptor, hdfsScheme, SinkMode.REPLACE, true))
-        case Write => {
-          val tap = new HiveTap(tableDescriptor, hdfsScheme, SinkMode.REPLACE, true)
-          CastHfsTap(tap)
-        }
-      }
+      CastHfsTap(new HiveTap(tableDescriptor, hdfsScheme, SinkMode.REPLACE, true))
     }
     case x                     => sys.error(s"$x mode is currently not supported for ${toString}")
   }
