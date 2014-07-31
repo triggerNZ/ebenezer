@@ -41,7 +41,7 @@
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Creates a Scalding job to run the specified queries against hive.</p><p>The specified inputs and output are not directly used as part of the query. Instead they are
 used by Cascade to determine how to schedule this job in relation to other jobs.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/c668e5cb28a4092c84eb8f0a1e7d2dc2c590d96f//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/HiveJob.scala" target="_blank">HiveJob.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/a63c03454fa4be7ae635dacd98dbdbf80639ecaa//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/HiveJob.scala" target="_blank">HiveJob.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="../scalding/UniqueJob.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.scalding.UniqueJob">UniqueJob</a>, <span class="extype" name="com.twitter.scalding.Job">Job</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="com.twitter.scalding.FieldConversions">FieldConversions</span>, <span class="extype" name="com.twitter.scalding.LowPriorityFieldConversions">LowPriorityFieldConversions</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -82,7 +82,7 @@ used by Cascade to determine how to schedule this job in relation to other jobs.
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(args:com.twitter.scalding.Args,name:String,inputs:List[com.twitter.scalding.Source],output:Option[com.twitter.scalding.Source],queries:Seq[String]):au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob"></a>
+      <a id="&lt;init&gt;(args:com.twitter.scalding.Args,name:String,inputs:List[com.twitter.scalding.Source],output:Option[com.twitter.scalding.Source],hiveSettings:Map[String,String],queries:Seq[String]):au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob"></a>
       <a id="&lt;init&gt;:HiveJob"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -90,7 +90,7 @@ used by Cascade to determine how to schedule this job in relation to other jobs.
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">HiveJob</span><span class="params">(<span name="args">args: <span class="extype" name="com.twitter.scalding.Args">Args</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="inputs">inputs: <span class="extype" name="scala.List">List</span>[<span class="extype" name="com.twitter.scalding.Source">Source</span>]</span>, <span name="output">output: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="com.twitter.scalding.Source">Source</span>]</span>, <span name="queries">queries: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span>
+        <span class="name">HiveJob</span><span class="params">(<span name="args">args: <span class="extype" name="com.twitter.scalding.Args">Args</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="inputs">inputs: <span class="extype" name="scala.List">List</span>[<span class="extype" name="com.twitter.scalding.Source">Source</span>]</span>, <span name="output">output: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="com.twitter.scalding.Source">Source</span>]</span>, <span name="hiveSettings">hiveSettings: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="queries">queries: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span>
       </span>
       </h4>
       

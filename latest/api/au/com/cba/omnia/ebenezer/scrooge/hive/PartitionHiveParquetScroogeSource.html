@@ -35,7 +35,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">PartitionHiveParquetScroogeSource</span><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="conf">conf: <span class="extype" name="org.apache.hadoop.hive.conf.HiveConf">HiveConf</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>]</span>, <span name="conv">conv: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.Source">Source</span> with <span class="extype" name="com.twitter.scalding.Mappable">Mappable</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>] with <span class="extype" name="java.io.Serializable">Serializable</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">PartitionHiveParquetScroogeSource</span><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>]</span>, <span name="conv">conv: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.Source">Source</span> with <span class="extype" name="com.twitter.scalding.Mappable">Mappable</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>] with <span class="extype" name="java.io.Serializable">Serializable</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
@@ -43,7 +43,7 @@
 underlying storage format. It will ignore the partition columns and only read the thrift struct
 from the parquet file.
 Use <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink">PartitionHiveParquetScroogeSink</a> for write.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/c668e5cb28a4092c84eb8f0a1e7d2dc2c590d96f//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/PartitionHiveParquetScroogeSource.scala" target="_blank">PartitionHiveParquetScroogeSource.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/a63c03454fa4be7ae635dacd98dbdbf80639ecaa//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/PartitionHiveParquetScroogeSource.scala" target="_blank">PartitionHiveParquetScroogeSource.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="com.twitter.scalding.Mappable">Mappable</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>], <span class="extype" name="com.twitter.scalding.typed.TypedSource">TypedSource</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>], <span class="extype" name="com.twitter.scalding.Source">Source</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -84,7 +84,7 @@ Use <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.c
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(database:String,table:String,partitionColumns:List[(String,String)],conf:org.apache.hadoop.hive.conf.HiveConf)(implicitm:Manifest[T],implicitconv:com.twitter.scalding.TupleConverter[T]):au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource[T]"></a>
+      <a id="&lt;init&gt;(database:String,table:String,partitionColumns:List[(String,String)])(implicitm:Manifest[T],implicitconv:com.twitter.scalding.TupleConverter[T]):au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource[T]"></a>
       <a id="&lt;init&gt;:PartitionHiveParquetScroogeSource[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -92,7 +92,7 @@ Use <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.c
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">PartitionHiveParquetScroogeSource</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="conf">conf: <span class="extype" name="org.apache.hadoop.hive.conf.HiveConf">HiveConf</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>]</span>, <span name="conv">conv: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>]</span>)</span>
+        <span class="name">PartitionHiveParquetScroogeSource</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>]</span>, <span name="conv">conv: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>]</span>)</span>
       </span>
       </h4>
       
@@ -184,7 +184,7 @@ Use <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.c
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="com.twitter.scalding.Source#checkFlowDefNotNull" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="checkFlowDefNotNull(implicitflowDef:&lt;?&gt;,implicitmode:&lt;?&gt;):Unit"></a>
+      <a id="checkFlowDefNotNull(implicitflowDef:cascading.flow.FlowDef,implicitmode:com.twitter.scalding.Mode):Unit"></a>
       <a id="checkFlowDefNotNull(FlowDef,Mode):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -215,19 +215,6 @@ Use <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.c
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource#conf" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="conf:org.apache.hadoop.hive.conf.HiveConf"></a>
-      <a id="conf:HiveConf"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">conf</span><span class="result">: <span class="extype" name="org.apache.hadoop.hive.conf.HiveConf">HiveConf</span></span>
-      </span>
-      </h4>
-      
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource#converter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="converter[U&gt;:T]:com.twitter.scalding.TupleConverter[U]"></a>
       <a id="converter[U&gt;:T]:TupleConverter[U]"></a>
@@ -300,7 +287,7 @@ Use <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.c
               
         </dd></dl></div>
     </li><li name="com.twitter.scalding.Mappable#flatMapTo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="flatMapTo[U&lt;:&lt;?&gt;](out:&lt;?&gt;)(mf:&lt;?&gt;)(implicitflowDef:&lt;?&gt;,implicitmode:&lt;?&gt;,implicitsetter:&lt;?&gt;):cascading.pipe.Pipe"></a>
+      <a id="flatMapTo[U](out:cascading.tuple.Fields)(mf:T=&gt;TraversableOnce[U])(implicitflowDef:cascading.flow.FlowDef,implicitmode:com.twitter.scalding.Mode,implicitsetter:com.twitter.scalding.TupleSetter[U]):cascading.pipe.Pipe"></a>
       <a id="flatMapTo[U](Fields)((T)⇒TraversableOnce[U])(FlowDef,Mode,TupleSetter[U]):Pipe"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -352,7 +339,7 @@ Use <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.c
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="com.twitter.scalding.Mappable#mapTo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="mapTo[U&lt;:&lt;?&gt;](out:&lt;?&gt;)(mf:&lt;?&gt;)(implicitflowDef:&lt;?&gt;,implicitmode:&lt;?&gt;,implicitsetter:&lt;?&gt;):cascading.pipe.Pipe"></a>
+      <a id="mapTo[U](out:cascading.tuple.Fields)(mf:T=&gt;U)(implicitflowDef:cascading.flow.FlowDef,implicitmode:com.twitter.scalding.Mode,implicitsetter:com.twitter.scalding.TupleSetter[U]):cascading.pipe.Pipe"></a>
       <a id="mapTo[U](Fields)((T)⇒U)(FlowDef,Mode,TupleSetter[U]):Pipe"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -482,7 +469,7 @@ Use <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.c
       </h4>
       
     </li><li name="com.twitter.scalding.Mappable#toIterator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toIterator(implicitmode:&lt;?&gt;):Iterator[T]"></a>
+      <a id="toIterator(implicitmode:com.twitter.scalding.Mode):Iterator[T]"></a>
       <a id="toIterator(Mode):Iterator[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -508,7 +495,7 @@ Use <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.c
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource">PartitionHiveParquetScroogeSource</a> → AnyRef → Any</dd></dl></div>
     </li><li name="com.twitter.scalding.Source#transformForRead" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="transformForRead(pipe:&lt;?&gt;):cascading.pipe.Pipe"></a>
+      <a id="transformForRead(pipe:cascading.pipe.Pipe):cascading.pipe.Pipe"></a>
       <a id="transformForRead(Pipe):Pipe"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -521,7 +508,7 @@ Use <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.c
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Source</dd></dl></div>
     </li><li name="com.twitter.scalding.Source#transformForWrite" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="transformForWrite(pipe:&lt;?&gt;):cascading.pipe.Pipe"></a>
+      <a id="transformForWrite(pipe:cascading.pipe.Pipe):cascading.pipe.Pipe"></a>
       <a id="transformForWrite(Pipe):Pipe"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -637,7 +624,7 @@ Use <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.c
         <div id="values" class="values members">
               <h3>Deprecated Value Members</h3>
               <ol><li name="com.twitter.scalding.Source#readAtSubmitter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="readAtSubmitter[T&lt;:&lt;?&gt;](implicitmode:&lt;?&gt;,implicitconv:&lt;?&gt;):Stream[T]"></a>
+      <a id="readAtSubmitter[T](implicitmode:com.twitter.scalding.Mode,implicitconv:com.twitter.scalding.TupleConverter[T]):Stream[T]"></a>
       <a id="readAtSubmitter[T](Mode,TupleConverter[T]):Stream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">

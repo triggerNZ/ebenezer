@@ -39,7 +39,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/c668e5cb28a4092c84eb8f0a1e7d2dc2c590d96f//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/HiveJob.scala" target="_blank">HiveJob.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/a63c03454fa4be7ae635dacd98dbdbf80639ecaa//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/HiveJob.scala" target="_blank">HiveJob.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -150,6 +150,36 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(args:com.twitter.scalding.Args,name:String,input:com.twitter.scalding.Source,output:Option[com.twitter.scalding.Source],hiveSettings:Map[org.apache.hadoop.hive.conf.HiveConf.ConfVars,String],query:String*):au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob"></a>
+      <a id="apply(Args,String,Source,Option[Source],Map[ConfVars,String],String*):HiveJob"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="args">args: <span class="extype" name="com.twitter.scalding.Args">Args</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="input">input: <span class="extype" name="com.twitter.scalding.Source">Source</span></span>, <span name="output">output: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="com.twitter.scalding.Source">Source</span>]</span>, <span name="hiveSettings">hiveSettings: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf.ConfVars">ConfVars</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="query">query: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="HiveJob.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob">HiveJob</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Creates a Scalding job to run the specified queries against hive.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a Scalding job to run the specified queries against hive.</p><p>The specified input and output are not directly used as part of the query. Instead they are
+used by Cascading to determine how to schedule this job in relation to other jobs.
+</p></div></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(args:com.twitter.scalding.Args,name:String,inputs:List[com.twitter.scalding.Source],output:Option[com.twitter.scalding.Source],hiveSettings:Map[org.apache.hadoop.hive.conf.HiveConf.ConfVars,String],query:String*):au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob"></a>
+      <a id="apply(Args,String,List[Source],Option[Source],Map[ConfVars,String],String*):HiveJob"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="args">args: <span class="extype" name="com.twitter.scalding.Args">Args</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="inputs">inputs: <span class="extype" name="scala.List">List</span>[<span class="extype" name="com.twitter.scalding.Source">Source</span>]</span>, <span name="output">output: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="com.twitter.scalding.Source">Source</span>]</span>, <span name="hiveSettings">hiveSettings: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf.ConfVars">ConfVars</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="query">query: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="HiveJob.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob">HiveJob</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Creates a Scalding job to run the specified queries against hive.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a Scalding job to run the specified queries against hive.</p><p>The specified inputs and output are not directly used as part of the query. Instead they are
+used by Cascading to determine how to schedule this job in relation to other jobs.
+</p></div></div>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="apply(args:com.twitter.scalding.Args,name:String,input:com.twitter.scalding.Source,output:Option[com.twitter.scalding.Source],query:String*):au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob"></a>
       <a id="apply(Args,String,Source,Option[Source],String*):HiveJob"></a>
