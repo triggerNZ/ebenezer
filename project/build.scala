@@ -26,7 +26,9 @@ object build extends Build {
   lazy val standardSettings =
     Defaults.defaultSettings ++
     uniformDependencySettings ++
-    uniform.docSettings("https://github.com/CommBank/ebenezer")
+    uniform.docSettings("https://github.com/CommBank/ebenezer") ++ Seq(
+      logLevel in sbtassembly.Plugin.AssemblyKeys.assembly := Level.Error
+    )
 
   lazy val all = Project(
     id = "all",
