@@ -88,13 +88,11 @@ object Util {
     val metadata             = codec.metaData
     val partitionColumnNames = partitionColumns.map(_._1)
     val partitionColumnTypes = partitionColumns.map(_._2)
-    val structColumns        = metadata.fields
+    val structColumns        = metadata.fields.sortBy(_.id)
     val structColumnNames    = structColumns.map(_.name)
     val structColumnTypes    = structColumns.map(t => Util.mapType(t.`type`))
     val columns              = (structColumnNames ++ partitionColumnNames).toArray
     val types                = (structColumnTypes ++ partitionColumnTypes).toArray
-
-
 
     assert(
       partitionColumnNames.intersect(metadata.fields.map(_.name)).isEmpty,
