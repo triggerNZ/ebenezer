@@ -54,7 +54,8 @@ object build extends Build {
             depend.hadoop() ++ depend.scalding() ++ depend.scalaz() ++ depend.testing() ++ Seq(
               "com.twitter"       % "parquet-cascading" % "1.4.1",
               "au.com.cba.omnia" %% "thermometer"       % thermometerVersion % "test"
-            )
+            ),
+          parallelExecution in Test := false
         )
   )
 
