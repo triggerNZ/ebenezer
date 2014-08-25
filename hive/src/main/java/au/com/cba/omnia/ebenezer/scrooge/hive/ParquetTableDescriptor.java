@@ -45,7 +45,7 @@ public class ParquetTableDescriptor extends HiveTableDescriptor {
     public ParquetTableDescriptor(String databaseName, String tableName, String[] columnNames,
                                   String[] columnTypes, String[] partitionColumns) {
         super(databaseName, tableName, columnNames, columnTypes,
-              partitionColumns, HiveTableDescriptor.HIVE_DEFAULT_DELIMITER,
+              partitionColumns, null,
               PARQUET_SERIALIZATION_LIB, null);
     }
 
@@ -61,7 +61,7 @@ public class ParquetTableDescriptor extends HiveTableDescriptor {
     public ParquetTableDescriptor(String databaseName, String tableName, String[] columnNames,
                                   String[] columnTypes, String[] partitionColumns, Path location) {
         super(databaseName, tableName, columnNames, columnTypes,
-              partitionColumns, HiveTableDescriptor.HIVE_DEFAULT_DELIMITER,
+              partitionColumns, null,
               PARQUET_SERIALIZATION_LIB, location);
     }
     
