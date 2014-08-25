@@ -37,7 +37,7 @@ import com.twitter.scrooge.ThriftStruct
   * mapred.FileSplit.
   * Instead use [[PartitionHiveParquetScroogeSource]] for read.
   * 
-  * @param partitionColumns a list of the partition columns formatted as `[(name, type.)]`.
+  * @param partitionColumns a list of the partition columns formatted as `[(name, type)]`.
   * @param append iff true will add new files to an existing partition instead of overwritting it.
   */
 case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct](
