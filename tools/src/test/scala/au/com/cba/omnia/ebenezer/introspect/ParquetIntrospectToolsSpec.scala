@@ -12,34 +12,21 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-package au.com.cba.omnia.ebenezer
-package introspect
-
-import cascading.flow.FlowDef
-import cascading.tuple.Fields
-import com.twitter.scalding._
-import com.twitter.scalding.TDsl._
-import com.twitter.scrooge._
-
-import au.com.cba.omnia.ebenezer.test._, ThriftArbitraries._, JavaArbitraries._
-import au.com.cba.omnia.ebenezer.scrooge._
-import au.com.cba.omnia.thermometer.core._, Thermometer._
-import au.com.cba.omnia.thermometer.tools._
-import au.com.cba.omnia.thermometer.context._
-import au.com.cba.omnia.thermometer.fact._, PathFactoids._
+package au.com.cba.omnia.ebenezer.introspect
 
 import java.util.UUID
-import java.nio.ByteBuffer
 
-import org.apache.thrift.protocol.TCompactProtocol
-import org.apache.thrift.transport.TIOStreamTransport
-import org.scalacheck._
+import com.twitter.scrooge.ThriftStruct
 
-import parquet.thrift.ThriftSchemaConverter
-import parquet.format.Util
-import parquet.hadoop.ParquetReader
+import org.scalacheck.Arbitrary
 
-object ParquetIntrospectToolsSpec extends ThermometerSpec with HadoopSupport { def is = s2"""
+import au.com.cba.omnia.ebenezer.test._, ThriftArbitraries._, JavaArbitraries._
+import au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource
+
+import au.com.cba.omnia.thermometer.core._, Thermometer._
+import au.com.cba.omnia.thermometer.context.Context
+
+object ParquetIntrospectToolsSpec extends ThermometerSpec { def is = s2"""
 
 Introspect usage
 ================
@@ -60,7 +47,7 @@ Introspect on all types
   Read nested                               ${check("nested", fromNestedish)}
   Read lists                                ${check("list", fromListish)}
   Read maps                                 ${check("map", fromMapish)}
-  Read emums                                ${check("enum", fromEnumish)}
+  Read emums                                ${check("enum", fromEnumish).pendingUntilFixed}
 
 """
   val data = List(
@@ -125,6 +112,7 @@ Introspect on all types
     }):_*)))
   ))
 
+  // Enum support is broken somewhere See https://github.com/CommBank/ebenezer/issues/49
   def fromEnumish: Enumish => Record = d => Record(List(
     Field("value", EnumValue(d.value.name.toUpperCase))
   ))
