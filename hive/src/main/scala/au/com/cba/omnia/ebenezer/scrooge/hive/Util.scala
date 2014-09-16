@@ -12,9 +12,9 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-package au.com.cba.omnia.ebenezer
-package scrooge
-package hive
+package au.com.cba.omnia.ebenezer.scrooge.hive
+
+import scala.collection.{Map => CMap}
 
 import org.apache.thrift.protocol.TType
 
@@ -24,7 +24,7 @@ import org.apache.hadoop.fs.Path
 
 import com.twitter.scalding.{Dsl, TupleConverter, TupleSetter}
 
-import com.twitter.scrooge.{ThriftStruct, ThriftStructCodec}
+import com.twitter.scrooge.{ThriftStruct, ThriftStructCodec, ThriftStructField}
 
 import au.com.cba.omnia.ebenezer.reflect.Reflect
 
@@ -90,7 +90,7 @@ object Util {
     val partitionColumnTypes = partitionColumns.map(_._2)
     val structColumns        = metadata.fields.sortBy(_.id)
     val structColumnNames    = structColumns.map(_.name)
-    val structColumnTypes    = structColumns.map(t => Util.mapType(t.`type`))
+    val structColumnTypes    = structColumns.map(t => Util.mapType(t))
     val columns              = (structColumnNames ++ partitionColumnNames).toArray
     val types                = (structColumnTypes ++ partitionColumnTypes).toArray
 
@@ -106,30 +106,74 @@ object Util {
   }
 
   /** Maps Thrift types to Hive types.*/
-  // TODO: complex type handling
-  def mapType(thriftType: Byte): String = thriftType match {
-    case TType.BOOL   => "boolean"
-    case TType.BYTE   => "tinyint"
-    case TType.I16    => "smallint"
-    case TType.I32    => "int"
-    case TType.I64    => "bigint"
-    case TType.DOUBLE => "double"
-    case TType.STRING => "string"
-      
-    // 1 type param
-    case TType.LIST   => throw new Exception("LIST is not a supported Hive type")
-    case TType.SET    => throw new Exception("SET is not a supported Hive type")
-    case TType.ENUM   => throw new Exception("ENUM is not a supported Hive type")
-      
-    // 2 type params
-    case TType.MAP    => throw new Exception("MAP is not a supported Hive type")
-      
-    // n type params
-    case TType.STRUCT => throw new Exception("STRUCT is not a supported Hive type")
-      
-    // terminals
-    case TType.VOID   => throw new Exception("VOID is not a supported Hive type")
-    case TType.STOP   => throw new Exception("STOP is not a supported Hive type")
+  def mapType(field: ThriftStructField[_]): String = {
+    field.`type` match {
+      case TType.BOOL   => "boolean"
+      case TType.BYTE   => "tinyint"
+      case TType.I16    => "smallint"
+      case TType.I32    => "int"
+      case TType.I64    => "bigint"
+      case TType.DOUBLE => "double"
+      case TType.STRING => "string"
+        
+      // 1 type param
+      case TType.LIST   => {
+        val elementType = toThriftType(argsOf(field).head)
+        s"array<$elementType>"
+      }
+      case TType.SET    => throw new Exception("SET is not a supported Hive type")
+      case TType.ENUM   => throw new Exception("ENUM is not a supported Hive type")
+        
+      // 2 type params
+      case TType.MAP    => {
+        val args      = argsOf(field)
+        val keyType   = toThriftType(args(0))
+        val valueType = toThriftType(args(1))
+        s"map<$keyType,$valueType>"
+      }
+        
+      // n type params
+      case TType.STRUCT => throw new Exception("STRUCT is not a supported Hive type")
+        
+      // terminals
+      case TType.VOID   => throw new Exception("VOID is not a supported Hive type")
+      case TType.STOP   => throw new Exception("STOP is not a supported Hive type")
+    }
   }
-}
 
+  /** Gets the manifests of the type arguments for complex thrift types such as Map. */
+  def argsOf(field: ThriftStructField[_]): List[Manifest[_]] = {
+    field.manifest.get.typeArguments
+  }
+
+  /** Maps manifest information to hive types. */
+  def toThriftType(mani: Manifest[_]): String = {
+    if (manifest[Boolean] == mani)
+      "boolean"
+    else if (manifest[Byte] == mani)
+      "tinyint"
+    else if (manifest[Double] == mani)
+      "double"
+    else if (manifest[Short] == mani)
+      "smallint"
+    else if (manifest[Int] == mani)
+      "int"
+    else if (manifest[Long] == mani)
+      "bigint"
+    else if (manifest[String] == mani)
+      "string"
+    else if (manifest[CMap[_, _]].runtimeClass == mani.runtimeClass) {
+      val args      = mani.typeArguments
+      val keyType   = toThriftType(args(0))
+      val valueType = toThriftType(args(1))
+      s"map<$keyType,$valueType>"
+    } else if (manifest[Seq[_]].runtimeClass == mani.runtimeClass) {
+      val elementType = toThriftType(mani.typeArguments.head)
+      s"array<$elementType>"
+    } else
+      throw new Exception(s"$mani is not a supported nested type")
+  }
+
+  /** Gets the manifest for `T`. */
+  def manifest[T : Manifest]: Manifest[T] = implicitly[Manifest[T]]
+}

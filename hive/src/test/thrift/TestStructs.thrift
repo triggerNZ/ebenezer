@@ -12,60 +12,28 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-#@namespace scala au.com.cba.omnia.ebenezer.test
+#@namespace scala au.com.cba.omnia.ebenezer.scrooge.hive
 
-struct Nested {
-  1: string value
-}
-
-enum SomethingOrOther {
-  SOME, OTHER
-}
-
-struct Boolish {
-  1: bool value
-}
-
-struct Doublish {
-  1: double value
-}
-
-struct Bytish {
-  1: byte value
-}
-
-struct Shortish {
-  1: i16 value
-}
-
-struct Intish {
-  1: i32 value
-}
-
-struct Longish {
-  1: i64 value
-}
-
-struct Stringish {
-  1: string value
-}
-
-struct Nestedish {
-  1: Nested value
+struct Primitives {
+  1: bool   boolean
+  2: byte   byte
+  3: i16    short
+  4: i32    integer
+  5: i64    long
+  6: double double
+  7: string string
 }
 
 struct Listish {
-  1: list<string> values
+  1: i16 short
+  2: list<i32> list
 }
 
 struct Mapish {
-  1: map<string, string> values
+  1: i16 short
+  2: map<i32, string> map
 }
 
-struct Enumish {
-  1: SomethingOrOther value
-}
-
-struct Listish2 {
-  1: list<list<string>> values
+struct Nested {
+  1: map<i32, map<string, list<i32>>> nested
 }

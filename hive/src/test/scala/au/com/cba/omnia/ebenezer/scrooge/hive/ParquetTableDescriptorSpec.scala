@@ -30,7 +30,12 @@ ParquetTableDescriptor
 
 """
 
-  val descriptor = new ParquetTableDescriptor("test", "test", Array("x", "y"), Array("string", "string"), Array())
+  val descriptor = new ParquetTableDescriptor(
+    "test", "test",
+    Array("x", "y", "l", "m"),
+    Array("string", "string", "List < String >", "MAP < int, string >"),
+    Array()
+  )
   val table      = descriptor.toHiveTable
   val sd         = table.getSd
 
