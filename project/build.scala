@@ -21,7 +21,7 @@ import au.com.cba.omnia.uniform.thrift.UniformThriftPlugin._
 import au.com.cba.omnia.uniform.assembly.UniformAssemblyPlugin._
 
 object build extends Build {
-  val thermometerVersion = "0.3.1-20140728002504-0d721d2"
+  val thermometerVersion = "0.3.2-20140818231306-749dcce"
 
   lazy val standardSettings =
     Defaults.defaultSettings ++
