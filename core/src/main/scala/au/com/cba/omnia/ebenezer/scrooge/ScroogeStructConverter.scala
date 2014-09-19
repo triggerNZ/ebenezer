@@ -15,22 +15,17 @@
 package au.com.cba.omnia.ebenezer
 package scrooge
 
-import au.com.cba.omnia.ebenezer.reflect._
+import scala.collection.{Map => CMap}
+import scala.collection.JavaConverters._
 
-import com.twitter.scrooge.ThriftStruct
-import com.twitter.scrooge.ThriftStructCodec
-import com.twitter.scrooge.ThriftStructField
-import com.twitter.scrooge.ThriftStructMetaData
+import java.lang.reflect.{ParameterizedType, Type}
 
-import java.lang.reflect.ParameterizedType
-import java.lang.reflect.Type
+import com.twitter.scrooge.{ThriftStruct, ThriftStructCodec, ThriftStructField, ThriftStructMetaData}
 
-import parquet.thrift.struct.ThriftField
-import parquet.thrift.struct.ThriftType
-import parquet.thrift.struct.ThriftTypeID
+import parquet.thrift.struct.{ThriftField, ThriftType, ThriftTypeID}
 import parquet.thrift.struct.ThriftTypeID._
 
-import scala.collection.JavaConverters._
+import au.com.cba.omnia.ebenezer.reflect._
 
 class ScroogeStructConverter(partitionColumns: Set[String] = Set.empty) {
   def convert[A <: ThriftStruct](cls: Class[A]): ThriftType.StructType = {
@@ -68,24 +63,24 @@ class ScroogeStructConverter(partitionColumns: Set[String] = Set.empty) {
   }
 
   def set(field: ThriftStructField[_], requirement: ThriftField.Requirement): ThriftType = {
-    val args: List[Class[_]] = argsOf(field)
-    val elementType = toThriftType(args.head)
+    val args: List[Manifest[_]] = argsOf(field)
+    val elementType = toThriftType(args.head, field.name, requirement)
     val elementField = fieldOf(field.name, requirement, elementType)
     new ThriftType.SetType(elementField)
   }
 
   def list(field: ThriftStructField[_], requirement: ThriftField.Requirement): ThriftType = {
     val args = argsOf(field)
-    val elementType = toThriftType(args.head)
+    val elementType = toThriftType(args.head, field.name, requirement)
     val elementField = fieldOf(field.name, requirement, elementType)
     new ThriftType.ListType(elementField)
   }
 
   def map(field: ThriftStructField[_], requirement: ThriftField.Requirement): ThriftType = {
     val args = argsOf(field)
-    val keyType = toThriftType(args.head)
+    val keyType = toThriftType(args.head, field.name, requirement)
     val keyField = fieldOf(field.name + "_map_key", requirement, keyType)
-    val valueType = toThriftType(args.tail.head)
+    val valueType = toThriftType(args.tail.head, field.name, requirement)
     val valueField = fieldOf(field.name + "_map_value", requirement, valueType)
     new ThriftType.MapType(keyField, valueField)
   }
@@ -110,32 +105,50 @@ class ScroogeStructConverter(partitionColumns: Set[String] = Set.empty) {
     convert(classType.asInstanceOf[Class[_ <: ThriftStruct]])
   }
 
+  /** 
+    * Creates a parquet ThriftField of an element in a complex thrift struct such as list.
+    * 
+    * The id for these fields is 1.
+    */
   def fieldOf(name: String, requirement: ThriftField.Requirement, thriftType: ThriftType): ThriftField =
     new ThriftField(name, 1, requirement, thriftType)
 
-  def toThriftType(cls: Class[_]): ThriftType =
-    if (classOf[Boolean] == cls)
+  def toThriftType(mani: Manifest[_], name: String, requirement: ThriftField.Requirement): ThriftType =
+    if (manifest[Boolean] == mani)
       new ThriftType.BoolType
-    else if (classOf[Byte] == cls)
+    else if (manifest[Byte] == mani)
       new ThriftType.ByteType
-    else if (classOf[Double] == cls)
+    else if (manifest[Double] == mani)
       new ThriftType.DoubleType
-    else if (classOf[Short] == cls)
+    else if (manifest[Short] == mani)
       new ThriftType.I16Type()
-    else if (classOf[Int] == cls)
+    else if (manifest[Int] == mani)
       new ThriftType.I32Type()
-    else if (classOf[Long] == cls)
+    else if (manifest[Long] == mani)
       new ThriftType.I64Type()
-    else if (classOf[String] == cls)
+    else if (manifest[String] == mani)
       new ThriftType.StringType()
-    else
-      convert(cls.asInstanceOf[Class[_ <: ThriftStruct]])
+    else if (manifest[CMap[_, _]].runtimeClass == mani.runtimeClass) {
+      val args       = mani.typeArguments
+      val keyType    = toThriftType(args(0), name + "_map_key", requirement)
+      val valueType  = toThriftType(args(1), name + "_map_value", requirement)
+      val keyField   = fieldOf(name + "_map_key", requirement, keyType)
+      val valueField = fieldOf(name + "_map_value", requirement, valueType)
+      new ThriftType.MapType(keyField, valueField)
+    } else if (manifest[Seq[_]].runtimeClass == mani.runtimeClass) {
+        val elementType = toThriftType(mani.typeArguments.head, name, requirement)
+        new ThriftType.ListType(fieldOf(name, requirement, elementType))
+    } else
+      convert(mani.runtimeClass.asInstanceOf[Class[_ <: ThriftStruct]])
 
   def isOptional(f: ThriftStructField[_]): Boolean =
     f.method.getReturnType() == classOf[Option[_]]
 
-  def argsOf(field: ThriftStructField[_]): List[Class[_]] =
-    field.manifest.get.typeArguments.map(_.runtimeClass)
+  def argsOf(field: ThriftStructField[_]): List[Manifest[_]] =
+    field.manifest.get.typeArguments
+
+  /** Gets the manifest for `T`. */
+  def manifest[T : Manifest]: Manifest[T] = implicitly[Manifest[T]]
 
   /*
    * 'Ere be dragons. Scrooge generates two fields for an ENUM,
