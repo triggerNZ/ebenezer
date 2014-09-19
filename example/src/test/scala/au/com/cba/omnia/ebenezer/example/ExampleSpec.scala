@@ -15,6 +15,7 @@ object ExampleSpec extends ThermometerSpec with HiveSupport { def is = sequentia
   Example 1 runs $example1
   Example 2 doesn't run since it depends on an existing table
   Example 3 runs $example3
+  Example 4 runs $example4
 """
 
   def example1 = {
@@ -34,5 +35,13 @@ object ExampleSpec extends ThermometerSpec with HiveSupport { def is = sequentia
       )) 
 
     job.withFacts(facts: _*)
+  }
+
+  def example4 = {
+    val job = withArgs(Map("db" -> "default", "table" -> "dst"))(new HiveExampleStep4(_))
+    val fact =
+      hiveWarehouse </> "dst" </> "*.parquet" ==> records(ParquetThermometerRecordReader[Nested], job.data)
+
+    job.withFacts(fact)
   }
 }
