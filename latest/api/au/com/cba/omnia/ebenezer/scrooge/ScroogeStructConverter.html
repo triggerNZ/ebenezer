@@ -39,7 +39,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/f4dd7013944ba1140d4725f87b1260739174b676//core/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/ScroogeStructConverter.scala" target="_blank">ScroogeStructConverter.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/96ca64c7143155c3b5d607b6b6548bec6fe40196//core/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/ScroogeStructConverter.scala" target="_blank">ScroogeStructConverter.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -167,15 +167,15 @@
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#argsOf" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="argsOf(field:com.twitter.scrooge.ThriftStructField[_]):List[Class[_]]"></a>
-      <a id="argsOf(ThriftStructField[_]):List[Class[_]]"></a>
+      <a id="argsOf(field:com.twitter.scrooge.ThriftStructField[_]):List[Manifest[_]]"></a>
+      <a id="argsOf(ThriftStructField[_]):List[Manifest[_]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">argsOf</span><span class="params">(<span name="field">field: <span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]</span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.Class">Class</span>[_]]</span>
+        <span class="name">argsOf</span><span class="params">(<span name="field">field: <span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]</span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.Manifest">Manifest</span>[_]]</span>
       </span>
       </h4>
       
@@ -263,7 +263,7 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#fieldOf" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#fieldOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="fieldOf(name:String,requirement:parquet.thrift.struct.ThriftField.Requirement,thriftType:parquet.thrift.struct.ThriftType):parquet.thrift.struct.ThriftField"></a>
       <a id="fieldOf(String,Requirement,ThriftType):ThriftField"></a>
       <h4 class="signature">
@@ -275,7 +275,8 @@
         <span class="name">fieldOf</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="requirement">requirement: <span class="extype" name="parquet.thrift.struct.ThriftField.Requirement">Requirement</span></span>, <span name="thriftType">thriftType: <span class="extype" name="parquet.thrift.struct.ThriftType">ThriftType</span></span>)</span><span class="result">: <span class="extype" name="parquet.thrift.struct.ThriftField">ThriftField</span></span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt">Creates a parquet ThriftField of an element in a complex thrift struct such as list.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a parquet ThriftField of an element in a complex thrift struct such as list.</p><p>The id for these fields is 1.
+</p></div></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -373,6 +374,19 @@
       </span>
       </h4>
       
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#manifest" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="manifest[T](implicitevidence$1:Manifest[T]):Manifest[T]"></a>
+      <a id="manifest[T](Manifest[T]):Manifest[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">manifest</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter.manifest.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter.manifest.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Gets the manifest for <code>T</code>.</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#map" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="map(field:com.twitter.scrooge.ThriftStructField[_],requirement:parquet.thrift.struct.ThriftField.Requirement):parquet.thrift.struct.ThriftType"></a>
       <a id="map(ThriftStructField[_],Requirement):ThriftType"></a>
@@ -504,15 +518,15 @@
       </h4>
       
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#toThriftType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="toThriftType(cls:Class[_]):parquet.thrift.struct.ThriftType"></a>
-      <a id="toThriftType(Class[_]):ThriftType"></a>
+      <a id="toThriftType(mani:Manifest[_],name:String,requirement:parquet.thrift.struct.ThriftField.Requirement):parquet.thrift.struct.ThriftType"></a>
+      <a id="toThriftType(Manifest[_],String,Requirement):ThriftType"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toThriftType</span><span class="params">(<span name="cls">cls: <span class="extype" name="scala.Predef.Class">Class</span>[_]</span>)</span><span class="result">: <span class="extype" name="parquet.thrift.struct.ThriftType">ThriftType</span></span>
+        <span class="name">toThriftType</span><span class="params">(<span name="mani">mani: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[_]</span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="requirement">requirement: <span class="extype" name="parquet.thrift.struct.ThriftField.Requirement">Requirement</span></span>)</span><span class="result">: <span class="extype" name="parquet.thrift.struct.ThriftType">ThriftType</span></span>
       </span>
       </h4>
       

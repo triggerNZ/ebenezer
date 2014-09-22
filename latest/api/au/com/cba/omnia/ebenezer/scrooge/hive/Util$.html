@@ -41,7 +41,7 @@
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Utility methods used by the Hive sources in this packages to avoid serialisation issues and code
 duplication.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/f4dd7013944ba1140d4725f87b1260739174b676//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/Util.scala" target="_blank">Util.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/96ca64c7143155c3b5d607b6b6548bec6fe40196//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/Util.scala" target="_blank">Util.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -152,6 +152,19 @@ duplication.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Util#argsOf" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="argsOf(field:com.twitter.scrooge.ThriftStructField[_]):List[Manifest[_]]"></a>
+      <a id="argsOf(ThriftStructField[_]):List[Manifest[_]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">argsOf</span><span class="params">(<span name="field">field: <span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]</span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.Manifest">Manifest</span>[_]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Gets the manifests of the type arguments for complex thrift types such as Map.</p>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -294,16 +307,29 @@ duplication.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Util#mapType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="mapType(thriftType:Byte):String"></a>
-      <a id="mapType(Byte):String"></a>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Util#manifest" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="manifest[T](implicitevidence$1:Manifest[T]):Manifest[T]"></a>
+      <a id="manifest[T](Manifest[T]):Manifest[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">mapType</span><span class="params">(<span name="thriftType">thriftType: <span class="extype" name="scala.Byte">Byte</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">manifest</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Util.manifest.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Util.manifest.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Gets the manifest for <code>T</code>.</p>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Util#mapType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mapType(field:com.twitter.scrooge.ThriftStructField[_]):String"></a>
+      <a id="mapType(ThriftStructField[_]):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mapType</span><span class="params">(<span name="field">field: <span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Maps Thrift types to Hive types.</p>
@@ -398,6 +424,19 @@ duplication.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Util#toThriftType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="toThriftType(mani:Manifest[_]):String"></a>
+      <a id="toThriftType(Manifest[_]):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toThriftType</span><span class="params">(<span name="mani">mani: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[_]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Maps manifest information to hive types.</p>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
