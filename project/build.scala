@@ -14,11 +14,15 @@
 
 import sbt._, Keys._
 
+import com.twitter.scrooge.ScroogeSBT._
+
 import au.com.cba.omnia.uniform.core.standard.StandardProjectPlugin._
 import au.com.cba.omnia.uniform.core.version.UniqueVersionPlugin._
 import au.com.cba.omnia.uniform.dependency.UniformDependencyPlugin._
 import au.com.cba.omnia.uniform.thrift.UniformThriftPlugin._
 import au.com.cba.omnia.uniform.assembly.UniformAssemblyPlugin._
+
+import au.com.cba.omnia.humbug.HumbugSBT._
 
 object build extends Build {
   val thermometerVersion = "0.3.2-20140818231306-749dcce"
@@ -49,12 +53,16 @@ object build extends Build {
       standardSettings
         ++ uniform.project("ebenezer", "au.com.cba.omnia.ebenezer")
         ++ uniformThriftSettings
+        ++ humbugSettings
         ++ Seq(
           libraryDependencies ++=
             depend.hadoop() ++ depend.scalding() ++ depend.scalaz() ++ depend.testing() ++ Seq(
               "com.twitter"       % "parquet-cascading" % "1.4.1",
-              "au.com.cba.omnia" %% "thermometer"       % thermometerVersion % "test"
+              "au.com.cba.omnia" %% "thermometer"       % thermometerVersion % "test",
+              "au.com.cba.omnia" %% "humbug-core"       % "0.3.0-20140918054014-3066286" % "test"
             ),
+          scroogeThriftSourceFolder in Test <<= (sourceDirectory) { _ / "test" / "thrift" / "scrooge" },
+          humbugThriftSourceFolder  in Test <<= (sourceDirectory) { _ / "test" / "thrift" / "humbug" },
           parallelExecution in Test := false
         )
   )
