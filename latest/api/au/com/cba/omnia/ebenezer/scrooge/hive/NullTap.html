@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>PartitionHiveParquetReadTap - au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap</title>
-          <meta name="description" content="PartitionHiveParquetReadTap - au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap" />
-          <meta name="keywords" content="PartitionHiveParquetReadTap au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap" />
+          <title>NullTap - au.com.cba.omnia.ebenezer.scrooge.hive.NullTap</title>
+          <meta name="description" content="NullTap - au.com.cba.omnia.ebenezer.scrooge.hive.NullTap" />
+          <meta name="keywords" content="NullTap au.com.cba.omnia.ebenezer.scrooge.hive.NullTap" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../../../../../index.html';
-            var hash = 'au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap';
+            var hash = 'au.com.cba.omnia.ebenezer.scrooge.hive.NullTap';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -26,25 +26,22 @@
       <div id="definition">
         <img src="../../../../../../../lib/class_big.png" />
         <p id="owner"><a href="../../../../../../package.html" class="extype" name="au">au</a>.<a href="../../../../../package.html" class="extype" name="au.com">com</a>.<a href="../../../../package.html" class="extype" name="au.com.cba">cba</a>.<a href="../../../package.html" class="extype" name="au.com.cba.omnia">omnia</a>.<a href="../../package.html" class="extype" name="au.com.cba.omnia.ebenezer">ebenezer</a>.<a href="../package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge">scrooge</a>.<a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive">hive</a></p>
-        <h1>PartitionHiveParquetReadTap</h1>
+        <h1>NullTap</h1>
       </div>
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">class</span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">PartitionHiveParquetReadTap</span><span class="result"> extends <span class="extype" name="cascading.tap.hive.HiveTap">HiveTap</span></span>
+        <span class="name">NullTap</span><span class="params">(<span name="id">id: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.NullTap">com.twitter.scalding.NullTap</span>[<span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="scala.Nothing">Nothing</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Custom tap for reading partitioned hive parquet tables, see <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink">PartitionHiveParquetScroogeSink</a>
-for why this is needed. This will add globs for all the underlying partitions to the path of the
-hive table.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/dbc1c0f3b34e1733586760b8a450caeaa7e18928//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/PartitionHiveParquetScroogeSource.scala" target="_blank">PartitionHiveParquetScroogeSource.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Create a Null tap with a custom path to avoid it impacting cascading scheduling.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/dbc1c0f3b34e1733586760b8a450caeaa7e18928//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/HiveJob.scala" target="_blank">HiveJob.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="cascading.tap.hive.HiveTap">HiveTap</span>, <span class="extype" name="cascading.tap.hadoop.Hfs">Hfs</span>, <span class="extype" name="cascading.tap.type.FileType">FileType</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>], <span class="extype" name="cascading.tap.Tap">Tap</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>, <span class="extype" name="org.apache.hadoop.mapred.RecordReader">RecordReader</span>[_, _], <span class="extype" name="org.apache.hadoop.mapred.OutputCollector">OutputCollector</span>[_, _]], <span class="extype" name="cascading.flow.FlowElement">FlowElement</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="com.twitter.scalding.NullTap">com.twitter.scalding.NullTap</span>[<span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="scala.Nothing">Nothing</span>], <span class="extype" name="cascading.tap.SinkTap">SinkTap</span>[<span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="scala.Nothing">Nothing</span>], <span class="extype" name="cascading.tap.Tap">Tap</span>[<span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="java.lang.Void">Void</span>, <span class="extype" name="scala.Nothing">Nothing</span>], <span class="extype" name="cascading.flow.FlowElement">FlowElement</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -62,7 +59,7 @@ hive table.
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap"><span>PartitionHiveParquetReadTap</span></li><li class="in" name="cascading.tap.hive.HiveTap"><span>HiveTap</span></li><li class="in" name="cascading.tap.hadoop.Hfs"><span>Hfs</span></li><li class="in" name="cascading.tap.type.FileType"><span>FileType</span></li><li class="in" name="cascading.tap.Tap"><span>Tap</span></li><li class="in" name="cascading.flow.FlowElement"><span>FlowElement</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="au.com.cba.omnia.ebenezer.scrooge.hive.NullTap"><span>NullTap</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="com.twitter.scalding.NullTap"><span>NullTap</span></li><li class="in" name="cascading.tap.SinkTap"><span>SinkTap</span></li><li class="in" name="cascading.tap.Tap"><span>Tap</span></li><li class="in" name="cascading.flow.FlowElement"><span>FlowElement</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -82,16 +79,16 @@ hive table.
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(tableDescriptor:cascading.tap.hive.HiveTableDescriptor,hdfsScheme:cascading.scheme.Scheme[_,_,_,_,_]):au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap"></a>
-      <a id="&lt;init&gt;:PartitionHiveParquetReadTap"></a>
+              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.hive.NullTap#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(id:String):au.com.cba.omnia.ebenezer.scrooge.hive.NullTap"></a>
+      <a id="&lt;init&gt;:NullTap"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">PartitionHiveParquetReadTap</span><span class="params">(<span name="tableDescriptor">tableDescriptor: <span class="extype" name="cascading.tap.hive.HiveTableDescriptor">HiveTableDescriptor</span></span>, <span name="hdfsScheme">hdfsScheme: <span class="extype" name="cascading.scheme.Scheme">Scheme</span>[_, _, _, _, _]</span>)</span>
+        <span class="name">NullTap</span><span class="params">(<span name="id">id: <span class="extype" name="scala.Predef.String">String</span></span>)</span>
       </span>
       </h4>
       
@@ -169,19 +166,6 @@ hive table.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#applySourceConfInitIdentifiers" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="applySourceConfInitIdentifiers(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.JobConf,x$3:&lt;repeated...&gt;[String]):Unit"></a>
-      <a id="applySourceConfInitIdentifiers(FlowProcess[JobConf],JobConf,&lt;repeated...&gt;[String]):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">applySourceConfInitIdentifiers</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>, <span name="arg2">arg2: <span class="extype" name="scala.&lt;repeated...&gt;">&lt;repeated...&gt;</span>[<span class="extype" name="java.lang.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -214,54 +198,16 @@ hive table.
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="cascading.tap.hive.HiveTap#commitResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="commitResource(x$1:org.apache.hadoop.mapred.JobConf):Boolean"></a>
-      <a id="commitResource(JobConf):Boolean"></a>
+    </li><li name="cascading.tap.Tap#commitResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="commitResource(x$1:Config):Boolean"></a>
+      <a id="commitResource(Nothing):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">commitResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>HiveTap → Tap</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
-    </li><li name="cascading.tap.hive.HiveTap#createResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="createResource(x$1:org.apache.hadoop.mapred.JobConf):Boolean"></a>
-      <a id="createResource(JobConf):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">createResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>HiveTap → Hfs → Tap</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
-    </li><li name="cascading.tap.Tap#createResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="createResource(x$1:cascading.flow.FlowProcess[Config]):Boolean"></a>
-      <a id="createResource(FlowProcess[JobConf]):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">createResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">commitResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Nothing">Nothing</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
@@ -271,54 +217,61 @@ hive table.
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#deleteChildResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="deleteChildResource(x$1:org.apache.hadoop.mapred.JobConf,x$2:String):Boolean"></a>
-      <a id="deleteChildResource(JobConf,String):Boolean"></a>
+    </li><li name="com.twitter.scalding.NullTap#createResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createResource(conf:Config):Boolean"></a>
+      <a id="createResource(Nothing):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">deleteChildResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>, <span name="arg1">arg1: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">createResource</span><span class="params">(<span name="conf">conf: <span class="extype" name="scala.Nothing">Nothing</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
-    </li><li name="cascading.tap.hive.HiveTap#deleteResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="deleteResource(x$1:org.apache.hadoop.mapred.JobConf):Boolean"></a>
-      <a id="deleteResource(JobConf):Boolean"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>NullTap → Tap</dd></dl></div>
+    </li><li name="cascading.tap.Tap#createResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createResource(x$1:cascading.flow.FlowProcess[Config]):Boolean"></a>
+      <a id="createResource(FlowProcess[Nothing]):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">deleteResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">createResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>HiveTap → Hfs → Tap</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="symbol">classOf[java.io.IOException]</span>
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="com.twitter.scalding.NullTap#deleteResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="deleteResource(conf:Config):Boolean"></a>
+      <a id="deleteResource(Nothing):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">deleteResource</span><span class="params">(<span name="conf">conf: <span class="extype" name="scala.Nothing">Nothing</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>NullTap → Tap</dd></dl></div>
     </li><li name="cascading.tap.Tap#deleteResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="deleteResource(x$1:cascading.flow.FlowProcess[Config]):Boolean"></a>
-      <a id="deleteResource(FlowProcess[JobConf]):Boolean"></a>
+      <a id="deleteResource(FlowProcess[Nothing]):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">deleteResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">deleteResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
@@ -375,74 +328,17 @@ hive table.
         </dd></dl></div>
     </li><li name="cascading.tap.Tap#flowConfInit" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="flowConfInit(x$1:cascading.flow.Flow[Config]):Unit"></a>
-      <a id="flowConfInit(Flow[JobConf]):Unit"></a>
+      <a id="flowConfInit(Flow[Nothing]):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">flowConfInit</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.Flow">Flow</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">flowConfInit</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.Flow">Flow</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#getBlockSize" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getBlockSize(x$1:org.apache.hadoop.mapred.JobConf):Long"></a>
-      <a id="getBlockSize(JobConf):Long"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getBlockSize</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Long">Long</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#getChildIdentifiers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getChildIdentifiers(x$1:org.apache.hadoop.mapred.JobConf,x$2:Int,x$3:Boolean):Array[String]"></a>
-      <a id="getChildIdentifiers(JobConf,Int,Boolean):Array[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getChildIdentifiers</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>, <span name="arg2">arg2: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="java.lang.String">String</span>]</span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → FileType</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#getChildIdentifiers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getChildIdentifiers(x$1:org.apache.hadoop.mapred.JobConf):Array[String]"></a>
-      <a id="getChildIdentifiers(JobConf):Array[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getChildIdentifiers</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="java.lang.String">String</span>]</span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → FileType</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -469,75 +365,33 @@ hive table.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → FlowElement</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#getDefaultFileSystem" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getDefaultFileSystem(x$1:org.apache.hadoop.mapred.JobConf):org.apache.hadoop.fs.FileSystem"></a>
-      <a id="getDefaultFileSystem(JobConf):FileSystem"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getDefaultFileSystem</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="org.apache.hadoop.fs.FileSystem">FileSystem</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#getDefaultFileSystemURIScheme" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getDefaultFileSystemURIScheme(x$1:org.apache.hadoop.mapred.JobConf):java.net.URI"></a>
-      <a id="getDefaultFileSystemURIScheme(JobConf):URI"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getDefaultFileSystemURIScheme</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="java.net.URI">URI</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#getFileSystem" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getFileSystem(x$1:org.apache.hadoop.mapred.JobConf):org.apache.hadoop.fs.FileSystem"></a>
-      <a id="getFileSystem(JobConf):FileSystem"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getFileSystem</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="org.apache.hadoop.fs.FileSystem">FileSystem</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap#getFullIdentifier" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getFullIdentifier(conf:org.apache.hadoop.mapred.JobConf):String"></a>
-      <a id="getFullIdentifier(JobConf):String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getFullIdentifier</span><span class="params">(<span name="conf">conf: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Overrides the identifier and remove the globed out partitions so that it matches the one used
-for reading partitioned data and they are, therefore, the same for scheduling cascades.</p><div class="fullcomment"><div class="comment cmt"><p>Overrides the identifier and remove the globed out partitions so that it matches the one used
-for reading partitioned data and they are, therefore, the same for scheduling cascades.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap">PartitionHiveParquetReadTap</a> → Hfs → Tap</dd></dl></div>
     </li><li name="cascading.tap.Tap#getFullIdentifier" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getFullIdentifier(x$1:cascading.flow.FlowProcess[Config]):String"></a>
-      <a id="getFullIdentifier(FlowProcess[JobConf]):String"></a>
+      <a id="getFullIdentifier(x$1:Config):String"></a>
+      <a id="getFullIdentifier(Nothing):String"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getFullIdentifier</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+        <span class="name">getFullIdentifier</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Nothing">Nothing</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap#getIdentifier" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="cascading.tap.Tap#getFullIdentifier" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getFullIdentifier(x$1:cascading.flow.FlowProcess[Config]):String"></a>
+      <a id="getFullIdentifier(FlowProcess[Nothing]):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getFullIdentifier</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.NullTap#getIdentifier" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getIdentifier():String"></a>
       <a id="getIdentifier():String"></a>
       <h4 class="signature">
@@ -549,39 +403,30 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
         <span class="name">getIdentifier</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Overrides the identifier and remove the globed out partitions so that it matches the one used
-for reading partitioned data and they are, therefore, the same for scheduling cascades.</p><div class="fullcomment"><div class="comment cmt"><p>Overrides the identifier and remove the globed out partitions so that it matches the one used
-for reading partitioned data and they are, therefore, the same for scheduling cascades.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap">PartitionHiveParquetReadTap</a> → Hfs → Tap</dd></dl></div>
-    </li><li name="cascading.tap.hive.HiveTap#getModifiedTime" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getModifiedTime(x$1:org.apache.hadoop.mapred.JobConf):Long"></a>
-      <a id="getModifiedTime(JobConf):Long"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.NullTap">NullTap</a> → NullTap → Tap</dd></dl></div>
+    </li><li name="com.twitter.scalding.NullTap#getModifiedTime" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getModifiedTime(conf:Config):Long"></a>
+      <a id="getModifiedTime(Nothing):Long"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getModifiedTime</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Long">Long</span></span>
+        <span class="name">getModifiedTime</span><span class="params">(<span name="conf">conf: <span class="extype" name="scala.Nothing">Nothing</span></span>)</span><span class="result">: <span class="extype" name="scala.Long">Long</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>HiveTap → Hfs → Tap</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>NullTap → Tap</dd></dl></div>
     </li><li name="cascading.tap.Tap#getModifiedTime" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getModifiedTime(x$1:cascading.flow.FlowProcess[Config]):Long"></a>
-      <a id="getModifiedTime(FlowProcess[JobConf]):Long"></a>
+      <a id="getModifiedTime(FlowProcess[Nothing]):Long"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getModifiedTime</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Long">Long</span></span>
+        <span class="name">getModifiedTime</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Long">Long</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
@@ -591,48 +436,16 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#getPath" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getPath():org.apache.hadoop.fs.Path"></a>
-      <a id="getPath():Path"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getPath</span><span class="params">()</span><span class="result">: <span class="extype" name="org.apache.hadoop.fs.Path">Path</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#getReplication" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getReplication(x$1:org.apache.hadoop.mapred.JobConf):Int"></a>
-      <a id="getReplication(JobConf):Int"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getReplication</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
     </li><li name="cascading.tap.Tap#getScheme" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getScheme():cascading.scheme.Scheme[Config,Input,Output,_,_]"></a>
-      <a id="getScheme():Scheme[JobConf,RecordReader[_,_],OutputCollector[_,_],_,_]"></a>
+      <a id="getScheme():Scheme[Nothing,Void,Nothing,_,_]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getScheme</span><span class="params">()</span><span class="result">: <span class="extype" name="cascading.scheme.Scheme">Scheme</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>, <span class="extype" name="org.apache.hadoop.mapred.RecordReader">RecordReader</span>[_, _], <span class="extype" name="org.apache.hadoop.mapred.OutputCollector">OutputCollector</span>[_, _], _, _]</span>
+        <span class="name">getScheme</span><span class="params">()</span><span class="result">: <span class="extype" name="cascading.scheme.Scheme">Scheme</span>[<span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="java.lang.Void">Void</span>, <span class="extype" name="scala.Nothing">Nothing</span>, _, _]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -662,26 +475,7 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#getSize" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getSize(x$1:org.apache.hadoop.mapred.JobConf):Long"></a>
-      <a id="getSize(JobConf):Long"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getSize</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Long">Long</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → FileType</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
-    </li><li name="cascading.tap.Tap#getSourceFields" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="cascading.tap.SinkTap#getSourceFields" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getSourceFields():cascading.tuple.Fields"></a>
       <a id="getSourceFields():Fields"></a>
       <h4 class="signature">
@@ -693,7 +487,7 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
         <span class="name">getSourceFields</span><span class="params">()</span><span class="result">: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>SinkTap → Tap</dd></dl></div>
     </li><li name="cascading.tap.Tap#getStepConfigDef" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getStepConfigDef():cascading.property.ConfigDef"></a>
       <a id="getStepConfigDef():ConfigDef"></a>
@@ -720,19 +514,6 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#getURIScheme" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getURIScheme(x$1:org.apache.hadoop.mapred.JobConf):java.net.URI"></a>
-      <a id="getURIScheme(JobConf):URI"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getURIScheme</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="java.net.URI">URI</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
     </li><li name="cascading.tap.Tap#hasConfigDef" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hasConfigDef():Boolean"></a>
       <a id="hasConfigDef():Boolean"></a>
@@ -772,25 +553,19 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → AnyRef → Any</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#isDirectory" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="isDirectory(x$1:org.apache.hadoop.mapred.JobConf):Boolean"></a>
-      <a id="isDirectory(JobConf):Boolean"></a>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.NullTap#id" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="id:String"></a>
+      <a id="id:String"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">isDirectory</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">id</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → FileType</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
       
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
     </li><li name="cascading.tap.Tap#isEquivalentTo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isEquivalentTo(x$1:cascading.flow.FlowElement):Boolean"></a>
       <a id="isEquivalentTo(FlowElement):Boolean"></a>
@@ -856,7 +631,7 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
-    </li><li name="cascading.tap.Tap#isSource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="cascading.tap.SinkTap#isSource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isSource():Boolean"></a>
       <a id="isSource():Boolean"></a>
       <h4 class="signature">
@@ -868,7 +643,7 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
         <span class="name">isSource</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>SinkTap → Tap</dd></dl></div>
     </li><li name="cascading.tap.Tap#isTemporary" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isTemporary():Boolean"></a>
       <a id="isTemporary():Boolean"></a>
@@ -895,32 +670,6 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#makeTemporaryPathDirString" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="makeTemporaryPathDirString(x$1:String):String"></a>
-      <a id="makeTemporaryPathDirString(String):String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">makeTemporaryPathDirString</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#makeURIScheme" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="makeURIScheme(x$1:org.apache.hadoop.mapred.JobConf):java.net.URI"></a>
-      <a id="makeURIScheme(JobConf):URI"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">makeURIScheme</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="java.net.URI">URI</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -960,19 +709,19 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#openForRead" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="openForRead(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.RecordReader[_,_]):cascading.tuple.TupleEntryIterator"></a>
-      <a id="openForRead(FlowProcess[JobConf],RecordReader[_,_]):TupleEntryIterator"></a>
+    </li><li name="cascading.tap.SinkTap#openForRead" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="openForRead(x$1:cascading.flow.FlowProcess[Config],x$2:Void):cascading.tuple.TupleEntryIterator"></a>
+      <a id="openForRead(FlowProcess[Nothing],Void):TupleEntryIterator"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">openForRead</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="org.apache.hadoop.mapred.RecordReader">RecordReader</span>[_, _]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.TupleEntryIterator">TupleEntryIterator</span></span>
+        <span class="name">openForRead</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>, <span name="arg1">arg1: <span class="extype" name="java.lang.Void">Void</span></span>)</span><span class="result">: <span class="extype" name="cascading.tuple.TupleEntryIterator">TupleEntryIterator</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → Tap</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>SinkTap → Tap</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="symbol">classOf[java.io.IOException]</span>
@@ -981,14 +730,14 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
         </dd></dl></div>
     </li><li name="cascading.tap.Tap#openForRead" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="openForRead(x$1:cascading.flow.FlowProcess[Config]):cascading.tuple.TupleEntryIterator"></a>
-      <a id="openForRead(FlowProcess[JobConf]):TupleEntryIterator"></a>
+      <a id="openForRead(FlowProcess[Nothing]):TupleEntryIterator"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">openForRead</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.TupleEntryIterator">TupleEntryIterator</span></span>
+        <span class="name">openForRead</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.TupleEntryIterator">TupleEntryIterator</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
@@ -998,35 +747,29 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#openForWrite" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="openForWrite(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.OutputCollector[_,_]):cascading.tuple.TupleEntryCollector"></a>
-      <a id="openForWrite(FlowProcess[JobConf],OutputCollector[_,_]):TupleEntryCollector"></a>
+    </li><li name="com.twitter.scalding.NullTap#openForWrite" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="openForWrite(flowProcess:cascading.flow.FlowProcess[Config],output:Output):cascading.tuple.TupleEntryCollector"></a>
+      <a id="openForWrite(FlowProcess[Nothing],Nothing):TupleEntryCollector"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">openForWrite</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="org.apache.hadoop.mapred.OutputCollector">OutputCollector</span>[_, _]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.TupleEntryCollector">TupleEntryCollector</span></span>
+        <span class="name">openForWrite</span><span class="params">(<span name="flowProcess">flowProcess: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>, <span name="output">output: <span class="extype" name="scala.Nothing">Nothing</span></span>)</span><span class="result">: <span class="extype" name="cascading.tuple.TupleEntryCollector">TupleEntryCollector</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → Tap</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>NullTap → Tap</dd></dl></div>
     </li><li name="cascading.tap.Tap#openForWrite" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="openForWrite(x$1:cascading.flow.FlowProcess[Config]):cascading.tuple.TupleEntryCollector"></a>
-      <a id="openForWrite(FlowProcess[JobConf]):TupleEntryCollector"></a>
+      <a id="openForWrite(FlowProcess[Nothing]):TupleEntryCollector"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">openForWrite</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.TupleEntryCollector">TupleEntryCollector</span></span>
+        <span class="name">openForWrite</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.TupleEntryCollector">TupleEntryCollector</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
@@ -1051,27 +794,27 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → FlowElement</dd></dl></div>
     </li><li name="cascading.tap.Tap#presentSinkFields" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="presentSinkFields(x$1:cascading.flow.FlowProcess[Config],x$2:cascading.tuple.Fields):Unit"></a>
-      <a id="presentSinkFields(FlowProcess[JobConf],Fields):Unit"></a>
+      <a id="presentSinkFields(FlowProcess[Nothing],Fields):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">presentSinkFields</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">presentSinkFields</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>, <span name="arg1">arg1: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
     </li><li name="cascading.tap.Tap#presentSourceFields" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="presentSourceFields(x$1:cascading.flow.FlowProcess[Config],x$2:cascading.tuple.Fields):Unit"></a>
-      <a id="presentSourceFields(FlowProcess[JobConf],Fields):Unit"></a>
+      <a id="presentSourceFields(FlowProcess[Nothing],Fields):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">presentSourceFields</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">presentSourceFields</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>, <span name="arg1">arg1: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -1101,35 +844,29 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → FlowElement</dd></dl></div>
-    </li><li name="cascading.tap.hive.HiveTap#resourceExists" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="resourceExists(x$1:org.apache.hadoop.mapred.JobConf):Boolean"></a>
-      <a id="resourceExists(JobConf):Boolean"></a>
+    </li><li name="com.twitter.scalding.NullTap#resourceExists" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="resourceExists(conf:Config):Boolean"></a>
+      <a id="resourceExists(Nothing):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">resourceExists</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">resourceExists</span><span class="params">(<span name="conf">conf: <span class="extype" name="scala.Nothing">Nothing</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>HiveTap → Hfs → Tap</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>NullTap → Tap</dd></dl></div>
     </li><li name="cascading.tap.Tap#resourceExists" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="resourceExists(x$1:cascading.flow.FlowProcess[Config]):Boolean"></a>
-      <a id="resourceExists(FlowProcess[JobConf]):Boolean"></a>
+      <a id="resourceExists(FlowProcess[Nothing]):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">resourceExists</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">resourceExists</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
@@ -1141,40 +878,40 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
         </dd></dl></div>
     </li><li name="cascading.tap.Tap#retrieveSinkFields" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="retrieveSinkFields(x$1:cascading.flow.FlowProcess[Config]):cascading.tuple.Fields"></a>
-      <a id="retrieveSinkFields(FlowProcess[JobConf]):Fields"></a>
+      <a id="retrieveSinkFields(FlowProcess[Nothing]):Fields"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">retrieveSinkFields</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>
+        <span class="name">retrieveSinkFields</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
     </li><li name="cascading.tap.Tap#retrieveSourceFields" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="retrieveSourceFields(x$1:cascading.flow.FlowProcess[Config]):cascading.tuple.Fields"></a>
-      <a id="retrieveSourceFields(FlowProcess[JobConf]):Fields"></a>
+      <a id="retrieveSourceFields(FlowProcess[Nothing]):Fields"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">retrieveSourceFields</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>
+        <span class="name">retrieveSourceFields</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
     </li><li name="cascading.tap.Tap#rollbackResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="rollbackResource(x$1:Config):Boolean"></a>
-      <a id="rollbackResource(JobConf):Boolean"></a>
+      <a id="rollbackResource(Nothing):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">rollbackResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">rollbackResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Nothing">Nothing</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
@@ -1186,95 +923,43 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
         </dd></dl></div>
     </li><li name="cascading.tap.Tap#setScheme" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setScheme(x$1:cascading.scheme.Scheme[Config,Input,Output,_,_]):Unit"></a>
-      <a id="setScheme(Scheme[JobConf,RecordReader[_,_],OutputCollector[_,_],_,_]):Unit"></a>
+      <a id="setScheme(Scheme[Nothing,Void,Nothing,_,_]):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setScheme</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.scheme.Scheme">Scheme</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>, <span class="extype" name="org.apache.hadoop.mapred.RecordReader">RecordReader</span>[_, _], <span class="extype" name="org.apache.hadoop.mapred.OutputCollector">OutputCollector</span>[_, _], _, _]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">setScheme</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.scheme.Scheme">Scheme</span>[<span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="java.lang.Void">Void</span>, <span class="extype" name="scala.Nothing">Nothing</span>, _, _]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap.html" class="extype" name="cascading.tap">cascading.tap</a>] </dd><dt>Definition Classes</dt><dd>Tap</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap#setStringPath" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="setStringPath(path:String):Unit"></a>
-      <a id="setStringPath(String):Unit"></a>
+    </li><li name="cascading.tap.Tap#sinkConfInit" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="sinkConfInit(x$1:cascading.flow.FlowProcess[Config],x$2:Config):Unit"></a>
+      <a id="sinkConfInit(FlowProcess[Nothing],Nothing):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setStringPath</span><span class="params">(<span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">sinkConfInit</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>, <span name="arg1">arg1: <span class="extype" name="scala.Nothing">Nothing</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap">PartitionHiveParquetReadTap</a> → Hfs</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#setUriScheme" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="setUriScheme(x$1:java.net.URI):Unit"></a>
-      <a id="setUriScheme(URI):Unit"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
+    </li><li name="cascading.tap.SinkTap#sourceConfInit" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="sourceConfInit(x$1:cascading.flow.FlowProcess[Config],x$2:Config):Unit"></a>
+      <a id="sourceConfInit(FlowProcess[Nothing],Nothing):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setUriScheme</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.net.URI">URI</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">sourceConfInit</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>, <span name="arg1">arg1: <span class="extype" name="scala.Nothing">Nothing</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#sinkConfInit" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="sinkConfInit(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.JobConf):Unit"></a>
-      <a id="sinkConfInit(FlowProcess[JobConf],JobConf):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">sinkConfInit</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → Tap</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#sourceConfInit" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="sourceConfInit(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.JobConf):Unit"></a>
-      <a id="sourceConfInit(FlowProcess[JobConf],JobConf):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">sourceConfInit</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → Tap</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#sourceConfInitAddInputPath" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="sourceConfInitAddInputPath(x$1:org.apache.hadoop.mapred.JobConf,x$2:org.apache.hadoop.fs.Path):Unit"></a>
-      <a id="sourceConfInitAddInputPath(JobConf,Path):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">sourceConfInitAddInputPath</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>, <span name="arg1">arg1: <span class="extype" name="org.apache.hadoop.fs.Path">Path</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
-    </li><li name="cascading.tap.hadoop.Hfs#sourceConfInitComplete" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="sourceConfInitComplete(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.JobConf):Unit"></a>
-      <a id="sourceConfInitComplete(FlowProcess[JobConf],JobConf):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">sourceConfInitComplete</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>SinkTap → Tap</dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -1367,14 +1052,18 @@ for reading partitioned data and they are, therefore, the same for scheduling ca
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="cascading.tap.hive.HiveTap">
-              <h3>Inherited from <span class="extype" name="cascading.tap.hive.HiveTap">HiveTap</span></h3>
-            </div><div class="parent" name="cascading.tap.hadoop.Hfs">
-              <h3>Inherited from <span class="extype" name="cascading.tap.hadoop.Hfs">Hfs</span></h3>
-            </div><div class="parent" name="cascading.tap.type.FileType">
-              <h3>Inherited from <span class="extype" name="cascading.tap.type.FileType">FileType</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</h3>
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="com.twitter.scalding.NullTap">
+              <h3>Inherited from <span class="extype" name="com.twitter.scalding.NullTap">com.twitter.scalding.NullTap</span>[<span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="scala.Nothing">Nothing</span>]</h3>
+            </div><div class="parent" name="cascading.tap.SinkTap">
+              <h3>Inherited from <span class="extype" name="cascading.tap.SinkTap">SinkTap</span>[<span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="scala.Nothing">Nothing</span>]</h3>
             </div><div class="parent" name="cascading.tap.Tap">
-              <h3>Inherited from <span class="extype" name="cascading.tap.Tap">Tap</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>, <span class="extype" name="org.apache.hadoop.mapred.RecordReader">RecordReader</span>[_, _], <span class="extype" name="org.apache.hadoop.mapred.OutputCollector">OutputCollector</span>[_, _]]</h3>
+              <h3>Inherited from <span class="extype" name="cascading.tap.Tap">Tap</span>[<span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="java.lang.Void">Void</span>, <span class="extype" name="scala.Nothing">Nothing</span>]</h3>
             </div><div class="parent" name="cascading.flow.FlowElement">
               <h3>Inherited from <span class="extype" name="cascading.flow.FlowElement">FlowElement</span></h3>
             </div><div class="parent" name="java.io.Serializable">
