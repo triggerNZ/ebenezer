@@ -17,7 +17,7 @@ package hive
 
 import collection.JavaConverters._
 
-import com.twitter.scalding.{Source, Args, Read, Write}
+import com.twitter.scalding.{Source, Args, Read, Write, NullTap => SNullTap}
 
 import cascading.pipe.Pipe
 import cascading.tap.Tap
@@ -30,6 +30,11 @@ import org.apache.hadoop.hive.conf.HiveConf.ConfVars
 
 import au.com.cba.omnia.ebenezer.scrooge.scalding.UniqueJob
 
+/** Create a Null tap with a custom path to avoid it impacting cascading scheduling. */
+case class NullTap(id: String) extends SNullTap {
+  override def getIdentifier() = id
+}
+
 /**
   * Creates a Scalding job to run the specified queries against hive.
   * 
@@ -39,22 +44,27 @@ import au.com.cba.omnia.ebenezer.scrooge.scalding.UniqueJob
 class HiveJob(
   args: Args, name: String, inputs: List[Source], output: Option[Source],
   hiveSettings: Map[String, String], queries: Seq[String]
-)
-    extends UniqueJob(args) {
+) extends UniqueJob(args) {
   // Call the read method on each tap in order to add that tap to the flowDef.
   inputs.foreach(_.read(flowDef, mode))
 
   override def buildFlow = {
+    val inputTaps =
+      if (inputs.isEmpty) List(new NullTap(unique + "IN"))
+      else inputs.map(_.createTap(Read)(mode).asInstanceOf[Tap[_, _, _]])
+
     val flow = new HiveFlow(
       name, queries.toArray,
-      inputs.map(_.createTap(Read)(mode).asInstanceOf[Tap[_, _, _]]).asJava,
-      output.fold[Tap[_, _, _]](HiveNullTap.DEV_NULL)(_.createTap(Write)(mode)),
+      inputTaps.asJava,
+      output.fold[Tap[_, _, _]](new NullTap(unique + "OUT"))(_.createTap(Write)(mode)),
       hiveSettings.asJava
     )
 
     flow.setFlowSkipStrategy(DontSkipStrategy)
     flow
   }
+
+  override def validate = {}
 }
 
 object HiveJob {
