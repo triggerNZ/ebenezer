@@ -16,6 +16,8 @@ package au.com.cba.omnia.ebenezer.compat.simple
 
 import scala.collection.mutable.ArrayBuffer
 
+import scalaz._, Scalaz._
+
 import com.twitter.scalding._, TDsl._
 import com.twitter.scalding.typed.IterablePipe
 
@@ -34,15 +36,21 @@ object Compatibility {
   val dataTupled = data.map(t => (t._1, t._2, t._3, t._4, t._5, t._6, t._7, t._8, t._9))
   val dataTsv    = data.map(_.productIterator.toList.mkString("|"))
 
-  def schema(db: String, table: String) = s"""
-    CREATE TABLE $db.$table (
+  def schema(db: String, table: String, path: Option[String] = None) = {
+    val external = path.cata(_ => "EXTERNAL", "")
+    val location = path.cata(l => s"LOCATION '$l'", "")
+
+    s"""
+    CREATE $external TABLE $db.$table (
       stringfield string, booleanfield boolean, shortfield smallint, intfield int, longfield bigint,
       doublefield double, bytefield tinyint, optstringfield string, optdoublefield double
     ) ROW FORMAT SERDE 'parquet.hive.serde.ParquetHiveSerDe'
         STORED AS
           INPUTFORMAT "parquet.hive.DeprecatedParquetInputFormat"
           OUTPUTFORMAT "parquet.hive.DeprecatedParquetOutputFormat"
+      $location
     """
+  }
 }
 
 class MRWriteJob(args: Args) extends Job(args) {
@@ -93,4 +101,13 @@ class HiveWriteJob(args: Args) extends CascadeJob(args) {
       s"INSERT OVERWRITE TABLE $db.$dst SELECT * FROM $db.$src"
     )
   )
+}
+
+class HiveSchemaJob(args: Args) extends CascadeJob(args) {
+  val jobs = List(HiveJob(
+    args, "HiveCreateSchemaJob",
+    List.empty, None,
+    s"""CREATE DATABASE IF NOT EXISTS ${args("db")}""",
+    Compatibility.schema(args("db"), args("src"), args.optional("path"))
+  ))
 }

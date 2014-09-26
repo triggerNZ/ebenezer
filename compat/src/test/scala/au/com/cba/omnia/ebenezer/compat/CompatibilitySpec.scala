@@ -30,63 +30,124 @@ Internal compatibility tests for non collection types
   Can write using MR and read using Hive   $writeMRReadHive
   Can write using Hive and read using MR   $writeHiveReadMR
   Can write using Hive and read using Hive $writeHiveReadHive
+
+Backwards compatibility  tests
+==============================
+
+   parquet-1.2.5-cdh4.6.0
+   ----------------------
+
+    Can read simple MR data using MR     $cdh46MRReadMR
+    Can read simple Hive data using MR   $cdh46HiveReadMR
+    Can read simple MR data using hive   $cdh46MRReadHive
+    Can read simple Hive data using hive $cdh46HiveReadHive
+
 """
 
-  def writeMR(dst: String) = {
-    val job = withArgs(Map("db" -> "default", "dst" -> dst))(new simple.MRWriteJob(_))
-    val fact = hiveWarehouse </> dst </> "*.parquet" ==> records(ParquetThermometerRecordReader[Simple], simple.Compatibility.data)
+  def writeMR(db: String, dst: String) = {
+    val job = withArgs(Map("db" -> db, "dst" -> dst))(new simple.MRWriteJob(_))
+    val fact = hiveWarehouse </> s"$db.db" </> dst </> "*.parquet" ==> records(ParquetThermometerRecordReader[Simple], simple.Compatibility.data)
 
     job.withFacts(fact)
   }
 
-  def readMR(src: String, dst: String) = {
-    val job = withArgs(Map("db" -> "default", "src" -> src, "dst" -> dst))(new simple.MRReadJob(_))
+  def readMR(db: String, src: String, dst: String) = {
+    val job = withArgs(Map("db" -> db, "src" -> src, "dst" -> dst))(new simple.MRReadJob(_))
     val fact = dst </> "part-*" ==> lines(simple.Compatibility.dataTsv)
 
     job.withFacts(fact)
   }
 
-  def writeHive(tmpTable: String, dst: String) = {
-    val job = withArgs(Map("db" -> "default", "tmpTable" -> tmpTable, "dst" -> dst))(new simple.HiveWriteJob(_))
-    val fact = hiveWarehouse </> dst </> "*" ==> records(ParquetThermometerRecordReader[Simple], simple.Compatibility.data)
+  def writeHive(db: String, tmpTable: String, dst: String) = {
+    val job = withArgs(Map("db" -> db, "tmpTable" -> tmpTable, "dst" -> dst))(new simple.HiveWriteJob(_))
+    val fact = hiveWarehouse </> s"$db.db" </> dst </> "*" ==> records(ParquetThermometerRecordReader[Simple], simple.Compatibility.data)
 
     job.withFacts(fact)
   }
 
-  def readHive(src: String, dst: String) = {
-    val job = withArgs(Map("db" -> "default", "src" -> src, "dst" -> dst))(new simple.HiveReadJob(_))
-    val fact = hiveWarehouse </> dst </> "*" ==> records(ParquetThermometerRecordReader[Simple], simple.Compatibility.data)
+  def readHive(db: String, src: String, dst: String) = {
+    val job = withArgs(Map("db" -> db, "src" -> src, "dst" -> dst))(new simple.HiveReadJob(_))
+    val fact = hiveWarehouse </> s"$db.db" </> dst </> "*" ==> records(ParquetThermometerRecordReader[Simple], simple.Compatibility.data)
 
     job.withFacts(fact)
+  }
+
+  def createExternalTable(db: String, src: String, path: String) = {
+    val job = withArgs(Map("db" -> db, "src" -> src, "path" -> path))(new simple.HiveSchemaJob(_))
+    job.runsOk
   }
 
   def readMRWriteMR = {
+    val db  = "test"
     val src = "mrsrc"
     val dst = "mrdst"
 
-    withDependency(writeMR(src))(readMR(src, dst))
+    withDependency(writeMR(db, src))(readMR(db, src, dst))
   }
 
   def writeMRReadHive = {
-    val src      = "mrsrc"
-    val dst      = "hivedst"
+    val db  = "test"
+    val src = "mrsrc"
+    val dst = "hivedst"
 
-    withDependency(writeMR(src))(readHive(src, dst))
+    withDependency(writeMR(db, src))(readHive(db, src, dst))
   }
 
   def writeHiveReadMR = {
+    val db       = "test"
     val tmpTable = "staging"
     val src      = "hivesrc"
     val dst      = "mrdst"
 
-    withDependency(writeHive(tmpTable, src))(readMR(src, dst))
+    withDependency(writeHive(db, tmpTable, src))(readMR(db, src, dst))
   }
 
   def writeHiveReadHive = {
+    val db       = "test"
     val tmpTable = "staging"
     val src      = "hivesrc"
     val dst      = "hivedst"
 
-    withDependency(writeHive(tmpTable, src))(readHive(src, dst))
+    withDependency(writeHive(db, tmpTable, src))(readHive(db, src, dst))
   }
+
+  def cdh46MRReadMR =
+    withEnvironment(path(getClass.getResource("/parquet-1.2.5-cdh4.6.0/simple/").toString)) {
+      val db   = "test"
+      val src  = "mrsrc"
+      val path = s"$dir/user/ebenezer"
+      val dst  = "mrdst"
+
+      withDependency(createExternalTable(db, src, path))(readMR(db, src, dst))
+    }
+
+  def cdh46HiveReadMR =
+    withEnvironment(path(getClass.getResource("/parquet-1.2.5-cdh4.6.0/simple/").toString)) {
+      val db   = "test"
+      val src  = "hivesrc"
+      val path = s"$dir/user/hive"
+      val dst  = "mrdst"
+
+      withDependency(createExternalTable(db, src, path))(readMR(db, src, dst))
+    }
+
+  def cdh46MRReadHive =
+    withEnvironment(path(getClass.getResource("/parquet-1.2.5-cdh4.6.0/simple/").toString)) {
+      val db   = "test"
+      val src  = "mrsrc"
+      val path = s"$dir/user/ebenezer"
+      val dst  = "hivedst"
+
+      withDependency(createExternalTable(db, src, path))(readHive(db, src, dst))
+    }
+
+  def cdh46HiveReadHive =
+    withEnvironment(path(getClass.getResource("/parquet-1.2.5-cdh4.6.0/simple/").toString)) {
+      val db   = "test"
+      val src  = "hivesrc"
+      val path = s"$dir/user/hive"
+      val dst  = "hivedst"
+
+      withDependency(createExternalTable(db, src, path))(readHive(db, src, dst))
+    }
 }
