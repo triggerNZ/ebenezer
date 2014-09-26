@@ -131,4 +131,23 @@ object build extends Build {
         )
   ).dependsOn(hive)
    .dependsOn(test % "test")
+
+  lazy val compat = Project(
+    id = "compat",
+    base = file("compat"),
+    settings =
+      standardSettings
+        ++ uniform.project("ebenezer-compat", "au.com.cba.omnia.ebenezer.compat")
+        ++ uniformThriftSettings
+        ++ uniformAssemblySettings
+        ++ Seq(
+          parallelExecution in Test := false,
+          libraryDependencies ++=
+            depend.hadoop() ++ depend.scalding() ++ depend.testing() ++
+            depend.omnia("thermometer-hive", thermometerVersion) ++ Seq(
+              "com.twitter" % "parquet-hive" % "1.2.5-cdh4.6.0" % "test"
+            )
+        )
+  ).dependsOn(hive)
+    .dependsOn(test % "test")
 }
