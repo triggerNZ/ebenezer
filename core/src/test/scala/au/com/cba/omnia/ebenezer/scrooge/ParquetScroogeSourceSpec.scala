@@ -88,14 +88,17 @@ ParquetSource usage
   }
 
   def writeLarge =
-    ThermometerSource(largeData)
+    pending("Large structures are not supported in this version of parquet")
+    /*ThermometerSource(largeData)
       .write(ParquetScroogeSource[Large]("large"))
       .withFacts(
       "large" </> "_SUCCESS"   ==> exists
     , "large" </> "*.parquet"  ==> records(ParquetThermometerRecordReader[Large], largeData)
-    )
+    )*/
 
-  def readLarge = withDependency(writeLarge) {
+  def readLarge = 
+    pending("Large structures are not supported in this version of parquet")
+  /*withDependency(writeLarge) {
     ParquetScroogeSource[Large]("large")
       .map(_.toString)
       .write(TypedPsv("large.psv"))
@@ -103,7 +106,7 @@ ParquetSource usage
       "large.psv" </> "_SUCCESS"   ==> exists
     , "large.psv" </> "part-*"     ==> lines(largeData.map(_.toString))
     )
-  }
+  }*/
 
   def createLarge(i: Int): Large =  {
     val x = new Large()
