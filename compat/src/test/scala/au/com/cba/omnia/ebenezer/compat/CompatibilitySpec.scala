@@ -34,13 +34,22 @@ Internal compatibility tests for non collection types
 Backwards compatibility  tests
 ==============================
 
-   parquet-1.2.5-cdh4.6.0
-   ----------------------
+  parquet-1.2.5-cdh4.6.0
+  ----------------------
 
     Can read simple MR data using MR     $cdh46MRReadMR
     Can read simple Hive data using MR   $cdh46HiveReadMR
     Can read simple MR data using hive   $cdh46MRReadHive
     Can read simple Hive data using hive $cdh46HiveReadHive
+
+  parquet-1.2.5-cdh4.6.0-p337
+  ---------------------------
+
+    Can read simple MR data using MR     $cdh46p337MRReadMR
+    Can read simple Hive data using MR   $cdh46p337HiveReadMR
+    Can read simple MR data using hive   $cdh46p337MRReadHive
+    Can read simple Hive data using hive $cdh46p337HiveReadHive
+
 
 """
 
@@ -150,4 +159,45 @@ Backwards compatibility  tests
 
       withDependency(createExternalTable(db, src, path))(readHive(db, src, dst))
     }
+
+  def cdh46p337MRReadMR =
+    withEnvironment(path(getClass.getResource("/parquet-1.2.5-cdh4.6.0-p337/simple/").toString)) {
+      val db   = "test"
+      val src  = "mrsrc"
+      val path = s"$dir/user/ebenezer"
+      val dst  = "mrdst"
+
+      withDependency(createExternalTable(db, src, path))(readMR(db, src, dst))
+    }
+
+  def cdh46p337HiveReadMR =
+    withEnvironment(path(getClass.getResource("/parquet-1.2.5-cdh4.6.0-p337/simple/").toString)) {
+      val db   = "test"
+      val src  = "hivesrc"
+      val path = s"$dir/user/hive"
+      val dst  = "mrdst"
+
+      withDependency(createExternalTable(db, src, path))(readMR(db, src, dst))
+    }
+
+  def cdh46p337MRReadHive =
+    withEnvironment(path(getClass.getResource("/parquet-1.2.5-cdh4.6.0-p337/simple/").toString)) {
+      val db   = "test"
+      val src  = "mrsrc"
+      val path = s"$dir/user/ebenezer"
+      val dst  = "hivedst"
+
+      withDependency(createExternalTable(db, src, path))(readHive(db, src, dst))
+    }
+
+  def cdh46p337HiveReadHive =
+    withEnvironment(path(getClass.getResource("/parquet-1.2.5-cdh4.6.0-p337/simple/").toString)) {
+      val db   = "test"
+      val src  = "hivesrc"
+      val path = s"$dir/user/hive"
+      val dst  = "hivedst"
+
+      withDependency(createExternalTable(db, src, path))(readHive(db, src, dst))
+    }
+
 }
