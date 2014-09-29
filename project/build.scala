@@ -109,7 +109,7 @@ object build extends Build {
         ++ Seq(
           libraryDependencies ++=
             depend.hadoop() ++ depend.scalding() ++ depend.scalaz() ++ depend.testing() ++ Seq(
-              "com.twitter" % "parquet-tools" % parquetVersion
+              "com.twitter" % "parquet-tools" % "1.5.0"
             )
         )
   ).dependsOn(core)
