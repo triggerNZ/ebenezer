@@ -58,7 +58,7 @@ object build extends Build {
         ++ Seq(
           libraryDependencies ++=
             depend.hadoop() ++ depend.scalding() ++ depend.scalaz() ++ depend.testing() ++ Seq(
-              "com.twitter"       % "parquet-cascading" % parquetVersion,
+              "com.twitter"       % "parquet-cascading" % parquetVersion % "provided",
               "au.com.cba.omnia" %% "thermometer"       % thermometerVersion % "test",
               "au.com.cba.omnia" %% "humbug-core"       % "0.3.0-20140918054014-3066286" % "test"
             ),
@@ -93,7 +93,8 @@ object build extends Build {
             depend.hadoop() ++ depend.scalding() ++ depend.testing() ++
             depend.omnia("cascading-hive", "1.5.0-20140925013518-0e6f477") ++
             Seq(
-              "au.com.cba.omnia" %% "thermometer-hive" % thermometerVersion % "test"
+              "com.twitter"       % "parquet-cascading" % parquetVersion     % "provided",
+              "au.com.cba.omnia" %% "thermometer-hive"  % thermometerVersion % "test"
             )
         )
   ).dependsOn(core)
