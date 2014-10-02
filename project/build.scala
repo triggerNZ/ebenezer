@@ -77,7 +77,9 @@ object build extends Build {
         ++ Seq(
           libraryDependencies ++=
             depend.hadoop() ++ depend.scalaz() ++ depend.testing() ++
-            depend.omnia("thermometer", thermometerVersion)
+            depend.omnia("thermometer", thermometerVersion) ++ Seq(
+              "com.twitter" % "parquet-cascading" % parquetVersion % "provided"
+            )
         )
   ).dependsOn(core)
 
@@ -148,7 +150,8 @@ object build extends Build {
           libraryDependencies ++=
             depend.hadoop() ++ depend.scalding() ++ depend.testing() ++
             depend.omnia("thermometer-hive", thermometerVersion) ++ Seq(
-              "com.twitter" % "parquet-hive" % parquetVersion % "test"
+              "com.twitter" % "parquet-hive"      % parquetVersion % "test",
+              "com.twitter" % "parquet-cascading" % parquetVersion % "test"
             )
         )
   ).dependsOn(hive)
