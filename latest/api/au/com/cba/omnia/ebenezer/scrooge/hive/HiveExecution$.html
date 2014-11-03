@@ -39,7 +39,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Methods to run Hive queries inside the Execution monad.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/ee64b1abec8ec6dd2e4c20913983d67902ea0f3a//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/HiveExecution.scala" target="_blank">HiveExecution.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Methods to run Hive queries inside the Execution monad.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/cbcd75318a64a27ec12dd4157fdfce7667475af5//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/HiveExecution.scala" target="_blank">HiveExecution.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -319,20 +319,19 @@
       </h4>
       <p class="shortcomment cmt">Runs the specified hive queries inside the Execution monad.</p><div class="fullcomment"><div class="comment cmt"><p>Runs the specified hive queries inside the Execution monad.</p><p>The specified output is used to create the target table before the job starts.
 </p></div></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution#query" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="query(args:com.twitter.scalding.Args,name:String,hiveSettings:Map[org.apache.hadoop.hive.conf.HiveConf.ConfVars,String],queries:String*):com.twitter.scalding.Execution[Unit]"></a>
-      <a id="query(Args,String,Map[ConfVars,String],String*):Execution[Unit]"></a>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution#query" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="query(name:String,hiveSettings:Map[org.apache.hadoop.hive.conf.HiveConf.ConfVars,String],queries:String*):com.twitter.scalding.Execution[Unit]"></a>
+      <a id="query(String,Map[ConfVars,String],String*):Execution[Unit]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">query</span><span class="params">(<span name="args">args: <span class="extype" name="com.twitter.scalding.Args">Args</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="hiveSettings">hiveSettings: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf.ConfVars">ConfVars</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="queries">queries: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+        <span class="name">query</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="hiveSettings">hiveSettings: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf.ConfVars">ConfVars</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="queries">queries: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Runs the specified hive queries inside the Execution monad.</p><div class="fullcomment"><div class="comment cmt"><p>Runs the specified hive queries inside the Execution monad.</p><p>The specified output is used to create the target table before the job starts.
-</p></div></div>
+      <p class="shortcomment cmt">Runs the specified hive queries inside the Execution monad.</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution#query" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="query(name:String,output:com.twitter.scalding.Source,queries:String*):com.twitter.scalding.Execution[Unit]"></a>
       <a id="query(String,Source,String*):Execution[Unit]"></a>
@@ -347,7 +346,7 @@
       </h4>
       <p class="shortcomment cmt">Runs the specified hive queries inside the Execution monad.</p><div class="fullcomment"><div class="comment cmt"><p>Runs the specified hive queries inside the Execution monad.</p><p>The specified output is used to create the target table before the job starts.
 </p></div></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution#query" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution#query" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="query(name:String,queries:String*):com.twitter.scalding.Execution[Unit]"></a>
       <a id="query(String,String*):Execution[Unit]"></a>
       <h4 class="signature">
@@ -359,8 +358,7 @@
         <span class="name">query</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="queries">queries: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Runs the specified hive queries inside the Execution monad.</p><div class="fullcomment"><div class="comment cmt"><p>Runs the specified hive queries inside the Execution monad.</p><p>The specified output is used to create the target table before the job starts.
-</p></div></div>
+      <p class="shortcomment cmt">Runs the specified hive queries inside the Execution monad.</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
