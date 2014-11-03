@@ -45,7 +45,7 @@ mapreduce.FileSplit and cascading will ignore any partitioned input splits that 
 mapred.FileSplit.
 Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource">PartitionHiveParquetScroogeSource</a> for read.
 </p></div><dl class="paramcmts block"><dt class="param">partitionColumns</dt><dd class="cmt"><p>a list of the partition columns formatted as <code>[(name, type)]</code>.</p></dd><dt class="param">append</dt><dd class="cmt"><p>iff true will add new files to an existing partition instead of overwritting it.
-</p></dd></dl><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/d673392d456966568f5b70beefd9905d212f8eaa//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/PartitionHiveParquetScroogeSource.scala" target="_blank">PartitionHiveParquetScroogeSource.scala</a></dd></dl><div class="toggleContainer block">
+</p></dd></dl><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/ee64b1abec8ec6dd2e4c20913983d67902ea0f3a//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/PartitionHiveParquetScroogeSource.scala" target="_blank">PartitionHiveParquetScroogeSource.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)], <span class="extype" name="com.twitter.scalding.Source">Source</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -231,6 +231,19 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="com.twitter.scalding.typed.TypedSink#contraMap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="contraMap[U&lt;:&lt;?&gt;](fn:&lt;?&gt;):com.twitter.scalding.typed.TypedSink[U]"></a>
+      <a id="contraMap[U]((U)⇒(A,T)):TypedSink[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">contraMap</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="fn">fn: (<span class="extype" name="com.twitter.scalding.typed.TypedSink.contraMap.U">U</span>) ⇒ (<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[<span class="extype" name="com.twitter.scalding.typed.TypedSink.contraMap.U">U</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TypedSink</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink#createTap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="createTap(readOrWrite:com.twitter.scalding.AccessMode)(implicitmode:com.twitter.scalding.Mode):cascading.tap.Tap[_,_,_]"></a>
       <a id="createTap(AccessMode)(Mode):Tap[_,_,_]"></a>
@@ -432,6 +445,19 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink">PartitionHiveParquetScroogeSink</a> → TypedSink</dd></dl></div>
+    </li><li name="com.twitter.scalding.Source#sourceId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="sourceId:String"></a>
+      <a id="sourceId:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sourceId</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Source</dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>

@@ -41,7 +41,7 @@
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Source to read unpartitioned Hive tables where the data is the specified thrift struct stored
 in Parquet format.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/d673392d456966568f5b70beefd9905d212f8eaa//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/HiveParquetScroogeSource.scala" target="_blank">HiveParquetScroogeSource.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/ee64b1abec8ec6dd2e4c20913983d67902ea0f3a//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/HiveParquetScroogeSource.scala" target="_blank">HiveParquetScroogeSource.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="com.twitter.scalding.Mappable">Mappable</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>], <span class="extype" name="com.twitter.scalding.typed.TypedSource">TypedSource</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>], <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>], <span class="extype" name="com.twitter.scalding.Source">Source</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -168,6 +168,19 @@ in Parquet format.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="com.twitter.scalding.typed.TypedSource#andThen" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="andThen[U](fn:T=&gt;U):com.twitter.scalding.typed.TypedSource[U]"></a>
+      <a id="andThen[U]((T)⇒U):TypedSource[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">andThen</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="fn">fn: (<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>) ⇒ <span class="extype" name="com.twitter.scalding.typed.TypedSource.andThen.U">U</span></span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.typed.TypedSource">TypedSource</span>[<span class="extype" name="com.twitter.scalding.typed.TypedSource.andThen.U">U</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TypedSource</dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -182,7 +195,7 @@ in Parquet format.
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="com.twitter.scalding.Source#checkFlowDefNotNull" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="checkFlowDefNotNull(implicitflowDef:&lt;?&gt;,implicitmode:&lt;?&gt;):Unit"></a>
+      <a id="checkFlowDefNotNull(implicitflowDef:cascading.flow.FlowDef,implicitmode:com.twitter.scalding.Mode):Unit"></a>
       <a id="checkFlowDefNotNull(FlowDef,Mode):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -213,6 +226,19 @@ in Parquet format.
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="com.twitter.scalding.typed.TypedSink#contraMap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="contraMap[U](fn:U=&gt;T):com.twitter.scalding.typed.TypedSink[U]"></a>
+      <a id="contraMap[U]((U)⇒T):TypedSink[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">contraMap</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="fn">fn: (<span class="extype" name="com.twitter.scalding.typed.TypedSink.contraMap.U">U</span>) ⇒ <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span></span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[<span class="extype" name="com.twitter.scalding.typed.TypedSink.contraMap.U">U</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TypedSink</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource#converter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="converter[U&gt;:T]:com.twitter.scalding.TupleConverter[U]"></a>
       <a id="converter[U&gt;:T]:TupleConverter[U]"></a>
@@ -285,7 +311,7 @@ in Parquet format.
               
         </dd></dl></div>
     </li><li name="com.twitter.scalding.Mappable#flatMapTo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="flatMapTo[U&lt;:&lt;?&gt;](out:&lt;?&gt;)(mf:&lt;?&gt;)(implicitflowDef:&lt;?&gt;,implicitmode:&lt;?&gt;,implicitsetter:&lt;?&gt;):cascading.pipe.Pipe"></a>
+      <a id="flatMapTo[U](out:cascading.tuple.Fields)(mf:T=&gt;TraversableOnce[U])(implicitflowDef:cascading.flow.FlowDef,implicitmode:com.twitter.scalding.Mode,implicitsetter:com.twitter.scalding.TupleSetter[U]):cascading.pipe.Pipe"></a>
       <a id="flatMapTo[U](Fields)((T)⇒TraversableOnce[U])(FlowDef,Mode,TupleSetter[U]):Pipe"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -350,7 +376,7 @@ in Parquet format.
       </h4>
       
     </li><li name="com.twitter.scalding.Mappable#mapTo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="mapTo[U&lt;:&lt;?&gt;](out:&lt;?&gt;)(mf:&lt;?&gt;)(implicitflowDef:&lt;?&gt;,implicitmode:&lt;?&gt;,implicitsetter:&lt;?&gt;):cascading.pipe.Pipe"></a>
+      <a id="mapTo[U](out:cascading.tuple.Fields)(mf:T=&gt;U)(implicitflowDef:cascading.flow.FlowDef,implicitmode:com.twitter.scalding.Mode,implicitsetter:com.twitter.scalding.TupleSetter[U]):cascading.pipe.Pipe"></a>
       <a id="mapTo[U](Fields)((T)⇒U)(FlowDef,Mode,TupleSetter[U]):Pipe"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -453,6 +479,19 @@ in Parquet format.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TypedSource</dd></dl></div>
+    </li><li name="com.twitter.scalding.Source#sourceId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="sourceId:String"></a>
+      <a id="sourceId:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sourceId</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Source</dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -480,15 +519,15 @@ in Parquet format.
       </h4>
       
     </li><li name="com.twitter.scalding.Mappable#toIterator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toIterator(implicitmode:&lt;?&gt;):Iterator[T]"></a>
-      <a id="toIterator(Mode):Iterator[T]"></a>
+      <a id="toIterator(implicitconfig:com.twitter.scalding.Config,implicitmode:com.twitter.scalding.Mode):Iterator[T]"></a>
+      <a id="toIterator(Config,Mode):Iterator[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toIterator</span><span class="params">(<span class="implicit">implicit </span><span name="mode">mode: <span class="extype" name="com.twitter.scalding.Mode">Mode</span></span>)</span><span class="result">: <span class="extype" name="scala.Iterator">Iterator</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>]</span>
+        <span class="name">toIterator</span><span class="params">(<span class="implicit">implicit </span><span name="config">config: <span class="extype" name="com.twitter.scalding.Config">Config</span></span>, <span name="mode">mode: <span class="extype" name="com.twitter.scalding.Mode">Mode</span></span>)</span><span class="result">: <span class="extype" name="scala.Iterator">Iterator</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Mappable</dd></dl></div>
@@ -506,7 +545,7 @@ in Parquet format.
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource">HiveParquetScroogeSource</a> → AnyRef → Any</dd></dl></div>
     </li><li name="com.twitter.scalding.Source#transformForRead" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="transformForRead(pipe:&lt;?&gt;):cascading.pipe.Pipe"></a>
+      <a id="transformForRead(pipe:cascading.pipe.Pipe):cascading.pipe.Pipe"></a>
       <a id="transformForRead(Pipe):Pipe"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -519,7 +558,7 @@ in Parquet format.
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Source</dd></dl></div>
     </li><li name="com.twitter.scalding.Source#transformForWrite" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="transformForWrite(pipe:&lt;?&gt;):cascading.pipe.Pipe"></a>
+      <a id="transformForWrite(pipe:cascading.pipe.Pipe):cascading.pipe.Pipe"></a>
       <a id="transformForWrite(Pipe):Pipe"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -635,7 +674,7 @@ in Parquet format.
         <div id="values" class="values members">
               <h3>Deprecated Value Members</h3>
               <ol><li name="com.twitter.scalding.Source#readAtSubmitter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="readAtSubmitter[T&lt;:&lt;?&gt;](implicitmode:&lt;?&gt;,implicitconv:&lt;?&gt;):Stream[T]"></a>
+      <a id="readAtSubmitter[T](implicitmode:com.twitter.scalding.Mode,implicitconv:com.twitter.scalding.TupleConverter[T]):Stream[T]"></a>
       <a id="readAtSubmitter[T](Mode,TupleConverter[T]):Stream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
