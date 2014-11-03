@@ -29,11 +29,7 @@ import org.apache.hadoop.hive.conf.HiveConf.ConfVars
 
 /** Methods to run Hive queries inside the Execution monad. */
 object HiveExecution {
-  /**
-    * Runs the specified hive queries inside the Execution monad.
-    *
-    * The specified output is used to create the target table before the job starts.
-    */
+  /** Runs the specified hive queries inside the Execution monad. */
   def query(name: String, queries: String*): Execution[Unit] =
     rawQuery(name, None, Map.empty, queries)
 
@@ -45,12 +41,8 @@ object HiveExecution {
   def query(name: String, output: Source, queries: String*): Execution[Unit] =
     rawQuery(name, Some(output), Map.empty, queries)
 
-  /**
-    * Runs the specified hive queries inside the Execution monad.
-    *
-    * The specified output is used to create the target table before the job starts.
-    */
-  def query(args: Args, name: String, hiveSettings: Map[ConfVars, String], queries: String*): Execution[Unit] =
+  /** Runs the specified hive queries inside the Execution monad. */
+  def query(name: String, hiveSettings: Map[ConfVars, String], queries: String*): Execution[Unit] =
     rawQuery(name, None, hiveSettings, queries)
 
   /**
