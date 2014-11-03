@@ -38,6 +38,6 @@ class HiveExampleStep4(args: Args) extends Job(args) {
     ))
   )
   
-  IterablePipe(data, flowDef, mode)
+  IterablePipe(data)
     .write(HiveParquetScroogeSource[Nested](args("db"), args("table")))
 }

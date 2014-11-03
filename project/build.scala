@@ -25,7 +25,7 @@ import au.com.cba.omnia.uniform.assembly.UniformAssemblyPlugin._
 import au.com.cba.omnia.humbug.HumbugSBT._
 
 object build extends Build {
-  val thermometerVersion = "0.4.0-20140925013601-d800eeb"
+  val thermometerVersion = "0.5.0-20141102234309-bf319cc"
   val parquetVersion     = "1.2.5-cdh4.6.0-p337"
 
   lazy val standardSettings =
@@ -58,8 +58,8 @@ object build extends Build {
         ++ Seq(
           libraryDependencies ++=
             depend.hadoop() ++ depend.scalding() ++ depend.scalaz() ++ depend.testing() ++ Seq(
-              "com.twitter"       % "parquet-cascading" % parquetVersion % "provided",
-              "au.com.cba.omnia" %% "thermometer"       % thermometerVersion % "test",
+              "com.twitter"       % "parquet-cascading" % parquetVersion                 % "provided",
+              "au.com.cba.omnia" %% "thermometer"       % thermometerVersion             % "test",
               "au.com.cba.omnia" %% "humbug-core"       % "0.3.0-20140918054014-3066286" % "test"
             ),
           scroogeThriftSourceFolder in Test <<= (sourceDirectory) { _ / "test" / "thrift" / "scrooge" },
@@ -93,7 +93,7 @@ object build extends Build {
         ++ Seq(
           libraryDependencies ++=
             depend.hadoop() ++ depend.scalding() ++ depend.testing() ++
-            depend.omnia("cascading-hive", "1.5.0-20140925013518-0e6f477") ++
+            depend.omnia("cascading-hive", "1.6.0-20141103000150-80fd907") ++
             Seq(
               "com.twitter"       % "parquet-cascading" % parquetVersion     % "provided",
               "au.com.cba.omnia" %% "thermometer-hive"  % thermometerVersion % "test"

@@ -49,7 +49,7 @@ object Compatibility {
 class MRWriteJob(args: Args) extends Job(args) {
   val location = args.optional("location")
 
-  IterablePipe(Compatibility.data, flowDef, mode)
+  IterablePipe(Compatibility.data)
     .write(HiveParquetScroogeSource[Collection](args("db"), args("dst"), location))
 }
 
@@ -85,7 +85,7 @@ class HiveWriteJob(args: Args) extends CascadeJob(args) {
   val location = args.optional("location")
   val jobs = List(
     new Job(args) {
-      IterablePipe(Compatibility.data, flowDef, mode)
+      IterablePipe(Compatibility.data)
         .write(srcTable)
     },
     HiveJob(

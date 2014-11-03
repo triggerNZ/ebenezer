@@ -25,7 +25,7 @@ class HiveExampleStep3(args: Args) extends CascadeJob(args) {
 
   val jobs = List(
     new Job(args) {
-      IterablePipe(data, flowDef, mode)
+      IterablePipe(data)
         .map(c => (c.id, c))
         .write(intermediateOut)
     },

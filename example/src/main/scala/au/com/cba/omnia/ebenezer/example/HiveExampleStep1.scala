@@ -29,7 +29,7 @@ class HiveExampleStep1(args: Args) extends Job(args) {
 
   val location = args.optional("location")
 
-  IterablePipe(data, flowDef, mode)
+  IterablePipe(data)
     .map(c => c.id -> c)
     .write(PartitionHiveParquetScroogeSink[String, Customer](args("db"), args("table"), List("pid" -> "string"), location))
 }
