@@ -29,19 +29,20 @@ object HiveJobSpec extends ThermometerSpec with HiveSupport { def is = sequentia
 """
 
   def empty = {
-    val job = withArgs(Map("db" -> "default", "table" -> "dst"))(new EmptyHiveJob(_))
+    val job = withArgs(Map("db" -> "test", "table" -> "dst"))(new EmptyHiveJob(_))
 
     job.runsOk
   }
 }
 
 class EmptyHiveJob(args: Args) extends CascadeJob(args) {
-  val db = args("db")
+  val db    = args("db")
   val table = args("table")
 
   val jobs = List(HiveJob(
     args, "empty hive job",
     List.empty, None,
+    s"CREATE DATABASE $db",
     s"CREATE TABLE $db.$table (id int)",
     s"SELECT COUNT(*) FROM $db.$table"
   ))

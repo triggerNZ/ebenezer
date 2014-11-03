@@ -97,7 +97,8 @@ object build extends Build {
             Seq(
               "com.twitter"       % "parquet-cascading" % parquetVersion     % "provided",
               "au.com.cba.omnia" %% "thermometer-hive"  % thermometerVersion % "test"
-            )
+            ),
+          parallelExecution in Test := false
         )
   ).dependsOn(core)
 

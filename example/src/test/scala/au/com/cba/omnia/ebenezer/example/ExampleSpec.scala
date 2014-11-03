@@ -30,6 +30,7 @@ object ExampleSpec extends ThermometerSpec with HiveSupport { def is = sequentia
   Example 2 doesn't run since it depends on an existing table
   Example 3 runs $example3
   Example 4 runs $example4
+  Example 5 runs $example5
 """
 
   def example1 = {
@@ -57,5 +58,13 @@ object ExampleSpec extends ThermometerSpec with HiveSupport { def is = sequentia
       hiveWarehouse </> "dst" </> "*.parquet" ==> records(ParquetThermometerRecordReader[Nested], job.data)
 
     job.withFacts(fact)
+  }
+
+  def example5 = {
+    executesOk(HiveExampleStep5.execute("test", "src", "dst"))
+    facts(HiveExampleStep5.data.flatMap(c => List(
+      hiveWarehouse </> "test.db" </> "src" </> s"pid=${c.id}" </> "*.parquet" ==> recordCount(ParquetThermometerRecordReader[Customer], 1),
+      hiveWarehouse </> "test.db" </> "dst" </> s"pid=${c.id}" </> "0*"        ==> recordCount(ParquetThermometerRecordReader[Customer], 1)
+    )): _*)
   }
 }

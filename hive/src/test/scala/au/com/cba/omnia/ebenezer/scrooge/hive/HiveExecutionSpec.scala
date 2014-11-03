@@ -12,8 +12,29 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-version in ThisBuild := "0.11.0"
+package au.com.cba.omnia.ebenezer.scrooge
+package hive
 
-uniqueVersionSettings
+import com.twitter.scalding._
 
-licenses := Seq("Apache License, Version 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
+import au.com.cba.omnia.thermometer.core._, Thermometer._
+import au.com.cba.omnia.thermometer.hive.HiveSupport
+
+object HiveExecutionSpec extends ThermometerSpec with HiveSupport { def is = sequential ^ s2"""
+  HiveExecution
+  =============
+
+  Can run hive query without any input or output taps $empty
+
+"""
+
+  def empty = {
+    val ex = HiveExecution.query(
+      "empty hive job",
+      "CREATE DATABASE test",
+      "CREATE TABLE test.dst (id int)",
+      "SELECT COUNT(*) FROM test.dst"
+    )
+      executesOk(ex)
+  }
+}
