@@ -26,7 +26,7 @@ import au.com.cba.omnia.humbug.HumbugSBT._
 
 object build extends Build {
   val thermometerVersion = "0.5.0-20141102234309-bf319cc"
-  val parquetVersion     = "1.2.5-cdh4.6.0-p337"
+  val parquetVersion     = "1.2.5-cdh4.6.0-p485"
 
   lazy val standardSettings =
     Defaults.defaultSettings ++
