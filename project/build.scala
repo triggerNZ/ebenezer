@@ -25,7 +25,7 @@ import au.com.cba.omnia.uniform.assembly.UniformAssemblyPlugin._
 import au.com.cba.omnia.humbug.HumbugSBT._
 
 object build extends Build {
-  val thermometerVersion = "0.5.0-20141102234309-bf319cc"
+  val thermometerVersion = "0.5.2-20141114023512-17afb81"
   val parquetVersion     = "1.2.5-cdh4.6.0-p337"
 
   lazy val standardSettings =
@@ -93,7 +93,7 @@ object build extends Build {
         ++ Seq(
           libraryDependencies ++=
             depend.hadoop() ++ depend.scalding() ++ depend.testing() ++
-            depend.omnia("cascading-hive", "1.6.0-20141103000150-80fd907") ++
+            depend.omnia("cascading-hive", "1.6.1-20141114051928-7feb017") ++
             Seq(
               "com.twitter"       % "parquet-cascading" % parquetVersion     % "provided",
               "au.com.cba.omnia" %% "thermometer-hive"  % thermometerVersion % "test"
