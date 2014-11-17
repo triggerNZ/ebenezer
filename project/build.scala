@@ -93,7 +93,7 @@ object build extends Build {
         ++ Seq(
           libraryDependencies ++=
             depend.hadoop() ++ depend.scalding() ++ depend.testing() ++
-            depend.omnia("cascading-hive", "1.6.1-20141114051928-7feb017") ++
+            depend.omnia("cascading-hive", "1.6.2-20141117232743-f0a90c6") ++
             Seq(
               "com.twitter"       % "parquet-cascading" % parquetVersion     % "provided",
               "au.com.cba.omnia" %% "thermometer-hive"  % thermometerVersion % "test"
