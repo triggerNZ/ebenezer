@@ -57,10 +57,7 @@ object HiveExecution {
   private def rawQuery(
     name: String, dst: Option[Source],
     hiveSettings: Map[ConfVars, String], queries: Seq[String]
-  ): Execution[Unit] = {
-    //TODO fix when scalding provides access to the mode
-    val mode = Mode(Args("--hdfs"), new Configuration)
-
+  ): Execution[Unit] = Execution.getMode.flatMap { mode =>
     val inputTaps: List[Tap[_, _, _]] =
       List(new NullTap("Hive IN"))
 
