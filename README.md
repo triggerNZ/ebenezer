@@ -348,3 +348,10 @@ Known Issues
       <value>nonstrict</value>
     </property>
   ```
+* The default heap size on the client machine is not large enough to deal with many hundreds of
+  parquet files with schemas containing many hundreds of columns.
+
+  The way to increase the client heap size will depend on your hadoop installation: it may involve
+  setting `HADOOP_HEAPSIZE`, or using cloudera manager, or perhaps something else. Be sure to test
+  your settings afterwards to ensure that hadoop hasn't overriden your setting with another value
+  from another piece of configuration.
