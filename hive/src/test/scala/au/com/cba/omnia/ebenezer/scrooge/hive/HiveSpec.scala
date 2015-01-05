@@ -58,6 +58,9 @@ Hive operations:
   created table must exist                                $create
   creating table with different schema fails              $create2
   can verify schema                                       $strict
+  query                                                   $query
+  queries                                                 $queries
+  query catches errors                                    $queryError
 
 """
 
@@ -193,5 +196,34 @@ Hive operations:
     } yield (t1, t2, t3, t4, t5)
     
     x must beValue((true, false, false, false, false))
+  }
+
+  def query = {
+    val x = for {
+      _   <- Hive.createDatabase("test")
+      dbs <- Hive.query("SHOW DATABASES")
+    } yield dbs
+
+    x must beValue(List("test"))
+  }
+
+  def queries = {
+    val x = for {
+      _   <- Hive.createTextTable[SimpleHive]("test", "test2", List("part1" -> "string", "part2" -> "string"), None)
+      res <- Hive.queries(List("SHOW DATABASES", "SHOW TABLES IN test"))
+    } yield res
+
+    x must beValue(List(List("test"), List("test2")))
+  }
+
+  def queryError = {
+    val x = for {
+      _   <- Hive.createDatabase("test")
+      dbs <- Hive.query("SHOW DATABS")
+    } yield dbs
+
+    x.run(hiveConf) must beLike {
+      case Error(_) => ok
+    }
   }
 }
