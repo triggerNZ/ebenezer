@@ -35,11 +35,11 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">ParquetScroogeSource</span><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="p">p: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>]</span>, <span name="conv">conv: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>]</span>, <span name="set">set: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.FixedPathSource">FixedPathSource</span> with <span class="extype" name="com.twitter.scalding.TypedSink">TypedSink</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>] with <span class="extype" name="com.twitter.scalding.Mappable">Mappable</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>] with <span class="extype" name="java.io.Serializable">Serializable</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">ParquetScroogeSource</span><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="p">p: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>]</span>, <span name="conv">conv: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>]</span>, <span name="set">set: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.FixedPathSource">FixedPathSource</span> with <span class="extype" name="com.twitter.scalding.TypedSink">TypedSink</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>] with <span class="extype" name="com.twitter.scalding.Mappable">Mappable</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>] with <span class="extype" name="java.io.Serializable">Serializable</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/36d663801498e0778206ad40fa8cc2231a91a610//core/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/ParquetScroogeSource.scala" target="_blank">ParquetScroogeSource.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/3848f7cc0c41c65369a44637f91080dd44111a0c//core/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/ParquetScroogeSource.scala" target="_blank">ParquetScroogeSource.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="com.twitter.scalding.Mappable">Mappable</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>], <span class="extype" name="com.twitter.scalding.typed.TypedSource">TypedSource</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>], <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>], <span class="extype" name="com.twitter.scalding.FixedPathSource">FixedPathSource</span>, <span class="extype" name="com.twitter.scalding.FileSource">FileSource</span>, <span class="extype" name="com.twitter.scalding.LocalSourceOverride">LocalSourceOverride</span>, <span class="extype" name="com.twitter.scalding.SchemedSource">SchemedSource</span>, <span class="extype" name="com.twitter.scalding.Source">Source</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -80,7 +80,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(p:String)(implicitm:Manifest[T],implicitconv:com.twitter.scalding.TupleConverter[T],implicitset:com.twitter.scalding.TupleSetter[T]):au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource[T]"></a>
+      <a id="&lt;init&gt;(p:String*)(implicitm:Manifest[T],implicitconv:com.twitter.scalding.TupleConverter[T],implicitset:com.twitter.scalding.TupleSetter[T]):au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource[T]"></a>
       <a id="&lt;init&gt;:ParquetScroogeSource[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -88,7 +88,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">ParquetScroogeSource</span><span class="params">(<span name="p">p: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>]</span>, <span name="conv">conv: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>]</span>, <span name="set">set: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>]</span>)</span>
+        <span class="name">ParquetScroogeSource</span><span class="params">(<span name="p">p: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>]</span>, <span name="conv">conv: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>]</span>, <span name="set">set: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource.T">T</span>]</span>)</span>
       </span>
       </h4>
       
@@ -530,15 +530,15 @@
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource#p" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="p:String"></a>
-      <a id="p:String"></a>
+      <a id="p:String*"></a>
+      <a id="p:String*"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">p</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">p</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span>*</span>
       </span>
       </h4>
       
