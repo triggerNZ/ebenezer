@@ -41,7 +41,7 @@
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Utility methods used by the Hive sources in this packages to avoid serialisation issues and code
 duplication.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/3848f7cc0c41c65369a44637f91080dd44111a0c//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/Util.scala" target="_blank">Util.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/03e71bf1b1039a53071419e9cdfc7af7d4410acb//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/Util.scala" target="_blank">Util.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -211,15 +211,15 @@ duplication.
       </h4>
       <p class="shortcomment cmt">A tuple converter that splits a cascading tuple into a pair of types.</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Util#createHiveTableDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="createHiveTableDescriptor[T&lt;:com.twitter.scrooge.ThriftStruct](database:String,table:String,partitionColumns:List[(String,String)],location:Option[org.apache.hadoop.fs.Path])(implicitm:Manifest[T]):au.com.cba.omnia.ebenezer.scrooge.hive.ParquetTableDescriptor"></a>
-      <a id="createHiveTableDescriptor[T&lt;:ThriftStruct](String,String,List[(String,String)],Option[Path])(Manifest[T]):ParquetTableDescriptor"></a>
+      <a id="createHiveTableDescriptor[T&lt;:com.twitter.scrooge.ThriftStruct](database:String,table:String,partitionColumns:List[(String,String)],format:au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat,location:Option[org.apache.hadoop.fs.Path])(implicitm:Manifest[T]):cascading.tap.hive.HiveTableDescriptor"></a>
+      <a id="createHiveTableDescriptor[T&lt;:ThriftStruct](String,String,List[(String,String)],HiveStorageFormat,Option[Path])(Manifest[T]):HiveTableDescriptor"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">createHiveTableDescriptor</span><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="location">location: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="org.apache.hadoop.fs.Path">Path</span>] = <span class="symbol">None</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Util.createHiveTableDescriptor.T">T</span>]</span>)</span><span class="result">: <a href="ParquetTableDescriptor.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.ParquetTableDescriptor">ParquetTableDescriptor</a></span>
+        <span class="name">createHiveTableDescriptor</span><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="format">format: <a href="HiveStorageFormat.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat">HiveStorageFormat</a></span>, <span name="location">location: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="org.apache.hadoop.fs.Path">Path</span>] = <span class="symbol">None</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Util.createHiveTableDescriptor.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.tap.hive.HiveTableDescriptor">HiveTableDescriptor</span></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Creates a hive parquet table descriptor based on a thrift struct.</p>
@@ -372,6 +372,19 @@ duplication.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Util#parquetScheme" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="parquetScheme[T&lt;:com.twitter.scrooge.ThriftStruct](implicitm:Manifest[T]):cascading.scheme.Scheme[_,_,_,_,_]"></a>
+      <a id="parquetScheme[T&lt;:ThriftStruct](Manifest[T]):Scheme[_,_,_,_,_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">parquetScheme</span><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Util.parquetScheme.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.scheme.Scheme">Scheme</span>[_, _, _, _, _]</span>
+      </span>
+      </h4>
+      
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Util#partitionSetter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="partitionSetter[T,A,U&lt;:(A,T)](valueSet:com.twitter.scalding.TupleSetter[T],partitionSet:com.twitter.scalding.TupleSetter[A]):com.twitter.scalding.TupleSetter[U]"></a>
       <a id="partitionSetter[T,A,U&lt;:(A,T)](TupleSetter[T],TupleSetter[A]):TupleSetter[U]"></a>

@@ -35,11 +35,14 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">HiveExecution</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.12) Use the query/queries method in Hive instead">HiveExecution</span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Methods to run Hive queries inside the Execution monad.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/3848f7cc0c41c65369a44637f91080dd44111a0c//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/HiveExecution.scala" target="_blank">HiveExecution.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Methods to run Hive queries inside the Execution monad.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12)</i> Use the query/queries method in Hive instead</p></dd><dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/03e71bf1b1039a53071419e9cdfc7af7d4410acb//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/HiveExecution.scala" target="_blank">HiveExecution.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -305,60 +308,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution#query" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="query(name:String,output:com.twitter.scalding.Source,hiveSettings:Map[org.apache.hadoop.hive.conf.HiveConf.ConfVars,String],queries:String*):com.twitter.scalding.Execution[Unit]"></a>
-      <a id="query(String,Source,Map[ConfVars,String],String*):Execution[Unit]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">query</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="output">output: <span class="extype" name="com.twitter.scalding.Source">Source</span></span>, <span name="hiveSettings">hiveSettings: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf.ConfVars">ConfVars</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="queries">queries: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Runs the specified hive queries inside the Execution monad.</p><div class="fullcomment"><div class="comment cmt"><p>Runs the specified hive queries inside the Execution monad.</p><p>The specified output is used to create the target table before the job starts.
-</p></div></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution#query" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="query(name:String,hiveSettings:Map[org.apache.hadoop.hive.conf.HiveConf.ConfVars,String],queries:String*):com.twitter.scalding.Execution[Unit]"></a>
-      <a id="query(String,Map[ConfVars,String],String*):Execution[Unit]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">query</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="hiveSettings">hiveSettings: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf.ConfVars">ConfVars</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="queries">queries: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Runs the specified hive queries inside the Execution monad.</p>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution#query" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="query(name:String,output:com.twitter.scalding.Source,queries:String*):com.twitter.scalding.Execution[Unit]"></a>
-      <a id="query(String,Source,String*):Execution[Unit]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">query</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="output">output: <span class="extype" name="com.twitter.scalding.Source">Source</span></span>, <span name="queries">queries: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Runs the specified hive queries inside the Execution monad.</p><div class="fullcomment"><div class="comment cmt"><p>Runs the specified hive queries inside the Execution monad.</p><p>The specified output is used to create the target table before the job starts.
-</p></div></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution#query" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="query(name:String,queries:String*):com.twitter.scalding.Execution[Unit]"></a>
-      <a id="query(String,String*):Execution[Unit]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">query</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="queries">queries: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Runs the specified hive queries inside the Execution monad.</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -447,7 +396,76 @@
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution#query" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="query(name:String,output:com.twitter.scalding.Source,hiveSettings:Map[org.apache.hadoop.hive.conf.HiveConf.ConfVars,String],queries:String*):com.twitter.scalding.Execution[Unit]"></a>
+      <a id="query(String,Source,Map[ConfVars,String],String*):Execution[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12) Use the query/queries method in Hive instead">query</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="output">output: <span class="extype" name="com.twitter.scalding.Source">Source</span></span>, <span name="hiveSettings">hiveSettings: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf.ConfVars">ConfVars</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="queries">queries: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Runs the specified hive queries inside the Execution monad.</p><div class="fullcomment"><div class="comment cmt"><p>Runs the specified hive queries inside the Execution monad.</p><p>The specified output is used to create the target table before the job starts.
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12)</i> Use the query/queries method in Hive instead</p></dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution#query" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="query(name:String,hiveSettings:Map[org.apache.hadoop.hive.conf.HiveConf.ConfVars,String],queries:String*):com.twitter.scalding.Execution[Unit]"></a>
+      <a id="query(String,Map[ConfVars,String],String*):Execution[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12) Use the query/queries method in Hive instead">query</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="hiveSettings">hiveSettings: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf.ConfVars">ConfVars</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="queries">queries: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Runs the specified hive queries inside the Execution monad.</p><div class="fullcomment"><div class="comment cmt"><p>Runs the specified hive queries inside the Execution monad.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12)</i> Use the query/queries method in Hive instead</p></dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution#query" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="query(name:String,output:com.twitter.scalding.Source,queries:String*):com.twitter.scalding.Execution[Unit]"></a>
+      <a id="query(String,Source,String*):Execution[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12) Use the query/queries method in Hive instead">query</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="output">output: <span class="extype" name="com.twitter.scalding.Source">Source</span></span>, <span name="queries">queries: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Runs the specified hive queries inside the Execution monad.</p><div class="fullcomment"><div class="comment cmt"><p>Runs the specified hive queries inside the Execution monad.</p><p>The specified output is used to create the target table before the job starts.
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12)</i> Use the query/queries method in Hive instead</p></dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution#query" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="query(name:String,queries:String*):com.twitter.scalding.Execution[Unit]"></a>
+      <a id="query(String,String*):Execution[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12) Use the query/queries method in Hive instead">query</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="queries">queries: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Runs the specified hive queries inside the Execution monad.</p><div class="fullcomment"><div class="comment cmt"><p>Runs the specified hive queries inside the Execution monad.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12)</i> Use the query/queries method in Hive instead</p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">

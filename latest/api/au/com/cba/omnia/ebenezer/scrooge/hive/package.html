@@ -58,7 +58,20 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Hive[A]extendsProductwithSerializable"></a>
+      <a id="Hive[A]:Hive[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Hive.html"><span class="name">Hive</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="action">action: (<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf">HiveConf</span>, <span class="extype" name="org.apache.hadoop.hive.metastore.IMetaStoreClient">IMetaStoreClient</span>) ⇒ <span class="extype" name="au.com.cba.omnia.omnitool.Result">Result</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A data-type that represents a Hive operation.</p>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="HiveJobextendsUniqueJob"></a>
       <a id="HiveJob:HiveJob"></a>
       <h4 class="signature">
@@ -85,6 +98,19 @@
       </h4>
       <p class="comment cmt">Source to read unpartitioned Hive tables where the data is the specified thrift struct stored
 in Parquet format.</p>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="HiveStorageFormatextendsAnyRef"></a>
+      <a id="HiveStorageFormat:HiveStorageFormat"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="HiveStorageFormat.html"><span class="name">HiveStorageFormat</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Data type used to indicate Input and Output format for Hive table</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.NullTap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="NullTapextendsNullTap[Nothing,Nothing,Nothing,Nothing,Nothing]withProductwithSerializable"></a>
       <a id="NullTap:NullTap"></a>
@@ -153,6 +179,19 @@ underlying storage format.</p>
       </h4>
       <p class="comment cmt">A scalding source to read Scrooge Thrift structs from a partitioned hive table using parquet as
 underlying storage format.</p>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.TextFormat" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TextFormatextendsHiveStorageFormatwithProductwithSerializable"></a>
+      <a id="TextFormat:TextFormat"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TextFormat.html"><span class="name">TextFormat</span></a><span class="params">(<span name="delimiter">delimiter: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">TextFormat.DEFAULT_DELIMITER</span></span>)</span><span class="result"> extends <a href="HiveStorageFormat.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat">HiveStorageFormat</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">By passing <a href="TextFormat.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.TextFormat">TextFormat</a> default Hive input / output classes will be used</p>
     </li></ol>
             </div>
 
@@ -173,19 +212,19 @@ underlying storage format.</p>
       </span>
       </h4>
       <p class="comment cmt">Cascading flow skip strategy that does not skip a flow.</p>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="HiveExecution"></a>
-      <a id="HiveExecution:HiveExecution"></a>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Hive"></a>
+      <a id="Hive:Hive"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="HiveExecution$.html"><span class="name">HiveExecution</span></a>
+        <a href="Hive$.html"><span class="name">Hive</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
-      <p class="comment cmt">Methods to run Hive queries inside the Execution monad.</p>
+      <p class="comment cmt">Hive operations</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="HiveJob"></a>
       <a id="HiveJob:HiveJob"></a>
@@ -212,6 +251,19 @@ underlying storage format.</p>
       </span>
       </h4>
       <p class="comment cmt">Constructors for HiveParquetScroogeSource.</p>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.ParquetFormat" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ParquetFormat"></a>
+      <a id="ParquetFormat:ParquetFormat"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ParquetFormat$.html"><span class="name">ParquetFormat</span></a><span class="result"> extends <a href="HiveStorageFormat.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat">HiveStorageFormat</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">By passing <a href="ParquetFormat$.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.ParquetFormat">ParquetFormat</a> following classes will be used to format input and output</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="PartitionHiveParquetScroogeSink"></a>
       <a id="PartitionHiveParquetScroogeSink:PartitionHiveParquetScroogeSink"></a>
@@ -225,6 +277,19 @@ underlying storage format.</p>
       </span>
       </h4>
       <p class="comment cmt">Constructors for PartitionHiveParquetScroogeSink.</p>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.TextFormat" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TextFormat"></a>
+      <a id="TextFormat:TextFormat"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TextFormat$.html"><span class="name">TextFormat</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Util" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Util"></a>
       <a id="Util:Util"></a>
@@ -244,7 +309,23 @@ duplication.</p>
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveExecution" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HiveExecution"></a>
+      <a id="HiveExecution:HiveExecution"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="HiveExecution$.html"><span class="name deprecated" title="Deprecated: (Since version 0.12) Use the query/queries method in Hive instead">HiveExecution</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Methods to run Hive queries inside the Execution monad.</p>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">

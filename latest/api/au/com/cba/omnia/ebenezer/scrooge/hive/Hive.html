@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>HiveJob - au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob</title>
-          <meta name="description" content="HiveJob - au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob" />
-          <meta name="keywords" content="HiveJob au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob" />
+          <title>Hive - au.com.cba.omnia.ebenezer.scrooge.hive.Hive</title>
+          <meta name="description" content="Hive - au.com.cba.omnia.ebenezer.scrooge.hive.Hive" />
+          <meta name="keywords" content="Hive au.com.cba.omnia.ebenezer.scrooge.hive.Hive" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../../../../../index.html';
-            var hash = 'au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob$';
+            var hash = 'au.com.cba.omnia.ebenezer.scrooge.hive.Hive';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -22,26 +22,28 @@
    	  </script>
     
         </head>
-        <body class="value">
+        <body class="type">
       <div id="definition">
-        <a href="HiveJob.html" title="Go to companion"><img src="../../../../../../../lib/object_to_class_big.png" /></a>
+        <a href="Hive$.html" title="Go to companion"><img src="../../../../../../../lib/class_to_object_big.png" /></a>
         <p id="owner"><a href="../../../../../../package.html" class="extype" name="au">au</a>.<a href="../../../../../package.html" class="extype" name="au.com">com</a>.<a href="../../../../package.html" class="extype" name="au.com.cba">cba</a>.<a href="../../../package.html" class="extype" name="au.com.cba.omnia">omnia</a>.<a href="../../package.html" class="extype" name="au.com.cba.omnia.ebenezer">ebenezer</a>.<a href="../package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge">scrooge</a>.<a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive">hive</a></p>
-        <h1><a href="HiveJob.html" title="Go to companion">HiveJob</a></h1>
+        <h1><a href="Hive$.html" title="Go to companion">Hive</a></h1>
       </div>
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">object</span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">HiveJob</span><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">Hive</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="action">action: (<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf">HiveConf</span>, <span class="extype" name="org.apache.hadoop.hive.metastore.IMetaStoreClient">IMetaStoreClient</span>) ⇒ <span class="extype" name="au.com.cba.omnia.omnitool.Result">Result</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/03e71bf1b1039a53071419e9cdfc7af7d4410acb//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/HiveJob.scala" target="_blank">HiveJob.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A data-type that represents a Hive operation.</p><p>Hive operations use a HiveConf as context, and produce a (potentially failing) result. For
+convenience Hive operations receive both a HiveConf and a handle to a Hive client. The client
+is created from the HiveConf when the run method is called.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/03e71bf1b1039a53071419e9cdfc7af7d4410acb//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/Hive.scala" target="_blank">Hive.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -59,7 +61,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob"><span>HiveJob</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive"><span>Hive</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -77,7 +79,23 @@
 
       <div id="template">
         <div id="allMembers">
-        
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(action:(org.apache.hadoop.hive.conf.HiveConf,org.apache.hadoop.hive.metastore.IMetaStoreClient)=&gt;au.com.cba.omnia.omnitool.Result[A]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]"></a>
+      <a id="&lt;init&gt;:Hive[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Hive</span><span class="params">(<span name="action">action: (<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf">HiveConf</span>, <span class="extype" name="org.apache.hadoop.hive.metastore.IMetaStoreClient">IMetaStoreClient</span>) ⇒ <span class="extype" name="au.com.cba.omnia.omnitool.Result">Result</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>)</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
 
         
 
@@ -150,66 +168,46 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(args:com.twitter.scalding.Args,name:String,input:com.twitter.scalding.Source,output:Option[com.twitter.scalding.Source],hiveSettings:Map[org.apache.hadoop.hive.conf.HiveConf.ConfVars,String],query:String*):au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob"></a>
-      <a id="apply(Args,String,Source,Option[Source],Map[ConfVars,String],String*):HiveJob"></a>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#action" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="action:(org.apache.hadoop.hive.conf.HiveConf,org.apache.hadoop.hive.metastore.IMetaStoreClient)=&gt;au.com.cba.omnia.omnitool.Result[A]"></a>
+      <a id="action:(HiveConf,IMetaStoreClient)⇒Result[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">action</span><span class="result">: (<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf">HiveConf</span>, <span class="extype" name="org.apache.hadoop.hive.metastore.IMetaStoreClient">IMetaStoreClient</span>) ⇒ <span class="extype" name="au.com.cba.omnia.omnitool.Result">Result</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#addMessage" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="addMessage(message:String,separator:String):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]"></a>
+      <a id="addMessage(String,String):Hive[A]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="args">args: <span class="extype" name="com.twitter.scalding.Args">Args</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="input">input: <span class="extype" name="com.twitter.scalding.Source">Source</span></span>, <span name="output">output: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="com.twitter.scalding.Source">Source</span>]</span>, <span name="hiveSettings">hiveSettings: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf.ConfVars">ConfVars</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="query">query: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="HiveJob.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob">HiveJob</a></span>
+        <span class="name">addMessage</span><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="separator">separator: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;: &quot;</span></span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Creates a Scalding job to run the specified queries against hive.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a Scalding job to run the specified queries against hive.</p><p>The specified input and output are not directly used as part of the query. Instead they are
-used by Cascading to determine how to schedule this job in relation to other jobs.
+      <p class="shortcomment cmt">Adds an additional error message.</p><div class="fullcomment"><div class="comment cmt"><p>Adds an additional error message. Useful for adding more context as the error goes up the stack.</p><p>The new message is prepended to any existing message.
 </p></div></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(args:com.twitter.scalding.Args,name:String,inputs:List[com.twitter.scalding.Source],output:Option[com.twitter.scalding.Source],hiveSettings:Map[org.apache.hadoop.hive.conf.HiveConf.ConfVars,String],query:String*):au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob"></a>
-      <a id="apply(Args,String,List[Source],Option[Source],Map[ConfVars,String],String*):HiveJob"></a>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#andThen" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="andThen[B](f:A=&gt;au.com.cba.omnia.omnitool.Result[B]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[B]"></a>
+      <a id="andThen[B]((A)⇒Result[B]):Hive[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="args">args: <span class="extype" name="com.twitter.scalding.Args">Args</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="inputs">inputs: <span class="extype" name="scala.List">List</span>[<span class="extype" name="com.twitter.scalding.Source">Source</span>]</span>, <span name="output">output: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="com.twitter.scalding.Source">Source</span>]</span>, <span name="hiveSettings">hiveSettings: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf.ConfVars">ConfVars</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="query">query: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="HiveJob.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob">HiveJob</a></span>
+        <span class="name">andThen</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>) ⇒ <span class="extype" name="au.com.cba.omnia.omnitool.Result">Result</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.andThen.B">B</span>]</span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.andThen.B">B</span>]</span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Creates a Scalding job to run the specified queries against hive.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a Scalding job to run the specified queries against hive.</p><p>The specified inputs and output are not directly used as part of the query. Instead they are
-used by Cascading to determine how to schedule this job in relation to other jobs.
-</p></div></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(args:com.twitter.scalding.Args,name:String,input:com.twitter.scalding.Source,output:Option[com.twitter.scalding.Source],query:String*):au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob"></a>
-      <a id="apply(Args,String,Source,Option[Source],String*):HiveJob"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="args">args: <span class="extype" name="com.twitter.scalding.Args">Args</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="input">input: <span class="extype" name="com.twitter.scalding.Source">Source</span></span>, <span name="output">output: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="com.twitter.scalding.Source">Source</span>]</span>, <span name="query">query: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="HiveJob.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob">HiveJob</a></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Creates a Scalding job to run the specified queries against hive.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a Scalding job to run the specified queries against hive.</p><p>The specified input and output are not directly used as part of the query. Instead they are
-used by Cascading to determine how to schedule this job in relation to other jobs.
-</p></div></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(args:com.twitter.scalding.Args,name:String,inputs:List[com.twitter.scalding.Source],output:Option[com.twitter.scalding.Source],query:String*):au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob"></a>
-      <a id="apply(Args,String,List[Source],Option[Source],String*):HiveJob"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="args">args: <span class="extype" name="com.twitter.scalding.Args">Args</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="inputs">inputs: <span class="extype" name="scala.List">List</span>[<span class="extype" name="com.twitter.scalding.Source">Source</span>]</span>, <span name="output">output: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="com.twitter.scalding.Source">Source</span>]</span>, <span name="query">query: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="HiveJob.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveJob">HiveJob</a></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Creates a Scalding job to run the specified queries against hive.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a Scalding job to run the specified queries against hive.</p><p>The specified inputs and output are not directly used as part of the query. Instead they are
-used by Cascading to determine how to schedule this job in relation to other jobs.
-</p></div></div>
+      <p class="shortcomment cmt">Chain a context free result (i.</p><div class="fullcomment"><div class="comment cmt"><p>Chain a context free result (i.e. requires no configuration) to this Hive operation.</p></div></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -255,19 +253,6 @@ used by Cascading to determine how to schedule this job in relation to other job
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="equals(x$1:Any):Boolean"></a>
-      <a id="equals(Any):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -287,6 +272,19 @@ used by Cascading to determine how to schedule this job in relation to other job
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#flatMap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="flatMap[B](f:A=&gt;au.com.cba.omnia.ebenezer.scrooge.hive.Hive[B]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[B]"></a>
+      <a id="flatMap[B]((A)⇒Hive[B]):Hive[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">flatMap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>) ⇒ <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.flatMap.B">B</span>]</span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.flatMap.B">B</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Bind through successful Hive operations.</p>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -297,19 +295,6 @@ used by Cascading to determine how to schedule this job in relation to other job
       </span>
       <span class="symbol">
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="hashCode():Int"></a>
-      <a id="hashCode():Int"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -326,6 +311,19 @@ used by Cascading to determine how to schedule this job in relation to other job
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#map" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="map[B](f:A=&gt;B):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[B]"></a>
+      <a id="map[B]((A)⇒B):Hive[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">map</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>) ⇒ <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.map.B">B</span></span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.map.B">B</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Map across successful Hive operations.</p>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -365,6 +363,74 @@ used by Cascading to determine how to schedule this job in relation to other job
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#or" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="or(other:=&gt;au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]"></a>
+      <a id="or(⇒Hive[A]):Hive[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">or</span><span class="params">(<span name="other">other: ⇒ <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Runs the first Hive operation.</p><div class="fullcomment"><div class="comment cmt"><p>Runs the first Hive operation. If it fails, runs the second operation. Useful for chaining optional operations.</p><p>Throws away any error from the first operation.
+</p></div></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#run" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="run(hiveConf:org.apache.hadoop.hive.conf.HiveConf):au.com.cba.omnia.omnitool.Result[A]"></a>
+      <a id="run(HiveConf):Result[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">run</span><span class="params">(<span name="hiveConf">hiveConf: <span class="extype" name="org.apache.hadoop.hive.conf.HiveConf">HiveConf</span></span>)</span><span class="result">: <span class="extype" name="au.com.cba.omnia.omnitool.Result">Result</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Runs the Hive action with a RetryingMetaStoreClient created based on the provided HiveConf.</p>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#safe" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="safe:au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]"></a>
+      <a id="safe:Hive[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">safe</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Convert this to a safe Hive operation that converts any exceptions to failed results.</p>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#safeMap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="safeMap[B](f:A=&gt;B):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[B]"></a>
+      <a id="safeMap[B]((A)⇒B):Hive[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">safeMap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>) ⇒ <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.safeMap.B">B</span></span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.safeMap.B">B</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Chain an unsafe operation through a successful Hive operation.</p>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#setMessage" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setMessage(message:String):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]"></a>
+      <a id="setMessage(String):Hive[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setMessage</span><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Set the error message in a failure case.</p><div class="fullcomment"><div class="comment cmt"><p>Set the error message in a failure case. Useful for providing contextual information without
+having to inspect result.</p><p>NB: This discards any existing message.
+</p></div></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -378,19 +444,6 @@ used by Cascading to determine how to schedule this job in relation to other job
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toString():String"></a>
-      <a id="toString():String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -448,6 +501,19 @@ used by Cascading to determine how to schedule this job in relation to other job
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#|||" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="|||(other:=&gt;au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]"></a>
+      <a id="|||(⇒Hive[A]):Hive[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bar$bar$bar" class="name">|||</span><span class="params">(<span name="other">other: ⇒ <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Alias for <code>or</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Alias for <code>or</code>. Provides nice syntax: <code>Hive.create(&quot;bad path&quot;) ||| Hive.create(&quot;good path&quot;)</code></p></div></div>
     </li></ol>
             </div>
 
@@ -461,6 +527,10 @@ used by Cascading to determine how to schedule this job in relation to other job
               <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
             </div><div class="parent" name="java.io.Serializable">
               <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">

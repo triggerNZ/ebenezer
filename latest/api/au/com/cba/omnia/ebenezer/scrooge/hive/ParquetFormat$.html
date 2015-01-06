@@ -2,17 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>IntrospectionReadSupport - au.com.cba.omnia.ebenezer.introspect.IntrospectionReadSupport</title>
-          <meta name="description" content="IntrospectionReadSupport - au.com.cba.omnia.ebenezer.introspect.IntrospectionReadSupport" />
-          <meta name="keywords" content="IntrospectionReadSupport au.com.cba.omnia.ebenezer.introspect.IntrospectionReadSupport" />
+          <title>ParquetFormat - au.com.cba.omnia.ebenezer.scrooge.hive.ParquetFormat</title>
+          <meta name="description" content="ParquetFormat - au.com.cba.omnia.ebenezer.scrooge.hive.ParquetFormat" />
+          <meta name="keywords" content="ParquetFormat au.com.cba.omnia.ebenezer.scrooge.hive.ParquetFormat" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
-      <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <link href="../../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
       <script type="text/javascript">
          if(top === self) {
-            var url = '../../../../../../index.html';
-            var hash = 'au.com.cba.omnia.ebenezer.introspect.IntrospectionReadSupport';
+            var url = '../../../../../../../index.html';
+            var hash = 'au.com.cba.omnia.ebenezer.scrooge.hive.ParquetFormat$';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -22,26 +22,27 @@
    	  </script>
     
         </head>
-        <body class="type">
+        <body class="value">
       <div id="definition">
-        <img src="../../../../../../lib/class_big.png" />
-        <p id="owner"><a href="../../../../../package.html" class="extype" name="au">au</a>.<a href="../../../../package.html" class="extype" name="au.com">com</a>.<a href="../../../package.html" class="extype" name="au.com.cba">cba</a>.<a href="../../package.html" class="extype" name="au.com.cba.omnia">omnia</a>.<a href="../package.html" class="extype" name="au.com.cba.omnia.ebenezer">ebenezer</a>.<a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.introspect">introspect</a></p>
-        <h1>IntrospectionReadSupport</h1>
+        <img src="../../../../../../../lib/object_big.png" />
+        <p id="owner"><a href="../../../../../../package.html" class="extype" name="au">au</a>.<a href="../../../../../package.html" class="extype" name="au.com">com</a>.<a href="../../../../package.html" class="extype" name="au.com.cba">cba</a>.<a href="../../../package.html" class="extype" name="au.com.cba.omnia">omnia</a>.<a href="../../package.html" class="extype" name="au.com.cba.omnia.ebenezer">ebenezer</a>.<a href="../package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge">scrooge</a>.<a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive">hive</a></p>
+        <h1>ParquetFormat</h1>
       </div>
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">class</span>
+        <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">IntrospectionReadSupport</span><span class="result"> extends <span class="extype" name="parquet.hadoop.api.ReadSupport">ReadSupport</span>[<a href="Record.html" class="extype" name="au.com.cba.omnia.ebenezer.introspect.Record">Record</a>]</span>
+        <span class="name">ParquetFormat</span><span class="result"> extends <a href="HiveStorageFormat.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat">HiveStorageFormat</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/03e71bf1b1039a53071419e9cdfc7af7d4410acb//tools/src/main/scala/au/com/cba/omnia/ebenezer/introspect/IntrospectionReadSupport.scala" target="_blank">IntrospectionReadSupport.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>By passing <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.ParquetFormat">ParquetFormat</a> following classes will be used to format input and output</p><ul><li>PARQUET_INPUT_FORMAT = <span class="extype" name="parquet.hive.DeprecatedParquetInputFormat">parquet.hive.DeprecatedParquetInputFormat</span></li><li>PARQUET_OUTPUT_FORMAT = <span class="extype" name="parquet.hive.DeprecatedParquetOutputFormat">parquet.hive.DeprecatedParquetOutputFormat</span>
+</li></ul></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/03e71bf1b1039a53071419e9cdfc7af7d4410acb//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/HiveStorageFormat.scala" target="_blank">HiveStorageFormat.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="parquet.hadoop.api.ReadSupport">ReadSupport</span>[<a href="Record.html" class="extype" name="au.com.cba.omnia.ebenezer.introspect.Record">Record</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="HiveStorageFormat.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat">HiveStorageFormat</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -59,7 +60,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="au.com.cba.omnia.ebenezer.introspect.IntrospectionReadSupport"><span>IntrospectionReadSupport</span></li><li class="in" name="parquet.hadoop.api.ReadSupport"><span>ReadSupport</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="au.com.cba.omnia.ebenezer.scrooge.hive.ParquetFormat"><span>ParquetFormat</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat"><span>HiveStorageFormat</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -77,23 +78,7 @@
 
       <div id="template">
         <div id="allMembers">
-        <div id="constructors" class="members">
-              <h3>Instance Constructors</h3>
-              <ol><li name="au.com.cba.omnia.ebenezer.introspect.IntrospectionReadSupport#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;():au.com.cba.omnia.ebenezer.introspect.IntrospectionReadSupport"></a>
-      <a id="&lt;init&gt;:IntrospectionReadSupport"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">new</span>
-      </span>
-      <span class="symbol">
-        <span class="name">IntrospectionReadSupport</span><span class="params">()</span>
-      </span>
-      </h4>
-      
-    </li></ol>
-            </div>
+        
 
         
 
@@ -191,7 +176,7 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
@@ -236,7 +221,7 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="symbol">classOf[java.lang.Throwable]</span>
@@ -256,32 +241,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="hashCode():Int"></a>
-      <a id="hashCode():Int"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.introspect.IntrospectionReadSupport#init" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="init(context:parquet.hadoop.api.InitContext):parquet.hadoop.api.ReadSupport.ReadContext"></a>
-      <a id="init(InitContext):ReadContext"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">init</span><span class="params">(<span name="context">context: <span class="extype" name="parquet.hadoop.api.InitContext">InitContext</span></span>)</span><span class="result">: <span class="extype" name="parquet.hadoop.api.ReadSupport.ReadContext">ReadContext</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.introspect.IntrospectionReadSupport">IntrospectionReadSupport</a> → ReadSupport</dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -334,19 +293,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.introspect.IntrospectionReadSupport#prepareForRead" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="prepareForRead(conf:org.apache.hadoop.conf.Configuration,metaData:java.util.Map[String,String],schema:parquet.schema.MessageType,context:parquet.hadoop.api.ReadSupport.ReadContext):au.com.cba.omnia.ebenezer.introspect.IntrospectionMaterializer"></a>
-      <a id="prepareForRead(Configuration,Map[String,String],MessageType,ReadContext):IntrospectionMaterializer"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">prepareForRead</span><span class="params">(<span name="conf">conf: <span class="extype" name="org.apache.hadoop.conf.Configuration">Configuration</span></span>, <span name="metaData">metaData: <span class="extype" name="java.util.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="schema">schema: <span class="extype" name="parquet.schema.MessageType">MessageType</span></span>, <span name="context">context: <span class="extype" name="parquet.hadoop.api.ReadSupport.ReadContext">ReadContext</span></span>)</span><span class="result">: <a href="IntrospectionMaterializer.html" class="extype" name="au.com.cba.omnia.ebenezer.introspect.IntrospectionMaterializer">IntrospectionMaterializer</a></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.introspect.IntrospectionReadSupport">IntrospectionReadSupport</a> → ReadSupport</dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -360,19 +306,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toString():String"></a>
-      <a id="toString():String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -435,33 +368,20 @@
 
         
 
-        <div id="values" class="values members">
-              <h3>Deprecated Value Members</h3>
-              <ol><li name="parquet.hadoop.api.ReadSupport#init" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="init(x$1:org.apache.hadoop.conf.Configuration,x$2:java.util.Map[String,String],x$3:parquet.schema.MessageType):parquet.hadoop.api.ReadSupport.ReadContext"></a>
-      <a id="init(Configuration,Map[String,String],MessageType):ReadContext"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version ) see corresponding Javadoc for more information.">init</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.conf.Configuration">Configuration</span></span>, <span name="arg1">arg1: <span class="extype" name="java.util.Map">Map</span>[<span class="extype" name="java.lang.String">String</span>, <span class="extype" name="java.lang.String">String</span>]</span>, <span name="arg2">arg2: <span class="extype" name="parquet.schema.MessageType">MessageType</span></span>)</span><span class="result">: <span class="extype" name="parquet.hadoop.api.ReadSupport.ReadContext">ReadContext</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ReadSupport</dd><dt>Annotations</dt><dd>
-                <span class="name">@Deprecated</span>
-              
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version )</i> see corresponding Javadoc for more information.</p></dd></dl></div>
-    </li></ol>
-            </div>
+        
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="parquet.hadoop.api.ReadSupport">
-              <h3>Inherited from <span class="extype" name="parquet.hadoop.api.ReadSupport">ReadSupport</span>[<a href="Record.html" class="extype" name="au.com.cba.omnia.ebenezer.introspect.Record">Record</a>]</h3>
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat">
+              <h3>Inherited from <a href="HiveStorageFormat.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat">HiveStorageFormat</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
@@ -482,6 +402,6 @@
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../../lib/template.js"></script>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../../../lib/template.js"></script>
     </body>
       </html>
