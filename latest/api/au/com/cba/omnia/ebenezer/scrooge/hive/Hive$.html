@@ -39,7 +39,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Hive operations</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/03e71bf1b1039a53071419e9cdfc7af7d4410acb//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/Hive.scala" target="_blank">Hive.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Hive operations</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/b7947b3ab8b5cfe68f92b18247a45d90abcd1436//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/Hive.scala" target="_blank">Hive.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -424,6 +424,32 @@ quite meet the required laws.
       </span>
       </h4>
       <p class="shortcomment cmt">Gets the Hive conf.</p>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#getConfClient" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="getConfClient:au.com.cba.omnia.ebenezer.scrooge.hive.Hive[(org.apache.hadoop.hive.conf.HiveConf,org.apache.hadoop.hive.metastore.IMetaStoreClient)]"></a>
+      <a id="getConfClient:Hive[(HiveConf,IMetaStoreClient)]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getConfClient</span><span class="result">: <a href="Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[(<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf">HiveConf</span>, <span class="extype" name="org.apache.hadoop.hive.metastore.IMetaStoreClient">IMetaStoreClient</span>)]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Gets the Hive conf and client.</p>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#getPath" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="getPath(database:String,table:String):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[org.apache.hadoop.fs.Path]"></a>
+      <a id="getPath(String,String):Hive[Path]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getPath</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="org.apache.hadoop.fs.Path">Path</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Gets the on disk location of a Hive table.</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#guard" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="guard(ok:Boolean,message:String):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[Unit]"></a>
       <a id="guard(Boolean,String):Hive[Unit]"></a>
