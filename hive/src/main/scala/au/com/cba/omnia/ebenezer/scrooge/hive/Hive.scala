@@ -188,6 +188,10 @@ object Hive {
   def getClient: Hive[IMetaStoreClient] =
     Hive((_, client) => Result.ok(client))
 
+  /** Gets the Hive conf and client. */
+  def getConfClient: Hive[(HiveConf, IMetaStoreClient)] =
+    Hive((conf, client) => Result.ok((conf, client)))
+
   /** Builds a Hive operation from a function. The resultant Hive operation will not throw an exception. */
   def withConf[A](f: HiveConf => A): Hive[A] =
     Hive((conf, _) => Result.safe(f(conf)))
@@ -240,8 +244,9 @@ object Hive {
     location: Option[Path] = None, format: HiveStorageFormat
   ): Hive[Boolean] = {
     Hive.createDatabase(database) >>
-    Hive.getClient >>= { client =>
-      val tableDescriptor = Util.createHiveTableDescriptor[T](database, table, partitionColumns, format, location)
+    Hive.getConfClient >>= { case (conf, client) =>
+      val fqLocation = location.map(FileSystem.get(conf).makeQualified(_))
+      val tableDescriptor = Util.createHiveTableDescriptor[T](database, table, partitionColumns, format, fqLocation)
 
       try {
         client.createTable(tableDescriptor.toHiveTable)
