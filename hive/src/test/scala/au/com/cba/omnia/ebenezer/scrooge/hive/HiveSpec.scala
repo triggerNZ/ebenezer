@@ -58,6 +58,8 @@ Hive operations:
   created table must exist                                $create
   creating table with different schema fails              $create2
   can verify schema                                       $strict
+  can getPath for managed table                           $pathManaged
+  can getPath for unmanaged table                         $pathUnmanaged
   query                                                   $query
   queries                                                 $queries
   query catches errors                                    $queryError
@@ -197,6 +199,25 @@ Hive operations:
     
     x must beValue((true, false, false, false, false))
   }
+
+  def pathManaged = {
+    val x = for {
+      _    <- Hive.createParquetTable[SimpleHive]("test", "test", List("part1" -> "string", "part2" -> "string"), None)
+      path <- Hive.getPath("test", "test")
+    } yield path
+
+    x must beValue(new Path(s"file:$hiveWarehouse/test.db/test"))
+  }
+
+  def pathUnmanaged = {
+    val x = for {
+      _    <- Hive.createParquetTable[SimpleHive]("test", "test", List("part1" -> "string", "part2" -> "string"), Some(new Path("test")))
+      path <- Hive.getPath("test", "test")
+    } yield path
+
+    x must beValue(new Path(s"file:$dir/user/test"))
+  }
+
 
   def query = {
     val x = for {

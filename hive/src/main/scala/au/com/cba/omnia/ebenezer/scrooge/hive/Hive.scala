@@ -345,6 +345,17 @@ object Hive {
     case NonFatal(t)              => Result.error(s"Failed to check strict existence of $database.$table", t)
   })
 
+  /** Gets the on disk location of a Hive table. */
+  def getPath(database: String, table: String): Hive[Path] = Hive((conf, client) =>
+    try {
+      val location = client.getTable(database, table).getSd.getLocation
+      Result.ok(FileSystem.get(conf).makeQualified(new Path(location)))
+    } catch {
+      case _: NoSuchObjectException => Result.fail(s"Table $database.$table does not exist")
+      case NonFatal(t)              => Result.error(s"Failed to get path for $database.$table", t)
+    }
+  )
+
   /** Runs the specified Hive query. Returns at most `maxRows` */
   def query(query: String, maxRows: Int = 100): Hive[List[String]] = Hive { (conf, _) =>
     SessionState.start(conf)
