@@ -21,6 +21,7 @@ import org.apache.hadoop.hive.conf.HiveConf
 import org.apache.hadoop.hive.metastore.IMetaStoreClient
 
 import scalaz._, Scalaz._
+import scalaz.\&/.{This, That}
 import scalaz.scalacheck.ScalazProperties.monad
 
 import org.specs2.matcher.{Matcher, Parameters}
@@ -45,6 +46,8 @@ Hive operations should:
   or continues at first Error                             $orFirstError
   mandatory success iif result is true                    $mandatoryMeansTrue
   forbidden success iif result is false                   $forbiddenMeansFalse
+  recoverWith for all cases is the same as |||            $recoverWith
+  recoverWith only recovers the specified errors          $recoverWithSpecific
 
 Hive construction:
   result is constant                                      $result
@@ -120,6 +123,17 @@ Hive operations:
       case (Error(_), Error(_)) => ok
     }
   })
+
+  def recoverWith = prop((x: Hive[Int], y: Hive[Int]) =>
+    (x.recoverWith { case _ => y}).run(hiveConf) must_== (x ||| y).run(hiveConf)
+  )
+
+  def recoverWithSpecific = {
+    val r = Result.fail[Int]("test")
+    val a = Hive.result(r)
+    a.recoverWith { case This(_) => Hive.value(3) } must beValue(3)
+    a.recoverWith { case That(_) => Hive.value(3) } must beResult(r)
+  }
 
   def result = prop((v: Result[Int]) =>
     Hive.result(v) must beResult { v })

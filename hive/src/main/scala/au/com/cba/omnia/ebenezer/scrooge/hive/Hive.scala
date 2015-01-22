@@ -21,6 +21,7 @@ import scala.util.control.NonFatal
 import java.util.ArrayList
 
 import scalaz._, Scalaz._
+import scalaz.\&/.These
 
 import cascading.tap.hive.HiveTableDescriptor
 
@@ -99,6 +100,23 @@ case class Hive[A](action: (HiveConf, IMetaStoreClient) => Result[A]) {
   /** Alias for `or`. Provides nice syntax: `Hive.create("bad path") ||| Hive.create("good path")` */
   def |||(other: => Hive[A]): Hive[A] =
     or(other)
+
+  /** Recovers from an error. */
+  def recoverWith(recovery: PartialFunction[These[String, Throwable], Hive[A]]): Hive[A] =
+    Hive((conf, client) => action(conf, client).fold(
+      res   => Result.ok(res),
+      error => recovery.andThen(_.action(conf, client)).applyOrElse(error, Result.these)
+    ))
+
+  /** Like "finally", but only performs the final action if there was an error. */
+  def onException[B](action: Hive[B]): Hive[A] =
+    this.recoverWith { case e => action >> Hive.result(Result.these(e)) }
+
+  /** Ensures an action is run after this no matter whether this succeeds or fails. Generalizes "finally". */
+  def ensuring[B](sequel: Hive[B]): Hive[A] = for {
+    r <- onException(sequel)
+    _ <- sequel
+  } yield r
 
   /** Runs the Hive action with a RetryingMetaStoreClient created based on the provided HiveConf. */
   def run(hiveConf: HiveConf): Result[A] = {
