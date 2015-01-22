@@ -65,6 +65,7 @@ Hive operations:
   can getPath for unmanaged table                         $pathUnmanaged
   query                                                   $query
   queries                                                 $queries
+  queries must be run in order                            $queriesOrdered
   query catches errors                                    $queryError
 
 """
@@ -249,6 +250,15 @@ Hive operations:
     } yield res
 
     x must beValue(List(List("test"), List("test2")))
+  }
+
+  def queriesOrdered = {
+    val x = for {
+      _   <- Hive.createTextTable[SimpleHive]("test", "test2", List("part1" -> "string", "part2" -> "string"), None)
+      _   <- Hive.queries(List("USE test", "SHOW TABLES"))
+    } yield ()
+
+    x must beValue(())
   }
 
   def queryError = {

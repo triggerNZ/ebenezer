@@ -399,33 +399,37 @@ object Hive {
   }
 
   /** Runs the specified Hive queries. Returns at most `maxRows` per query */
-  def queries(queries: List[String], maxRows: Int = 100): Hive[List[List[String]]] = Hive { (conf, _) =>
-    SessionState.start(conf)
-    SessionState.get().setIsSilent(true)
-    val driver = new Driver(conf)
-    try {
+  def queries(queries: List[String], maxRows: Int = 100): Hive[List[List[String]]] = {
+    val setup = Hive.getConf.flatMap(conf => Hive.value {
+      SessionState.start(conf)
+      SessionState.get().setIsSilent(true)
+      val driver = new Driver(conf)
       driver.init()
       driver.setMaxRows(maxRows)
-      queries.traverse { query =>
-        try {
-          val response = driver.run(query)
-          if (response.getResponseCode() != 0)
-            Result.fail(s"Error running query '$query'. ${response.getErrorMessage}")
-          else {
-            val results    = new ArrayList[String]()
-            val gotResults = driver.getResults(results)
-            if (gotResults) Result.ok(results.asScala.toList)
-            else            Result.ok(List.empty[String])
-          }
-        } catch {
-          case NonFatal(ex)=> Result.error(s"Error trying to run query '$query'", ex)
+      driver
+    })
+
+    val cleanup = (driver: Driver) => Hive.value(driver.destroy)
+
+    val body = (driver: Driver) => queries.traverse(query => {
+      val runQuery = for {
+        response <- Hive.value(driver.run(query))
+        _        <- Hive.guard(response.getResponseCode == 0, response.getErrorMessage)
+        results  <- Hive.value {
+          val results    = new ArrayList[String]()
+          val gotResults = driver.getResults(results)
+          if (gotResults) results.asScala.toList
+          else            List.empty[String]
         }
-      }
-    } catch {
-      case NonFatal(ex) => Result.error(s"""Error trying to set up running queries ${queries.mkString(",")}""", ex)
-    } finally {
-      driver.destroy()
-    }
+      } yield results
+
+      runQuery.safe.addMessage("Error trying to run query '$query'")
+    })
+
+    for {
+      driver  <- setup
+      results <- body(driver) ensuring cleanup(driver)
+    } yield results
   }
 
   implicit def HiveMonad: Monad[Hive] = new Monad[Hive] {
