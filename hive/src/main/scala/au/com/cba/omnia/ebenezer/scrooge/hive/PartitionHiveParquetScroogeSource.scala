@@ -50,7 +50,7 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct](
 
   assert(
     partitionSet.arity == partitionColumns.length,
-    "The size of the partition type needs to match the number of specified partion columns"
+    "The size of the partition type needs to match the number of specified partition columns"
   )
   val hdfsScheme =
     HadoopSchemeInstance(Util.parquetScheme[T])
@@ -77,9 +77,7 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct](
         val tableDescriptor =
           Util.createHiveTableDescriptor[T](database, table, partitionColumns, ParquetFormat, path)
 
-        val tap = new HivePartitionTap(
-          new HiveTap(tableDescriptor, hdfsScheme, SinkMode.REPLACE, true), SinkMode.UPDATE
-        )
+        val tap = new PartitionHiveParquetWriteTap(tableDescriptor, hdfsScheme)
 
         tap.asInstanceOf[Tap[JobConf, RecordReader[_, _], OutputCollector[_, _]]]
       }
@@ -144,34 +142,6 @@ object PartitionHiveParquetScroogeSink {
 }
 
 /**
-  * Custom tap for reading partitioned hive parquet tables, see [[PartitionHiveParquetScroogeSink]]
-  * for why this is needed. This will add globs for all the underlying partitions to the path of the
-  * hive table.
-  */
-class PartitionHiveParquetReadTap(
-  tableDescriptor: HiveTableDescriptor, hdfsScheme: Scheme[_, _, _, _, _]
-) extends HiveTap(tableDescriptor, hdfsScheme, SinkMode.KEEP, true){
-  override def setStringPath(path: String): Unit = {
-    super.setStringPath(s"$path/${tableDescriptor.getPartitionKeys.map(_ => "*").mkString("/")}")
-  }
-
-  /**
-    * Overrides the identifier and remove the globed out partitions so that it matches the one used
-    * for reading partitioned data and they are, therefore, the same for scheduling cascades.
-    */
-  override def getIdentifier(): String =
-    getPath.toString.take(getPath.toString.length - 2 * tableDescriptor.getPartitionKeys.length)
-
-  /**
-    * Overrides the identifier and remove the globed out partitions so that it matches the one used
-    * for reading partitioned data and they are, therefore, the same for scheduling cascades.
-    */
-  override def getFullIdentifier(conf: JobConf): String = {
-    val id = super.getFullIdentifier(conf)
-    id.take(id.length - 2 * tableDescriptor.getPartitionKeys.length)
-  }
-}
-/**
   * A scalding source to read Scrooge Thrift structs from a partitioned hive table using parquet as
   * underlying storage format. It will ignore the partition columns and only read the thrift struct
   * from the parquet file.
@@ -188,7 +158,6 @@ case class PartitionHiveParquetScroogeSource[T <: ThriftStruct](
     HadoopSchemeInstance(Util.parquetScheme[T])
 
   override def createTap(readOrWrite: AccessMode)(implicit mode: Mode): Tap[_, _, _] = mode match {
-    case Local(_)              => sys.error("Local mode is currently not supported for ${toString}")
     case hdfsMode @ Hdfs(_, jobConf) => readOrWrite match {
       case Read  => {
         val tap = new PartitionHiveParquetReadTap(tableDescriptor, hdfsScheme)
@@ -197,7 +166,8 @@ case class PartitionHiveParquetScroogeSource[T <: ThriftStruct](
       case Write =>
         sys.error(s"HDFS write mode is currently not supported for ${toString}. Use PartitionHiveParquetScroogeSink instead.")
     }
-    case x       => sys.error(s"$x mode is currently not supported for ${toString}")
+    case Local(_) => sys.error("Local mode is currently not supported for ${toString}")
+    case x        => sys.error(s"$x mode is currently not supported for ${toString}")
   }
 
   override def converter[U >: T] =
