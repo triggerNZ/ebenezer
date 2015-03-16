@@ -41,7 +41,7 @@
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A data-type that represents a Hive operation.</p><p>Hive operations use a HiveConf as context, and produce a (potentially failing) result. For
 convenience Hive operations receive both a HiveConf and a handle to a Hive client. The client
-is created from the HiveConf when the run method is called.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/74e86950e3019e4ee3dd1aa6f973b79a44fe2b75//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/Hive.scala" target="_blank">Hive.scala</a></dd></dl><div class="toggleContainer block">
+is created from the HiveConf when the run method is called.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/ccd996e1c42a044e08164ac23cdbf8e70051a993//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/Hive.scala" target="_blank">Hive.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -181,33 +181,6 @@ is created from the HiveConf when the run method is called.</p></div><dl class="
       </span>
       </h4>
       
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#addMessage" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="addMessage(message:String,separator:String):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]"></a>
-      <a id="addMessage(String,String):Hive[A]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">addMessage</span><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="separator">separator: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;: &quot;</span></span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Adds an additional error message.</p><div class="fullcomment"><div class="comment cmt"><p>Adds an additional error message. Useful for adding more context as the error goes up the stack.</p><p>The new message is prepended to any existing message.
-</p></div></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#andThen" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="andThen[B](f:A=&gt;au.com.cba.omnia.omnitool.Result[B]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[B]"></a>
-      <a id="andThen[B]((A)⇒Result[B]):Hive[B]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">andThen</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>) ⇒ <span class="extype" name="au.com.cba.omnia.omnitool.Result">Result</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.andThen.B">B</span>]</span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.andThen.B">B</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Chain a context free result (i.</p><div class="fullcomment"><div class="comment cmt"><p>Chain a context free result (i.e. requires no configuration) to this Hive operation.</p></div></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -240,19 +213,6 @@ is created from the HiveConf when the run method is called.</p></div><dl class="
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring[B](sequel:au.com.cba.omnia.ebenezer.scrooge.hive.Hive[B]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]"></a>
-      <a id="ensuring[B](Hive[B]):Hive[A]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">ensuring</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="sequel">sequel: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.ensuring.B">B</span>]</span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Ensures an action is run after this no matter whether this succeeds or fails.</p><div class="fullcomment"><div class="comment cmt"><p>Ensures an action is run after this no matter whether this succeeds or fails. Generalizes &quot;finally&quot;.</p></div></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -285,19 +245,6 @@ is created from the HiveConf when the run method is called.</p></div><dl class="
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#flatMap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="flatMap[B](f:A=&gt;au.com.cba.omnia.ebenezer.scrooge.hive.Hive[B]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[B]"></a>
-      <a id="flatMap[B]((A)⇒Hive[B]):Hive[B]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">flatMap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>) ⇒ <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.flatMap.B">B</span>]</span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.flatMap.B">B</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Bind through successful Hive operations.</p>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -324,19 +271,6 @@ is created from the HiveConf when the run method is called.</p></div><dl class="
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#map" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="map[B](f:A=&gt;B):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[B]"></a>
-      <a id="map[B]((A)⇒B):Hive[B]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">map</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>) ⇒ <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.map.B">B</span></span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.map.B">B</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Map across successful Hive operations.</p>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -376,46 +310,6 @@ is created from the HiveConf when the run method is called.</p></div><dl class="
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#onException" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="onException[B](action:au.com.cba.omnia.ebenezer.scrooge.hive.Hive[B]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]"></a>
-      <a id="onException[B](Hive[B]):Hive[A]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">onException</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="action">action: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.onException.B">B</span>]</span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Like &quot;finally&quot;, but only performs the final action if there was an error.</p>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#or" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="or(other:=&gt;au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]"></a>
-      <a id="or(⇒Hive[A]):Hive[A]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">or</span><span class="params">(<span name="other">other: ⇒ <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Runs the first Hive operation.</p><div class="fullcomment"><div class="comment cmt"><p>Runs the first Hive operation. If it fails, runs the second operation. Useful for chaining optional operations.</p><p>Throws away any error from the first operation.
-</p></div></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#recoverWith" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="recoverWith(recovery:PartialFunction[scalaz.\&amp;/.These[String,Throwable],au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]"></a>
-      <a id="recoverWith(PartialFunction[scalaz.\&amp;/.These[String,Throwable],Hive[A]]):Hive[A]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">recoverWith</span><span class="params">(<span name="recovery">recovery: <span class="extype" name="scala.PartialFunction">PartialFunction</span>[<span class="extype" name="scalaz.TheseInstances.These">scalaz.\&amp;/.These</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Throwable">Throwable</span>], <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]]</span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Recovers from an error.</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#run" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="run(hiveConf:org.apache.hadoop.hive.conf.HiveConf):au.com.cba.omnia.omnitool.Result[A]"></a>
       <a id="run(HiveConf):Result[A]"></a>
@@ -429,47 +323,6 @@ is created from the HiveConf when the run method is called.</p></div><dl class="
       </span>
       </h4>
       <p class="shortcomment cmt">Runs the Hive action with a RetryingMetaStoreClient created based on the provided HiveConf.</p>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#safe" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="safe:au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]"></a>
-      <a id="safe:Hive[A]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">safe</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Convert this to a safe Hive operation that converts any exceptions to failed results.</p>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#safeMap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="safeMap[B](f:A=&gt;B):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[B]"></a>
-      <a id="safeMap[B]((A)⇒B):Hive[B]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">safeMap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>) ⇒ <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.safeMap.B">B</span></span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.safeMap.B">B</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Chain an unsafe operation through a successful Hive operation.</p>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#setMessage" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="setMessage(message:String):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]"></a>
-      <a id="setMessage(String):Hive[A]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">setMessage</span><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Set the error message in a failure case.</p><div class="fullcomment"><div class="comment cmt"><p>Set the error message in a failure case. Useful for providing contextual information without
-having to inspect result.</p><p>NB: This discards any existing message.
-</p></div></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -540,19 +393,6 @@ having to inspect result.</p><p>NB: This discards any existing message.
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#|||" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="|||(other:=&gt;au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[A]"></a>
-      <a id="|||(⇒Hive[A]):Hive[A]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $bar$bar$bar" class="name">|||</span><span class="params">(<span name="other">other: ⇒ <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Alias for <code>or</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Alias for <code>or</code>. Provides nice syntax: <code>Hive.create(&quot;bad path&quot;) ||| Hive.create(&quot;good path&quot;)</code></p></div></div>
     </li></ol>
             </div>
 
