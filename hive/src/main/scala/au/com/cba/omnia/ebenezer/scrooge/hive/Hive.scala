@@ -15,13 +15,11 @@
 package au.com.cba.omnia.ebenezer.scrooge.hive
 
 import scala.collection.JavaConverters._
-import scala.util.{Failure, Try, Success}
 import scala.util.control.NonFatal
 
 import java.util.ArrayList
 
 import scalaz._, Scalaz._
-import scalaz.\&/.These
 
 import cascading.tap.hive.HiveTableDescriptor
 
@@ -36,7 +34,7 @@ import org.apache.hadoop.hive.metastore.api.{Database, Table, AlreadyExistsExcep
 import org.apache.hadoop.hive.ql.Driver
 import org.apache.hadoop.hive.ql.session.SessionState
 
-import au.com.cba.omnia.omnitool.Result
+import au.com.cba.omnia.omnitool.{Result, ResultantMonad, ResultantOps, ToResultantMonadOps}
 
 /**
   * A data-type that represents a Hive operation.
@@ -48,76 +46,6 @@ import au.com.cba.omnia.omnitool.Result
   */
 // NB that this is the Hive equivalent of the HDFS monad in permafrost.
 case class Hive[A](action: (HiveConf, IMetaStoreClient) => Result[A]) {
-  /** Map across successful Hive operations. */
-  def map[B](f: A => B): Hive[B] =
-    andThen(f andThen Result.ok)
-
-  /** Bind through successful Hive operations. */
-  def flatMap[B](f: A => Hive[B]): Hive[B] =
-    Hive((conf, client) => action(conf, client).flatMap(f(_).action(conf, client)))
-
-  /** Chain an unsafe operation through a successful Hive operation. */
-  def safeMap[B](f: A => B): Hive[B] =
-    map(f).safe
-
-  /** Chain a context free result (i.e. requires no configuration) to this Hive operation. */
-  def andThen[B](f: A => Result[B]): Hive[B] =
-    flatMap(a => Hive((_, _) => f(a)))
-
-  /** Convert this to a safe Hive operation that converts any exceptions to failed results. */
-  def safe: Hive[A] =
-    Hive((conf, client) => try {
-      action(conf, client)
-    } catch {
-      case NonFatal(t) => Result.exception(t)
-    })
-
-  /**
-    * Set the error message in a failure case. Useful for providing contextual information without
-    * having to inspect result.
-    * 
-    * NB: This discards any existing message.
-    */
-  def setMessage(message: String): Hive[A] =
-    Hive((conf, client) => action(conf, client).setMessage(message))
-
-  /**
-    * Adds an additional error message. Useful for adding more context as the error goes up the stack.
-    * 
-    * The new message is prepended to any existing message.
-    */
-  def addMessage(message: String, separator: String = ": "): Hive[A] =
-    Hive((conf, client) => action(conf, client).addMessage(message))
-
-  /**
-    * Runs the first Hive operation. If it fails, runs the second operation. Useful for chaining optional operations.
-    *
-    * Throws away any error from the first operation.
-    */
-  def or(other: => Hive[A]): Hive[A] =
-    Hive((conf, client) => action(conf, client).fold(Result.ok, _ => other.action(conf, client)))
-
-  /** Alias for `or`. Provides nice syntax: `Hive.create("bad path") ||| Hive.create("good path")` */
-  def |||(other: => Hive[A]): Hive[A] =
-    or(other)
-
-  /** Recovers from an error. */
-  def recoverWith(recovery: PartialFunction[These[String, Throwable], Hive[A]]): Hive[A] =
-    Hive((conf, client) => action(conf, client).fold(
-      res   => Result.ok(res),
-      error => recovery.andThen(_.action(conf, client)).applyOrElse(error, Result.these)
-    ))
-
-  /** Like "finally", but only performs the final action if there was an error. */
-  def onException[B](action: Hive[B]): Hive[A] =
-    this.recoverWith { case e => action >> Hive.result(Result.these(e)) }
-
-  /** Ensures an action is run after this no matter whether this succeeds or fails. Generalizes "finally". */
-  def ensuring[B](sequel: Hive[B]): Hive[A] = for {
-    r <- onException(sequel)
-    _ <- sequel
-  } yield r
-
   /** Runs the Hive action with a RetryingMetaStoreClient created based on the provided HiveConf. */
   def run(hiveConf: HiveConf): Result[A] = {
     try {
@@ -145,59 +73,7 @@ case class Hive[A](action: (HiveConf, IMetaStoreClient) => Result[A]) {
 
 /** Hive operations */
 // NB that this is the Hive equivalent of the HDFS monad in permafrost.
-object Hive {
-  /** Build a HIVE operation from a result. */
-  def result[A](v: Result[A]): Hive[A] =
-    Hive((_, _) => v)
-
-  /** Build a failed HIVE operation from the specified message. */
-  def fail[A](message: String): Hive[A] =
-    result(Result.fail(message))
-
-  /** Build a failed HIVE operation from the specified exception. */
-  def exception[A](t: Throwable): Hive[A] =
-    result(Result.exception(t))
-
-  /** Build a failed HIVE operation from the specified exception and message. */
-  def error[A](message: String, t: Throwable): Hive[A] =
-    result(Result.error(message, t))
-
-  /**
-    * Fails if condition is not met
-    *
-    * Provided instead of [[scalaz.MonadPlus]] typeclass, as Hive does not
-    * quite meet the required laws.
-    */
-  def guard(ok: Boolean, message: String): Hive[Unit] =
-    result(Result.guard(ok, message))
-
-  /**
-    * Fails if condition is met
-    *
-    * Provided instead of [[scalaz.MonadPlus]] typeclass, as Hive does not
-    * quite meet the required laws.
-    */
-  def prevent(fail: Boolean, message: String): Hive[Unit] =
-    result(Result.prevent(fail, message))
-
-  /**
-    * Ensures a Hive operation returning a boolean success flag fails if unsuccessfull
-    *
-    * Provided instead of [[scalaz.MonadPlus]] typeclass, as Hive does not
-    * quite meet the required laws.
-    */
-  def mandatory(action: Hive[Boolean], message: String): Hive[Unit] =
-    action flatMap (guard(_, message))
-
-  /**
-    * Ensures a Hive operation returning a boolean success flag fails if succeesfull
-    *
-    * Provided instead of [[scalaz.MonadPlus]] typeclass, as Hive does not
-    * quite meet the required laws.
-    */
-  def forbidden(action: Hive[Boolean], message: String): Hive[Unit] =
-    action flatMap (prevent(_, message))
-
+object Hive extends ResultantOps[Hive] with ToResultantMonadOps {
   /** Gets the Hive conf. */
   def getConf: Hive[HiveConf] =
     Hive((conf, _) => Result.ok(conf))
@@ -217,10 +93,6 @@ object Hive {
   /** Builds a Hive operation from a function. The resultant Hive operation will not throw an exception. */
   def withClient[A](f: IMetaStoreClient => A): Hive[A] =
     Hive((_, client) => Result.safe(f(client)))
-
-  /** Builds a Hive operation from a value. The resultant Hive operation will not throw an exception. */
-  def value[A](v: => A): Hive[A] =
-    withConf(_ => v)
 
   /**
     * Creates a database if it doesn't already exists. Returns false if the DB already exists.
@@ -423,17 +295,18 @@ object Hive {
         }
       } yield results
 
-      runQuery.safe.addMessage("Error trying to run query '$query'")
+      runQuery.addMessage("Error trying to run query '$query'")
     })
 
     for {
       driver  <- setup
-      results <- body(driver) ensuring cleanup(driver)
+      results <- body(driver) ensure cleanup(driver)
     } yield results
   }
 
-  implicit def HiveMonad: Monad[Hive] = new Monad[Hive] {
-    def point[A](v: => A) = result(Result.ok(v))
-    def bind[A, B](a: Hive[A])(f: A => Hive[B]) = a flatMap f
+  implicit val monad: ResultantMonad[Hive] = new ResultantMonad[Hive] {
+    def rPoint[A](v: => Result[A]): Hive[A] = Hive[A]((_, _) => v)
+    def rBind[A, B](ma: Hive[A])(f: Result[A] => Hive[B]): Hive[B] =
+      Hive((conf, client) => f(ma.action(conf, client)).action(conf, client))
   }
 }
