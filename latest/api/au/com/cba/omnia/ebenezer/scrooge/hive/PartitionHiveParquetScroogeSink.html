@@ -35,7 +35,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">PartitionHiveParquetScroogeSink</span><span class="tparams">[<span name="A">A</span>, <span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="location">location: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">scala.None</span></span>, <span name="append">append: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="valueSet">valueSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="partitionSet">partitionSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.Source">Source</span> with <span class="extype" name="com.twitter.scalding.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)] with <span class="extype" name="java.io.Serializable">Serializable</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">PartitionHiveParquetScroogeSink</span><span class="tparams">[<span name="A">A</span>, <span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="location">location: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">scala.None</span></span>, <span name="append">append: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="valueSet">valueSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="partitionSet">partitionSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.Source">Source</span> with <span class="extype" name="com.twitter.scalding.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)] with <span class="extype" name="java.io.Serializable">Serializable</span> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
       
@@ -45,9 +45,9 @@ mapreduce.FileSplit and cascading will ignore any partitioned input splits that 
 mapred.FileSplit.
 Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource">PartitionHiveParquetScroogeSource</a> for read.
 </p></div><dl class="paramcmts block"><dt class="param">partitionColumns</dt><dd class="cmt"><p>a list of the partition columns formatted as <code>[(name, type)]</code>.</p></dd><dt class="param">append</dt><dd class="cmt"><p>iff true will add new files to an existing partition instead of overwritting it.
-</p></dd></dl><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/ccd996e1c42a044e08164ac23cdbf8e70051a993//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/PartitionHiveParquetScroogeSource.scala" target="_blank">PartitionHiveParquetScroogeSource.scala</a></dd></dl><div class="toggleContainer block">
+</p></dd></dl><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/e33129128026912d63bed6f34bdd86047abd1a04//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/PartitionHiveParquetScroogeSource.scala" target="_blank">PartitionHiveParquetScroogeSource.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)], <span class="extype" name="com.twitter.scalding.Source">Source</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)], <span class="extype" name="com.twitter.scalding.Source">Source</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -94,7 +94,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">PartitionHiveParquetScroogeSink</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="location">location: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">scala.None</span></span>, <span name="append">append: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="valueSet">valueSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="partitionSet">partitionSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>]</span>)</span>
+        <span class="name">PartitionHiveParquetScroogeSink</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="location">location: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">scala.None</span></span>, <span name="append">append: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="valueSet">valueSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="partitionSet">partitionSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>]</span>)</span>
       </span>
       </h4>
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">partitionColumns</dt><dd class="cmt"><p>a list of the partition columns formatted as <code>[(name, type)]</code>.</p></dd><dt class="param">append</dt><dd class="cmt"><p>iff true will add new files to an existing partition instead of overwritting it.
@@ -117,7 +117,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -130,7 +130,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -143,7 +143,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -156,7 +156,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -169,7 +169,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -182,7 +182,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">append</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">append</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <p class="shortcomment cmt">iff true will add new files to an existing partition instead of overwritting it.</p>
@@ -208,7 +208,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">checkFlowDefNotNull</span><span class="params">(<span class="implicit">implicit </span><span name="flowDef">flowDef: <span class="extype" name="cascading.flow.FlowDef">FlowDef</span></span>, <span name="mode">mode: <span class="extype" name="com.twitter.scalding.Mode">Mode</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">checkFlowDefNotNull</span><span class="params">(<span class="implicit">implicit </span><span name="flowDef">flowDef: <span class="extype" name="cascading.flow.FlowDef">FlowDef</span></span>, <span name="mode">mode: <span class="extype" name="com.twitter.scalding.Mode">Mode</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Source</dd></dl></div>
@@ -279,7 +279,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -292,7 +292,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -337,7 +337,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -350,7 +350,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">location</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+        <span class="name">location</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
       </h4>
       
@@ -363,7 +363,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -376,7 +376,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -389,7 +389,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -532,7 +532,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">transformInTest</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">transformInTest</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Source</dd></dl></div>
@@ -545,7 +545,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">validateTaps</span><span class="params">(<span name="mode">mode: <span class="extype" name="com.twitter.scalding.Mode">Mode</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">validateTaps</span><span class="params">(<span name="mode">mode: <span class="extype" name="com.twitter.scalding.Mode">Mode</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Source</dd></dl></div>
@@ -558,7 +558,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -577,7 +577,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -596,7 +596,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -648,11 +648,11 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
 
         <div id="inheritedMembers">
         <div class="parent" name="scala.Serializable">
-              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></h3>
             </div><div class="parent" name="scala.Product">
-              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product" class="extype" target="_top">Product</a></h3>
             </div><div class="parent" name="scala.Equals">
-              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
             </div><div class="parent" name="com.twitter.scalding.typed.TypedSink">
               <h3>Inherited from <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)]</h3>
             </div><div class="parent" name="com.twitter.scalding.Source">
