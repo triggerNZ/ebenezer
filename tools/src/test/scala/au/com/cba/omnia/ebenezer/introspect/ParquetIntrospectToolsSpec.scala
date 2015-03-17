@@ -47,7 +47,7 @@ Introspect on all types
   Read nested                               ${check("nested", fromNestedish)}
   Read lists                                ${check("list", fromListish)}
   Read maps                                 ${check("map", fromMapish)}
-  Read emums                                ${check("enum", fromEnumish).pendingUntilFixed}
+  Read emums                                ${check("enum", fromEnumish)}
 
 """
   val data = List(
