@@ -40,11 +40,11 @@ ParquetTableDescriptor
   val sd         = table.getSd
 
   def serial =
-    sd.getSerdeInfo.getSerializationLib === "parquet.hive.serde.ParquetHiveSerDe"
+    sd.getSerdeInfo.getSerializationLib === ParquetTableDescriptor.PARQUET_SERIALIZATION_LIB
 
   def inputFormat =
-    sd.getInputFormat === "parquet.hive.DeprecatedParquetInputFormat"
+    sd.getInputFormat === ParquetTableDescriptor.PARQUET_INPUT_FORMAT
     
   def outputFormat =
-    sd.getOutputFormat === "parquet.hive.DeprecatedParquetOutputFormat"
+    sd.getOutputFormat === ParquetTableDescriptor.PARQUET_OUTPUT_FORMAT
 }

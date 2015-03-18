@@ -26,13 +26,16 @@ import cascading.tap.hive.HiveTableDescriptor;
  */
 public class ParquetTableDescriptor extends HiveTableDescriptor {
     /** default input format used by Hive */
-    public static final String PARQUET_INPUT_FORMAT      = "parquet.hive.DeprecatedParquetInputFormat";
+    public static final String PARQUET_INPUT_FORMAT      =
+        org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat.class.getName();
 
     /** default output format used by Hive */
-    public static final String PARQUET_OUTPUT_FORMAT     = "parquet.hive.DeprecatedParquetOutputFormat";
+    public static final String PARQUET_OUTPUT_FORMAT     =
+        org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat.class.getName();
 
     /** default serialization lib name*/
-    public static final String PARQUET_SERIALIZATION_LIB = "parquet.hive.serde.ParquetHiveSerDe";
+    public static final String PARQUET_SERIALIZATION_LIB =
+        org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe.class.getName();
 
     /**
      * Constructs a new ParquetHiveTableDescriptor object.

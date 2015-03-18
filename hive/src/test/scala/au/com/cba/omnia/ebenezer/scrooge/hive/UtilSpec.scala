@@ -90,7 +90,7 @@ UtilSpec
   }
 
   def verifyInputOutputFormatForParquet(sd: StorageDescriptor) {
-    sd.getInputFormat() must_== "parquet.hive.DeprecatedParquetInputFormat"
-    sd.getOutputFormat() must_== "parquet.hive.DeprecatedParquetOutputFormat"
+    sd.getInputFormat() must_== ParquetTableDescriptor.PARQUET_INPUT_FORMAT
+    sd.getOutputFormat() must_== ParquetTableDescriptor.PARQUET_OUTPUT_FORMAT
   }
 }
