@@ -94,7 +94,7 @@ Hive operations:
   def strict = {
     val x = for {
       _  <- Hive.createParquetTable[SimpleHive]("test", "test", List("part1" -> "string", "part2" -> "string"), None)
-      t1 <- Hive.existsTable("test", "test")
+      t1 <- Hive.existsTableStrict[SimpleHive]("test", "test", List("part1" -> "string", "part2" -> "string"), None)
       t2 <- Hive.existsTableStrict[SimpleHive]("test", "test", List("part1" -> "string"), None)
       t3 <- Hive.existsTableStrict[SimpleHive]("test", "test", List("part1" -> "string", "part2" -> "string"), Some(new Path("/other")))
       t4 <- Hive.existsTableStrict[SimpleHive]("test", "test", List("part1" -> "string", "part2" -> "string"), None, TextFormat())

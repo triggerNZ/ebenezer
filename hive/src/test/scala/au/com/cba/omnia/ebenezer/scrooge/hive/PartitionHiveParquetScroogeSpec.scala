@@ -49,7 +49,7 @@ Hive support for (thrift scrooge encoded) partitioned parquet tables
   def writeTest = {
     executesOk(write)
 
-    val path = hiveWarehouse </> "database.db" </> "fake_records"
+    val path = hiveWarehouse </> s"$database.db" </> table
 
     facts(
       path ==> exists,
@@ -73,7 +73,7 @@ Hive support for (thrift scrooge encoded) partitioned parquet tables
   def readTest = {
     executesOk(write.flatMap(_ => read))
 
-    val path = hiveWarehouse </> "database.db" </> "some_other_fake_records_table"
+    val path = hiveWarehouse </> s"$database.db" </> "some_other_fake_records_table"
 
 
     facts(
