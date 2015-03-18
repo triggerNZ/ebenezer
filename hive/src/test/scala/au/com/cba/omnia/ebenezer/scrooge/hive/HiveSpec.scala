@@ -38,20 +38,21 @@ Hive Operations
 ===============
 
 Hive operations should:
-  obey resultant monad laws (monad and plus laws)         ${resultantMonad.laws[Hive]}
+  obey resultant monad laws (monad and plus laws)                            ${resultantMonad.laws[Hive]}
 
 Hive operations:
-  hive handles exceptions                                 $safeHive
-  tableExists should always be false                      $noTable
-  created table must exist                                $create
-  creating table with different schema fails              $create2
-  can verify schema                                       $strict
-  can getPath for managed table                           $pathManaged
-  can getPath for unmanaged table                         $pathUnmanaged
-  query                                                   $query
-  queries                                                 $queries
-  queries must be run in order                            $queriesOrdered
-  query catches errors                                    $queryError
+  hive handles exceptions                                                    $safeHive
+  tableExists should always be false                                         $noTable
+  created table must exist                                                   $create
+  creating table with different schema fails                                 $create2
+  can verify schema                                                          $strict
+  can getPath for managed table                                              $pathManaged
+  can getPath for unmanaged table                                            $pathUnmanaged
+  query                                                                      $query
+  queries                                                                    $queries
+  queries must be run in order                                               $queriesOrdered
+  query catches errors                                                       $queryError
+  Hive existsTableStrict should accept parquet tables created using Hive DDL $hiveParquetMatch
 
 """
 
@@ -157,6 +158,26 @@ Hive operations:
     x.run(hiveConf) must beLike {
       case Error(_) => ok
     }
+  }
+
+  def hiveParquetMatch = {
+    val db    = "test"
+    val table = "test"
+    // DDL needs to match SimpleHive plus partition columns
+    val ddl = s"""
+      CREATE TABLE $db.$table (
+        stringfield string
+      ) PARTITIONED BY (part string)
+      STORED AS PARQUET
+      """
+
+    val x = for {
+      _ <- Hive.createDatabase(db)
+      _ <- Hive.query(ddl)
+      t <- Hive.existsTableStrict[SimpleHive](db, table, List("part" -> "string"), None, ParquetFormat)
+    } yield t
+
+    x must beValue(true)
   }
   
   /** Note these are not general purpose, specific to testing laws. */

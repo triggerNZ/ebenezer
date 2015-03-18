@@ -24,6 +24,7 @@ Hive support for (thrift scrooge encoded) partitioned parquet tables
   should allow for writing to a sink $writeTest
   and then it should be possible to read from the data that is written to the sink $readTest
   identifier test $identifierTest
+  should allow for writing to a table already created by Hive $writeExistingTest
 
 """
 
@@ -107,6 +108,30 @@ Hive support for (thrift scrooge encoded) partitioned parquet tables
 
     sourceId     must_== sinkId
     sourceFullId must_== sinkFullId
+  }
+
+  def writeExistingTest = {
+    // DDL needs to match SimpleHive plus partition columns
+    val partitionColumnsDdl =
+      partitionColumns.map(c => s"${c._1} ${c._2}").mkString(", ")
+    val ddl = s"""
+      CREATE TABLE $database.$table (
+        stringfield string
+      ) PARTITIONED BY ($partitionColumnsDdl)
+      STORED AS PARQUET
+      """
+
+    Hive.query(ddl).run(hiveConf)
+    executesOk(write)
+
+    val path = hiveWarehouse </> s"$database.db" </> table
+
+    facts(
+      path ==> exists,
+      path </> s"p_domain=rdbms_changes" </> "*" </> "*" </> "*.parquet" ==> records(
+        ParquetThermometerRecordReader[SimpleHive], data
+      )
+    )
   }
 }
 
