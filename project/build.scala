@@ -27,8 +27,8 @@ import au.com.cba.omnia.uniform.assembly.UniformAssemblyPlugin._
 import au.com.cba.omnia.humbug.HumbugSBT._
 
 object build extends Build {
-  val thermometerVersion = "0.6.0-20150317012710-6f91910"
-  val omnitoolVersion    = "1.7.0-20150316053109-4b4b011"
+  val thermometerVersion = "0.7.0-20150318035217-23adcab"
+  val omnitoolVersion    = "1.8.0-20150318034256-6b79776"
 
   lazy val standardSettings =
     Defaults.coreDefaultSettings ++
@@ -61,7 +61,7 @@ object build extends Build {
           libraryDependencies ++=
             depend.hadoop() ++ depend.scalding() ++ depend.scalaz() ++
             depend.parquet() ++ Seq(
-              "au.com.cba.omnia" %% "humbug-core" % "0.4.0-20150316054843-8380712",
+              "au.com.cba.omnia" %% "humbug-core" % "0.5.0-20150318035044-b7d5d90",
               "au.com.cba.omnia" %% "thermometer" % thermometerVersion % "test"
             ),
           scroogeThriftSourceFolder in Test <<= (sourceDirectory) { _ / "test" / "thrift" / "scrooge" },
@@ -93,7 +93,7 @@ object build extends Build {
           libraryDependencies ++=
             depend.hadoop() ++ depend.parquet() ++
             depend.omnia("omnitool-core", omnitoolVersion) ++ 
-            depend.omnia("cascading-hive", "1.6.2-20150316235808-3bf2eaf") ++
+            depend.omnia("cascading-hive", "1.7.0-20150318035101-7e9ada6") ++
             Seq(
               "au.com.cba.omnia" %% "thermometer-hive"  % thermometerVersion % "test",
               "au.com.cba.omnia" %% "omnitool-core"     % omnitoolVersion    % "test" classifier "tests"
