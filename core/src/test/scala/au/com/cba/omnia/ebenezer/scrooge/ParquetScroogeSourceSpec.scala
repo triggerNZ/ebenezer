@@ -20,9 +20,10 @@ import com.twitter.scalding.typed.IterablePipe
 import au.com.cba.omnia.thermometer.core._, Thermometer._
 import au.com.cba.omnia.thermometer.fact.PathFactoids._
 
+import au.com.cba.omnia.ebenezer.ParquetLogging
 import au.com.cba.omnia.ebenezer.test.{Customer, Large, ParquetThermometerRecordReader}
 
-object ParquetScroogeSourceSpec extends ThermometerSpec { def is = s2"""
+object ParquetScroogeSourceSpec extends ThermometerSpec with ParquetLogging { def is = s2"""
 
 ParquetSource usage
 ===================

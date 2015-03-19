@@ -5,9 +5,10 @@ import com.twitter.scalding.typed.IterablePipe
 
 import org.apache.hadoop.hive.conf.HiveConf.ConfVars._
 
+import au.com.cba.omnia.ebenezer.ParquetLogging
 import au.com.cba.omnia.ebenezer.scrooge.hive._
 
-class HiveExampleStep3(args: Args) extends CascadeJob(args) {
+class HiveExampleStep3(args: Args) extends CascadeJob(args) with ParquetLogging {
   val db       = args("db")
   val srcTable = args("src-table")
   val dstTable = args("dst-table")

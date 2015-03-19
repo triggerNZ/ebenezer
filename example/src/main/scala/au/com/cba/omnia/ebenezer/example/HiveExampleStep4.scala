@@ -17,9 +17,10 @@ package au.com.cba.omnia.ebenezer.example
 import com.twitter.scalding._, TDsl._
 import com.twitter.scalding.typed.IterablePipe
 
+import au.com.cba.omnia.ebenezer.ParquetLogging
 import au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource
 
-class HiveExampleStep4(args: Args) extends Job(args) {
+class HiveExampleStep4(args: Args) extends Job(args) with ParquetLogging {
   val data = List(
     Nested(Map(
       1 -> Map(10 -> List("a1", "b1")),

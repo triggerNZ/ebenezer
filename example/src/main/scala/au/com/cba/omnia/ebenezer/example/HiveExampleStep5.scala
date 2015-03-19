@@ -5,9 +5,10 @@ import com.twitter.scalding.typed.IterablePipe
 
 import org.apache.hadoop.hive.conf.HiveConf.ConfVars._
 
+import au.com.cba.omnia.ebenezer.ParquetLogging
 import au.com.cba.omnia.ebenezer.scrooge.hive._
 
-object HiveExampleStep5 extends ExecutionApp {
+object HiveExampleStep5 extends ExecutionApp with ParquetLogging {
   def job = null
 
   val data = List(

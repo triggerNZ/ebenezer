@@ -17,9 +17,10 @@ package au.com.cba.omnia.ebenezer.example
 import com.twitter.scalding._, TDsl._
 import com.twitter.scalding.typed.IterablePipe
 
+import au.com.cba.omnia.ebenezer.ParquetLogging
 import au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink
 
-class HiveExampleStep1(args: Args) extends Job(args) {
+class HiveExampleStep1(args: Args) extends Job(args) with ParquetLogging {
   val data = List(
     Customer("CUSTOMER-A", "Fred", "Bedrock", 40),
     Customer("CUSTOMER-2", "Wilma", "Bedrock", 40),

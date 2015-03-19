@@ -18,9 +18,10 @@ package scrooge
 import au.com.cba.omnia.thermometer.core._, Thermometer._
 import au.com.cba.omnia.thermometer.fact.PathFactoids._
 
+import au.com.cba.omnia.ebenezer.ParquetLogging
 import au.com.cba.omnia.ebenezer.test._
 
-object PartitionParquetScroogeSourceSpec extends ThermometerSpec { def is = s2"""
+object PartitionParquetScroogeSourceSpec extends ThermometerSpec with ParquetLogging { def is = s2"""
 
 PartitionParquetScroogeSource usage
 ==================================

@@ -16,7 +16,9 @@ import au.com.cba.omnia.thermometer.core._, Thermometer._
 import au.com.cba.omnia.thermometer.hive.HiveSupport
 import au.com.cba.omnia.thermometer.fact.PathFactoids._
 
-class PartitionHiveParquetScroogeSpec extends ThermometerSpec with HiveSupport { def is = s2"""
+import au.com.cba.omnia.ebenezer.ParquetLogging
+
+class PartitionHiveParquetScroogeSpec extends ThermometerSpec with HiveSupport with ParquetLogging { def is = s2"""
 PartitionHiveParquetScrooge Source and Sink Test
 ================================================
 

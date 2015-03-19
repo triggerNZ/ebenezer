@@ -19,11 +19,10 @@ import au.com.cba.omnia.thermometer.core.{Thermometer, ThermometerSource, Thermo
 import au.com.cba.omnia.thermometer.fact.PathFactoid
 import au.com.cba.omnia.thermometer.hive.HiveSupport
 
+import au.com.cba.omnia.ebenezer.ParquetLogging
 import au.com.cba.omnia.ebenezer.scrooge.hive._
-import com.twitter.scalding.AccessMode
-import com.twitter.scalding.Write
 
-object HiveParquetSpec extends ThermometerSpec with HiveSupport { def is = s2"""
+object HiveParquetSpec extends ThermometerSpec with HiveSupport with ParquetLogging { def is = s2"""
 Hive Parquet properties
 =========================
 

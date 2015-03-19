@@ -16,9 +16,10 @@ package au.com.cba.omnia.ebenezer.example
 
 import com.twitter.scalding._, TDsl._
 
+import au.com.cba.omnia.ebenezer.ParquetLogging
 import au.com.cba.omnia.ebenezer.scrooge.hive._
 
-class HiveExampleStep2(args: Args) extends CascadeJob(args) {
+class HiveExampleStep2(args: Args) extends CascadeJob(args) with ParquetLogging {
   val db = args("db")
   val srcTable = args("src-table")
   val dstTable = args("dst-table")
