@@ -35,13 +35,13 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">HiveExampleStep5</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.ExecutionApp">ExecutionApp</span></span>
+        <span class="name">HiveExampleStep5</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.ExecutionApp">ExecutionApp</span> with <a href="../ParquetLogging.html" class="extype" name="au.com.cba.omnia.ebenezer.ParquetLogging">ParquetLogging</a></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/dace5d41690211568772a5792993af2fe1b0f853//example/src/main/scala/au/com/cba/omnia/ebenezer/example/HiveExampleStep5.scala" target="_blank">HiveExampleStep5.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/4644c31e424c5e19b774946a9ae33c9b300affac//example/src/main/scala/au/com/cba/omnia/ebenezer/example/HiveExampleStep5.scala" target="_blank">HiveExampleStep5.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="com.twitter.scalding.ExecutionApp">ExecutionApp</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="../ParquetLogging.html" class="extype" name="au.com.cba.omnia.ebenezer.ParquetLogging">ParquetLogging</a>, <span class="extype" name="com.twitter.scalding.ExecutionApp">ExecutionApp</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -59,7 +59,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="au.com.cba.omnia.ebenezer.example.HiveExampleStep5"><span>HiveExampleStep5</span></li><li class="in" name="com.twitter.scalding.ExecutionApp"><span>ExecutionApp</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="au.com.cba.omnia.ebenezer.example.HiveExampleStep5"><span>HiveExampleStep5</span></li><li class="in" name="au.com.cba.omnia.ebenezer.ParquetLogging"><span>ParquetLogging</span></li><li class="in" name="com.twitter.scalding.ExecutionApp"><span>ExecutionApp</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -370,6 +370,32 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.ParquetLogging#parquetHadoopLogger" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="parquetHadoopLogger:java.util.logging.Logger"></a>
+      <a id="parquetHadoopLogger:Logger"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">parquetHadoopLogger</span><span class="result">: <span class="extype" name="java.util.logging.Logger">Logger</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../ParquetLogging.html" class="extype" name="au.com.cba.omnia.ebenezer.ParquetLogging">ParquetLogging</a></dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.ParquetLogging#parquetLogLevel" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="parquetLogLevel:java.util.logging.Level"></a>
+      <a id="parquetLogLevel:Level"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">parquetLogLevel</span><span class="result">: <span class="extype" name="java.util.logging.Level">Level</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Override this to change the logging level.</p><div class="fullcomment"><div class="comment cmt"><p>Override this to change the logging level.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../ParquetLogging.html" class="extype" name="au.com.cba.omnia.ebenezer.ParquetLogging">ParquetLogging</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -462,7 +488,9 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="com.twitter.scalding.ExecutionApp">
+        <div class="parent" name="au.com.cba.omnia.ebenezer.ParquetLogging">
+              <h3>Inherited from <a href="../ParquetLogging.html" class="extype" name="au.com.cba.omnia.ebenezer.ParquetLogging">ParquetLogging</a></h3>
+            </div><div class="parent" name="com.twitter.scalding.ExecutionApp">
               <h3>Inherited from <span class="extype" name="com.twitter.scalding.ExecutionApp">ExecutionApp</span></h3>
             </div><div class="parent" name="java.io.Serializable">
               <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>

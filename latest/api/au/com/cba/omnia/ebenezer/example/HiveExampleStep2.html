@@ -35,13 +35,13 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">HiveExampleStep2</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.CascadeJob">CascadeJob</span></span>
+        <span class="name">HiveExampleStep2</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.CascadeJob">CascadeJob</span> with <a href="../ParquetLogging.html" class="extype" name="au.com.cba.omnia.ebenezer.ParquetLogging">ParquetLogging</a></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/dace5d41690211568772a5792993af2fe1b0f853//example/src/main/scala/au/com/cba/omnia/ebenezer/example/HiveExampleStep2.scala" target="_blank">HiveExampleStep2.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/4644c31e424c5e19b774946a9ae33c9b300affac//example/src/main/scala/au/com/cba/omnia/ebenezer/example/HiveExampleStep2.scala" target="_blank">HiveExampleStep2.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="com.twitter.scalding.CascadeJob">CascadeJob</span>, <span class="extype" name="com.twitter.scalding.Job">Job</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="com.twitter.scalding.FieldConversions">FieldConversions</span>, <span class="extype" name="com.twitter.scalding.LowPriorityFieldConversions">LowPriorityFieldConversions</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="../ParquetLogging.html" class="extype" name="au.com.cba.omnia.ebenezer.ParquetLogging">ParquetLogging</a>, <span class="extype" name="com.twitter.scalding.CascadeJob">CascadeJob</span>, <span class="extype" name="com.twitter.scalding.Job">Job</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="com.twitter.scalding.FieldConversions">FieldConversions</span>, <span class="extype" name="com.twitter.scalding.LowPriorityFieldConversions">LowPriorityFieldConversions</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -59,7 +59,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="au.com.cba.omnia.ebenezer.example.HiveExampleStep2"><span>HiveExampleStep2</span></li><li class="in" name="com.twitter.scalding.CascadeJob"><span>CascadeJob</span></li><li class="in" name="com.twitter.scalding.Job"><span>Job</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="com.twitter.scalding.FieldConversions"><span>FieldConversions</span></li><li class="in" name="com.twitter.scalding.LowPriorityFieldConversions"><span>LowPriorityFieldConversions</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="au.com.cba.omnia.ebenezer.example.HiveExampleStep2"><span>HiveExampleStep2</span></li><li class="in" name="au.com.cba.omnia.ebenezer.ParquetLogging"><span>ParquetLogging</span></li><li class="in" name="com.twitter.scalding.CascadeJob"><span>CascadeJob</span></li><li class="in" name="com.twitter.scalding.Job"><span>Job</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="com.twitter.scalding.FieldConversions"><span>FieldConversions</span></li><li class="in" name="com.twitter.scalding.LowPriorityFieldConversions"><span>LowPriorityFieldConversions</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -831,6 +831,32 @@
       </span>
       </h4>
       
+    </li><li name="au.com.cba.omnia.ebenezer.ParquetLogging#parquetHadoopLogger" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="parquetHadoopLogger:java.util.logging.Logger"></a>
+      <a id="parquetHadoopLogger:Logger"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">parquetHadoopLogger</span><span class="result">: <span class="extype" name="java.util.logging.Logger">Logger</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../ParquetLogging.html" class="extype" name="au.com.cba.omnia.ebenezer.ParquetLogging">ParquetLogging</a></dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.ParquetLogging#parquetLogLevel" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="parquetLogLevel:java.util.logging.Level"></a>
+      <a id="parquetLogLevel:Level"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">parquetLogLevel</span><span class="result">: <span class="extype" name="java.util.logging.Level">Level</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Override this to change the logging level.</p><div class="fullcomment"><div class="comment cmt"><p>Override this to change the logging level.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../ParquetLogging.html" class="extype" name="au.com.cba.omnia.ebenezer.ParquetLogging">ParquetLogging</a></dd></dl></div>
     </li><li name="com.twitter.scalding.FieldConversions#parseAnySeqToFields" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="parseAnySeqToFields[T&lt;:TraversableOnce[Any]](anyf:T):cascading.tuple.Fields"></a>
       <a id="parseAnySeqToFields[T&lt;:TraversableOnce[Any]](T):Fields"></a>
@@ -1209,7 +1235,9 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="com.twitter.scalding.CascadeJob">
+        <div class="parent" name="au.com.cba.omnia.ebenezer.ParquetLogging">
+              <h3>Inherited from <a href="../ParquetLogging.html" class="extype" name="au.com.cba.omnia.ebenezer.ParquetLogging">ParquetLogging</a></h3>
+            </div><div class="parent" name="com.twitter.scalding.CascadeJob">
               <h3>Inherited from <span class="extype" name="com.twitter.scalding.CascadeJob">CascadeJob</span></h3>
             </div><div class="parent" name="com.twitter.scalding.Job">
               <h3>Inherited from <span class="extype" name="com.twitter.scalding.Job">Job</span></h3>
