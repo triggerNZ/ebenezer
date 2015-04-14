@@ -1,42 +1,44 @@
+//   Copyright 2014 Commonwealth Bank of Australia
+//
+//   Licensed under the Apache License, Version 2.0 (the "License");
+//   you may not use this file except in compliance with the License.
+//   You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+//   Unless required by applicable law or agreed to in writing, software
+//   distributed under the License is distributed on an "AS IS" BASIS,
+//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//   See the License for the specific language governing permissions and
+//   limitations under the License.
+
 package au.com.cba.omnia.ebenezer.example
 
 import com.twitter.scalding._, TDsl._
 import com.twitter.scalding.typed.IterablePipe
 
-import org.apache.hadoop.hive.conf.HiveConf.ConfVars._
-
 import au.com.cba.omnia.ebenezer.ParquetLogging
-import au.com.cba.omnia.ebenezer.scrooge.hive._
+import au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource
 
-class HiveExampleStep3(args: Args) extends CascadeJob(args) with ParquetLogging {
-  val db       = args("db")
-  val srcTable = args("src-table")
-  val dstTable = args("dst-table")
-
-  val intermediateOut = PartitionHiveParquetScroogeSink[String, Customer](db, srcTable, List("pid" -> "string"))
-  val intermediateIn  = PartitionHiveParquetScroogeSource[Customer](db, srcTable, List("pid" -> "string"))
-  val output          = PartitionHiveParquetScroogeSink[String, Customer](db, dstTable, List("pid" -> "string"))
-
+class HiveExampleStep3(args: Args) extends Job(args) with ParquetLogging {
   val data = List(
-    Customer("CUSTOMER-A", "Fred", "Bedrock", 40),
-    Customer("CUSTOMER-2", "Wilma", "Bedrock", 40),
-    Customer("CUSTOMER-3", "Barney", "Bedrock", 39),
-    Customer("CUSTOMER-4", "BamBam", "Bedrock", 2)
+    Nested(Map(
+      1 -> Map(10 -> List("a1", "b1")),
+      2 -> Map(20 -> List("a2", "b2")),
+      3 -> Map(30 -> List("a3", "b3"))
+    )),
+    Nested(Map(
+      1 -> Map(10 -> List("q1", "r1")),
+      2 -> Map(20 -> List("q2", "r2")),
+      3 -> Map(30 -> List("q3", "r3"))
+    )),
+    Nested(Map(
+      1 -> Map(10 -> List("x1", "z1")),
+      2 -> Map(20 -> List("x2", "z2")),
+      3 -> Map(30 -> List("x3", "z3"))
+    ))
   )
 
-  val jobs = List(
-    new Job(args) {
-      IterablePipe(data)
-        .map(c => (c.id, c))
-        .write(intermediateOut)
-    },
-    HiveJob(
-      args, "example",
-      intermediateIn, Some(output),
-      Map(HIVEMERGEMAPFILES -> "true"),
-      s"INSERT OVERWRITE TABLE $db.$dstTable PARTITION (pid) SELECT id, name, address, age, id as pid FROM $db.$srcTable",
-      "CREATE TABLE test (id string, age int)",
-      s"INSERT OVERWRITE TABLE TEST SELECT name, age from $db.$srcTable"
-    )
-  )
+  IterablePipe(data)
+    .write(HiveParquetScroogeSource[Nested](args("db"), args("table")))
 }

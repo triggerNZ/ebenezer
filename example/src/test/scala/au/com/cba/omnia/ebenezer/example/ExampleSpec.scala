@@ -20,49 +20,47 @@ import au.com.cba.omnia.thermometer.core._, Thermometer._
 import au.com.cba.omnia.thermometer.fact.PathFactoids._
 import au.com.cba.omnia.thermometer.hive.HiveSupport
 
+import au.com.cba.omnia.ebenezer.ParquetLogging
 import au.com.cba.omnia.ebenezer.test.ParquetThermometerRecordReader
 
-object ExampleSpec extends ThermometerSpec with HiveSupport { def is = sequential ^ s2"""
+object ExampleSpec extends ThermometerSpec with HiveSupport with ParquetLogging { def is = sequential ^ s2"""
   Examples
   ========
 
   Example 1 runs $example1
-  Example 2 doesn't run since it depends on an existing table
+  Example 2 runs $example2
   Example 3 runs $example3
   Example 4 runs $example4
-  Example 5 runs $example5
 """
 
   def example1 = {
     val job = withArgs(Map("db" -> "default", "table" -> "dst"))(new HiveExampleStep1(_))
-    val facts = job.data.groupBy(_.id).map { case (k, vs) => 
+    val facts = job.data.groupBy(_.id).map { case (k, vs) =>
       hiveWarehouse </> "dst" </> s"pid=$k" </> "*.parquet" ==> records(ParquetThermometerRecordReader[Customer], vs)
     }.toList
 
     job.withFacts(facts: _*)
   }
 
-  def example3 = {
-    val job = withArgs(Map("db" -> "default", "src-table" -> "src", "dst-table" -> "dst"))(new HiveExampleStep3(_))
-    val facts = (hiveWarehouse </> "test" </> "0*" ==> count(4)) +: job.data.flatMap(c => List(
+  def example2 = {
+    executesOk(HiveExampleStep2.execute("default", "src", "dst"))
+    facts((hiveWarehouse </> "test" </> "0*" ==> count(4)) +: HiveExampleStep2.data.flatMap(c => List(
       hiveWarehouse </> "src" </> s"pid=${c.id}" </> "*.parquet" ==> recordCount(ParquetThermometerRecordReader[Customer], 1),
       hiveWarehouse </> "dst" </> s"pid=${c.id}" </> "0*"        ==> recordCount(ParquetThermometerRecordReader[Customer], 1)
-      )) 
-
-    job.withFacts(facts: _*)
+    )): _*)
   }
 
-  def example4 = {
-    val job = withArgs(Map("db" -> "default", "table" -> "dst"))(new HiveExampleStep4(_))
+  def example3 = {
+    val job = withArgs(Map("db" -> "default", "table" -> "dst"))(new HiveExampleStep3(_))
     val fact =
       hiveWarehouse </> "dst" </> "*.parquet" ==> records(ParquetThermometerRecordReader[Nested], job.data)
 
     job.withFacts(fact)
   }
 
-  def example5 = {
-    executesOk(HiveExampleStep5.execute("test", "src", "dst"))
-    facts(HiveExampleStep5.data.flatMap(c => List(
+  def example4 = {
+    executesOk(HiveExampleStep4.execute("test", "src", "dst"))
+    facts(HiveExampleStep4.data.flatMap(c => List(
       hiveWarehouse </> "test.db" </> "src" </> s"pid=${c.id}" </> "*.parquet" ==> recordCount(ParquetThermometerRecordReader[Customer], 1),
       hiveWarehouse </> "test.db" </> "dst" </> s"pid=${c.id}" </> "0*"        ==> recordCount(ParquetThermometerRecordReader[Customer], 1)
     )): _*)

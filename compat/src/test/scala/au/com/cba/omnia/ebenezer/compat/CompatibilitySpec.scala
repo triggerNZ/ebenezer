@@ -60,36 +60,39 @@ Backwards compatibility  tests
 """
 
   def writeMR(db: String, dst: String) = {
-    val job  = withArgs(Map("db" -> db, "dst" -> dst))(new simple.MRWriteJob(_))
-    val fact = hiveWarehouse </> s"$db.db" </> dst </> "*.parquet" ==> records(ParquetThermometerRecordReader[Simple], simple.Compatibility.data)
-
-    job.withFacts(fact)
+    val exec = Compat.mrWrite(Data.simple, db, dst)
+    val fact = hiveWarehouse </> s"$db.db" </> dst </> "*.parquet" ==> records(ParquetThermometerRecordReader[Simple], Data.simple)
+    executesOk(exec)
+    facts(fact)
   }
 
   def readMR(db: String, src: String, dst: String) = {
-    val job  = withArgs(Map("db" -> db, "src" -> src, "dst" -> dst))(new simple.MRReadJob(_))
-    val fact = dst </> "part-*" ==> lines(simple.Compatibility.dataTsv)
-
-    job.withFacts(fact)
+    val exec = Compat.mrRead(
+      (t: Simple) => (t._1, t._2, t._3, t._4, t._5, t._6, t._7, t._8, t._9),
+      db, src, dst
+    )
+    val fact = dst </> "part-*" ==> lines(Data.simpleTsv)
+    executesOk(exec)
+    facts(fact)
   }
 
   def writeHive(db: String, tmpTable: String, dst: String) = {
-    val job  = withArgs(Map("db" -> db, "tmpTable" -> tmpTable, "dst" -> dst))(new simple.HiveWriteJob(_))
-    val fact = hiveWarehouse </> s"$db.db" </> dst </> "*" ==> records(ParquetThermometerRecordReader[Simple], simple.Compatibility.data)
-
-    job.withFacts(fact)
+    val exec = Compat.hiveWrite(Data.simple, db, dst, tmpTable)
+    val fact = hiveWarehouse </> s"$db.db" </> dst </> "*" ==> records(ParquetThermometerRecordReader[Simple], Data.simple)
+    executesOk(exec)
+    facts(fact)
   }
 
   def readHive(db: String, src: String, dst: String) = {
-    val job  = withArgs(Map("db" -> db, "src" -> src, "dst" -> dst))(new simple.HiveReadJob(_))
-    val fact = hiveWarehouse </> s"$db.db" </> dst </> "*" ==> records(ParquetThermometerRecordReader[Simple], simple.Compatibility.data)
-
-    job.withFacts(fact)
+    val exec = Compat.hiveRead[Simple](db, src, dst)
+    val fact = hiveWarehouse </> s"$db.db" </> dst </> "*" ==> records(ParquetThermometerRecordReader[Simple], Data.simple)
+    executesOk(exec)
+    facts(fact)
   }
 
   def createExternalTable(db: String, src: String, path: String) = {
-    val job = withArgs(Map("db" -> db, "src" -> src, "path" -> path))(new simple.HiveSchemaJob(_))
-    job.runsOk
+    val exec = Compat.hiveSchema[Simple](db, src, Some(path))
+    executesOk(exec)
   }
 
   object internal {

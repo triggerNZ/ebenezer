@@ -17,28 +17,36 @@ package au.com.cba.omnia.ebenezer.example
 import com.twitter.scalding._, TDsl._
 import com.twitter.scalding.typed.IterablePipe
 
-import au.com.cba.omnia.ebenezer.ParquetLogging
-import au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource
+import org.apache.hadoop.hive.conf.HiveConf
+import org.apache.hadoop.hive.conf.HiveConf.ConfVars._
 
-class HiveExampleStep4(args: Args) extends Job(args) with ParquetLogging {
+import au.com.cba.omnia.ebenezer.ParquetLogging
+import au.com.cba.omnia.ebenezer.scrooge.hive._
+
+object HiveExampleStep4 {
+
   val data = List(
-    Nested(Map(
-      1 -> Map(10 -> List("a1", "b1")),
-      2 -> Map(20 -> List("a2", "b2")),
-      3 -> Map(30 -> List("a3", "b3"))
-    )),
-    Nested(Map(
-      1 -> Map(10 -> List("q1", "r1")),
-      2 -> Map(20 -> List("q2", "r2")),
-      3 -> Map(30 -> List("q3", "r3"))
-    )),
-    Nested(Map(
-      1 -> Map(10 -> List("x1", "z1")),
-      2 -> Map(20 -> List("x2", "z2")),
-      3 -> Map(30 -> List("x3", "z3"))
-    ))
+    Customer("CUSTOMER-A", "Fred", "Bedrock", 40),
+    Customer("CUSTOMER-2", "Wilma", "Bedrock", 40),
+    Customer("CUSTOMER-3", "Barney", "Bedrock", 39),
+    Customer("CUSTOMER-4", "BamBam", "Bedrock", 2)
   )
-  
-  IterablePipe(data)
-    .write(HiveParquetScroogeSource[Nested](args("db"), args("table")))
+
+  def execute(db: String, src: String, dst: String): Execution[Unit] = {
+    val intermediateOut = PartitionHiveParquetScroogeSink[String, Customer](db, src, List("pid" -> "string"))
+    val intermediateIn  = PartitionHiveParquetScroogeSource[Customer](db, src, List("pid" -> "string"))
+    val output          = PartitionHiveParquetScroogeSink[String, Customer](db, dst, List("pid" -> "string"))
+
+    val conf            = new HiveConf
+    conf.setVar(HIVEMERGEMAPFILES, "true")
+
+    IterablePipe(data)
+      .map(c => (c.id, c))
+      .writeExecution(intermediateOut)
+      .flatMap(_ => Execution.from {
+        Hive.createParquetTable[Customer](db, dst, List("pid" -> "string"))
+          .flatMap(_ => Hive.query(s"INSERT OVERWRITE TABLE $db.$dst PARTITION (pid) SELECT id, name, address, age, id as pid FROM $db.$src"))
+          .run(conf)
+      })
+  }
 }
