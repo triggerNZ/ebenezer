@@ -80,9 +80,11 @@ object build extends Build {
     settings =
       standardSettings
         ++ uniform.project("ebenezer-test", "au.com.cba.omnia.ebenezer.test")
+        ++ uniformThriftSettings
         ++ Seq(
           libraryDependencies ++=
-            depend.hadoopClasspath ++ depend.hadoop() ++ depend.omnia("thermometer-hive", thermometerVersion)
+            depend.hadoopClasspath ++ depend.hadoop() ++ depend.parquet() ++ depend.omnia("thermometer-hive", thermometerVersion),
+          parallelExecution in Test := false
         )
   ).dependsOn(hive)
 
