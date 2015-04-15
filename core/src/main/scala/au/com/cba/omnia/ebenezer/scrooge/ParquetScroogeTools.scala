@@ -26,9 +26,8 @@ import org.apache.hadoop.fs.Path
 import parquet.hadoop.ParquetReader
 
 object ParquetScroogeTools {
-  def iteratorFromPath[A <: ThriftStruct](conf: Configuration, path: Path)(implicit m: Manifest[A]): Iterator[A] = {
-    val cls = m.runtimeClass.asSubclass[ThriftStruct](classOf[ThriftStruct])
-    ScroogeReadWriteSupport.setThriftClass(conf, cls)
+  def iteratorFromPath[A <: ThriftStruct : Manifest](conf: Configuration, path: Path): Iterator[A] = {
+    ScroogeReadWriteSupport.setThriftClass[A](conf, ScroogeReadSupport.thriftClass)
     val reader = new ParquetReader[A](conf, path, new ScroogeReadSupport[A])
     new Iterator[A] {
       var state: A = reader.read

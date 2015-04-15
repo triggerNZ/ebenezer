@@ -21,20 +21,19 @@ import au.com.cba.omnia.thermometer.core._, Thermometer._
 import au.com.cba.omnia.thermometer.fact.PathFactoids._
 
 import au.com.cba.omnia.ebenezer.ParquetLogging
-import au.com.cba.omnia.ebenezer.test.{Customer, Large, ParquetThermometerRecordReader}
+import au.com.cba.omnia.ebenezer.test.{Customer, CustomerNew, Large, ParquetThermometerRecordReader}
 
 object ParquetScroogeSourceSpec extends ThermometerSpec with ParquetLogging { def is = s2"""
 
 ParquetSource usage
 ===================
 
-  Write to parquet                          $writeTest
-  Read from parquet                         $readTest
-  Rebuild parquet with more data            $rebuildTest
-  Write to parquet large structs            $writeLargeTest
-  Read parquet with large structs           $readLargeTest
-
-
+  Write to parquet                            $writeTest
+  Read from parquet                           $readTest
+  Can read and write to parquet in same job   $readWriteTest
+  Rebuild parquet with more data              $rebuildTest
+  Write to parquet large structs              $writeLargeTest
+  Read parquet with large structs             $readLargeTest
 """
 
   val data = List(
@@ -49,6 +48,12 @@ ParquetSource usage
     Customer("CUSTOMER-6", "Marge", "Springfield", 40),
     Customer("CUSTOMER-7", "Flanders", "Springfield", 55)
   )
+
+  def stripPrefix(prefix: String, str: String) =
+    if (str.startsWith(prefix)) str.substring(prefix.length) else str
+
+  def customerNew(c: Customer) =
+    CustomerNew(stripPrefix("CUSTOMER-", c.id).toInt, c.name, c.address)
 
   val largeData = List(createLarge(1), createLarge(2), createLarge(3), createLarge(4))
 
@@ -76,6 +81,20 @@ ParquetSource usage
       "customers.psv" </> "_SUCCESS"   ==> exists,
       "customers.psv" </> "part-*"     ==> lines(data.map(customer =>
         List(customer.id, customer.name, customer.address, customer.age).mkString("|")))
+    )
+  }
+
+  def readWrite =
+    ParquetScroogeSource[Customer]("customers")
+      .map(customerNew(_))
+      .writeExecution(ParquetScroogeSource[CustomerNew]("customersNew"))
+
+  def readWriteTest = {
+    executesOk(write.flatMap(_ => readWrite))
+
+    facts(
+      "customersNew" </> "_SUCCESS"   ==> exists,
+      "customersNew" </> "*.parquet"  ==> records(ParquetThermometerRecordReader[CustomerNew], data.map(customerNew(_)))
     )
   }
 
@@ -111,7 +130,7 @@ ParquetSource usage
 
   def readLargeTest = {
     executesOk(writeLarge.flatMap(_ => readLarge))
-    
+
     facts(
       "large.psv" </> "_SUCCESS"   ==> exists,
       "large.psv" </> "part-*"     ==> lines(largeData.map(_.toString))

@@ -22,18 +22,16 @@ import com.twitter.scrooge.ThriftStruct
 import parquet.hadoop.BadConfigurationException
 
 object ScroogeReadWriteSupport {
-  val ParquetThriftClass = "parquet.scrooge.class";
+  def setThriftClass[A <: ThriftStruct : Manifest](conf: Configuration, key: String) =
+    conf.set(key: String, implicitly[Manifest[A]].runtimeClass.getName)
 
-  def setThriftClass[A <: ThriftStruct](conf: Configuration, cls: Class[A]) =
-    conf.set(ParquetThriftClass, cls.getName);
-
-  def getThriftClass[A <: ThriftStruct](conf: Configuration): Class[A] = {
-    val name = Option(conf.get(ParquetThriftClass)).getOrElse(fail("the thrift class conf is missing in job conf at " + ParquetThriftClass))
+  def getThriftClass[A <: ThriftStruct](conf: Configuration, key: String): Class[A] = {
+    val name = Option(conf.get(key)).getOrElse(fail("the thrift class conf is missing in job conf at " + key))
     try
       Class.forName(name).asInstanceOf[Class[A]]
     catch {
       case e: ClassNotFoundException =>
-        fail("the class " + name + " in job conf at " + ParquetThriftClass + " could not be found", Some(e))
+        fail("the class " + name + " in job conf at " + key + " could not be found", Some(e))
     }
   }
 

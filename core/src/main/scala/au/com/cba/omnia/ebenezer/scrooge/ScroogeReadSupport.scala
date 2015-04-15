@@ -20,18 +20,18 @@ import com.twitter.scrooge.ThriftStruct
 import java.util.{Map => JMap}
 
 import org.apache.hadoop.conf.Configuration
+import org.apache.hadoop.mapred.JobConf
 
 import parquet.io.api.RecordMaterializer
 import parquet.schema.MessageType
+import parquet.hadoop.ParquetInputFormat
 import parquet.hadoop.api.ReadSupport
 import parquet.hadoop.api.ReadSupport.ReadContext
 import parquet.hadoop.api.InitContext
-import parquet.thrift.ThriftSchemaConverter
-import parquet.thrift.struct.ThriftType.StructType
 
 class ScroogeReadSupport[A <: ThriftStruct] extends ReadSupport[A] {
   override def prepareForRead(conf: Configuration, meta: JMap[String, String], schema: MessageType, context: ReadContext):  RecordMaterializer[A] = {
-    val cls = ScroogeReadWriteSupport.getThriftClass[A](conf)
+    val cls = ScroogeReadWriteSupport.getThriftClass[A](conf, ScroogeReadSupport.thriftClass)
     val converter = new ScroogeStructConverter()
     val struct = converter.convert(cls)
     new ScroogeRecordMaterializer(cls, schema, struct)
@@ -39,4 +39,13 @@ class ScroogeReadSupport[A <: ThriftStruct] extends ReadSupport[A] {
 
   override def init(context: InitContext): ReadContext =
     new ReadContext(context.getFileSchema)
+}
+
+object ScroogeReadSupport {
+  val thriftClass = "parquet.scrooge.read.class";
+
+  def setAsParquetSupportClass[A <: ThriftStruct : Manifest](conf: JobConf) {
+    ParquetInputFormat.setReadSupportClass(conf, classOf[ScroogeReadSupport[_]])
+    ScroogeReadWriteSupport.setThriftClass[A](conf, thriftClass)
+  }
 }

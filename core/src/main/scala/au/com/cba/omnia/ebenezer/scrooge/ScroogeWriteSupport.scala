@@ -18,9 +18,11 @@ package scrooge
 import com.twitter.scrooge.ThriftStruct
 
 import org.apache.hadoop.conf.Configuration
+import org.apache.hadoop.mapred.JobConf
 
 import parquet.hadoop.api.WriteSupport
 import parquet.hadoop.api.WriteSupport.WriteContext
+import parquet.hadoop.mapred.DeprecatedParquetOutputFormat
 import parquet.io.ColumnIOFactory
 import parquet.io.api.RecordConsumer
 import parquet.schema.MessageType
@@ -37,7 +39,7 @@ class ScroogeWriteSupport[A <: ThriftStruct] extends WriteSupport[A] {
   var parquetWriteProtocol: ParquetWriteProtocol = null
 
   def init(config: Configuration): WriteContext = {
-    val thrift = ScroogeReadWriteSupport.getThriftClass[A](config)
+    val thrift = ScroogeReadWriteSupport.getThriftClass[A](config, ScroogeWriteSupport.thriftClass)
     val converter = new ScroogeStructConverter
     struct = converter.convert(thrift)
     schema =  new ThriftSchemaConverter().convert(struct)
@@ -54,4 +56,13 @@ class ScroogeWriteSupport[A <: ThriftStruct] extends WriteSupport[A] {
 
   def write(record: A): Unit =
     record.write(parquetWriteProtocol)
+}
+
+object ScroogeWriteSupport {
+  val thriftClass = "parquet.scrooge.write.class";
+
+  def setAsParquetSupportClass[A <: ThriftStruct : Manifest](conf: JobConf) {
+    DeprecatedParquetOutputFormat.setWriteSupportClass(conf, classOf[ScroogeWriteSupport[_]])
+    ScroogeReadWriteSupport.setThriftClass[A](conf, thriftClass)
+  }
 }
