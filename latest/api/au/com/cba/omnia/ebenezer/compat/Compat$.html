@@ -2,17 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>DontSkipStrategy - au.com.cba.omnia.ebenezer.scrooge.hive.DontSkipStrategy</title>
-          <meta name="description" content="DontSkipStrategy - au.com.cba.omnia.ebenezer.scrooge.hive.DontSkipStrategy" />
-          <meta name="keywords" content="DontSkipStrategy au.com.cba.omnia.ebenezer.scrooge.hive.DontSkipStrategy" />
+          <title>Compat - au.com.cba.omnia.ebenezer.compat.Compat</title>
+          <meta name="description" content="Compat - au.com.cba.omnia.ebenezer.compat.Compat" />
+          <meta name="keywords" content="Compat au.com.cba.omnia.ebenezer.compat.Compat" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link href="../../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
-      <link href="../../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
       <script type="text/javascript">
          if(top === self) {
-            var url = '../../../../../../../index.html';
-            var hash = 'au.com.cba.omnia.ebenezer.scrooge.hive.DontSkipStrategy$';
+            var url = '../../../../../../index.html';
+            var hash = 'au.com.cba.omnia.ebenezer.compat.Compat$';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -24,9 +24,9 @@
         </head>
         <body class="value">
       <div id="definition">
-        <img src="../../../../../../../lib/object_big.png" />
-        <p id="owner"><a href="../../../../../../package.html" class="extype" name="au">au</a>.<a href="../../../../../package.html" class="extype" name="au.com">com</a>.<a href="../../../../package.html" class="extype" name="au.com.cba">cba</a>.<a href="../../../package.html" class="extype" name="au.com.cba.omnia">omnia</a>.<a href="../../package.html" class="extype" name="au.com.cba.omnia.ebenezer">ebenezer</a>.<a href="../package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge">scrooge</a>.<a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive">hive</a></p>
-        <h1>DontSkipStrategy</h1>
+        <img src="../../../../../../lib/object_big.png" />
+        <p id="owner"><a href="../../../../../package.html" class="extype" name="au">au</a>.<a href="../../../../package.html" class="extype" name="au.com">com</a>.<a href="../../../package.html" class="extype" name="au.com.cba">cba</a>.<a href="../../package.html" class="extype" name="au.com.cba.omnia">omnia</a>.<a href="../package.html" class="extype" name="au.com.cba.omnia.ebenezer">ebenezer</a>.<a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.compat">compat</a></p>
+        <h1>Compat</h1>
       </div>
 
       <h4 id="signature" class="signature">
@@ -35,13 +35,16 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">DontSkipStrategy</span><span class="result"> extends <span class="extype" name="cascading.flow.FlowSkipStrategy">FlowSkipStrategy</span></span>
+        <span class="name">Compat</span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Cascading flow skip strategy that does not skip a flow.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/43494c268628bb4ff82c15772a553668eb38531c//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/HiveJob.scala" target="_blank">HiveJob.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Building block methods for creating compatibility tests</p><p>A compatibility test will typically take a paramater specifying where
+to find files with older parquet formats, and perform a series of these
+methods on those files to test our current code works on older formats.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/629af185e209d6d7e992e0da93c8e2204e4ec467//compat/src/main/scala/au/com/cba/omnia/ebenezer/compat/Compat.scala" target="_blank">Compat.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="cascading.flow.FlowSkipStrategy">FlowSkipStrategy</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -59,7 +62,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="au.com.cba.omnia.ebenezer.scrooge.hive.DontSkipStrategy"><span>DontSkipStrategy</span></li><li class="in" name="cascading.flow.FlowSkipStrategy"><span>FlowSkipStrategy</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="au.com.cba.omnia.ebenezer.compat.Compat"><span>Compat</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -94,7 +97,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -107,7 +110,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -133,7 +136,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -146,7 +149,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -172,10 +175,10 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
@@ -191,7 +194,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -204,7 +207,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -220,7 +223,7 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="symbol">classOf[java.lang.Throwable]</span>
@@ -253,6 +256,45 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.compat.Compat#hiveRead" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="hiveRead[A&lt;:com.twitter.scrooge.ThriftStruct](db:String,srcTable:String,dstTable:String)(implicitevidence$7:Manifest[A]):com.twitter.scalding.Execution[Unit]"></a>
+      <a id="hiveRead[A&lt;:ThriftStruct](String,String,String)(Manifest[A]):Execution[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hiveRead</span><span class="tparams">[<span name="A">A &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="srcTable">srcTable: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dstTable">dstTable: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.compat.Compat.hiveRead.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="au.com.cba.omnia.ebenezer.compat.Compat#hiveSchema" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="hiveSchema[A&lt;:com.twitter.scrooge.ThriftStruct](db:String,table:String,path:Option[String])(implicitevidence$8:Manifest[A]):com.twitter.scalding.Execution[Unit]"></a>
+      <a id="hiveSchema[A&lt;:ThriftStruct](String,String,Option[String])(Manifest[A]):Execution[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hiveSchema</span><span class="tparams">[<span name="A">A &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="path">path: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.compat.Compat.hiveSchema.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="au.com.cba.omnia.ebenezer.compat.Compat#hiveWrite" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="hiveWrite[A&lt;:com.twitter.scrooge.ThriftStruct](data:List[A],db:String,dstTable:String,tmpTable:String)(implicitevidence$6:Manifest[A]):com.twitter.scalding.Execution[Unit]"></a>
+      <a id="hiveWrite[A&lt;:ThriftStruct](List[A],String,String,String)(Manifest[A]):Execution[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hiveWrite</span><span class="tparams">[<span name="A">A &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="data">data: <span class="extype" name="scala.List">List</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.compat.Compat.hiveWrite.A">A</span>]</span>, <span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dstTable">dstTable: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="tmpTable">tmpTable: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.compat.Compat.hiveWrite.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a>]</span>
+      </span>
+      </h4>
+      
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -266,6 +308,32 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.compat.Compat#mrRead" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mrRead[A&lt;:com.twitter.scrooge.ThriftStruct,B](toTuple:A=&gt;B,db:String,srcTable:String,dst:String)(implicitevidence$2:Manifest[A],implicitevidence$3:Manifest[B],implicitevidence$4:com.twitter.scalding.TupleConverter[B],implicitevidence$5:com.twitter.scalding.TupleSetter[B]):com.twitter.scalding.Execution[Unit]"></a>
+      <a id="mrRead[A&lt;:ThriftStruct,B]((A)⇒B,String,String,String)(Manifest[A],Manifest[B],TupleConverter[B],TupleSetter[B]):Execution[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mrRead</span><span class="tparams">[<span name="A">A &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>, <span name="B">B</span>]</span><span class="params">(<span name="toTuple">toTuple: (<span class="extype" name="au.com.cba.omnia.ebenezer.compat.Compat.mrRead.A">A</span>) ⇒ <span class="extype" name="au.com.cba.omnia.ebenezer.compat.Compat.mrRead.B">B</span></span>, <span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="srcTable">srcTable: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dst">dst: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.compat.Compat.mrRead.A">A</span>]</span>, <span name="arg1">arg1: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.compat.Compat.mrRead.B">B</span>]</span>, <span name="arg2">arg2: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.compat.Compat.mrRead.B">B</span>]</span>, <span name="arg3">arg3: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.compat.Compat.mrRead.B">B</span>]</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="au.com.cba.omnia.ebenezer.compat.Compat#mrWrite" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mrWrite[A&lt;:com.twitter.scrooge.ThriftStruct](data:List[A],db:String,dstTable:String,path:Option[String])(implicitevidence$1:Manifest[A]):com.twitter.scalding.Execution[Unit]"></a>
+      <a id="mrWrite[A&lt;:ThriftStruct](List[A],String,String,Option[String])(Manifest[A]):Execution[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mrWrite</span><span class="tparams">[<span name="A">A &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="data">data: <span class="extype" name="scala.List">List</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.compat.Compat.mrWrite.A">A</span>]</span>, <span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dstTable">dstTable: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="path">path: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.compat.Compat.mrWrite.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.Execution">Execution</span>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a>]</span>
+      </span>
+      </h4>
+      
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -275,7 +343,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -305,19 +373,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.DontSkipStrategy#skipFlow" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="skipFlow(flow:cascading.flow.Flow[_]):Boolean"></a>
-      <a id="skipFlow(Flow[_]):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">skipFlow</span><span class="params">(<span name="flow">flow: <span class="extype" name="cascading.flow.Flow">Flow</span>[_]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.DontSkipStrategy">DontSkipStrategy</a> → FlowSkipStrategy</dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -410,12 +465,10 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="cascading.flow.FlowSkipStrategy">
-              <h3>Inherited from <span class="extype" name="cascading.flow.FlowSkipStrategy">FlowSkipStrategy</span></h3>
-            </div><div class="parent" name="scala.AnyRef">
-              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
-              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
             </div>
         
         </div>
@@ -432,6 +485,6 @@
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../../../lib/template.js"></script>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../../lib/template.js"></script>
     </body>
       </html>
