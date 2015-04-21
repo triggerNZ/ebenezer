@@ -48,9 +48,11 @@ object build extends Build {
       standardSettings
         ++ uniform.ghsettings
         ++ Seq(
-          publishArtifact := false
+          publishArtifact := false,
+          // Ensures that the Hive tests are run before the test tests to avoid parallel execution problems
+          (test in (testProject, Test)) <<= (test in (testProject, Test)).dependsOn(test in (hive, Test))
         ),
-    aggregate = Seq(core, test, hive)
+    aggregate = Seq(core, testProject, hive)
   )
 
   lazy val core = Project(
@@ -74,7 +76,7 @@ object build extends Build {
         )
   )
 
-  lazy val test = Project(
+  lazy val testProject = Project(
     id = "test",
     base = file("test"),
     settings =
@@ -139,7 +141,7 @@ object build extends Build {
             depend.omnia("thermometer-hive", thermometerVersion)
         )
   ).dependsOn(hive)
-   .dependsOn(test % "test")
+   .dependsOn(testProject % "test")
 
   lazy val compat = Project(
     id = "compat",
@@ -156,5 +158,5 @@ object build extends Build {
             depend.omnia("thermometer-hive", thermometerVersion)
         )
   ).dependsOn(hive)
-   .dependsOn(test % "test")
+   .dependsOn(testProject % "test")
 }
