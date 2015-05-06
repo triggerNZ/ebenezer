@@ -18,7 +18,11 @@ import java.util.UUID
 
 import com.twitter.scrooge.ThriftStruct
 
+import com.twitter.scalding.typed.IterablePipe
+
 import org.scalacheck.Arbitrary
+
+import org.specs2.execute.Result
 
 import au.com.cba.omnia.ebenezer.test._, ThriftArbitraries._, JavaArbitraries._
 import au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource
@@ -124,18 +128,17 @@ Introspect on all types
     Field("age", IntValue(customer.age))
   ))
 
-  def withData[A <: ThriftStruct](name: String, data: List[A])(check: Context => Unit)(implicit M: Manifest[A]) =
-    ThermometerSource(data)
-      .write(ParquetScroogeSource[A](name))
-      .withExpectations(check)
-
+  def withData[A <: ThriftStruct](name: String, data: List[A])(check: Context => Result)(implicit M: Manifest[A]) = {
+    executesOk(IterablePipe(data).writeExecution(ParquetScroogeSource[A](name)))
+    expectations(check)
+  }
 
   def check[A <: ThriftStruct](name: String, converter: A => Record)(implicit A: Arbitrary[A], M: Manifest[A]) =
-    propNoShrink { (data: List[A], uuid: UUID) => isolate {
+    prop { (data: List[A], uuid: UUID) =>
       withData(name, data)(context => {
         val result = context.glob(name </> "*.parquet").flatMap(
           ParquetIntrospectTools.listFromPath(jobConf, _))
         result.toSet must_== data.map(converter).toSet
       })
-    } }.set(minTestsOk = 10)
+    }.set(minTestsOk = 10)// .noShrink Can't use this with Scalacheck 1.11.4.
 }

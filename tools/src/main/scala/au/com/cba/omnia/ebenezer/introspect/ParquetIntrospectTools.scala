@@ -12,10 +12,7 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-package au.com.cba.omnia.ebenezer
-package introspect
-
-import com.twitter.scrooge.ThriftStruct
+package au.com.cba.omnia.ebenezer.introspect
 
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.Path

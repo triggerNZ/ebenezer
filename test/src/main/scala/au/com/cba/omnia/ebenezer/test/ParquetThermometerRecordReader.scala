@@ -14,14 +14,15 @@
 
 package au.com.cba.omnia.ebenezer.test
 
-import au.com.cba.omnia.ebenezer.scrooge._
-import au.com.cba.omnia.thermometer.core._, Thermometer._
-
-import com.twitter.scrooge._
+import com.twitter.scrooge.ThriftStruct
 
 import org.apache.hadoop.mapred.JobConf
 
 import scalaz.effect.IO
+
+import au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeTools
+
+import au.com.cba.omnia.thermometer.core.ThermometerRecordReader
 
 object ParquetThermometerRecordReader {
   def apply[A <: ThriftStruct : Manifest] =

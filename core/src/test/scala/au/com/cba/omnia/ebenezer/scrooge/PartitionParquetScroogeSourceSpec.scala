@@ -15,6 +15,8 @@
 package au.com.cba.omnia.ebenezer
 package scrooge
 
+import com.twitter.scalding.typed.IterablePipe
+
 import au.com.cba.omnia.thermometer.core._, Thermometer._
 import au.com.cba.omnia.thermometer.fact.PathFactoids._
 
@@ -37,24 +39,32 @@ PartitionParquetScroogeSource usage
     Customer("CUSTOMER-4", "BamBam", "Bedrock", 2)
   )
 
-  def write =
-    ThermometerSource(data)
-      .map(customer => (customer.address, customer.age)  -> customer)
-      .write(PartitionParquetScroogeSource[(String, Int), Customer]("address=%s/age=%s", "partitioned"))
-      .withFacts(
-        "partitioned" </> "address=Bedrock" </> "age=40" </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 2)
-      , "partitioned" </> "address=Bedrock" </> "age=39" </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 1)
-      , "partitioned" </> "address=Bedrock" </> "age=2"  </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 1)
-      )
+  def write = {
+    executesOk(
+      IterablePipe(data)
+        .map(customer => (customer.address, customer.age)  -> customer)
+        .writeExecution(PartitionParquetScroogeSource[(String, Int), Customer]("address=%s/age=%s", "partitioned"))
+    )
 
-  def single =
-    ThermometerSource(data)
-      .map(customer => customer.age  -> customer)
-      .write(PartitionParquetScroogeSource[Int, Customer]("%s", "partitioned"))
-      .withFacts(
-        "partitioned" </> "40" </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 2)
-      , "partitioned" </> "39" </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 1)
-      , "partitioned" </>  "2"  </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 1)
-      )
+    facts(
+      "partitioned" </> "address=Bedrock" </> "age=40" </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 2)
+    , "partitioned" </> "address=Bedrock" </> "age=39" </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 1)
+    , "partitioned" </> "address=Bedrock" </> "age=2"  </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 1)
+    )
+  }
+
+  def single = {
+    executesOk(
+      IterablePipe(data)
+        .map(customer => customer.age  -> customer)
+        .writeExecution(PartitionParquetScroogeSource[Int, Customer]("%s", "partitioned"))
+    )
+
+    facts(
+      "partitioned" </> "40" </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 2)
+    , "partitioned" </> "39" </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 1)
+    , "partitioned" </>  "2"  </> "*.parquet"  ==> recordCount(ParquetThermometerRecordReader[Customer], 1)
+    )
+  }
 
 }

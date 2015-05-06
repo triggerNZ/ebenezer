@@ -295,7 +295,7 @@ object Hive extends ResultantOps[Hive] with ToResultantMonadOps {
         }
       } yield results
 
-      runQuery.addMessage("Error trying to run query '$query'")
+      runQuery.addMessage(s"Error trying to run query '$query'")
     })
 
     for {

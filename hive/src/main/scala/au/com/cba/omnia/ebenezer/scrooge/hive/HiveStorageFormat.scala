@@ -32,5 +32,5 @@ case object ParquetFormat extends HiveStorageFormat
 case class TextFormat(delimiter: String = TextFormat.DEFAULT_DELIMITER) extends HiveStorageFormat
 
 object TextFormat {
-  val DEFAULT_DELIMITER = "\1"
+  val DEFAULT_DELIMITER = "\u0001"
 }

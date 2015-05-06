@@ -14,13 +14,13 @@
 
 package au.com.cba.omnia.ebenezer.compat
 
-import au.com.cba.omnia.thermometer.core._, Thermometer._
+import au.com.cba.omnia.thermometer.core.Thermometer._
 import au.com.cba.omnia.thermometer.fact.PathFactoids._
-import au.com.cba.omnia.thermometer.hive.HiveSupport
+import au.com.cba.omnia.thermometer.hive.ThermometerHiveSpec
 
 import au.com.cba.omnia.ebenezer.test.ParquetThermometerRecordReader
 
-object CompatibilitySpec extends ThermometerSpec with HiveSupport { def is = sequential ^ s2"""
+object CompatibilitySpec extends ThermometerHiveSpec { def is = s2"""
 Internal compatibility tests for non collection types
 =====================================================
 
@@ -101,7 +101,8 @@ Backwards compatibility  tests
       val src = "mrsrc"
       val dst = "mrdst"
 
-      withDependency(writeMR(db, src))(readMR(db, src, dst))
+      writeMR(db, src)
+      readMR(db, src, dst)
     }
 
     def writeMRReadHive = {
@@ -109,7 +110,8 @@ Backwards compatibility  tests
       val src = "mrsrc"
       val dst = "hivedst"
 
-      withDependency(writeMR(db, src))(readHive(db, src, dst))
+      writeMR(db, src)
+      readHive(db, src, dst)
     }
 
     def writeHiveReadMR = {
@@ -118,7 +120,8 @@ Backwards compatibility  tests
       val src      = "hivesrc"
       val dst      = "mrdst"
 
-      withDependency(writeHive(db, tmpTable, src))(readMR(db, src, dst))
+      writeHive(db, tmpTable, src)
+      readMR(db, src, dst)
     }
 
     def writeHiveReadHive = {
@@ -127,7 +130,8 @@ Backwards compatibility  tests
       val src      = "hivesrc"
       val dst      = "hivedst"
 
-      withDependency(writeHive(db, tmpTable, src))(readHive(db, src, dst))
+      writeHive(db, tmpTable, src)
+      readHive(db, src, dst)
     }
   }
 
@@ -138,7 +142,8 @@ Backwards compatibility  tests
       val path = s"$dir/user/ebenezer"
       val dst  = "mrdst"
 
-      withDependency(createExternalTable(db, src, path))(readMR(db, src, dst))
+      createExternalTable(db, src, path)
+      readMR(db, src, dst)
     }
 
   def hiveReadMR(parquetDir: String) =
@@ -148,7 +153,8 @@ Backwards compatibility  tests
       val path = s"$dir/user/hive"
       val dst  = "mrdst"
 
-      withDependency(createExternalTable(db, src, path))(readMR(db, src, dst))
+      createExternalTable(db, src, path)
+      readMR(db, src, dst)
     }
 
   def mRReadHive(parquetDir: String) =
@@ -158,7 +164,8 @@ Backwards compatibility  tests
       val path = s"$dir/user/ebenezer"
       val dst  = "hivedst"
 
-      withDependency(createExternalTable(db, src, path))(readHive(db, src, dst))
+      createExternalTable(db, src, path)
+      readHive(db, src, dst)
     }
 
   def hiveReadHive(parquetDir: String) =
@@ -168,6 +175,7 @@ Backwards compatibility  tests
       val path = s"$dir/user/hive"
       val dst  = "hivedst"
 
-      withDependency(createExternalTable(db, src, path))(readHive(db, src, dst))
+      createExternalTable(db, src, path)
+      readHive(db, src, dst)
     }
 }

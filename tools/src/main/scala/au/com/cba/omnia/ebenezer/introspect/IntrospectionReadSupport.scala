@@ -12,17 +12,13 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-package au.com.cba.omnia.ebenezer
-package introspect
+package au.com.cba.omnia.ebenezer.introspect
 
 import java.util.{Map => JMap}
 
 import org.apache.hadoop.conf.Configuration
 
-import parquet.hadoop.api.InitContext
-import parquet.hadoop.api.ReadSupport
-import parquet.hadoop.api.ReadSupport._
-import parquet.io.api.RecordMaterializer
+import parquet.hadoop.api.{InitContext, ReadSupport}, ReadSupport._
 import parquet.schema.MessageType
 
 class IntrospectionReadSupport extends ReadSupport[Record] {

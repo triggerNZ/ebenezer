@@ -23,7 +23,7 @@ import cascading.tap.partition.Partition
 import cascading.tuple.{Fields, Tuple, TupleEntry}
 import cascading.scheme.Scheme
 
-import com.twitter.scalding._, TDsl._
+import com.twitter.scalding._
 
 import com.twitter.scrooge.ThriftStruct
 

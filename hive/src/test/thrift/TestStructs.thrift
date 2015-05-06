@@ -16,22 +16,22 @@
 
 struct Primitives {
   1: bool   boolean
-  2: byte   byte
+  2: byte   bytey
   3: i16    short
   4: i32    integer
   5: i64    long
-  6: double double
-  7: string string
+  6: double doubley
+  7: string stringy
 }
 
 struct Listish {
   1: i16 short
-  2: list<i32> list
+  2: list<i32> listy
 }
 
 struct Mapish {
   1: i16 short
-  2: map<i32, string> map
+  2: map<i32, string> mapy
 }
 
 struct Nested {

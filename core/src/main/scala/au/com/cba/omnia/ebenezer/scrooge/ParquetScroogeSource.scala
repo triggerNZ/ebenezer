@@ -19,11 +19,8 @@ import cascading.scheme.Scheme
 import cascading.tuple.Fields
 
 import com.twitter.scalding._
-import com.twitter.scrooge._
 
-import org.apache.thrift._
-
-import parquet.cascading._
+import com.twitter.scrooge.ThriftStruct
 
 case class ParquetScroogeSource[T <: ThriftStruct](p : String*)(implicit m : Manifest[T], conv: TupleConverter[T], set: TupleSetter[T])
   extends FixedPathSource(p: _*)

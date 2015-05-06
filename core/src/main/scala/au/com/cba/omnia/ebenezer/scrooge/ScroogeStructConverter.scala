@@ -165,17 +165,15 @@ class ScroogeStructConverter(partitionColumns: Set[String] = Set.empty) {
    * version of it.
    */
   def stripEnumDuplicates(fields: List[ThriftStructField[_]]): List[ThriftStructField[_]] =
-    fields.groupBy(_.tfield.id).values.toList.flatMap({
-      case xs @ x :: y :: Nil =>
+    fields.groupBy(_.tfield.id).values.toList.flatMap {
+      case xs @ x :: y :: Nil => {
         val xType = ThriftTypeID.fromByte(x.tfield.`type`)
         val yType = ThriftTypeID.fromByte(y.tfield.`type`)
-        if (xType == ENUM && yType == I32)
-          List(x)
-        else if (xType == I32 && yType == ENUM)
-          List(y)
-        else
-          xs
-      case xs =>
-        xs
-    }).sortBy(_.tfield.id)
+
+        if      (xType == ENUM && yType == I32)  List[ThriftStructField[_]](x)
+        else if (xType == I32  && yType == ENUM) List[ThriftStructField[_]](y)
+        else                                     xs
+      }
+      case xs => xs
+    }.sortBy(_.tfield.id)
 }

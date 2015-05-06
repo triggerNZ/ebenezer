@@ -12,11 +12,11 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-package au.com.cba.omnia.ebenezer
-package test
+package au.com.cba.omnia.ebenezer.test
 
 import java.util.UUID
-import org.scalacheck._, Gen._, Arbitrary._
+
+import org.scalacheck.{Gen, Arbitrary}, Arbitrary.arbitrary
 
 object JavaArbitraries {
   implicit def ArbitraryUUID: Arbitrary[UUID] =

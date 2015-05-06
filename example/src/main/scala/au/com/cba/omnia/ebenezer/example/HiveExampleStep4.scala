@@ -14,7 +14,9 @@
 
 package au.com.cba.omnia.ebenezer.example
 
-import com.twitter.scalding._, TDsl._
+import scalaz.Scalaz._
+
+import com.twitter.scalding.Execution
 import com.twitter.scalding.typed.IterablePipe
 
 import org.apache.hadoop.hive.conf.HiveConf
@@ -47,6 +49,6 @@ object HiveExampleStep4 {
         Hive.createParquetTable[Customer](db, dst, List("pid" -> "string"))
           .flatMap(_ => Hive.query(s"INSERT OVERWRITE TABLE $db.$dst PARTITION (pid) SELECT id, name, address, age, id as pid FROM $db.$src"))
           .run(conf)
-      })
+      }).map(_ => ())
   }
 }

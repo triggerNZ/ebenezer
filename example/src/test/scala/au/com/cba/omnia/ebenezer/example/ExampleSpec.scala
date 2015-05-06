@@ -14,16 +14,14 @@
 
 package au.com.cba.omnia.ebenezer.example
 
-import com.twitter.scalding._
-
-import au.com.cba.omnia.thermometer.core._, Thermometer._
+import au.com.cba.omnia.thermometer.core.Thermometer._
 import au.com.cba.omnia.thermometer.fact.PathFactoids._
-import au.com.cba.omnia.thermometer.hive.HiveSupport
+import au.com.cba.omnia.thermometer.hive.ThermometerHiveSpec
 
 import au.com.cba.omnia.ebenezer.ParquetLogging
 import au.com.cba.omnia.ebenezer.test.ParquetThermometerRecordReader
 
-object ExampleSpec extends ThermometerSpec with HiveSupport with ParquetLogging { def is = sequential ^ s2"""
+object ExampleSpec extends ThermometerHiveSpec with ParquetLogging { def is = sequential ^ s2"""
   Examples
   ========
 
@@ -34,12 +32,12 @@ object ExampleSpec extends ThermometerSpec with HiveSupport with ParquetLogging 
 """
 
   def example1 = {
-    val job = withArgs(Map("db" -> "default", "table" -> "dst"))(new HiveExampleStep1(_))
-    val facts = job.data.groupBy(_.id).map { case (k, vs) =>
-      hiveWarehouse </> "dst" </> s"pid=$k" </> "*.parquet" ==> records(ParquetThermometerRecordReader[Customer], vs)
-    }.toList
-
-    job.withFacts(facts: _*)
+    executesOk(HiveExampleStep1.execute("default", "dst"))
+    facts(
+      HiveExampleStep1.data.groupBy(_.id).map { case (k, vs) =>
+        hiveWarehouse </> "dst" </> s"pid=$k" </> "*.parquet" ==> records(ParquetThermometerRecordReader[Customer], vs)
+      }.toList: _*
+    )
   }
 
   def example2 = {
@@ -51,11 +49,10 @@ object ExampleSpec extends ThermometerSpec with HiveSupport with ParquetLogging 
   }
 
   def example3 = {
-    val job = withArgs(Map("db" -> "default", "table" -> "dst"))(new HiveExampleStep3(_))
-    val fact =
-      hiveWarehouse </> "dst" </> "*.parquet" ==> records(ParquetThermometerRecordReader[Nested], job.data)
-
-    job.withFacts(fact)
+    executesOk(HiveExampleStep3.execute("default", "dst"))
+    facts(
+      hiveWarehouse </> "dst" </> "*.parquet" ==> records(ParquetThermometerRecordReader[Nested], HiveExampleStep3.data)
+    )
   }
 
   def example4 = {

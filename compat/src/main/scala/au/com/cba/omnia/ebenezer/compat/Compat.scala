@@ -23,6 +23,8 @@ import com.twitter.scrooge.ThriftStruct
 import com.twitter.scalding._, TDsl._
 import com.twitter.scalding.typed.IterablePipe
 
+import scalaz.Scalaz._
+
 import au.com.cba.omnia.thermometer.core.Thermometer._ // toPath
 
 import au.com.cba.omnia.ebenezer.scrooge.hive.{Hive, HiveParquetScroogeSource}

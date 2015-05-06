@@ -15,14 +15,16 @@
 package au.com.cba.omnia.ebenezer
 package hive
 
-import au.com.cba.omnia.thermometer.core.{Thermometer, ThermometerSource, ThermometerSpec}, Thermometer._
+import com.twitter.scalding.typed.IterablePipe
+
+import au.com.cba.omnia.thermometer.core.Thermometer._
 import au.com.cba.omnia.thermometer.fact.PathFactoid
-import au.com.cba.omnia.thermometer.hive.HiveSupport
+import au.com.cba.omnia.thermometer.hive.ThermometerHiveSpec
 
 import au.com.cba.omnia.ebenezer.ParquetLogging
 import au.com.cba.omnia.ebenezer.scrooge.hive._
 
-object HiveParquetSpec extends ThermometerSpec with HiveSupport with ParquetLogging { def is = s2"""
+object HiveParquetSpec extends ThermometerHiveSpec with ParquetLogging { def is = s2"""
 Hive Parquet properties
 =========================
 
@@ -30,14 +32,14 @@ Hive Parquet properties
 """
 
   def normalHive = {
-    source
-      .write(HiveParquetScroogeSource[SimpleHive]("normalhive", "test", None))
-      .withFacts(
-        hiveWarehouse </> "normalhive.db" </> "test" </> "*.parquet" ==> matchesFile
-      )
+    executesOk(
+      source.writeExecution(HiveParquetScroogeSource[SimpleHive]("normalhive", "test", None))
+    )
+
+    facts(hiveWarehouse </> "normalhive.db" </> "test" </> "*.parquet" ==> matchesFile)
   }
 
   val data        = List(SimpleHive(""), SimpleHive("abc"), SimpleHive("def"))
-  val source      = ThermometerSource(data)
+  val source      = IterablePipe(data)
   def matchesFile = PathFactoid((context, path) => !context.glob(path).isEmpty)
 }

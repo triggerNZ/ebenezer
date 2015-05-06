@@ -43,7 +43,7 @@ case class HiveParquetScroogeSource[T <: ThriftStruct]
     HadoopSchemeInstance(Util.parquetScheme[T])
 
   override def createTap(readOrWrite: AccessMode)(implicit mode: Mode): Tap[_, _, _] = mode match {
-    case Local(_)              => sys.error("Local mode is currently not supported for ${toString}")
+    case Local(_)              => sys.error(s"Local mode is currently not supported for ${toString}")
     case hdfsMode @ Hdfs(_, jobConf) => {
       val path = location.map { l  =>
         val fs = FileSystem.get(jobConf)

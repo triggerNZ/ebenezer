@@ -14,7 +14,9 @@
 
 package au.com.cba.omnia.ebenezer.example
 
-import com.twitter.scalding._, TDsl._
+import scalaz.Scalaz._
+
+import com.twitter.scalding.Execution
 import com.twitter.scalding.typed.IterablePipe
 
 import org.apache.hadoop.hive.conf.HiveConf

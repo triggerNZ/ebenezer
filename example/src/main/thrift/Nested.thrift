@@ -15,5 +15,5 @@
 #@namespace scala au.com.cba.omnia.ebenezer.example
 
 struct Nested {
-  1: map<i32, map<i32, list<string>>> map
+  1: map<i32, map<i32, list<string>>> mapy
 }

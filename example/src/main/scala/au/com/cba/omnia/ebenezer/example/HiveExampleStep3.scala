@@ -14,13 +14,13 @@
 
 package au.com.cba.omnia.ebenezer.example
 
-import com.twitter.scalding._, TDsl._
+import com.twitter.scalding.{Execution, ExecutionApp}
 import com.twitter.scalding.typed.IterablePipe
 
 import au.com.cba.omnia.ebenezer.ParquetLogging
 import au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource
 
-class HiveExampleStep3(args: Args) extends Job(args) with ParquetLogging {
+object HiveExampleStep3 extends ExecutionApp with ParquetLogging {
   val data = List(
     Nested(Map(
       1 -> Map(10 -> List("a1", "b1")),
@@ -39,6 +39,12 @@ class HiveExampleStep3(args: Args) extends Job(args) with ParquetLogging {
     ))
   )
 
-  IterablePipe(data)
-    .write(HiveParquetScroogeSource[Nested](args("db"), args("table")))
+  def job = for {
+    args <- Execution.getConfig.map(_.getArgs)
+    _    <- execute(args("db"), args("table"))
+  } yield ()
+
+  def execute(db: String, table: String) =
+    IterablePipe(data)
+      .writeExecution(HiveParquetScroogeSource[Nested](db, table))
 }

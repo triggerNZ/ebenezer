@@ -39,10 +39,10 @@ UtilSpec
 
   def primitives =  {
     val expected = List(
-      new FieldSchema("boolean", "boolean", com), new FieldSchema("byte", "tinyint", com),
+      new FieldSchema("boolean", "boolean", com), new FieldSchema("bytey", "tinyint", com),
       new FieldSchema("short", "smallint", com), new FieldSchema("integer", "int", com),
-      new FieldSchema("long", "bigint", com), new FieldSchema("double", "double", com),
-      new FieldSchema("string", "string", com)
+      new FieldSchema("long", "bigint", com), new FieldSchema("doubley", "double", com),
+      new FieldSchema("stringy", "string", com)
     )
 
     val td = Util.createHiveTableDescriptor[Primitives]("db", "test", List.empty, ParquetFormat)
@@ -53,7 +53,7 @@ UtilSpec
 
   def list =  {
     val expected = List(
-      new FieldSchema("short", "smallint", com), new FieldSchema("list", "array<int>", com)
+      new FieldSchema("short", "smallint", com), new FieldSchema("listy", "array<int>", com)
     )
 
     val td = Util.createHiveTableDescriptor[Listish]("db", "test", List.empty, ParquetFormat)
@@ -66,7 +66,7 @@ UtilSpec
 
   def map =  {
     val expected = List(
-      new FieldSchema("short", "smallint", com), new FieldSchema("map", "map<int,string>", com)
+      new FieldSchema("short", "smallint", com), new FieldSchema("mapy", "map<int,string>", com)
     )
 
     val td = Util.createHiveTableDescriptor[Mapish]("db", "test", List.empty, ParquetFormat)
@@ -89,8 +89,8 @@ UtilSpec
     actual must_== expected
   }
 
-  def verifyInputOutputFormatForParquet(sd: StorageDescriptor) {
-    sd.getInputFormat() must_== ParquetTableDescriptor.PARQUET_INPUT_FORMAT
+  def verifyInputOutputFormatForParquet(sd: StorageDescriptor) = {
+    sd.getInputFormat()  must_== ParquetTableDescriptor.PARQUET_INPUT_FORMAT
     sd.getOutputFormat() must_== ParquetTableDescriptor.PARQUET_OUTPUT_FORMAT
   }
 }

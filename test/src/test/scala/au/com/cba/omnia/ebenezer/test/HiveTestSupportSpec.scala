@@ -14,14 +14,14 @@
 
 package au.com.cba.omnia.ebenezer.test
 
-import au.com.cba.omnia.thermometer.core._, Thermometer._
-import au.com.cba.omnia.thermometer.hive.HiveSupport
+import scalaz.Scalaz._
+
+import au.com.cba.omnia.thermometer.hive.ThermometerHiveSpec
 
 import au.com.cba.omnia.ebenezer.scrooge.hive.Hive
 
 object HiveTestSupportSpec
-  extends ThermometerSpec
-  with HiveSupport
+  extends ThermometerHiveSpec
   with HiveTestSupport
   with HiveMatchers { def is = s2"""
 

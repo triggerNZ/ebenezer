@@ -16,8 +16,6 @@ package au.com.cba.omnia.ebenezer.compat
 
 import scala.collection.mutable.ArrayBuffer
 
-import au.com.cba.omnia.ebenezer.compat.{Collection, Simple}
-
 /** Data for compatibility tests */
 object Data {
   val collection = List(

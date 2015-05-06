@@ -14,8 +14,6 @@
 
 package au.com.cba.omnia.ebenezer.scrooge.hive
 
-import scala.collection.JavaConverters._
-
 import org.specs2.Specification
 import org.specs2.matcher.ThrownExpectations
 

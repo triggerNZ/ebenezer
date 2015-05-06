@@ -12,10 +12,9 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-package au.com.cba.omnia.ebenezer
-package test
+package au.com.cba.omnia.ebenezer.test
 
-import org.scalacheck._, Gen._, Arbitrary._
+import org.scalacheck.{Gen, Arbitrary}
 
 /* A random UTF-8 string, that only uses identifier chars, this is very useful for debugging. */
 case class IdentifierString(value: String)

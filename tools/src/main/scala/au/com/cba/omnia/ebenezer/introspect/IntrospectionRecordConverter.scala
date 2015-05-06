@@ -12,14 +12,14 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-package au.com.cba.omnia.ebenezer
-package introspect
+package au.com.cba.omnia.ebenezer.introspect
 
-import parquet.io.api.Binary
-import parquet.io.api.GroupConverter
-import parquet.schema.GroupType
-import parquet.schema.OriginalType
+import scala.collection.mutable.ListBuffer
 import scala.collection.JavaConverters._
+
+import parquet.io.api.{Binary, GroupConverter}
+import parquet.schema.{GroupType, OriginalType}
+
 import scalaz._, Scalaz._
 
 class IntrospectionRecordConverter(val schema: GroupType, done: Record => Unit) extends GroupConverter {

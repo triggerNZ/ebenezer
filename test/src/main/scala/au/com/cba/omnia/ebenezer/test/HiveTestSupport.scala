@@ -24,6 +24,8 @@ import com.google.common.io.Files
 
 import com.twitter.scrooge.ThriftStruct
 
+import scalaz.Scalaz._
+
 import au.com.cba.omnia.omnitool.Result
 
 import au.com.cba.omnia.thermometer.hive.HiveSupport

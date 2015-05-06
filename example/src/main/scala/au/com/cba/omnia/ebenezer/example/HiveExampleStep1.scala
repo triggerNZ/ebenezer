@@ -14,13 +14,14 @@
 
 package au.com.cba.omnia.ebenezer.example
 
-import com.twitter.scalding._, TDsl._
+import com.twitter.scalding.{Execution, ExecutionApp}
 import com.twitter.scalding.typed.IterablePipe
 
 import au.com.cba.omnia.ebenezer.ParquetLogging
 import au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink
 
-class HiveExampleStep1(args: Args) extends Job(args) with ParquetLogging {
+
+object HiveExampleStep1 extends ExecutionApp with ParquetLogging {
   val data = List(
     Customer("CUSTOMER-A", "Fred", "Bedrock", 40),
     Customer("CUSTOMER-2", "Wilma", "Bedrock", 40),
@@ -28,9 +29,13 @@ class HiveExampleStep1(args: Args) extends Job(args) with ParquetLogging {
     Customer("CUSTOMER-4", "BamBam", "Bedrock", 2)
   )
 
-  val location = args.optional("location")
+  def job = for {
+    args <- Execution.getConfig.map(_.getArgs)
+    _    <- execute(args("db"), args("table"), args.optional("location"))
+  } yield ()
 
-  IterablePipe(data)
-    .map(c => c.id -> c)
-    .write(PartitionHiveParquetScroogeSink[String, Customer](args("db"), args("table"), List("pid" -> "string"), location))
+  def execute(db: String, table: String, location: Option[String] = None): Execution[Unit] =
+    IterablePipe(data)
+      .map(c => c.id -> c)
+      .writeExecution(PartitionHiveParquetScroogeSink[String, Customer](db, table, List("pid" -> "string"), location))
 }

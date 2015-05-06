@@ -12,13 +12,13 @@ import cascading.tap.Tap
 
 import org.apache.hadoop.mapred.JobConf
 
-import au.com.cba.omnia.thermometer.core._, Thermometer._
-import au.com.cba.omnia.thermometer.hive.HiveSupport
+import au.com.cba.omnia.thermometer.core.{Thermometer, ThermometerRecordReader}, Thermometer._
+import au.com.cba.omnia.thermometer.hive.ThermometerHiveSpec
 import au.com.cba.omnia.thermometer.fact.PathFactoids._
 
 import au.com.cba.omnia.ebenezer.ParquetLogging
 
-class PartitionHiveParquetScroogeSpec extends ThermometerSpec with HiveSupport with ParquetLogging { def is = s2"""
+class PartitionHiveParquetScroogeSpec extends ThermometerHiveSpec with ParquetLogging { def is = s2"""
 PartitionHiveParquetScrooge Source and Sink Test
 ================================================
 

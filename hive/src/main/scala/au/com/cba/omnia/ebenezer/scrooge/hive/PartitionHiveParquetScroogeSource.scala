@@ -82,7 +82,7 @@ case class PartitionHiveParquetScroogeSink[A, T <: ThriftStruct](
         tap.asInstanceOf[Tap[JobConf, RecordReader[_, _], OutputCollector[_, _]]]
       }
     }
-    case Local(_) => sys.error("Local mode is currently not supported for ${toString}")
+    case Local(_) => sys.error(s"Local mode is currently not supported for ${toString}")
     case x        => sys.error(s"$x mode is currently not supported for ${toString}")
   }
 
@@ -166,7 +166,7 @@ case class PartitionHiveParquetScroogeSource[T <: ThriftStruct](
       case Write =>
         sys.error(s"HDFS write mode is currently not supported for ${toString}. Use PartitionHiveParquetScroogeSink instead.")
     }
-    case Local(_) => sys.error("Local mode is currently not supported for ${toString}")
+    case Local(_) => sys.error(s"Local mode is currently not supported for ${toString}")
     case x        => sys.error(s"$x mode is currently not supported for ${toString}")
   }
 

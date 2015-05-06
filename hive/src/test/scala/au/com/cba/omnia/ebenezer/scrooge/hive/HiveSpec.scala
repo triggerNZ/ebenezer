@@ -19,10 +19,12 @@ import org.apache.hadoop.fs.Path
 import org.apache.hadoop.hive.conf.HiveConf
 import org.apache.hadoop.hive.metastore.IMetaStoreClient
 
+import scalaz.Scalaz._
 import scalaz.Equal
 
-import org.specs2.matcher.{Matcher, Parameters}
+import org.specs2.matcher.Matcher
 import org.specs2.execute.{Result => SpecResult}
+import org.specs2.scalacheck.Parameters
 
 import org.scalacheck.Arbitrary
 
@@ -30,10 +32,10 @@ import au.com.cba.omnia.omnitool.{Result, Ok, Error}
 import au.com.cba.omnia.omnitool.test.OmnitoolProperties.resultantMonad
 import au.com.cba.omnia.omnitool.test.Arbitraries._
 
-import au.com.cba.omnia.thermometer.core.{Thermometer, ThermometerSpec}, Thermometer._
-import au.com.cba.omnia.thermometer.hive.HiveSupport
+import au.com.cba.omnia.thermometer.core.Thermometer
+import au.com.cba.omnia.thermometer.hive.ThermometerHiveSpec
 
-object HiveSpec extends ThermometerSpec with HiveSupport { def is = s2"""
+object HiveSpec extends ThermometerHiveSpec { def is = s2"""
 Hive Operations
 ===============
 
