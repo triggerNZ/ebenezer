@@ -32,6 +32,14 @@ Internal compatibility tests for non collection types
 Backwards compatibility  tests
 ==============================
 
+  parquet-1.5.0-cdh5.2.4
+  ----------------------
+
+    Can read simple MR data using MR     ${mRReadMR("parquet-1.5.0-cdh5.2.4")}
+    Can read simple Hive data using MR   ${hiveReadMR("parquet-1.5.0-cdh5.2.4")}
+    Can read simple MR data using hive   ${mRReadHive("parquet-1.5.0-cdh5.2.4")}
+    Can read simple Hive data using hive ${hiveReadHive("parquet-1.5.0-cdh5.2.4")}
+
   parquet-1.2.5-cdh4.6.0
   ----------------------
 
