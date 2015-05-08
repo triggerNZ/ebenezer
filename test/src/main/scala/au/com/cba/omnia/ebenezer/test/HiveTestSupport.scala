@@ -35,9 +35,6 @@ trait HiveTestSupport { self: HiveSupport =>
   /**
     * Creates hive table using a supplied column definition (DDL).
     *
-    * Returns true if the table was created. If the table with the same schema already exists it
-    * returns false. If a table with the same name but different schema exists it returns a Hive error.
-    *
     * WARNING: This method is not thread safe. If the same database or table is created at the same
     * time Hive handles it badly and throws an SQL integrity exception.
     *
@@ -85,9 +82,6 @@ trait HiveTestSupport { self: HiveSupport =>
 
    /**
      * Creates hive table using a supplied column definition as a thrift schema.
-     *
-     * Returns true if the table was created. If the table with the same schema already exists it
-     * returns false. If a table with the same name but different schema exists it returns a Hive error.
      *
      * WARNING: This method is not thread safe. If the same database or table is created at the same
      * time Hive handles it badly and throws an SQL integrity exception.
