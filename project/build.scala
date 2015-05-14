@@ -38,7 +38,8 @@ object build extends Build {
     strictDependencySettings ++
     uniform.docSettings("https://github.com/CommBank/ebenezer") ++ Seq(
       logLevel in assembly := Level.Error,
-      updateOptions := updateOptions.value.withCachedResolution(true)
+      updateOptions := updateOptions.value.withCachedResolution(true),
+      fork in Test := true
     )
 
   lazy val all = Project(
@@ -48,9 +49,7 @@ object build extends Build {
       standardSettings
         ++ uniform.ghsettings
         ++ Seq(
-          publishArtifact := false,
-          // Ensures that the Hive tests are run before the test tests to avoid parallel execution problems
-          (test in (testProject, Test)) <<= (test in (testProject, Test)).dependsOn(test in (hive, Test))
+          publishArtifact := false
         ),
     aggregate = Seq(core, testProject, hive)
   )
