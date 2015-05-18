@@ -1,5 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html >
 <html>
         <head>
           <title>Proxy - au.com.cba.omnia.ebenezer.compat.Collection.Proxy</title>
@@ -9,6 +8,11 @@
           
       <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../../../../index.html';
@@ -26,7 +30,13 @@
       <div id="definition">
         <img src="../../../../../../lib/trait_big.png" />
         <p id="owner"><a href="../../../../../package.html" class="extype" name="au">au</a>.<a href="../../../../package.html" class="extype" name="au.com">com</a>.<a href="../../../package.html" class="extype" name="au.com.cba">cba</a>.<a href="../../package.html" class="extype" name="au.com.cba.omnia">omnia</a>.<a href="../package.html" class="extype" name="au.com.cba.omnia.ebenezer">ebenezer</a>.<a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.compat">compat</a>.<a href="Collection$.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></p>
-        <h1>Proxy</h1>
+        <h1>Proxy</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="Collection$.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">package Collection</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       </div>
 
       <h4 id="signature" class="signature">
@@ -42,9 +52,9 @@
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>This Proxy trait allows you to extend the Collection trait with additional state or
 behavior and implement the read-only methods from Collection using an underlying
 instance.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/98b828595c79affebd3baf180b0797174227ecf0//compat/target/scala-2.10/src_managed/main/au/com/cba/omnia/ebenezer/compat/Collection.scala" target="_blank">Collection.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/Dirty(cda03fa97d7596cdb0964cb1806c40c51ed14577)//compat/target/scala-2.11/src_managed/main/scrooge/au/com/cba/omnia/ebenezer/compat/Collection.scala" target="_blank">Collection.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product11" class="extype" target="_top">Product11</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Short" class="extype" target="_top">Short</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Long" class="extype" target="_top">Long</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Double" class="extype" target="_top">Double</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Byte" class="extype" target="_top">Byte</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Double" class="extype" target="_top">Double</a>], <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.collection.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a>]], <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product11" class="extype" target="_top">Product11</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Short" class="extype" target="_top">Short</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Double" class="extype" target="_top">Double</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Byte" class="extype" target="_top">Byte</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Double" class="extype" target="_top">Double</a>], <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.collection.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a>]], <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -97,7 +107,11 @@ instance.
       <span class="symbol">
         <span class="name">_underlying_Collection</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@_underlying_Collection:au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
     </li></ol>
             </div>
@@ -105,19 +119,6 @@ instance.
         <div id="values" class="values members">
               <h3>Concrete Value Members</h3>
               <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="!=(x$1:AnyRef):Boolean"></a>
-      <a id="!=(AnyRef):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a>
       <a id="!=(Any):Boolean"></a>
       <h4 class="signature">
@@ -126,10 +127,14 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <a id="##():Int"></a>
@@ -139,24 +144,15 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="==(x$1:AnyRef):Boolean"></a>
-      <a id="==(AnyRef):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a>
       <a id="==(Any):Boolean"></a>
       <h4 class="signature">
@@ -165,10 +161,14 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#_1" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="_1:String"></a>
       <a id="_1:String"></a>
@@ -180,7 +180,11 @@ instance.
       <span class="symbol">
         <span class="name">_1</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@_1:String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Product11</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#_10" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="_10:Seq[String]"></a>
@@ -193,7 +197,11 @@ instance.
       <span class="symbol">
         <span class="name">_10</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@_10:Seq[String]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Product11</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#_11" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="_11:scala.collection.Map[String,Int]"></a>
@@ -204,9 +212,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">_11</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.collection.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a>]</span>
+        <span class="name">_11</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.collection.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@_11:scala.collection.Map[String,Int]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Product11</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#_2" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="_2:Boolean"></a>
@@ -217,9 +229,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">_2</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">_2</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@_2:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Product11</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#_3" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="_3:Short"></a>
@@ -230,9 +246,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">_3</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Short" class="extype" target="_top">Short</a></span>
+        <span class="name">_3</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Short" class="extype" target="_top">Short</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@_3:Short" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Product11</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#_4" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="_4:Int"></a>
@@ -243,9 +263,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">_4</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+        <span class="name">_4</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@_4:Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Product11</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#_5" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="_5:Long"></a>
@@ -256,9 +280,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">_5</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Long" class="extype" target="_top">Long</a></span>
+        <span class="name">_5</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@_5:Long" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Product11</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#_6" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="_6:Double"></a>
@@ -269,9 +297,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">_6</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Double" class="extype" target="_top">Double</a></span>
+        <span class="name">_6</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Double" class="extype" target="_top">Double</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@_6:Double" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Product11</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#_7" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="_7:Byte"></a>
@@ -282,9 +314,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">_7</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Byte" class="extype" target="_top">Byte</a></span>
+        <span class="name">_7</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Byte" class="extype" target="_top">Byte</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@_7:Byte" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Product11</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#_8" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="_8:Option[String]"></a>
@@ -295,9 +331,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">_8</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+        <span class="name">_8</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@_8:Option[String]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Product11</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#_9" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="_9:Option[Double]"></a>
@@ -308,9 +348,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">_9</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Double" class="extype" target="_top">Double</a>]</span>
+        <span class="name">_9</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Double" class="extype" target="_top">Double</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@_9:Option[Double]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Product11</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy#_passthroughFields" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="_passthroughFields:scala.collection.immutable.Map[Short,com.twitter.scrooge.TFieldBlob]"></a>
@@ -321,9 +365,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">_passthroughFields</span><span class="result">: <span class="extype" name="scala.collection.immutable.Map">Map</span>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Short" class="extype" target="_top">Short</a>, <span class="extype" name="com.twitter.scrooge.TFieldBlob">TFieldBlob</span>]</span>
+        <span class="name">_passthroughFields</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.collection.immutable.Map" class="extype" target="_top">Map</a>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Short" class="extype" target="_top">Short</a>, <span class="extype" name="com.twitter.scrooge.TFieldBlob">TFieldBlob</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@_passthroughFields:scala.collection.immutable.Map[Short,com.twitter.scrooge.TFieldBlob]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy">Proxy</a> → <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
@@ -336,7 +384,11 @@ instance.
       <span class="symbol">
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy#booleanfield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="booleanfield:Boolean"></a>
@@ -347,9 +399,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">booleanfield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">booleanfield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@booleanfield:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy">Proxy</a> → <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy#bytefield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="bytefield:Byte"></a>
@@ -360,9 +416,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">bytefield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Byte" class="extype" target="_top">Byte</a></span>
+        <span class="name">bytefield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Byte" class="extype" target="_top">Byte</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@bytefield:Byte" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy">Proxy</a> → <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#canEqual" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="canEqual(other:Any):Boolean"></a>
@@ -373,9 +433,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">canEqual</span><span class="params">(<span name="other">other: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">canEqual</span><span class="params">(<span name="other">other: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@canEqual(other:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Equals</dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
@@ -386,9 +450,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -405,9 +473,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">copy</span><span class="params">(<span name="stringfield">stringfield: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol"><span class="name"><a href="Collection.html#stringfield:String">this.stringfield</a></span></span></span>, <span name="booleanfield">booleanfield: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol"><span class="name"><a href="Collection.html#booleanfield:Boolean">this.booleanfield</a></span></span></span>, <span name="shortfield">shortfield: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Short" class="extype" target="_top">Short</a> = <span class="symbol"><span class="name"><a href="Collection.html#shortfield:Short">this.shortfield</a></span></span></span>, <span name="intfield">intfield: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol"><span class="name"><a href="Collection.html#intfield:Int">this.intfield</a></span></span></span>, <span name="longfield">longfield: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol"><span class="name"><a href="Collection.html#longfield:Long">this.longfield</a></span></span></span>, <span name="doublefield">doublefield: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Double" class="extype" target="_top">Double</a> = <span class="symbol"><span class="name"><a href="Collection.html#doublefield:Double">this.doublefield</a></span></span></span>, <span name="bytefield">bytefield: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Byte" class="extype" target="_top">Byte</a> = <span class="symbol"><span class="name"><a href="Collection.html#bytefield:Byte">this.bytefield</a></span></span></span>, <span name="optstringfield">optstringfield: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol"><span class="name"><a href="Collection.html#optstringfield:Option[String]">this.optstringfield</a></span></span></span>, <span name="optdoublefield">optdoublefield: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Double" class="extype" target="_top">Double</a>] = <span class="symbol"><span class="name"><a href="Collection.html#optdoublefield:Option[Double]">this.optdoublefield</a></span></span></span>, <span name="listfield">listfield: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol"><span class="name"><a href="Collection.html#listfield:Seq[String]">this.listfield</a></span></span></span>, <span name="mapfield">mapfield: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.collection.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a>] = <span class="symbol"><span class="name"><a href="Collection.html#mapfield:scala.collection.Map[String,Int]">this.mapfield</a></span></span></span>, <span name="_passthroughFields">_passthroughFields: <span class="extype" name="scala.collection.immutable.Map">Map</span>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Short" class="extype" target="_top">Short</a>, <span class="extype" name="com.twitter.scrooge.TFieldBlob">TFieldBlob</span>] = <span class="symbol"><span class="name"><a href="Collection.html#_passthroughFields:scala.collection.immutable.Map[Short,com.twitter.scrooge.TFieldBlob]">this._passthroughFields</a></span></span></span>)</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
+        <span class="name">copy</span><span class="params">(<span name="stringfield">stringfield: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol"><span class="name"><a href="Collection.html#stringfield:String">this.stringfield</a></span></span></span>, <span name="booleanfield">booleanfield: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol"><span class="name"><a href="Collection.html#booleanfield:Boolean">this.booleanfield</a></span></span></span>, <span name="shortfield">shortfield: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Short" class="extype" target="_top">Short</a> = <span class="symbol"><span class="name"><a href="Collection.html#shortfield:Short">this.shortfield</a></span></span></span>, <span name="intfield">intfield: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol"><span class="name"><a href="Collection.html#intfield:Int">this.intfield</a></span></span></span>, <span name="longfield">longfield: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol"><span class="name"><a href="Collection.html#longfield:Long">this.longfield</a></span></span></span>, <span name="doublefield">doublefield: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Double" class="extype" target="_top">Double</a> = <span class="symbol"><span class="name"><a href="Collection.html#doublefield:Double">this.doublefield</a></span></span></span>, <span name="bytefield">bytefield: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Byte" class="extype" target="_top">Byte</a> = <span class="symbol"><span class="name"><a href="Collection.html#bytefield:Byte">this.bytefield</a></span></span></span>, <span name="optstringfield">optstringfield: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol"><span class="name"><a href="Collection.html#optstringfield:Option[String]">this.optstringfield</a></span></span></span>, <span name="optdoublefield">optdoublefield: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Double" class="extype" target="_top">Double</a>] = <span class="symbol"><span class="name"><a href="Collection.html#optdoublefield:Option[Double]">this.optdoublefield</a></span></span></span>, <span name="listfield">listfield: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol"><span class="name"><a href="Collection.html#listfield:Seq[String]">this.listfield</a></span></span></span>, <span name="mapfield">mapfield: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.collection.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a>] = <span class="symbol"><span class="name"><a href="Collection.html#mapfield:scala.collection.Map[String,Int]">this.mapfield</a></span></span></span>, <span name="_passthroughFields">_passthroughFields: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.collection.immutable.Map" class="extype" target="_top">Map</a>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Short" class="extype" target="_top">Short</a>, <span class="extype" name="com.twitter.scrooge.TFieldBlob">TFieldBlob</span>] = <span class="symbol"><span class="name"><a href="Collection.html#_passthroughFields:scala.collection.immutable.Map[Short,com.twitter.scrooge.TFieldBlob]">this._passthroughFields</a></span></span></span>)</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@copy(stringfield:String,booleanfield:Boolean,shortfield:Short,intfield:Int,longfield:Long,doublefield:Double,bytefield:Byte,optstringfield:Option[String],optdoublefield:Option[Double],listfield:Seq[String],mapfield:scala.collection.Map[String,Int],_passthroughFields:scala.collection.immutable.Map[Short,com.twitter.scrooge.TFieldBlob]):au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy#doublefield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="doublefield:Double"></a>
@@ -418,9 +490,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">doublefield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Double" class="extype" target="_top">Double</a></span>
+        <span class="name">doublefield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Double" class="extype" target="_top">Double</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@doublefield:Double" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy">Proxy</a> → <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
@@ -431,9 +507,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="equals(other:Any):Boolean"></a>
@@ -444,9 +524,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="other">other: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">equals</span><span class="params">(<span name="other">other: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@equals(other:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Equals → AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
@@ -457,9 +541,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -478,7 +566,11 @@ instance.
       <span class="symbol">
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#getFieldBlob" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getFieldBlob(_fieldId:Short):Option[com.twitter.scrooge.TFieldBlob]"></a>
@@ -489,9 +581,13 @@ instance.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getFieldBlob</span><span class="params">(<span name="_fieldId">_fieldId: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Short" class="extype" target="_top">Short</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="com.twitter.scrooge.TFieldBlob">TFieldBlob</span>]</span>
+        <span class="name">getFieldBlob</span><span class="params">(<span name="_fieldId">_fieldId: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Short" class="extype" target="_top">Short</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="com.twitter.scrooge.TFieldBlob">TFieldBlob</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@getFieldBlob(_fieldId:Short):Option[com.twitter.scrooge.TFieldBlob]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Gets a field value encoded as a binary blob using TCompactProtocol.</p><div class="fullcomment"><div class="comment cmt"><p>Gets a field value encoded as a binary blob using TCompactProtocol.  If the specified field
 is present in the passthrough map, that value is returend.  Otherwise, if the specified field
 is known and not optional and set to None, then the field is serialized and returned.
@@ -505,9 +601,13 @@ is known and not optional and set to None, then the field is serialized and retu
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getFieldBlobs</span><span class="params">(<span name="ids">ids: <span class="extype" name="scala.TraversableOnce">TraversableOnce</span>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Short" class="extype" target="_top">Short</a>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.Map">Map</span>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Short" class="extype" target="_top">Short</a>, <span class="extype" name="com.twitter.scrooge.TFieldBlob">TFieldBlob</span>]</span>
+        <span class="name">getFieldBlobs</span><span class="params">(<span name="ids">ids: <span class="extype" name="scala.TraversableOnce">TraversableOnce</span>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Short" class="extype" target="_top">Short</a>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.collection.immutable.Map" class="extype" target="_top">Map</a>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Short" class="extype" target="_top">Short</a>, <span class="extype" name="com.twitter.scrooge.TFieldBlob">TFieldBlob</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@getFieldBlobs(ids:TraversableOnce[Short]):scala.collection.immutable.Map[Short,com.twitter.scrooge.TFieldBlob]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Collects TCompactProtocol-encoded field values according to <code>getFieldBlob</code> into a map.</p><div class="fullcomment"><div class="comment cmt"><p>Collects TCompactProtocol-encoded field values according to <code>getFieldBlob</code> into a map.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -519,9 +619,13 @@ is known and not optional and set to None, then the field is serialized and retu
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → AnyRef → Any</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy#intfield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="intfield:Int"></a>
@@ -532,9 +636,13 @@ is known and not optional and set to None, then the field is serialized and retu
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">intfield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+        <span class="name">intfield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@intfield:Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy">Proxy</a> → <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -545,9 +653,13 @@ is known and not optional and set to None, then the field is serialized and retu
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy#listfield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="listfield:Seq[String]"></a>
@@ -560,7 +672,11 @@ is known and not optional and set to None, then the field is serialized and retu
       <span class="symbol">
         <span class="name">listfield</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@listfield:Seq[String]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy">Proxy</a> → <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy#longfield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="longfield:Long"></a>
@@ -571,9 +687,13 @@ is known and not optional and set to None, then the field is serialized and retu
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">longfield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Long" class="extype" target="_top">Long</a></span>
+        <span class="name">longfield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@longfield:Long" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy">Proxy</a> → <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy#mapfield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="mapfield:scala.collection.Map[String,Int]"></a>
@@ -584,9 +704,13 @@ is known and not optional and set to None, then the field is serialized and retu
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">mapfield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.collection.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a>]</span>
+        <span class="name">mapfield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.collection.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@mapfield:scala.collection.Map[String,Int]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy">Proxy</a> → <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
@@ -597,9 +721,13 @@ is known and not optional and set to None, then the field is serialized and retu
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
@@ -610,9 +738,13 @@ is known and not optional and set to None, then the field is serialized and retu
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
@@ -623,9 +755,13 @@ is known and not optional and set to None, then the field is serialized and retu
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy#optdoublefield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="optdoublefield:Option[Double]"></a>
@@ -636,9 +772,13 @@ is known and not optional and set to None, then the field is serialized and retu
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">optdoublefield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Double" class="extype" target="_top">Double</a>]</span>
+        <span class="name">optdoublefield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Double" class="extype" target="_top">Double</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@optdoublefield:Option[Double]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy">Proxy</a> → <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy#optstringfield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="optstringfield:Option[String]"></a>
@@ -649,9 +789,13 @@ is known and not optional and set to None, then the field is serialized and retu
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">optstringfield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+        <span class="name">optstringfield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@optstringfield:Option[String]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy">Proxy</a> → <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#productArity" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="productArity:Int"></a>
@@ -662,9 +806,13 @@ is known and not optional and set to None, then the field is serialized and retu
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">productArity</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+        <span class="name">productArity</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@productArity:Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Product11 → Product</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#productElement" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="productElement(n:Int):Any"></a>
@@ -675,9 +823,13 @@ is known and not optional and set to None, then the field is serialized and retu
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">productElement</span><span class="params">(<span name="n">n: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></span>
+        <span class="name">productElement</span><span class="params">(<span name="n">n: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@productElement(n:Int):Any" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Product11 → Product</dd></dl></div>
     </li><li name="scala.Product#productIterator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="productIterator:Iterator[Any]"></a>
@@ -688,9 +840,13 @@ is known and not optional and set to None, then the field is serialized and retu
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">productIterator</span><span class="result">: <span class="extype" name="scala.Iterator">Iterator</span>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a>]</span>
+        <span class="name">productIterator</span><span class="result">: <span class="extype" name="scala.Iterator">Iterator</span>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@productIterator:Iterator[Any]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Product</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#productPrefix" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="productPrefix:String"></a>
@@ -703,7 +859,11 @@ is known and not optional and set to None, then the field is serialized and retu
       <span class="symbol">
         <span class="name">productPrefix</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@productPrefix:String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → Product</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#setField" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setField(_blob:com.twitter.scrooge.TFieldBlob):au.com.cba.omnia.ebenezer.compat.Collection"></a>
@@ -716,7 +876,11 @@ is known and not optional and set to None, then the field is serialized and retu
       <span class="symbol">
         <span class="name">setField</span><span class="params">(<span name="_blob">_blob: <span class="extype" name="com.twitter.scrooge.TFieldBlob">TFieldBlob</span></span>)</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@setField(_blob:com.twitter.scrooge.TFieldBlob):au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Sets a field using a TCompactProtocol-encoded binary blob.</p><div class="fullcomment"><div class="comment cmt"><p>Sets a field using a TCompactProtocol-encoded binary blob.  If the field is a known
 field, the blob is decoded and the field is set to the decoded value.  If the field
 is unknown and passthrough fields are enabled, then the blob will be stored in
@@ -731,9 +895,13 @@ _passthroughFields.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">shortfield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Short" class="extype" target="_top">Short</a></span>
+        <span class="name">shortfield</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Short" class="extype" target="_top">Short</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@shortfield:Short" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy">Proxy</a> → <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy#stringfield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="stringfield:String"></a>
@@ -746,7 +914,11 @@ _passthroughFields.
       <span class="symbol">
         <span class="name">stringfield</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@stringfield:String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection.Proxy">Proxy</a> → <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
@@ -759,7 +931,11 @@ _passthroughFields.
       <span class="symbol">
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
@@ -772,7 +948,11 @@ _passthroughFields.
       <span class="symbol">
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → AnyRef → Any</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#unsetBooleanfield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unsetBooleanfield:au.com.cba.omnia.ebenezer.compat.Collection"></a>
@@ -785,7 +965,11 @@ _passthroughFields.
       <span class="symbol">
         <span class="name">unsetBooleanfield</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@unsetBooleanfield:au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#unsetBytefield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unsetBytefield:au.com.cba.omnia.ebenezer.compat.Collection"></a>
@@ -798,7 +982,11 @@ _passthroughFields.
       <span class="symbol">
         <span class="name">unsetBytefield</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@unsetBytefield:au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#unsetDoublefield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unsetDoublefield:au.com.cba.omnia.ebenezer.compat.Collection"></a>
@@ -811,7 +999,11 @@ _passthroughFields.
       <span class="symbol">
         <span class="name">unsetDoublefield</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@unsetDoublefield:au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#unsetField" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unsetField(_fieldId:Short):au.com.cba.omnia.ebenezer.compat.Collection"></a>
@@ -822,9 +1014,13 @@ _passthroughFields.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">unsetField</span><span class="params">(<span name="_fieldId">_fieldId: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Short" class="extype" target="_top">Short</a></span>)</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
+        <span class="name">unsetField</span><span class="params">(<span name="_fieldId">_fieldId: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Short" class="extype" target="_top">Short</a></span>)</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@unsetField(_fieldId:Short):au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <p class="shortcomment cmt">If the specified field is optional, it is set to None.</p><div class="fullcomment"><div class="comment cmt"><p>If the specified field is optional, it is set to None.  Otherwise, if the field is
 known, it is reverted to its default value; if the field is unknown, it is subtracked
 from the passthroughFields map, if present.
@@ -840,7 +1036,11 @@ from the passthroughFields map, if present.
       <span class="symbol">
         <span class="name">unsetIntfield</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@unsetIntfield:au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#unsetListfield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unsetListfield:au.com.cba.omnia.ebenezer.compat.Collection"></a>
@@ -853,7 +1053,11 @@ from the passthroughFields map, if present.
       <span class="symbol">
         <span class="name">unsetListfield</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@unsetListfield:au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#unsetLongfield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unsetLongfield:au.com.cba.omnia.ebenezer.compat.Collection"></a>
@@ -866,7 +1070,11 @@ from the passthroughFields map, if present.
       <span class="symbol">
         <span class="name">unsetLongfield</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@unsetLongfield:au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#unsetMapfield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unsetMapfield:au.com.cba.omnia.ebenezer.compat.Collection"></a>
@@ -879,7 +1087,11 @@ from the passthroughFields map, if present.
       <span class="symbol">
         <span class="name">unsetMapfield</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@unsetMapfield:au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#unsetOptdoublefield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unsetOptdoublefield:au.com.cba.omnia.ebenezer.compat.Collection"></a>
@@ -892,7 +1104,11 @@ from the passthroughFields map, if present.
       <span class="symbol">
         <span class="name">unsetOptdoublefield</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@unsetOptdoublefield:au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#unsetOptstringfield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unsetOptstringfield:au.com.cba.omnia.ebenezer.compat.Collection"></a>
@@ -905,7 +1121,11 @@ from the passthroughFields map, if present.
       <span class="symbol">
         <span class="name">unsetOptstringfield</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@unsetOptstringfield:au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#unsetShortfield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unsetShortfield:au.com.cba.omnia.ebenezer.compat.Collection"></a>
@@ -918,7 +1138,11 @@ from the passthroughFields map, if present.
       <span class="symbol">
         <span class="name">unsetShortfield</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@unsetShortfield:au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Collection#unsetStringfield" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unsetStringfield:au.com.cba.omnia.ebenezer.compat.Collection"></a>
@@ -931,7 +1155,11 @@ from the passthroughFields map, if present.
       <span class="symbol">
         <span class="name">unsetStringfield</span><span class="result">: <a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@unsetStringfield:au.com.cba.omnia.ebenezer.compat.Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <p class="shortcomment cmt">If the specified field is optional, it is set to None.</p><div class="fullcomment"><div class="comment cmt"><p>If the specified field is optional, it is set to None.  Otherwise, if the field is
 known, it is reverted to its default value; if the field is unknown, it is subtracked
 from the passthroughFields map, if present.
@@ -945,9 +1173,13 @@ from the passthroughFields map, if present.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -964,9 +1196,13 @@ from the passthroughFields map, if present.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -983,9 +1219,13 @@ from the passthroughFields map, if present.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -1002,9 +1242,13 @@ from the passthroughFields map, if present.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">write</span><span class="params">(<span name="_oprot">_oprot: <span class="extype" name="org.apache.thrift.protocol.TProtocol">TProtocol</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">write</span><span class="params">(<span name="_oprot">_oprot: <span class="extype" name="org.apache.thrift.protocol.TProtocol">TProtocol</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.Collection$$Proxy@write(_oprot:org.apache.thrift.protocol.TProtocol):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a> → ThriftStruct</dd></dl></div>
     </li></ol>
             </div>
@@ -1020,17 +1264,17 @@ from the passthroughFields map, if present.
             </div><div class="parent" name="java.io.Serializable">
               <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
             </div><div class="parent" name="scala.Product11">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product11" class="extype" target="_top">Product11</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Short" class="extype" target="_top">Short</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Long" class="extype" target="_top">Long</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Double" class="extype" target="_top">Double</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Byte" class="extype" target="_top">Byte</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Double" class="extype" target="_top">Double</a>], <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.collection.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a>]]</h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product11" class="extype" target="_top">Product11</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Short" class="extype" target="_top">Short</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Double" class="extype" target="_top">Double</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Byte" class="extype" target="_top">Byte</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Double" class="extype" target="_top">Double</a>], <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.collection.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a>]]</h3>
             </div><div class="parent" name="scala.Product">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product" class="extype" target="_top">Product</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a></h3>
             </div><div class="parent" name="scala.Equals">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
             </div><div class="parent" name="com.twitter.scrooge.ThriftStruct">
               <h3>Inherited from <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></h3>
             </div><div class="parent" name="scala.AnyRef">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
             </div>
         
         </div>
@@ -1047,6 +1291,7 @@ from the passthroughFields map, if present.
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../../lib/template.js"></script>
+
+
     </body>
       </html>

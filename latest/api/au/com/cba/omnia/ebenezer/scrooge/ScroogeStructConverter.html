@@ -1,5 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html >
 <html>
         <head>
           <title>ScroogeStructConverter - au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter</title>
@@ -9,6 +8,11 @@
           
       <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../../../../index.html';
@@ -26,7 +30,13 @@
       <div id="definition">
         <img src="../../../../../../lib/class_big.png" />
         <p id="owner"><a href="../../../../../package.html" class="extype" name="au">au</a>.<a href="../../../../package.html" class="extype" name="au.com">com</a>.<a href="../../../package.html" class="extype" name="au.com.cba">cba</a>.<a href="../../package.html" class="extype" name="au.com.cba.omnia">omnia</a>.<a href="../package.html" class="extype" name="au.com.cba.omnia.ebenezer">ebenezer</a>.<a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge">scrooge</a></p>
-        <h1>ScroogeStructConverter</h1>
+        <h1>ScroogeStructConverter</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge">package scrooge</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       </div>
 
       <h4 id="signature" class="signature">
@@ -35,13 +45,13 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">ScroogeStructConverter</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+        <span class="name">ScroogeStructConverter</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/98b828595c79affebd3baf180b0797174227ecf0//core/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/ScroogeStructConverter.scala" target="_blank">ScroogeStructConverter.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/Dirty(cda03fa97d7596cdb0964cb1806c40c51ed14577)//core/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/ScroogeStructConverter.scala" target="_blank">ScroogeStructConverter.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -88,9 +98,13 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">ScroogeStructConverter</span><span class="params">(<span name="partitionColumns">partitionColumns: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">scala.this.Predef.Set.empty[String]</span></span>)</span>
+        <span class="name">ScroogeStructConverter</span><span class="params">(<span name="partitionColumns">partitionColumns: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">Set.empty</span></span>)</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@&lt;init&gt;(partitionColumns:Set[String]):au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li></ol>
             </div>
@@ -102,19 +116,6 @@
         <div id="values" class="values members">
               <h3>Value Members</h3>
               <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="!=(x$1:AnyRef):Boolean"></a>
-      <a id="!=(AnyRef):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a>
       <a id="!=(Any):Boolean"></a>
       <h4 class="signature">
@@ -123,10 +124,14 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <a id="##():Int"></a>
@@ -136,24 +141,15 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="==(x$1:AnyRef):Boolean"></a>
-      <a id="==(AnyRef):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a>
       <a id="==(Any):Boolean"></a>
       <h4 class="signature">
@@ -162,10 +158,14 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#argsOf" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="argsOf(field:com.twitter.scrooge.ThriftStructField[_]):List[Manifest[_]]"></a>
       <a id="argsOf(ThriftStructField[_]):List[Manifest[_]]"></a>
@@ -177,7 +177,11 @@
       <span class="symbol">
         <span class="name">argsOf</span><span class="params">(<span name="field">field: <span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]</span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.Manifest">Manifest</span>[_]]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@argsOf(field:com.twitter.scrooge.ThriftStructField[_]):List[Manifest[_]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
@@ -190,7 +194,11 @@
       <span class="symbol">
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
@@ -201,9 +209,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -222,7 +234,11 @@
       <span class="symbol">
         <span class="name">convert</span><span class="tparams">[<span name="A">A &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="cls">cls: <span class="extype" name="scala.Predef.Class">Class</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter.convert.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="parquet.thrift.struct.ThriftType.StructType">StructType</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@convert[A&lt;:com.twitter.scrooge.ThriftStruct](cls:Class[A]):parquet.thrift.struct.ThriftType.StructType" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#enum" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="enum(f:com.twitter.scrooge.ThriftStructField[_]):parquet.thrift.struct.ThriftType"></a>
@@ -235,7 +251,11 @@
       <span class="symbol">
         <span class="name">enum</span><span class="params">(<span name="f">f: <span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]</span>)</span><span class="result">: <span class="extype" name="parquet.thrift.struct.ThriftType">ThriftType</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@enum(f:com.twitter.scrooge.ThriftStructField[_]):parquet.thrift.struct.ThriftType" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
@@ -246,9 +266,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="equals(x$1:Any):Boolean"></a>
@@ -259,9 +283,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#fieldOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="fieldOf(name:String,requirement:parquet.thrift.struct.ThriftField.Requirement,thriftType:parquet.thrift.struct.ThriftType):parquet.thrift.struct.ThriftField"></a>
@@ -274,7 +302,11 @@
       <span class="symbol">
         <span class="name">fieldOf</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="requirement">requirement: <span class="extype" name="parquet.thrift.struct.ThriftField.Requirement">Requirement</span></span>, <span name="thriftType">thriftType: <span class="extype" name="parquet.thrift.struct.ThriftType">ThriftType</span></span>)</span><span class="result">: <span class="extype" name="parquet.thrift.struct.ThriftField">ThriftField</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@fieldOf(name:String,requirement:parquet.thrift.struct.ThriftField.Requirement,thriftType:parquet.thrift.struct.ThriftType):parquet.thrift.struct.ThriftField" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Creates a parquet ThriftField of an element in a complex thrift struct such as list.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a parquet ThriftField of an element in a complex thrift struct such as list.</p><p>The id for these fields is 1.
 </p></div></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -286,9 +318,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -307,7 +343,11 @@
       <span class="symbol">
         <span class="name">fromCodec</span><span class="params">(<span name="codec">codec: <span class="extype" name="com.twitter.scrooge.ThriftStructCodec">ThriftStructCodec</span>[_ &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span>]</span>)</span><span class="result">: <span class="extype" name="parquet.thrift.struct.ThriftType.StructType">StructType</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@fromCodec(codec:com.twitter.scrooge.ThriftStructCodec[_&lt;:com.twitter.scrooge.ThriftStruct]):parquet.thrift.struct.ThriftType.StructType" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
@@ -320,7 +360,11 @@
       <span class="symbol">
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
@@ -331,9 +375,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -344,9 +392,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#isOptional" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="isOptional(f:com.twitter.scrooge.ThriftStructField[_]):Boolean"></a>
@@ -357,9 +409,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isOptional</span><span class="params">(<span name="f">f: <span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">isOptional</span><span class="params">(<span name="f">f: <span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@isOptional(f:com.twitter.scrooge.ThriftStructField[_]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#list" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="list(field:com.twitter.scrooge.ThriftStructField[_],requirement:parquet.thrift.struct.ThriftField.Requirement):parquet.thrift.struct.ThriftType"></a>
@@ -372,7 +428,11 @@
       <span class="symbol">
         <span class="name">list</span><span class="params">(<span name="field">field: <span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]</span>, <span name="requirement">requirement: <span class="extype" name="parquet.thrift.struct.ThriftField.Requirement">Requirement</span></span>)</span><span class="result">: <span class="extype" name="parquet.thrift.struct.ThriftType">ThriftType</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@list(field:com.twitter.scrooge.ThriftStructField[_],requirement:parquet.thrift.struct.ThriftField.Requirement):parquet.thrift.struct.ThriftType" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#manifest" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="manifest[T](implicitevidence$1:Manifest[T]):Manifest[T]"></a>
@@ -385,7 +445,11 @@
       <span class="symbol">
         <span class="name">manifest</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter.manifest.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter.manifest.T">T</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@manifest[T](implicitevidence$1:Manifest[T]):Manifest[T]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Gets the manifest for <code>T</code>.</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#map" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="map(field:com.twitter.scrooge.ThriftStructField[_],requirement:parquet.thrift.struct.ThriftField.Requirement):parquet.thrift.struct.ThriftType"></a>
@@ -398,7 +462,11 @@
       <span class="symbol">
         <span class="name">map</span><span class="params">(<span name="field">field: <span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]</span>, <span name="requirement">requirement: <span class="extype" name="parquet.thrift.struct.ThriftField.Requirement">Requirement</span></span>)</span><span class="result">: <span class="extype" name="parquet.thrift.struct.ThriftType">ThriftType</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@map(field:com.twitter.scrooge.ThriftStructField[_],requirement:parquet.thrift.struct.ThriftField.Requirement):parquet.thrift.struct.ThriftType" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
@@ -409,9 +477,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
@@ -422,9 +494,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
@@ -435,9 +511,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#set" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="set(field:com.twitter.scrooge.ThriftStructField[_],requirement:parquet.thrift.struct.ThriftField.Requirement):parquet.thrift.struct.ThriftType"></a>
@@ -450,7 +530,11 @@
       <span class="symbol">
         <span class="name">set</span><span class="params">(<span name="field">field: <span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]</span>, <span name="requirement">requirement: <span class="extype" name="parquet.thrift.struct.ThriftField.Requirement">Requirement</span></span>)</span><span class="result">: <span class="extype" name="parquet.thrift.struct.ThriftType">ThriftType</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@set(field:com.twitter.scrooge.ThriftStructField[_],requirement:parquet.thrift.struct.ThriftField.Requirement):parquet.thrift.struct.ThriftType" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#stripEnumDuplicates" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="stripEnumDuplicates(fields:List[com.twitter.scrooge.ThriftStructField[_]]):List[com.twitter.scrooge.ThriftStructField[_]]"></a>
@@ -463,7 +547,11 @@
       <span class="symbol">
         <span class="name">stripEnumDuplicates</span><span class="params">(<span name="fields">fields: <span class="extype" name="scala.List">List</span>[<span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]]</span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@stripEnumDuplicates(fields:List[com.twitter.scrooge.ThriftStructField[_]]):List[com.twitter.scrooge.ThriftStructField[_]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#struct" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="struct(f:com.twitter.scrooge.ThriftStructField[_]):parquet.thrift.struct.ThriftType"></a>
@@ -476,7 +564,11 @@
       <span class="symbol">
         <span class="name">struct</span><span class="params">(<span name="f">f: <span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]</span>)</span><span class="result">: <span class="extype" name="parquet.thrift.struct.ThriftType">ThriftType</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@struct(f:com.twitter.scrooge.ThriftStructField[_]):parquet.thrift.struct.ThriftType" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
@@ -489,7 +581,11 @@
       <span class="symbol">
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
@@ -502,7 +598,11 @@
       <span class="symbol">
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#toThriftField" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="toThriftField(field:com.twitter.scrooge.ThriftStructField[_]):parquet.thrift.struct.ThriftField"></a>
@@ -515,7 +615,11 @@
       <span class="symbol">
         <span class="name">toThriftField</span><span class="params">(<span name="field">field: <span class="extype" name="com.twitter.scrooge.ThriftStructField">ThriftStructField</span>[_]</span>)</span><span class="result">: <span class="extype" name="parquet.thrift.struct.ThriftField">ThriftField</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@toThriftField(field:com.twitter.scrooge.ThriftStructField[_]):parquet.thrift.struct.ThriftField" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter#toThriftType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="toThriftType(mani:Manifest[_],name:String,requirement:parquet.thrift.struct.ThriftField.Requirement):parquet.thrift.struct.ThriftType"></a>
@@ -528,7 +632,11 @@
       <span class="symbol">
         <span class="name">toThriftType</span><span class="params">(<span name="mani">mani: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[_]</span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="requirement">requirement: <span class="extype" name="parquet.thrift.struct.ThriftField.Requirement">Requirement</span></span>)</span><span class="result">: <span class="extype" name="parquet.thrift.struct.ThriftType">ThriftType</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@toThriftType(mani:Manifest[_],name:String,requirement:parquet.thrift.struct.ThriftField.Requirement):parquet.thrift.struct.ThriftType" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
@@ -539,9 +647,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -558,9 +670,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -577,9 +693,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.ScroogeStructConverter@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -597,9 +717,9 @@
 
         <div id="inheritedMembers">
         <div class="parent" name="scala.AnyRef">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
             </div>
         
         </div>
@@ -616,6 +736,7 @@
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../../lib/template.js"></script>
+
+
     </body>
       </html>

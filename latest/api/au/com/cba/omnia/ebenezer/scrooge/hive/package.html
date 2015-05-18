@@ -1,5 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html >
 <html>
         <head>
           <title>hive - au.com.cba.omnia.ebenezer.scrooge.hive</title>
@@ -9,6 +8,11 @@
           
       <link href="../../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../../lib/tools.tooltip.js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../../../../../index.html';
@@ -26,7 +30,11 @@
       <div id="definition">
         <img src="../../../../../../../lib/package_big.png" />
         <p id="owner"><a href="../../../../../../package.html" class="extype" name="au">au</a>.<a href="../../../../../package.html" class="extype" name="au.com">com</a>.<a href="../../../../package.html" class="extype" name="au.com.cba">cba</a>.<a href="../../../package.html" class="extype" name="au.com.cba.omnia">omnia</a>.<a href="../../package.html" class="extype" name="au.com.cba.omnia.ebenezer">ebenezer</a>.<a href="../package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge">scrooge</a></p>
-        <h1>hive</h1>
+        <h1>hive</h1><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       </div>
 
       <h4 id="signature" class="signature">
@@ -58,7 +66,7 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="Hive[A]extendsProductwithSerializable"></a>
       <a id="Hive[A]:Hive[A]"></a>
       <h4 class="signature">
@@ -67,10 +75,16 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="Hive.html"><span class="name">Hive</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="action">action: (<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf">HiveConf</span>, <span class="extype" name="org.apache.hadoop.hive.metastore.IMetaStoreClient">IMetaStoreClient</span>) ⇒ <a href="https://github.com/CommBank/edge/index.html#au.com.cba.omnia.omnitool.Result" class="extype" target="_top">Result</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="Hive.html"><span class="name">Hive</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="action">action: (<span class="extype" name="org.apache.hadoop.hive.conf.HiveConf">HiveConf</span>, <span class="extype" name="org.apache.hadoop.hive.metastore.IMetaStoreClient">IMetaStoreClient</span>) ⇒ <a href="https://github.com/CommBank/edge/index.html#au.com.cba.omnia.omnitool.Result" class="extype" target="_top">Result</a>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive.A">A</span>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">A data-type that represents a Hive operation.</p>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@Hive[A]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A data-type that represents a Hive operation.</p><div class="fullcomment"><div class="comment cmt"><p>A data-type that represents a Hive operation.</p><p>Hive operations use a HiveConf as context, and produce a (potentially failing) result. For
+convenience Hive operations receive both a HiveConf and a handle to a Hive client. The client
+is created from the HiveConf when the run method is called.</p></div></div>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="HiveParquetScroogeSource[T&lt;:com.twitter.scrooge.ThriftStruct]extendsSourcewithcom.twitter.scalding.TypedSink[T]withMappable[T]withSerializablewithProductwithSerializable"></a>
       <a id="HiveParquetScroogeSource[T&lt;:ThriftStruct]:HiveParquetScroogeSource[T]"></a>
@@ -80,10 +94,14 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="HiveParquetScroogeSource.html"><span class="name">HiveParquetScroogeSource</span></a><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="location">location: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">scala.None</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>]</span>, <span name="conv">conv: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>]</span>, <span name="set">set: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.Source">Source</span> with <span class="extype" name="com.twitter.scalding.TypedSink">TypedSink</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>] with <span class="extype" name="com.twitter.scalding.Mappable">Mappable</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>] with <span class="extype" name="java.io.Serializable">Serializable</span> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="HiveParquetScroogeSource.html"><span class="name">HiveParquetScroogeSource</span></a><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="location">location: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>]</span>, <span name="conv">conv: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>]</span>, <span name="set">set: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.Source">Source</span> with <span class="extype" name="com.twitter.scalding.TypedSink">TypedSink</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>] with <span class="extype" name="com.twitter.scalding.Mappable">Mappable</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource.T">T</span>] with <span class="extype" name="java.io.Serializable">Serializable</span> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Source to read unpartitioned Hive tables where the data is the specified thrift struct stored
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@HiveParquetScroogeSource[T&lt;:com.twitter.scrooge.ThriftStruct]extendsSourcewithcom.twitter.scalding.TypedSink[T]withMappable[T]withSerializablewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Source to read unpartitioned Hive tables where the data is the specified thrift struct stored
 in Parquet format.</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="HiveStorageFormatextendsAnyRef"></a>
@@ -94,10 +112,14 @@ in Parquet format.</p>
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="HiveStorageFormat.html"><span class="name">HiveStorageFormat</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+        <a href="HiveStorageFormat.html"><span class="name">HiveStorageFormat</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Data type used to indicate Input and Output format for Hive table</p>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@HiveStorageFormatextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Data type used to indicate Input and Output format for Hive table</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.ParquetTableDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ParquetTableDescriptorextendsHiveTableDescriptor"></a>
       <a id="ParquetTableDescriptor:ParquetTableDescriptor"></a>
@@ -109,9 +131,13 @@ in Parquet format.</p>
       <span class="symbol">
         <a href="ParquetTableDescriptor.html"><span class="name">ParquetTableDescriptor</span></a><span class="result"> extends <span class="extype" name="cascading.tap.hive.HiveTableDescriptor">HiveTableDescriptor</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@ParquetTableDescriptorextendsHiveTableDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="PartitionHiveParquetReadTapextendsHiveTap"></a>
       <a id="PartitionHiveParquetReadTap:PartitionHiveParquetReadTap"></a>
       <h4 class="signature">
@@ -122,9 +148,15 @@ in Parquet format.</p>
       <span class="symbol">
         <a href="PartitionHiveParquetReadTap.html"><span class="name">PartitionHiveParquetReadTap</span></a><span class="result"> extends <span class="extype" name="cascading.tap.hive.HiveTap">HiveTap</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Custom tap for reading partitioned hive parquet tables.</p>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@PartitionHiveParquetReadTapextendsHiveTap" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Custom tap for reading partitioned hive parquet tables.</p><div class="fullcomment"><div class="comment cmt"><p>Custom tap for reading partitioned hive parquet tables.</p><p>See <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink">PartitionHiveParquetScroogeSink</a> for why this is needed. This will add globs for all the
+underlying partitions to the path of the hive table.
+</p></div></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="PartitionHiveParquetScroogeSink[A,T&lt;:com.twitter.scrooge.ThriftStruct]extendsSourcewithcom.twitter.scalding.TypedSink[(A,T)]withSerializablewithProductwithSerializable"></a>
       <a id="PartitionHiveParquetScroogeSink[A,T&lt;:ThriftStruct]:PartitionHiveParquetScroogeSink[A,T]"></a>
       <h4 class="signature">
@@ -133,12 +165,22 @@ in Parquet format.</p>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="PartitionHiveParquetScroogeSink.html"><span class="name">PartitionHiveParquetScroogeSink</span></a><span class="tparams">[<span name="A">A</span>, <span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="location">location: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">scala.None</span></span>, <span name="append">append: <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="valueSet">valueSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="partitionSet">partitionSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.Source">Source</span> with <span class="extype" name="com.twitter.scalding.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)] with <span class="extype" name="java.io.Serializable">Serializable</span> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="PartitionHiveParquetScroogeSink.html"><span class="name">PartitionHiveParquetScroogeSink</span></a><span class="tparams">[<span name="A">A</span>, <span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="location">location: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="append">append: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="valueSet">valueSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="partitionSet">partitionSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.Source">Source</span> with <span class="extype" name="com.twitter.scalding.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)] with <span class="extype" name="java.io.Serializable">Serializable</span> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">A scalding sink to write out Scrooge Thrift structs to a partitioned hive table using parquet as
-underlying storage format.</p>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@PartitionHiveParquetScroogeSink[A,T&lt;:com.twitter.scrooge.ThriftStruct]extendsSourcewithcom.twitter.scalding.TypedSink[(A,T)]withSerializablewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A scalding sink to write out Scrooge Thrift structs to a partitioned hive table using parquet as
+underlying storage format.</p><div class="fullcomment"><div class="comment cmt"><p>A scalding sink to write out Scrooge Thrift structs to a partitioned hive table using parquet as
+underlying storage format.</p><p>Unfortunately read does not work since the ParquetInputSplit is an instance of
+mapreduce.FileSplit and cascading will ignore any partitioned input splits that aren't part of
+mapred.FileSplit.
+Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource">PartitionHiveParquetScroogeSource</a> for read.
+</p></div><dl class="paramcmts block"><dt class="param">partitionColumns</dt><dd class="cmt"><p>a list of the partition columns formatted as <code>[(name, type)]</code>.</p></dd><dt class="param">append</dt><dd class="cmt"><p>iff true will add new files to an existing partition instead of overwritting it.
+</p></dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="PartitionHiveParquetScroogeSource[T&lt;:com.twitter.scrooge.ThriftStruct]extendsSourcewithMappable[T]withSerializablewithProductwithSerializable"></a>
       <a id="PartitionHiveParquetScroogeSource[T&lt;:ThriftStruct]:PartitionHiveParquetScroogeSource[T]"></a>
       <h4 class="signature">
@@ -147,12 +189,20 @@ underlying storage format.</p>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="PartitionHiveParquetScroogeSource.html"><span class="name">PartitionHiveParquetScroogeSource</span></a><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>]</span>, <span name="conv">conv: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.Source">Source</span> with <span class="extype" name="com.twitter.scalding.Mappable">Mappable</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>] with <span class="extype" name="java.io.Serializable">Serializable</span> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="PartitionHiveParquetScroogeSource.html"><span class="name">PartitionHiveParquetScroogeSource</span></a><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>]</span>, <span name="conv">conv: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.Source">Source</span> with <span class="extype" name="com.twitter.scalding.Mappable">Mappable</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource.T">T</span>] with <span class="extype" name="java.io.Serializable">Serializable</span> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">A scalding source to read Scrooge Thrift structs from a partitioned hive table using parquet as
-underlying storage format.</p>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetWriteTap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@PartitionHiveParquetScroogeSource[T&lt;:com.twitter.scrooge.ThriftStruct]extendsSourcewithMappable[T]withSerializablewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A scalding source to read Scrooge Thrift structs from a partitioned hive table using parquet as
+underlying storage format.</p><div class="fullcomment"><div class="comment cmt"><p>A scalding source to read Scrooge Thrift structs from a partitioned hive table using parquet as
+underlying storage format. It will ignore the partition columns and only read the thrift struct
+from the parquet file.
+Use <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink">PartitionHiveParquetScroogeSink</a> for write.
+</p></div></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetWriteTap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="PartitionHiveParquetWriteTapextendsHivePartitionTap"></a>
       <a id="PartitionHiveParquetWriteTap:PartitionHiveParquetWriteTap"></a>
       <h4 class="signature">
@@ -163,9 +213,16 @@ underlying storage format.</p>
       <span class="symbol">
         <a href="PartitionHiveParquetWriteTap.html"><span class="name">PartitionHiveParquetWriteTap</span></a><span class="result"> extends <span class="extype" name="cascading.tap.hive.HivePartitionTap">HivePartitionTap</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Custom tap for writing partitioned hive parquet tables.</p>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.TextFormat" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@PartitionHiveParquetWriteTapextendsHivePartitionTap" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Custom tap for writing partitioned hive parquet tables., see <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink">PartitionHiveParquetScroogeSink</a></p><div class="fullcomment"><div class="comment cmt"><p>Custom tap for writing partitioned hive parquet tables., see <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink">PartitionHiveParquetScroogeSink</a></p><p>Since <a href="PartitionHiveParquetReadTap.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap">PartitionHiveParquetReadTap</a> sets a custom path that includes the partitions as globbed
+directories this ensures that the identifiers between reading and writing are the same and,
+therefore, Cascading can identify the dependency between them correctly.
+</p></div></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.TextFormat" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="TextFormatextendsHiveStorageFormatwithProductwithSerializable"></a>
       <a id="TextFormat:TextFormat"></a>
       <h4 class="signature">
@@ -174,10 +231,15 @@ underlying storage format.</p>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="TextFormat.html"><span class="name">TextFormat</span></a><span class="params">(<span name="delimiter">delimiter: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">TextFormat.DEFAULT_DELIMITER</span></span>)</span><span class="result"> extends <a href="HiveStorageFormat.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat">HiveStorageFormat</a> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="TextFormat.html"><span class="name">TextFormat</span></a><span class="params">(<span name="delimiter">delimiter: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol"><span class="name"><a href="TextFormat$.html">TextFormat.DEFAULT_DELIMITER</a></span></span></span>)</span><span class="result"> extends <a href="HiveStorageFormat.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat">HiveStorageFormat</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">By passing <a href="TextFormat.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.TextFormat">TextFormat</a> default Hive input / output classes will be used</p>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@TextFormatextendsHiveStorageFormatwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">By passing <a href="TextFormat.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.TextFormat">TextFormat</a> default Hive input / output classes will be used</p><div class="fullcomment"><div class="comment cmt"><p>By passing <a href="TextFormat.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.TextFormat">TextFormat</a> default Hive input / output classes will be used</p><ul><li>INPUT_FORMAT_NAME = <span class="extype" name="org.apache.hadoop.mapred.TextInputFormat">org.apache.hadoop.mapred.TextInputFormat</span></li><li>OUTPUT_FORMAT_NAME = <span class="extype" name="org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat">org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat</span>
+</li></ul></div></div>
     </li></ol>
             </div>
 
@@ -194,10 +256,14 @@ underlying storage format.</p>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="Hive$.html"><span class="name">Hive</span></a><span class="result"> extends <a href="https://github.com/CommBank/edge/index.html#au.com.cba.omnia.omnitool.ResultantOps" class="extype" target="_top">ResultantOps</a>[<a href="Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>] with <a href="https://github.com/CommBank/edge/index.html#au.com.cba.omnia.omnitool.ToResultantMonadOps" class="extype" target="_top">ToResultantMonadOps</a> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="Hive$.html"><span class="name">Hive</span></a><span class="result"> extends <a href="https://github.com/CommBank/edge/index.html#au.com.cba.omnia.omnitool.ResultantOps" class="extype" target="_top">ResultantOps</a>[<a href="Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>] with <a href="https://github.com/CommBank/edge/index.html#au.com.cba.omnia.omnitool.ToResultantMonadOps" class="extype" target="_top">ToResultantMonadOps</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Hive operations</p>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@Hive" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Hive operations</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="HiveParquetScroogeSource"></a>
       <a id="HiveParquetScroogeSource:HiveParquetScroogeSource"></a>
@@ -207,11 +273,15 @@ underlying storage format.</p>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="HiveParquetScroogeSource$.html"><span class="name">HiveParquetScroogeSource</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="HiveParquetScroogeSource$.html"><span class="name">HiveParquetScroogeSource</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Constructors for HiveParquetScroogeSource.</p>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.ParquetFormat" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@HiveParquetScroogeSource" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Constructors for HiveParquetScroogeSource.</p>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.ParquetFormat" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ParquetFormat"></a>
       <a id="ParquetFormat:ParquetFormat"></a>
       <h4 class="signature">
@@ -220,10 +290,15 @@ underlying storage format.</p>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="ParquetFormat$.html"><span class="name">ParquetFormat</span></a><span class="result"> extends <a href="HiveStorageFormat.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat">HiveStorageFormat</a> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="ParquetFormat$.html"><span class="name">ParquetFormat</span></a><span class="result"> extends <a href="HiveStorageFormat.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.HiveStorageFormat">HiveStorageFormat</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">By passing <a href="ParquetFormat$.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.ParquetFormat">ParquetFormat</a> following classes will be used to format input and output</p>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@ParquetFormat" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">By passing <a href="ParquetFormat$.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.ParquetFormat">ParquetFormat</a> following classes will be used to format input and output</p><div class="fullcomment"><div class="comment cmt"><p>By passing <a href="ParquetFormat$.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.ParquetFormat">ParquetFormat</a> following classes will be used to format input and output</p><ul><li>PARQUET_INPUT_FORMAT = <span class="extype" name="parquet.hive.DeprecatedParquetInputFormat">parquet.hive.DeprecatedParquetInputFormat</span></li><li>PARQUET_OUTPUT_FORMAT = <span class="extype" name="parquet.hive.DeprecatedParquetOutputFormat">parquet.hive.DeprecatedParquetOutputFormat</span>
+</li></ul></div></div>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="PartitionHiveParquetScroogeSink"></a>
       <a id="PartitionHiveParquetScroogeSink:PartitionHiveParquetScroogeSink"></a>
@@ -233,10 +308,14 @@ underlying storage format.</p>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="PartitionHiveParquetScroogeSink$.html"><span class="name">PartitionHiveParquetScroogeSink</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="PartitionHiveParquetScroogeSink$.html"><span class="name">PartitionHiveParquetScroogeSink</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Constructors for PartitionHiveParquetScroogeSink.</p>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@PartitionHiveParquetScroogeSink" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Constructors for PartitionHiveParquetScroogeSink.</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetTap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="PartitionHiveParquetTap"></a>
       <a id="PartitionHiveParquetTap:PartitionHiveParquetTap"></a>
@@ -248,8 +327,12 @@ underlying storage format.</p>
       <span class="symbol">
         <a href="PartitionHiveParquetTap$.html"><span class="name">PartitionHiveParquetTap</span></a>
       </span>
-      </h4>
-      <p class="comment cmt">Provides utility functions for the PartitionHiveParquetTaps.</p>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@PartitionHiveParquetTap" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Provides utility functions for the PartitionHiveParquetTaps.</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.TextFormat" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="TextFormat"></a>
       <a id="TextFormat:TextFormat"></a>
@@ -259,9 +342,13 @@ underlying storage format.</p>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="TextFormat$.html"><span class="name">TextFormat</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="TextFormat$.html"><span class="name">TextFormat</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@TextFormat" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Util" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Util"></a>
@@ -274,8 +361,12 @@ underlying storage format.</p>
       <span class="symbol">
         <a href="Util$.html"><span class="name">Util</span></a>
       </span>
-      </h4>
-      <p class="comment cmt">Utility methods used by the Hive sources in this packages to avoid serialisation issues and code
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.package@Util" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Utility methods used by the Hive sources in this packages to avoid serialisation issues and code
 duplication.</p>
     </li></ol>
             </div>
@@ -302,6 +393,7 @@ duplication.</p>
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../../../lib/template.js"></script>
+
+
     </body>
       </html>

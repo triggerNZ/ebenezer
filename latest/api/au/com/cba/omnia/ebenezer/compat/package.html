@@ -1,5 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html >
 <html>
         <head>
           <title>compat - au.com.cba.omnia.ebenezer.compat</title>
@@ -9,6 +8,11 @@
           
       <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../../../../index.html';
@@ -26,7 +30,11 @@
       <div id="definition">
         <img src="../../../../../../lib/package_big.png" />
         <p id="owner"><a href="../../../../../package.html" class="extype" name="au">au</a>.<a href="../../../../package.html" class="extype" name="au.com">com</a>.<a href="../../../package.html" class="extype" name="au.com.cba">cba</a>.<a href="../../package.html" class="extype" name="au.com.cba.omnia">omnia</a>.<a href="../package.html" class="extype" name="au.com.cba.omnia.ebenezer">ebenezer</a></p>
-        <h1>compat</h1>
+        <h1>compat</h1><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.package" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       </div>
 
       <h4 id="signature" class="signature">
@@ -67,9 +75,13 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="Collection.html"><span class="name">Collection</span></a><span class="result"> extends <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product11" class="extype" target="_top">Product11</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Short" class="extype" target="_top">Short</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Long" class="extype" target="_top">Long</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Double" class="extype" target="_top">Double</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Byte" class="extype" target="_top">Byte</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Double" class="extype" target="_top">Double</a>], <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.collection.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a>]] with <span class="extype" name="java.io.Serializable">Serializable</span></span>
+        <a href="Collection.html"><span class="name">Collection</span></a><span class="result"> extends <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product11" class="extype" target="_top">Product11</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Short" class="extype" target="_top">Short</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Double" class="extype" target="_top">Double</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Byte" class="extype" target="_top">Byte</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Double" class="extype" target="_top">Double</a>], <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.collection.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a>]] with <span class="extype" name="java.io.Serializable">Serializable</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.package@CollectionextendsThriftStructwithProduct11[String,Boolean,Short,Int,Long,Double,Byte,Option[String],Option[Double],Seq[String],scala.collection.Map[String,Int]]withSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="au.com.cba.omnia.ebenezer.compat.Simple" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="SimpleextendsThriftStructwithProduct9[String,Boolean,Short,Int,Long,Double,Byte,Option[String],Option[Double]]withSerializable"></a>
@@ -80,9 +92,13 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="Simple.html"><span class="name">Simple</span></a><span class="result"> extends <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span> with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Product9" class="extype" target="_top">Product9</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Short" class="extype" target="_top">Short</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Int" class="extype" target="_top">Int</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Long" class="extype" target="_top">Long</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Double" class="extype" target="_top">Double</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Byte" class="extype" target="_top">Byte</a>, <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Double" class="extype" target="_top">Double</a>]] with <span class="extype" name="java.io.Serializable">Serializable</span></span>
+        <a href="Simple.html"><span class="name">Simple</span></a><span class="result"> extends <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product9" class="extype" target="_top">Product9</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Short" class="extype" target="_top">Short</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Double" class="extype" target="_top">Double</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Byte" class="extype" target="_top">Byte</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Double" class="extype" target="_top">Double</a>]] with <span class="extype" name="java.io.Serializable">Serializable</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.package@SimpleextendsThriftStructwithProduct9[String,Boolean,Short,Int,Long,Double,Byte,Option[String],Option[Double]]withSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li></ol>
             </div>
@@ -100,11 +116,15 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="Collection$.html"><span class="name">Collection</span></a><span class="result"> extends <span class="extype" name="com.twitter.scrooge.ThriftStructCodec3">ThriftStructCodec3</span>[<a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a>] with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="Collection$.html"><span class="name">Collection</span></a><span class="result"> extends <span class="extype" name="com.twitter.scrooge.ThriftStructCodec3">ThriftStructCodec3</span>[<a href="Collection.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Collection">Collection</a>] with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.package@Collection" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
-    </li><li name="au.com.cba.omnia.ebenezer.compat.Compat" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="au.com.cba.omnia.ebenezer.compat.Compat" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="Compat"></a>
       <a id="Compat:Compat"></a>
       <h4 class="signature">
@@ -115,8 +135,15 @@
       <span class="symbol">
         <a href="Compat$.html"><span class="name">Compat</span></a>
       </span>
-      </h4>
-      <p class="comment cmt">Building block methods for creating compatibility tests</p>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.package@Compat" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Building block methods for creating compatibility tests</p><div class="fullcomment"><div class="comment cmt"><p>Building block methods for creating compatibility tests</p><p>A compatibility test will typically take a paramater specifying where
+to find files with older parquet formats, and perform a series of these
+methods on those files to test our current code works on older formats.
+</p></div></div>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Data" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Data"></a>
       <a id="Data:Data"></a>
@@ -128,8 +155,12 @@
       <span class="symbol">
         <a href="Data$.html"><span class="name">Data</span></a>
       </span>
-      </h4>
-      <p class="comment cmt">Data for compatibility tests</p>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.package@Data" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Data for compatibility tests</p>
     </li><li name="au.com.cba.omnia.ebenezer.compat.Simple" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Simple"></a>
       <a id="Simple:Simple"></a>
@@ -139,9 +170,13 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="Simple$.html"><span class="name">Simple</span></a><span class="result"> extends <span class="extype" name="com.twitter.scrooge.ThriftStructCodec3">ThriftStructCodec3</span>[<a href="Simple.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Simple">Simple</a>] with <a href="http://www.scala-lang.org/api/2.10.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="Simple$.html"><span class="name">Simple</span></a><span class="result"> extends <span class="extype" name="com.twitter.scrooge.ThriftStructCodec3">ThriftStructCodec3</span>[<a href="Simple.html" class="extype" name="au.com.cba.omnia.ebenezer.compat.Simple">Simple</a>] with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.package@Simple" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li><li name="au.com.cba.omnia.ebenezer.compat.VersionInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="VersionInfo"></a>
@@ -154,7 +189,11 @@
       <span class="symbol">
         <a href="VersionInfo$.html"><span class="name">VersionInfo</span></a>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.compat.package@VersionInfo" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
       
     </li></ol>
             </div>
@@ -181,6 +220,7 @@
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../../lib/template.js"></script>
+
+
     </body>
       </html>
