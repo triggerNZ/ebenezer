@@ -47,6 +47,7 @@ object build extends Build {
     base = file("."),
     settings =
       standardSettings
+        ++ uniform.project("ebenezer", "au.com.cba.omnia.ebenezer.all")
         ++ uniform.ghsettings
         ++ Seq(
           publishArtifact := false
