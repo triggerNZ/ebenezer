@@ -198,12 +198,11 @@ object Hive extends ResultantOps[Hive] with ToResultantMonadOps {
     location: Option[Path] = None, format: HiveStorageFormat = ParquetFormat
   ): Hive[Boolean] = Hive((conf, client) => try {
     val fs            = FileSystem.get(conf)
-    val actualTable     = client.getTable(database, table)
+    val actualTable   = client.getTable(database, table)
     val expectedTable =
       Util.createHiveTableDescriptor[T](database, table, partitionColumns, format, location.map(fs.makeQualified(_)))
 
-    val sd = actualTable.getSd
-
+    val sd             = actualTable.getSd
     val actualPath     = fs.makeQualified(new Path(sd.getLocation))
     val expectedPath   = fs.makeQualified(new Path(expectedTable.getLocation(conf.getVar(ConfVars.METASTOREWAREHOUSE))))
     val actualCols     = sd.getCols.asScala.map(c => (c.getName.toLowerCase, c.getType.toLowerCase)).toList
