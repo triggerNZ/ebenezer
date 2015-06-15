@@ -38,6 +38,13 @@ Hadoop
 ```
 hadoop jar ebenezer-assembly-$VERSION.jar au.com.cba.omnia.ebenezer.cli.Cat some/path/x.parquet
 ```
+
+There is another introspection tool which would read the parquet and output as JSON.
+
+```
+hadoop jar ebenezer-assembly-$VERSION.jar au.com.cba.omnia.ebenezer.cli.CatAsJson some/path/x
+.parquet
+```
 This process may take some time as Hadoop unpacks the fat jar prior to running.  Running under
 OS X (or other case-insensitive filesystems) may result in an error relating to a file called
 `META-INF/LICENSE` conflicting with a lower-case file of the same name.  If this occurs, a
