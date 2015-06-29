@@ -94,12 +94,13 @@ trait HiveTestSupport { self: HiveSupport =>
      *                         If empty unpartitioned table will be created.
      * @param source           Resource location of input data. This may be either a file or a
      *                         partitioned directory (autodetected).
+     * @param delimiter        Delimiter used in input data. Defaults to `|`.
      */
   def setupHiveTestTable[T <: ThriftStruct : Manifest](
-    database: String, table: String, partitionColumns: List[(String, String)], source: String
+    database: String, table: String, partitionColumns: List[(String, String)], source: String, delimiter: String = "|"
   ): Hive[Unit] = for {
     dst <- Hive.result(setupFiles(source)).map(f => new Path(s"file://$f"))
-    _   <- Hive.createTextTable(database, table, partitionColumns, Some(dst))
+    _   <- Hive.createTextTable(database, table, partitionColumns, Some(dst), delimiter)
     _   <- Hive.queries(List(s"USE $database", s"MSCK REPAIR TABLE $table"))
   } yield ()
 

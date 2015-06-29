@@ -28,11 +28,14 @@ object HiveTestSupportSpec
 Set up an existing Hive Table
 =============================
 
-  Single data file test, with columns given as DDL     $ddlFilePipeline
-  Partitioned data test, with columns given as DDL     $ddlPartitionedPipeline
+  Single data file test, with columns given as DDL          $ddlFilePipeline
+  Partitioned data test, with columns given as DDL          $ddlPartitionedPipeline
 
-  Single data file test, with columns given as Thrift  $thriftFilePipeline
-  Partitioned data test, with columns given as Thrift  $thriftPartitionedPipeline
+  Single data file test, with columns given as Thrift       $thriftFilePipeline
+  Partitioned data test, with columns given as Thrift       $thriftPartitionedPipeline
+
+  Default delimiter test, with columns given as Thrift      $thriftFileDefaultDelimitedPipeline
+  User defined delimiter test, with columns given as Thrift $thriftFileDelimitedPipeline
 
 """
 
@@ -88,5 +91,23 @@ Set up an existing Hive Table
     } yield n
 
     result must beValue(List("4"))
+  }
+
+  def thriftFileDefaultDelimitedPipeline = {
+    val result = for {
+      _ <- setupHiveTestTable[TestHive]("testdb5", "testtable", List(), "/hive-test/testdata")
+      n <- Hive.query("SELECT name FROM testdb5.testtable")
+    } yield n
+
+    result must beValue(List("red", "green", "yellow", "orange"))
+  }
+
+  def thriftFileDelimitedPipeline = {
+    val result = for {
+      _ <- setupHiveTestTable[TestHive]("testdb6", "testtable", List(), "/hive-test/testdata1", ",")
+      n <- Hive.query("SELECT name FROM testdb6.testtable")
+    } yield n
+
+    result must beValue(List("red", "green", "yellow", "orange"))
   }
 }
