@@ -49,7 +49,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Adds support functions for setting up tests using Hive.</p></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.test.HiveTestSupport">HiveTestSupport</a> with <a href="https://github.com/CommBank/thermometer/index.html#au.com.cba.omnia.thermometer.hive.HiveSupport" class="extype" target="_top">HiveSupport</a></dd><dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/Dirty(4493a53f7f981547a0f12f7231c7b07b7bba6698)//test/src/main/scala/au/com/cba/omnia/ebenezer/test/HiveTestSupport.scala" target="_blank">HiveTestSupport.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Adds support functions for setting up tests using Hive.</p></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.test.HiveTestSupport">HiveTestSupport</a> with <a href="https://github.com/CommBank/thermometer/index.html#au.com.cba.omnia.thermometer.hive.HiveSupport" class="extype" target="_top">HiveSupport</a></dd><dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/Dirty(50d44ae3a157752853b50a8dd2b29c7aeea5a31b)//test/src/main/scala/au/com/cba/omnia/ebenezer/test/HiveTestSupport.scala" target="_blank">HiveTestSupport.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
@@ -363,18 +363,18 @@
     </span>
       <p class="shortcomment cmt">Copies a resources file or directory to a temporary location.</p>
     </li><li name="au.com.cba.omnia.ebenezer.test.HiveTestSupport#setupHiveTestTable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="setupHiveTestTable[T&lt;:com.twitter.scrooge.ThriftStruct](database:String,table:String,partitionColumns:List[(String,String)],source:String)(implicitevidence$1:Manifest[T]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[Unit]"></a>
-      <a id="setupHiveTestTable[T&lt;:ThriftStruct](String,String,List[(String,String)],String)(Manifest[T]):Hive[Unit]"></a>
+      <a id="setupHiveTestTable[T&lt;:com.twitter.scrooge.ThriftStruct](database:String,table:String,partitionColumns:List[(String,String)],source:String,delimiter:String)(implicitevidence$1:Manifest[T]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[Unit]"></a>
+      <a id="setupHiveTestTable[T&lt;:ThriftStruct](String,String,List[(String,String)],String,String)(Manifest[T]):Hive[Unit]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setupHiveTestTable</span><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="source">source: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.test.HiveTestSupport.setupHiveTestTable.T">T</span>]</span>)</span><span class="result">: <a href="../scrooge/hive/Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a>]</span>
+        <span class="name">setupHiveTestTable</span><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="source">source: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="delimiter">delimiter: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;|&quot;</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.test.HiveTestSupport.setupHiveTestTable.T">T</span>]</span>)</span><span class="result">: <a href="../scrooge/hive/Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.test.HiveTestSupport@setupHiveTestTable[T&lt;:com.twitter.scrooge.ThriftStruct](database:String,table:String,partitionColumns:List[(String,String)],source:String)(implicitevidence$1:Manifest[T]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[Unit]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.test.HiveTestSupport@setupHiveTestTable[T&lt;:com.twitter.scrooge.ThriftStruct](database:String,table:String,partitionColumns:List[(String,String)],source:String,delimiter:String)(implicitevidence$1:Manifest[T]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[Unit]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
@@ -382,7 +382,7 @@
 time Hive handles it badly and throws an SQL integrity exception.
 </p></div><dl class="paramcmts block"><dt class="param">database</dt><dd class="cmt"><p>Name of the database. Will be created if not found.</p></dd><dt class="param">table</dt><dd class="cmt"><p>Name of table to create.</p></dd><dt class="param">partitionColumns</dt><dd class="cmt"><p>A list of the partition columns formatted as <code>[(name, type.)]</code>.
                         If empty unpartitioned table will be created.</p></dd><dt class="param">source</dt><dd class="cmt"><p>Resource location of input data. This may be either a file or a
-                        partitioned directory (autodetected).
+                        partitioned directory (autodetected).</p></dd><dt class="param">delimiter</dt><dd class="cmt"><p>Delimiter used in input data. Defaults to <code>|</code>.
 </p></dd></dl></div>
     </li><li name="au.com.cba.omnia.ebenezer.test.HiveTestSupport#setupHiveTestTableDDL" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setupHiveTestTableDDL(database:String,table:String,columns:List[(String,String)],partitionColumns:List[(String,String)],source:String):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[Unit]"></a>
