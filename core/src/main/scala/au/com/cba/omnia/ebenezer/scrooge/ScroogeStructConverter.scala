@@ -35,7 +35,7 @@ class ScroogeStructConverter(partitionColumns: Set[String] = Set.empty) {
 
   def fromCodec(codec: ThriftStructCodec[_ <: ThriftStruct]): ThriftType.StructType = {
     val fields =
-      stripEnumDuplicates(codec.metaData.fields.toList)
+      stripEnumDuplicates(ScroogeMetaHelper.fieldsInStruct(codec).toList)
         .map(toThriftField)
         .filter(f => !partitionColumns.contains(f.getName))
     new ThriftType.StructType(fields.asJava)
@@ -86,7 +86,12 @@ class ScroogeStructConverter(partitionColumns: Set[String] = Set.empty) {
   }
 
   def enum(f: ThriftStructField[_]): ThriftType = {
-    val companion = Reflect.companionOfName(f.method.getReturnType.getName)
+    val companion =
+      if (f.manifest.isDefined) {
+        Reflect.companionOfName(f.manifest.get.runtimeClass.getName)
+      } else {
+        Reflect.companionOfName(f.method.getReturnType.getName)
+      }
     val enums = Reflect.invoke[Seq[AnyRef]](companion, "list").toList
     val values = enums.map(raw => {
       val id = Reflect.invoke[Int](raw, "value")
@@ -98,6 +103,18 @@ class ScroogeStructConverter(partitionColumns: Set[String] = Set.empty) {
 
   def struct(f: ThriftStructField[_]): ThriftType = {
     val classType =
+      if (f.manifest.isDefined)
+        if (isUnionField(f)) {
+          // for unions, we need to get the field type (aliased <fieldname>Alias)
+          // from the constructor of an intermediate wrapper class (named after the field)
+          val wrapperClass   = f.manifest.get.runtimeClass
+          val containedValue = wrapperClass.getDeclaredConstructors.head.getParameterTypes.head
+          containedValue.asInstanceOf[Class[_ <: ThriftStruct]]
+        } else {
+          // for other structs, we can use the obtained manifest
+          f.manifest.get.runtimeClass // use the manifest inside f (ignores optionality)
+        }
+      else
       if (isOptional(f))
         Reflect.parameterizedTypeOf1(f.method.getGenericReturnType)
       else
@@ -141,7 +158,13 @@ class ScroogeStructConverter(partitionColumns: Set[String] = Set.empty) {
     } else
       convert(mani.runtimeClass.asInstanceOf[Class[_ <: ThriftStruct]])
 
+
+  // see ScroogeMetaHelper
+  def isUnionField(f: ThriftStructField[_]) = f.method == null
+
   def isOptional(f: ThriftStructField[_]): Boolean =
+    isUnionField(f) ||
+    // or fall back to using the method
     f.method.getReturnType() == classOf[Option[_]]
 
   def argsOf(field: ThriftStructField[_]): List[Manifest[_]] =
