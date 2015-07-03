@@ -14,6 +14,8 @@
 
 package au.com.cba.omnia.ebenezer.introspect
 
+import scala.util.Try
+
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.Path
 
@@ -21,7 +23,12 @@ import parquet.hadoop.ParquetReader
 
 object ParquetIntrospectTools {
   def iteratorFromPath(conf: Configuration, path: Path): Iterator[Record] = {
-    val reader = new ParquetReader[Record](conf, path, new IntrospectionReadSupport)
+    //Hack for throwing a sensible exception for non-parquet files.
+    val reader = Try(new ParquetReader[Record](conf, path, new IntrospectionReadSupport)).recoverWith {
+      case x: NullPointerException => throw new RuntimeException(s"Not a valid parquet file : ${path.toString}")
+      case e                       => throw e
+    }.get
+
     new Iterator[Record] {
       var state: Record = reader.read
       def hasNext = state != null

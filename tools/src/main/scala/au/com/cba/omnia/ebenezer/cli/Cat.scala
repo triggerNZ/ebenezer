@@ -18,8 +18,6 @@ package cli
 import au.com.cba.omnia.ebenezer.introspect._
 import au.com.cba.omnia.ebenezer.fs.Glob
 
-import org.apache.hadoop.fs.Path
-import org.apache.hadoop.fs.FileSystem
 import org.apache.hadoop.conf.Configuration
 
 object Cat {
