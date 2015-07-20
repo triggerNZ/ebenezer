@@ -44,7 +44,9 @@ Hive operations should:
 
 Hive operations:
   hive handles exceptions                                                    $safeHive
-  tableExists should always be false                                         $noTable
+  existsDatabase should be false if database hasn't been created             $noDB
+  created database must exist                                                $createDB
+  existsTable should be false if table hasn't been created                   $noTable
   created table must exist                                                   $create
   creating table with different schema fails                                 $create2
   can verify schema                                                          $strict
@@ -65,7 +67,27 @@ Hive operations:
     Hive.withClient(_ => throw t)   must beResult { Result.exception(t) }
     Hive.value(3).map(_ => throw t) must beResult { Result.exception(t) }
   }
-  
+
+  def noDB = {
+    val x = for {
+      d1 <- Hive.createDatabase("test")
+      d2 <- Hive.createDatabase("test11")
+      d3 <- Hive.existsDatabase("test1")
+    } yield (d1, d2, d3)
+
+    x must beValue((true, true, false))
+  }
+
+  def createDB = {
+    val x = for {
+      d1 <- Hive.createDatabase("test1")
+      d2 <- Hive.createDatabase("test1")
+      d3 <- Hive.existsDatabase("test1")
+    } yield (d1, d2, d3)
+
+    x must beValue((true, false, true))
+  }
+
   def noTable = {
     Hive.existsTable("test", "test")                               must beValue(false)
     Hive.existsTableStrict[SimpleHive]("test", "test", List.empty) must beValue(false)

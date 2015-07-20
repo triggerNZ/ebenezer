@@ -102,16 +102,25 @@ object Hive extends ResultantOps[Hive] with ToResultantMonadOps {
     */
   def createDatabase(
     database: String, description: String = "", location: Option[Path] = None, parameters: Map[String, String] = Map.empty
-  ): Hive[Boolean] = {
-    val db = new Database(database, description, location.cata(_.toString, null), parameters.asJava)
-    Hive((_, client) => try {
-      client.createDatabase(db)
-      Result.ok(true)
-    } catch {
-      case _: AlreadyExistsException => Result.ok(false)
-      case NonFatal(t)               => Result.error(s"Failed to create database $database", t)
-    })
-  }
+  ): Hive[Boolean] =
+    Hive.existsDatabase(database) >>= (exists =>
+      if (exists) Hive.value(false)
+      else {
+        val db = new Database(database, description, location.cata(_.toString, null), parameters.asJava)
+        Hive((_, client) => try {
+          client.createDatabase(db)
+          Result.ok(true)
+        } catch {
+          case _: AlreadyExistsException => Result.ok(false)
+          case NonFatal(t)               => Result.error(s"Failed to create database $database", t)
+        })
+      }
+    )
+  
+  /** Checks if the specified database exists. */
+  def existsDatabase(database: String): Hive[Boolean] =
+    Hive.withClient(!_.getDatabases(database).isEmpty)
+      .addMessage(s"Failed to check if $database exists.")
 
   /**
     * Creates hive table with the specified hive storage format.
@@ -133,23 +142,31 @@ object Hive extends ResultantOps[Hive] with ToResultantMonadOps {
     database: String, table: String, partitionColumns: List[(String, String)],
     location: Option[Path] = None, format: HiveStorageFormat
   ): Hive[Boolean] = {
-    Hive.createDatabase(database) >>
-    Hive.getConfClient >>= { case (conf, client) =>
-      val fqLocation = location.map(FileSystem.get(conf).makeQualified(_))
-      val tableDescriptor = Util.createHiveTableDescriptor[T](database, table, partitionColumns, format, fqLocation)
+    Hive.createDatabase(database)     >>
+    Hive.existsTable(database, table) >>= (exists =>
+      if (exists)
+        Hive.mandatory(
+          Hive.existsTableStrict[T](database, table, partitionColumns, location, format),
+          s"$database.$table already exists but has different schema."
+        ).map(_ => false)
+      else
+        Hive.getConfClient >>= { case (conf, client) =>
+          val fqLocation = location.map(FileSystem.get(conf).makeQualified(_))
+          val tableDescriptor = Util.createHiveTableDescriptor[T](database, table, partitionColumns, format, fqLocation)
 
-      try {
-        client.createTable(tableDescriptor.toHiveTable)
-        Hive.value(true)
-      } catch {
-        case _: AlreadyExistsException =>
-          Hive.mandatory(
-            existsTableStrict[T](database, table, partitionColumns, location, format),
-            s"$database.$table already exists but has different schema."
-          ).map(_ => false)
-        case NonFatal(t)               => Hive.error(s"Failed to create table $database.$table", t)
-      }
-    }
+          try {
+            client.createTable(tableDescriptor.toHiveTable)
+            Hive.value(true)
+          } catch {
+            case _: AlreadyExistsException =>
+              Hive.mandatory(
+                existsTableStrict[T](database, table, partitionColumns, location, format),
+                s"$database.$table already exists but has different schema."
+              ).map(_ => false)
+            case NonFatal(t)               => Hive.error(s"Failed to create table $database.$table", t)
+          }
+        }
+    )
   }
 
   /**
