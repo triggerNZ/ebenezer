@@ -15,20 +15,25 @@
 package au.com.cba.omnia.ebenezer
 package scrooge
 
-import cascading.scheme.Scheme
-import cascading.tuple.Fields
+import cascading.tap.Tap
 
 import com.twitter.scalding._
 
 import com.twitter.scrooge.ThriftStruct
 
-case class ParquetScroogeSource[T <: ThriftStruct](p : String*)(implicit m : Manifest[T], conv: TupleConverter[T], set: TupleSetter[T])
-  extends FixedPathSource(p: _*)
+case class ParquetScroogeSource[T <: ThriftStruct](p : String*)(
+  implicit m : Manifest[T], conv: TupleConverter[T], set: TupleSetter[T]
+) extends FixedPathSource(p: _*)
   with TypedSink[T]
   with Mappable[T]
   with java.io.Serializable {
 
-  override def hdfsScheme = HadoopSchemeInstance(new ParquetScroogeScheme[T].asInstanceOf[Scheme[_, _, _, _, _]])
+  override def hdfsScheme = ParquetScroogeSchemeSupport.parquetHdfsScheme[T]
+
+  override def createTap(readOrWrite: AccessMode)(implicit mode: Mode): Tap[_, _, _] = mode match {
+    case Local(_) => sys.error(s"Local mode is currently not supported for ${toString}")
+    case _        => super.createTap(readOrWrite)(mode)
+  }
 
   override def converter[U >: T] =
     TupleConverter.asSuperConverter[T, U](conv)

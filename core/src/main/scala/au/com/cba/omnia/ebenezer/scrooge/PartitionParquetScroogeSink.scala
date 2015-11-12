@@ -15,6 +15,10 @@
 package au.com.cba.omnia.ebenezer
 package scrooge
 
+import org.apache.hadoop.mapred.JobConf
+import org.apache.hadoop.mapred.OutputCollector
+import org.apache.hadoop.mapred.RecordReader
+
 import cascading.tap.Tap
 
 import com.twitter.scalding._
@@ -22,32 +26,42 @@ import com.twitter.scalding.typed.PartitionUtil
 
 import com.twitter.scrooge.ThriftStruct
 
-case class PartitionParquetScroogeSource[A, T <: ThriftStruct](template: String, path: String)(
-  implicit m : Manifest[T], valueConverter: TupleConverter[T], partitionConverter: TupleConverter[A]
-) extends Source 
-  with Mappable[T]
+/**
+  * A scalding sink to write out Scrooge Thrift structs using parquet as underlying storage format.
+  *
+  */
+case class PartitionParquetScroogeSink[A, T <: ThriftStruct](template: String, path: String)(
+  implicit m: Manifest[T], valueSet: TupleSetter[T], partitionSet: TupleSetter[A]
+) extends Source
+  with TypedSink[(A, T)]
   with java.io.Serializable {
 
   val partition = {
-    val templateFields = PartitionUtil.toFields(valueConverter.arity, valueConverter.arity + partitionConverter.arity)
+    val templateFields = PartitionUtil.toFields(valueSet.arity, valueSet.arity + partitionSet.arity)
     new TemplatePartition(templateFields, template)
   }
 
   val hdfsScheme = ParquetScroogeSchemeSupport.parquetHdfsScheme[T]
+  hdfsScheme.setSinkFields(Dsl.strFields(List("0")))
 
   override def createTap(readOrWrite: AccessMode)(implicit mode: Mode): Tap[_, _, _] = mode match {
     case hdfsMode @ Hdfs(_, jobConf) => readOrWrite match {
-      case Read  => CastHfsTap(new PartitionParquetScroogeReadTap(path, partition, hdfsScheme))
-      case Write =>
-        sys.error(s"HDFS write mode is currently not supported for ${toString}. Use PartitionHiveParquetScroogeSink instead.")
+      case Write => { 
+        val tap = new PartitionParquetScroogeWriteTap(path, partition, hdfsScheme)
+        tap.asInstanceOf[Tap[JobConf, RecordReader[_, _], OutputCollector[_, _]]]
+      }
+      case Read  =>
+        sys.error(s"HDFS read mode is currently not supported for ${toString}. Use PartitionParquetScroogeSource instead.")
     }
     case Local(_) => sys.error(s"Local mode is currently not supported for ${toString}")
     case x        => sys.error(s"$x mode is currently not supported for ${toString}")
   }
-  
-  override def converter[U >: T] =
-    TupleConverter.asSuperConverter[T, U](valueConverter)
+
+  override def sinkFields =
+    PartitionUtil.toFields(0, valueSet.arity + partitionSet.arity)
+ 
+  override def setter[U <: (A, T)] = PartitionUtil.setter[A, T, U](valueSet, partitionSet)
 
   override def toString: String =
-    s"PartitionParquetScroogeSource[${m.runtimeClass}]($path, $template)"
+    s"PartitionParquetScroogeSink[${m.runtimeClass}]($template, $path)"
 }

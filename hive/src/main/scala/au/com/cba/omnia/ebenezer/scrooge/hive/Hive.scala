@@ -21,8 +21,6 @@ import java.util.ArrayList
 
 import scalaz._, Scalaz._
 
-import cascading.tap.hive.HiveTableDescriptor
-
 import com.twitter.scrooge.ThriftStruct
 
 import org.apache.hadoop.fs.{FileSystem, Path}
@@ -152,10 +150,10 @@ object Hive extends ResultantOps[Hive] with ToResultantMonadOps {
       else
         Hive.getConfClient >>= { case (conf, client) =>
           val fqLocation = location.map(FileSystem.get(conf).makeQualified(_))
-          val tableDescriptor = Util.createHiveTableDescriptor[T](database, table, partitionColumns, format, fqLocation)
+          val metadataTable = HiveMetadataTable[T](database, table, partitionColumns, format, fqLocation)
 
           try {
-            client.createTable(tableDescriptor.toHiveTable)
+            client.createTable(metadataTable)
             Hive.value(true)
           } catch {
             case _: AlreadyExistsException =>
@@ -214,36 +212,34 @@ object Hive extends ResultantOps[Hive] with ToResultantMonadOps {
     database: String, table: String, partitionColumns: List[(String, String)],
     location: Option[Path] = None, format: HiveStorageFormat = ParquetFormat
   ): Hive[Boolean] = Hive((conf, client) => try {
-    val fs            = FileSystem.get(conf)
-    val actualTable   = client.getTable(database, table)
-    val expectedTable =
-      Util.createHiveTableDescriptor[T](database, table, partitionColumns, format, location.map(fs.makeQualified(_)))
-
-    val sd             = actualTable.getSd
-    val actualPath     = fs.makeQualified(new Path(sd.getLocation))
-    val expectedPath   = fs.makeQualified(new Path(expectedTable.getLocation(conf.getVar(ConfVars.METASTOREWAREHOUSE))))
-    val actualCols     = sd.getCols.asScala.map(c => (c.getName.toLowerCase, c.getType.toLowerCase)).toList
-    val actualPartCols = actualTable.getPartitionKeys.asScala.map(c => (c.getName.toLowerCase, c.getType.toLowerCase)).toList
-    val (expectedCols, expectedPartCols) =
-      expectedTable.getColumnNames
-        .zip(expectedTable.getColumnTypes)
-        .map(x => (x._1.toLowerCase, x._2.toLowerCase))
-        .toList
-        .splitAt(expectedTable.getColumnNames.length - expectedTable.getPartitionKeys.length)
+    val fs               = FileSystem.get(conf)
+    val actualTable      = client.getTable(database, table)
+    val expectedTable    = HiveMetadataTable[T](database, table, partitionColumns, format, location.map(fs.makeQualified(_)))
+    val actualCols       = actualTable.getSd.getCols.asScala.map(c => (c.getName.toLowerCase, c.getType.toLowerCase)).toList
+    val actualPartCols   = actualTable.getPartitionKeys.asScala.map(c => (c.getName.toLowerCase, c.getType.toLowerCase)).toList
+    val expectedCols     = expectedTable.getSd.getCols.asScala.map(c => (c.getName.toLowerCase, c.getType.toLowerCase)).toList
+    val expectedPartCols = expectedTable.getPartitionKeys.asScala.map(c => (c.getName.toLowerCase, c.getType.toLowerCase)).toList
+    val warehouse        = conf.getVar(ConfVars.METASTOREWAREHOUSE)
+    val actualPath       = fs.makeQualified(new Path(actualTable.getSd.getLocation))
+    //Do we want to handle `default` database separately
+    val expectedLocation = Option(expectedTable.getSd.getLocation).getOrElse(
+      s"$warehouse/${expectedTable.getDbName}.db/${expectedTable.getTableName}"
+    )
+    val expectedPath     = fs.makeQualified(new Path(expectedLocation))
 
     val delimiterComparison = format match {
       case ParquetFormat => true
-      case TextFormat(delimiter) => 
-        sd.getSerdeInfo.getParameters.asScala.get("field.delim").exists(_ == delimiter)
+      case TextFormat(delimiter) =>
+        actualTable.getSd.getSerdeInfo.getParameters.asScala.get("field.delim").exists(_ == delimiter)
     }
 
     Result.ok(
-      actualTable.getTableType == expectedTable.toHiveTable.getTableType          &&
-      actualPath               == expectedPath                                    &&
-      actualCols               == expectedCols                                    &&
-      actualPartCols           == expectedPartCols                                &&
-      sd.getInputFormat        == expectedTable.toHiveTable.getSd.getInputFormat  &&
-      sd.getOutputFormat       == expectedTable.toHiveTable.getSd.getOutputFormat &&
+      actualTable.getTableType          == expectedTable.getTableType          &&
+      actualPath                        == expectedPath                        &&
+      actualCols                        == expectedCols                        &&
+      actualPartCols                    == expectedPartCols                    &&
+      actualTable.getSd.getInputFormat  == expectedTable.getSd.getInputFormat  &&
+      actualTable.getSd.getOutputFormat == expectedTable.getSd.getOutputFormat &&
       delimiterComparison                    
     )
   } catch {
@@ -319,6 +315,11 @@ object Hive extends ResultantOps[Hive] with ToResultantMonadOps {
       results <- body(driver) ensure cleanup(driver)
     } yield results
   }
+  
+  /** Repair/Register partitions with the Hive table. */
+  def repair(database: String, table: String): Hive[Unit] = 
+    //For some reason when running msck, we can't use the table scoped with the db like db.table
+    queries(List(s"USE $database", s"MSCK REPAIR TABLE $table")).map(_ => ())
 
   implicit val monad: ResultantMonad[Hive] = new ResultantMonad[Hive] {
     def rPoint[A](v: => Result[A]): Hive[A] = Hive[A]((_, _) => v)

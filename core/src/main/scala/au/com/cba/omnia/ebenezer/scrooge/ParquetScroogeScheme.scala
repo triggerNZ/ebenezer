@@ -22,8 +22,12 @@ import org.apache.hadoop.mapred.RecordReader
 import parquet.cascading.ParquetValueScheme
 import parquet.hadoop.mapred.DeprecatedParquetInputFormat
 import parquet.hadoop.mapred.DeprecatedParquetOutputFormat
+
 import cascading.flow.FlowProcess
 import cascading.tap.Tap
+import cascading.scheme.Scheme
+
+import com.twitter.scalding.HadoopSchemeInstance
 
 import com.twitter.scrooge.ThriftStruct
 
@@ -37,4 +41,9 @@ class ParquetScroogeScheme[A <: ThriftStruct : Manifest] extends ParquetValueSch
     conf.setInputFormat(classOf[DeprecatedParquetInputFormat[_]])
     ScroogeReadSupport.setAsParquetSupportClass[A](conf)
   }
+}
+
+object ParquetScroogeSchemeSupport {
+  def parquetHdfsScheme[T <: ThriftStruct](implicit m: Manifest[T]): cascading.scheme.Scheme[JobConf, RecordReader[_, _], OutputCollector[_, _], _, _] =
+    HadoopSchemeInstance(new ParquetScroogeScheme[T].asInstanceOf[Scheme[_, _, _, _, _]])
 }

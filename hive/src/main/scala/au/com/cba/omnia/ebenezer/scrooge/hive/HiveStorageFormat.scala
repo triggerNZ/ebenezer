@@ -14,22 +14,48 @@
 
 package au.com.cba.omnia.ebenezer.scrooge.hive
 
+import scala.collection.JavaConversions._
+
+import org.apache.hadoop.hive.metastore.api.{Table => MetadataTable}
+import org.apache.hadoop.hive.metastore.api.SerDeInfo
+
 /** Data type used to indicate Input and Output format for Hive table */
-sealed trait HiveStorageFormat
+trait HiveStorageFormat {
+  def inputFormat: String
+  def outputFormat: String
+  def serializationLibrary: String
 
-/**
-  * By passing [[ParquetFormat]] following classes will be used to format input and output
-  *  - PARQUET_INPUT_FORMAT = [[parquet.hive.DeprecatedParquetInputFormat]]
-  *  - PARQUET_OUTPUT_FORMAT = [[parquet.hive.DeprecatedParquetOutputFormat]]
-  */
-case object ParquetFormat extends HiveStorageFormat
+  def applyFormat(table: MetadataTable): MetadataTable = {
+    val serDeInfo = new SerDeInfo()
+    serDeInfo.setSerializationLib(serializationLibrary)
+    serDeInfo.setParameters(Map("serialization.format" -> "1"))
+    
+    table.getSd().setSerdeInfo(serDeInfo);
+    table.getSd().setInputFormat(inputFormat)
+    table.getSd().setOutputFormat(outputFormat)
+    table
+  }
+}
 
-/**
-  * By passing [[TextFormat]] default Hive input / output classes will be used
-  *  - INPUT_FORMAT_NAME = [[org.apache.hadoop.mapred.TextInputFormat]]
-  *  - OUTPUT_FORMAT_NAME = [[org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat]]
-  */
-case class TextFormat(delimiter: String = TextFormat.DEFAULT_DELIMITER) extends HiveStorageFormat
+case object ParquetFormat extends HiveStorageFormat {
+  val inputFormat          = classOf[org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat].getName
+  val outputFormat         = classOf[org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat].getName
+  val serializationLibrary = classOf[org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe].getName
+}
+
+case class TextFormat(delimiter: String = TextFormat.DEFAULT_DELIMITER) extends HiveStorageFormat {
+  val inputFormat          = classOf[org.apache.hadoop.mapred.TextInputFormat].getName
+  val outputFormat         = classOf[org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat[_, _]].getName
+  val serializationLibrary = classOf[org.apache.hadoop.hive.serde2.`lazy`.LazySimpleSerDe].getName
+  
+  override def applyFormat(table: MetadataTable): MetadataTable = {
+    val hiveMetaDataTable = super.applyFormat(table)
+    hiveMetaDataTable.getSd().getSerdeInfo().setParameters(
+      Map("serialization.format" -> delimiter, "field.delim" -> delimiter)
+    )
+    hiveMetaDataTable
+  }
+}
 
 object TextFormat {
   val DEFAULT_DELIMITER = "\u0001"

@@ -20,10 +20,10 @@ import com.twitter.scalding.Execution
 import com.twitter.scalding.typed.IterablePipe
 
 import org.apache.hadoop.hive.conf.HiveConf
-import org.apache.hadoop.hive.conf.HiveConf.ConfVars._
 
 import au.com.cba.omnia.ebenezer.ParquetLogging
-import au.com.cba.omnia.ebenezer.scrooge.hive._
+import au.com.cba.omnia.ebenezer.scrooge.hive.Hive
+import au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink
 
 object HiveExampleStep4 {
 
@@ -35,20 +35,20 @@ object HiveExampleStep4 {
   )
 
   def execute(db: String, src: String, dst: String): Execution[Unit] = {
-    val intermediateOut = PartitionHiveParquetScroogeSink[String, Customer](db, src, List("pid" -> "string"))
-    val intermediateIn  = PartitionHiveParquetScroogeSource[Customer](db, src, List("pid" -> "string"))
-    val output          = PartitionHiveParquetScroogeSink[String, Customer](db, dst, List("pid" -> "string"))
+    val conf = new HiveConf
 
-    val conf            = new HiveConf
-    conf.setVar(HIVEMERGEMAPFILES, "true")
-
-    IterablePipe(data)
-      .map(c => (c.id, c))
-      .writeExecution(intermediateOut)
-      .flatMap(_ => Execution.from {
-        Hive.createParquetTable[Customer](db, dst, List("pid" -> "string"))
-          .flatMap(_ => Hive.query(s"INSERT OVERWRITE TABLE $db.$dst PARTITION (pid) SELECT id, name, address, age, id as pid FROM $db.$src"))
-          .run(conf)
-      }).map(_ => ())
+    Execution.from({
+      for {
+        _    <- Hive.createParquetTable[Customer](db, src, List("pid" -> "string"))
+        path <- Hive.getPath(db, src)
+      } yield path.toString
+    }.run(conf).toOption.get).flatMap { p =>
+      IterablePipe(data).map(c => c.id -> c)
+        .writeExecution(PartitionParquetScroogeSink[String, Customer]("pid=%s", p))
+    }.flatMap(_ => Execution.from( {
+      Hive.repair(db, src) >>
+      Hive.createParquetTable[Customer](db, dst, List("pid" -> "string"))
+        .flatMap(_ => Hive.query(s"INSERT OVERWRITE TABLE $db.$dst PARTITION (pid) SELECT id, name, address, age, id as pid FROM $db.$src"))
+    }.run(conf))).map(_ => ())
   }
 }

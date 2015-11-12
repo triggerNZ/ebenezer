@@ -14,12 +14,17 @@
 
 package au.com.cba.omnia.ebenezer.example
 
+import scalaz.Scalaz._
+
+import org.apache.hadoop.fs.Path
+import org.apache.hadoop.hive.conf.HiveConf
+
 import com.twitter.scalding.{Execution, ExecutionApp}
 import com.twitter.scalding.typed.IterablePipe
 
 import au.com.cba.omnia.ebenezer.ParquetLogging
-import au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink
-
+import au.com.cba.omnia.ebenezer.scrooge.hive.Hive
+import au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink
 
 object HiveExampleStep1 extends ExecutionApp with ParquetLogging {
   val data = List(
@@ -34,8 +39,17 @@ object HiveExampleStep1 extends ExecutionApp with ParquetLogging {
     _    <- execute(args("db"), args("table"), args.optional("location"))
   } yield ()
 
-  def execute(db: String, table: String, location: Option[String] = None): Execution[Unit] =
-    IterablePipe(data)
-      .map(c => c.id -> c)
-      .writeExecution(PartitionHiveParquetScroogeSink[String, Customer](db, table, List("pid" -> "string"), location))
+  def execute(db: String, table: String, location: Option[String] = None): Execution[Unit] = {
+    val conf = new HiveConf
+
+    Execution.from({
+      for {
+        _    <- Hive.createParquetTable[Customer](db, table, List("pid" -> "string"), location.map(new Path(_)))
+        path <- Hive.getPath(db, table)
+      } yield path
+    }.run(conf).toOption.get).flatMap { p =>
+      IterablePipe(data).map(c => c.id -> c)
+        .writeExecution(PartitionParquetScroogeSink[String, Customer]("pid=%s", p.toString))
+    }.flatMap(_ => Execution.from(Hive.repair(db, table).run(conf))).map(_ => ()) 
+  }
 }

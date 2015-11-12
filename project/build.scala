@@ -27,10 +27,9 @@ import au.com.cba.omnia.uniform.assembly.UniformAssemblyPlugin._
 import au.com.cba.omnia.humbug.HumbugSBT._
 
 object build extends Build {
-  val thermometerVersion   = "1.0.2-20150724061242-6a77919"
-  val omnitoolVersion      = "1.10.0-20150430044321-3ca9118"
-  val humbugVersion        = "0.6.1-20150513010955-5eb6297"
-  val cascadingHiveVersion = "1.8.0-20150430045921-a72b7a0"
+  val thermometerVersion   = "1.2.0-20151022053411-06d7289"
+  val omnitoolVersion      = "1.12.0-20151021050758-700b9d0"
+  val humbugVersion        = "0.6.1-20151008040202-1f0ccb9"
 
   lazy val standardSettings =
     Defaults.coreDefaultSettings ++
@@ -97,9 +96,8 @@ object build extends Build {
         ++ uniformThriftSettings
         ++ Seq(
           libraryDependencies ++=
-            depend.hadoopClasspath ++ depend.hadoop() ++ depend.parquet() ++
+            depend.hadoopClasspath ++ depend.hadoop() ++ depend.parquet() ++ depend.hive() ++
             depend.omnia("omnitool-core", omnitoolVersion) ++
-            depend.omnia("cascading-hive", cascadingHiveVersion) ++
             depend.omnia("thermometer-hive", thermometerVersion, "test") ++ Seq(
               "au.com.cba.omnia" %% "omnitool-core" % omnitoolVersion % "test" classifier "tests"
             ),
@@ -142,20 +140,20 @@ object build extends Build {
   ).dependsOn(hive)
    .dependsOn(testProject % "test")
 
-  lazy val compat = Project(
-    id = "compat",
-    base = file("compat"),
-    settings =
-      standardSettings
-        ++ uniform.project("ebenezer-compat", "au.com.cba.omnia.ebenezer.compat")
-        ++ uniformThriftSettings
-        ++ uniformAssemblySettings
-        ++ Seq(
-          parallelExecution in Test := false,
-          libraryDependencies ++=
-            depend.hadoopClasspath ++ depend.hadoop() ++ depend.scalding() ++ depend.parquet() ++
-            depend.omnia("thermometer-hive", thermometerVersion)
-        )
-  ).dependsOn(hive)
-   .dependsOn(testProject % "test")
+  // lazy val compat = Project(
+  //   id = "compat",
+  //   base = file("compat"),
+  //   settings =
+  //     standardSettings
+  //       ++ uniform.project("ebenezer-compat", "au.com.cba.omnia.ebenezer.compat")
+  //       ++ uniformThriftSettings
+  //       ++ uniformAssemblySettings
+  //       ++ Seq(
+  //         parallelExecution in Test := false,
+  //         libraryDependencies ++=
+  //           depend.hadoopClasspath ++ depend.hadoop() ++ depend.scalding() ++ depend.parquet() ++
+  //           depend.omnia("thermometer-hive", thermometerVersion)
+  //       )
+  // ).dependsOn(hive)
+  //  .dependsOn(testProject % "test")
 }

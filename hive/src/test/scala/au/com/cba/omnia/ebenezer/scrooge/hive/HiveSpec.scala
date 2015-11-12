@@ -203,7 +203,7 @@ Hive operations:
 
     x must beValue(true)
   }
-  
+
   /** Note these are not general purpose, specific to testing laws. */
   implicit def HiveArbirary[A : Arbitrary]: Arbitrary[Hive[A]] =
     Arbitrary(Arbitrary.arbitrary[Result[A]] map (Hive.result(_)))

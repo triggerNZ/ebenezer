@@ -14,11 +14,16 @@
 
 package au.com.cba.omnia.ebenezer.example
 
+import scalaz.Scalaz._
+
 import com.twitter.scalding.{Execution, ExecutionApp}
 import com.twitter.scalding.typed.IterablePipe
 
+import org.apache.hadoop.hive.conf.HiveConf
+
 import au.com.cba.omnia.ebenezer.ParquetLogging
-import au.com.cba.omnia.ebenezer.scrooge.hive.HiveParquetScroogeSource
+import au.com.cba.omnia.ebenezer.scrooge.hive.Hive
+import au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSource
 
 object HiveExampleStep3 extends ExecutionApp with ParquetLogging {
   val data = List(
@@ -44,7 +49,17 @@ object HiveExampleStep3 extends ExecutionApp with ParquetLogging {
     _    <- execute(args("db"), args("table"))
   } yield ()
 
-  def execute(db: String, table: String) =
-    IterablePipe(data)
-      .writeExecution(HiveParquetScroogeSource[Nested](db, table))
+  def execute(db: String, table: String) = {
+    val conf = new HiveConf
+
+    Execution.from({
+      for {
+        _    <- Hive.createParquetTable[Nested](db, table, List.empty)
+        path <- Hive.getPath(db, table)
+      } yield path.toString
+    }.run(conf).toOption.get).flatMap { p =>
+      IterablePipe(data)
+        .writeExecution(ParquetScroogeSource[Nested](p))
+    }
+  }
 }
