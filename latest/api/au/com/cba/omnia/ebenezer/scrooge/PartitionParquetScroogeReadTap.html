@@ -1,22 +1,22 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>PartitionHiveParquetReadTap - au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap</title>
-          <meta name="description" content="PartitionHiveParquetReadTap - au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap" />
-          <meta name="keywords" content="PartitionHiveParquetReadTap au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap" />
+          <title>PartitionParquetScroogeReadTap - au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap</title>
+          <meta name="description" content="PartitionParquetScroogeReadTap - au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap" />
+          <meta name="keywords" content="PartitionParquetScroogeReadTap au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link href="../../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
-      <link href="../../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
-      <script type="text/javascript" src="../../../../../../../lib/jquery.js" id="jquery-js"></script>
-      <script type="text/javascript" src="../../../../../../../lib/jquery-ui.js"></script>
-      <script type="text/javascript" src="../../../../../../../lib/template.js"></script>
-      <script type="text/javascript" src="../../../../../../../lib/tools.tooltip.js"></script>
+      <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
       
       <script type="text/javascript">
          if(top === self) {
-            var url = '../../../../../../../index.html';
-            var hash = 'au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap';
+            var url = '../../../../../../index.html';
+            var hash = 'au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -28,13 +28,13 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img src="../../../../../../../lib/class_big.png" />
-        <p id="owner"><a href="../../../../../../package.html" class="extype" name="au">au</a>.<a href="../../../../../package.html" class="extype" name="au.com">com</a>.<a href="../../../../package.html" class="extype" name="au.com.cba">cba</a>.<a href="../../../package.html" class="extype" name="au.com.cba.omnia">omnia</a>.<a href="../../package.html" class="extype" name="au.com.cba.omnia.ebenezer">ebenezer</a>.<a href="../package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge">scrooge</a>.<a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive">hive</a></p>
-        <h1>PartitionHiveParquetReadTap</h1><h3><span class="morelinks"><div>Related Doc:
-            <a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive">package hive</a>
+        <img src="../../../../../../lib/class_big.png" />
+        <p id="owner"><a href="../../../../../package.html" class="extype" name="au">au</a>.<a href="../../../../package.html" class="extype" name="au.com">com</a>.<a href="../../../package.html" class="extype" name="au.com.cba">cba</a>.<a href="../../package.html" class="extype" name="au.com.cba.omnia">omnia</a>.<a href="../package.html" class="extype" name="au.com.cba.omnia.ebenezer">ebenezer</a>.<a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge">scrooge</a></p>
+        <h1>PartitionParquetScroogeReadTap</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge">package scrooge</a>
           </div></span></h3><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       </div>
@@ -45,15 +45,15 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">PartitionHiveParquetReadTap</span><span class="result"> extends <span class="extype" name="cascading.tap.hive.HiveTap">HiveTap</span></span>
+        <span class="name">PartitionParquetScroogeReadTap</span><span class="result"> extends <span class="extype" name="cascading.tap.hadoop.Hfs">Hfs</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Custom tap for reading partitioned hive parquet tables.</p><p>See <a href="PartitionHiveParquetScroogeSink.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink">PartitionHiveParquetScroogeSink</a> for why this is needed. This will add globs for all the
-underlying partitions to the path of the hive table.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/ad402395a1015c0e1e093d61d68208823afa35ed//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/ParititionHiveParquetTap.scala" target="_blank">ParititionHiveParquetTap.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Custom tap for reading partitioned parquet files.</p><p>See <a href="PartitionParquetScroogeSource.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource">PartitionParquetScroogeSource</a> for use. This will add globs for all the
+underlying partitions to the path of <code>Hfs</code>.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/03511b2bf7e838cbcee81a61ac47bc682de93655//core/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/PartitionParquetScroogeTaps.scala" target="_blank">PartitionParquetScroogeTaps.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="cascading.tap.hive.HiveTap">HiveTap</span>, <span class="extype" name="cascading.tap.hadoop.Hfs">Hfs</span>, <span class="extype" name="cascading.tap.type.FileType">FileType</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>], <span class="extype" name="cascading.tap.Tap">Tap</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>, <span class="extype" name="org.apache.hadoop.mapred.RecordReader">RecordReader</span>[_, _], <span class="extype" name="org.apache.hadoop.mapred.OutputCollector">OutputCollector</span>[_, _]], <span class="extype" name="cascading.util.Traceable">Traceable</span>, <span class="extype" name="cascading.flow.FlowElement">FlowElement</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="cascading.tap.hadoop.Hfs">Hfs</span>, <span class="extype" name="cascading.tap.type.FileType">FileType</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>], <span class="extype" name="cascading.tap.Tap">Tap</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>, <span class="extype" name="org.apache.hadoop.mapred.RecordReader">RecordReader</span>[_, _], <span class="extype" name="org.apache.hadoop.mapred.OutputCollector">OutputCollector</span>[_, _]], <span class="extype" name="cascading.util.Traceable">Traceable</span>, <span class="extype" name="cascading.flow.FlowElement">FlowElement</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -71,7 +71,7 @@ underlying partitions to the path of the hive table.
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap"><span>PartitionHiveParquetReadTap</span></li><li class="in" name="cascading.tap.hive.HiveTap"><span>HiveTap</span></li><li class="in" name="cascading.tap.hadoop.Hfs"><span>Hfs</span></li><li class="in" name="cascading.tap.type.FileType"><span>FileType</span></li><li class="in" name="cascading.tap.Tap"><span>Tap</span></li><li class="in" name="cascading.util.Traceable"><span>Traceable</span></li><li class="in" name="cascading.flow.FlowElement"><span>FlowElement</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap"><span>PartitionParquetScroogeReadTap</span></li><li class="in" name="cascading.tap.hadoop.Hfs"><span>Hfs</span></li><li class="in" name="cascading.tap.type.FileType"><span>FileType</span></li><li class="in" name="cascading.tap.Tap"><span>Tap</span></li><li class="in" name="cascading.util.Traceable"><span>Traceable</span></li><li class="in" name="cascading.flow.FlowElement"><span>FlowElement</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -91,20 +91,20 @@ underlying partitions to the path of the hive table.
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(tableDescriptor:cascading.tap.hive.HiveTableDescriptor,hdfsScheme:cascading.scheme.Scheme[_,_,_,_,_]):au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap"></a>
-      <a id="&lt;init&gt;:PartitionHiveParquetReadTap"></a>
+              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(path:String,partition:cascading.tap.partition.Partition,hdfsScheme:cascading.scheme.Scheme[org.apache.hadoop.mapred.JobConf,org.apache.hadoop.mapred.RecordReader[_,_],org.apache.hadoop.mapred.OutputCollector[_,_],_,_]):au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap"></a>
+      <a id="&lt;init&gt;:PartitionParquetScroogeReadTap"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">PartitionHiveParquetReadTap</span><span class="params">(<span name="tableDescriptor">tableDescriptor: <span class="extype" name="cascading.tap.hive.HiveTableDescriptor">HiveTableDescriptor</span></span>, <span name="hdfsScheme">hdfsScheme: <span class="extype" name="cascading.scheme.Scheme">Scheme</span>[_, _, _, _, _]</span>)</span>
+        <span class="name">PartitionParquetScroogeReadTap</span><span class="params">(<span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partition">partition: <span class="extype" name="cascading.tap.partition.Partition">Partition</span></span>, <span name="hdfsScheme">hdfsScheme: <span class="extype" name="cascading.scheme.Scheme">Scheme</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>, <span class="extype" name="org.apache.hadoop.mapred.RecordReader">RecordReader</span>[_, _], <span class="extype" name="org.apache.hadoop.mapred.OutputCollector">OutputCollector</span>[_, _], _, _]</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@&lt;init&gt;(tableDescriptor:cascading.tap.hive.HiveTableDescriptor,hdfsScheme:cascading.scheme.Scheme[_,_,_,_,_]):au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@&lt;init&gt;(path:String,partition:cascading.tap.partition.Partition,hdfsScheme:cascading.scheme.Scheme[org.apache.hadoop.mapred.JobConf,org.apache.hadoop.mapred.RecordReader[_,_],org.apache.hadoop.mapred.OutputCollector[_,_],_,_]):au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       
@@ -129,8 +129,8 @@ underlying partitions to the path of the hive table.
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@!=(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -146,8 +146,8 @@ underlying partitions to the path of the hive table.
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@##():Int" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -163,8 +163,8 @@ underlying partitions to the path of the hive table.
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@==(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -180,11 +180,11 @@ underlying partitions to the path of the hive table.
         <span class="name">applySourceConfInitIdentifiers</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>, <span name="arg2">arg2: <span class="extype" name="scala.&lt;repeated...&gt;">&lt;repeated...&gt;</span>[<span class="extype" name="java.lang.String">String</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@applySourceConfInitIdentifiers(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.JobConf,x$3:String*):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@applySourceConfInitIdentifiers(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.JobConf,x$3:String*):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -197,8 +197,8 @@ underlying partitions to the path of the hive table.
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@asInstanceOf[T0]:T0" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -214,19 +214,19 @@ underlying partitions to the path of the hive table.
         <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@clone():Object" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="cascading.tap.hive.HiveTap#commitResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="commitResource(x$1:org.apache.hadoop.mapred.JobConf):Boolean"></a>
+    </li><li name="cascading.tap.Tap#commitResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="commitResource(x$1:Config):Boolean"></a>
       <a id="commitResource(JobConf):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -237,18 +237,18 @@ underlying partitions to the path of the hive table.
         <span class="name">commitResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@commitResource(x$1:org.apache.hadoop.mapred.JobConf):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@commitResource(x$1:Config):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>HiveTap → Tap</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="symbol">classOf[java.io.IOException]</span>
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="cascading.tap.hive.HiveTap#createResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="cascading.tap.hadoop.Hfs#createResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="createResource(x$1:org.apache.hadoop.mapred.JobConf):Boolean"></a>
       <a id="createResource(JobConf):Boolean"></a>
       <h4 class="signature">
@@ -260,11 +260,11 @@ underlying partitions to the path of the hive table.
         <span class="name">createResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@createResource(x$1:org.apache.hadoop.mapred.JobConf):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@createResource(x$1:org.apache.hadoop.mapred.JobConf):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>HiveTap → Hfs → Tap</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → Tap</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="symbol">classOf[java.io.IOException]</span>
@@ -283,8 +283,8 @@ underlying partitions to the path of the hive table.
         <span class="name">createResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@createResource(x$1:cascading.flow.FlowProcess[Config]):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@createResource(x$1:cascading.flow.FlowProcess[Config]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
@@ -306,8 +306,8 @@ underlying partitions to the path of the hive table.
         <span class="name">deleteChildResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>, <span name="arg1">arg1: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@deleteChildResource(x$1:org.apache.hadoop.mapred.JobConf,x$2:String):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@deleteChildResource(x$1:org.apache.hadoop.mapred.JobConf,x$2:String):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs</dd><dt>Annotations</dt><dd>
@@ -317,7 +317,7 @@ underlying partitions to the path of the hive table.
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="cascading.tap.hive.HiveTap#deleteResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="cascading.tap.hadoop.Hfs#deleteResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="deleteResource(x$1:org.apache.hadoop.mapred.JobConf):Boolean"></a>
       <a id="deleteResource(JobConf):Boolean"></a>
       <h4 class="signature">
@@ -329,11 +329,11 @@ underlying partitions to the path of the hive table.
         <span class="name">deleteResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@deleteResource(x$1:org.apache.hadoop.mapred.JobConf):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@deleteResource(x$1:org.apache.hadoop.mapred.JobConf):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>HiveTap → Hfs → Tap</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → Tap</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="symbol">classOf[java.io.IOException]</span>
@@ -352,8 +352,8 @@ underlying partitions to the path of the hive table.
         <span class="name">deleteResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@deleteResource(x$1:cascading.flow.FlowProcess[Config]):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@deleteResource(x$1:cascading.flow.FlowProcess[Config]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
@@ -375,8 +375,8 @@ underlying partitions to the path of the hive table.
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -392,8 +392,8 @@ underlying partitions to the path of the hive table.
         <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@equals(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → AnyRef → Any</dd></dl></div>
@@ -409,11 +409,11 @@ underlying partitions to the path of the hive table.
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@finalize():Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="symbol">classOf[java.lang.Throwable]</span>
@@ -432,8 +432,8 @@ underlying partitions to the path of the hive table.
         <span class="name">flowConfInit</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.Flow">Flow</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@flowConfInit(x$1:cascading.flow.Flow[Config]):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@flowConfInit(x$1:cascading.flow.Flow[Config]):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -449,8 +449,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getBlockSize</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getBlockSize(x$1:org.apache.hadoop.mapred.JobConf):Long" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getBlockSize(x$1:org.apache.hadoop.mapred.JobConf):Long" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs</dd><dt>Annotations</dt><dd>
@@ -472,8 +472,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getChildIdentifiers</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="arg2">arg2: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="java.lang.String">String</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getChildIdentifiers(x$1:org.apache.hadoop.mapred.JobConf,x$2:Int,x$3:Boolean):Array[String]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getChildIdentifiers(x$1:org.apache.hadoop.mapred.JobConf,x$2:Int,x$3:Boolean):Array[String]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → FileType</dd><dt>Annotations</dt><dd>
@@ -495,8 +495,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getChildIdentifiers</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="java.lang.String">String</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getChildIdentifiers(x$1:org.apache.hadoop.mapred.JobConf):Array[String]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getChildIdentifiers(x$1:org.apache.hadoop.mapred.JobConf):Array[String]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → FileType</dd><dt>Annotations</dt><dd>
@@ -518,8 +518,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getClass():Class[_]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -535,8 +535,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getConfigDef</span><span class="params">()</span><span class="result">: <span class="extype" name="cascading.property.ConfigDef">ConfigDef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getConfigDef():cascading.property.ConfigDef" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getConfigDef():cascading.property.ConfigDef" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → FlowElement</dd></dl></div>
@@ -552,11 +552,11 @@ underlying partitions to the path of the hive table.
         <span class="name">getDefaultFileSystem</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="org.apache.hadoop.fs.FileSystem">FileSystem</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getDefaultFileSystem(x$1:org.apache.hadoop.mapred.JobConf):org.apache.hadoop.fs.FileSystem" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getDefaultFileSystem(x$1:org.apache.hadoop.mapred.JobConf):org.apache.hadoop.fs.FileSystem" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
     </li><li name="cascading.tap.hadoop.Hfs#getDefaultFileSystemURIScheme" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getDefaultFileSystemURIScheme(x$1:org.apache.hadoop.mapred.JobConf):java.net.URI"></a>
       <a id="getDefaultFileSystemURIScheme(JobConf):URI"></a>
@@ -569,8 +569,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getDefaultFileSystemURIScheme</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="java.net.URI">URI</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getDefaultFileSystemURIScheme(x$1:org.apache.hadoop.mapred.JobConf):java.net.URI" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getDefaultFileSystemURIScheme(x$1:org.apache.hadoop.mapred.JobConf):java.net.URI" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
@@ -586,11 +586,11 @@ underlying partitions to the path of the hive table.
         <span class="name">getFileSystem</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="org.apache.hadoop.fs.FileSystem">FileSystem</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getFileSystem(x$1:org.apache.hadoop.mapred.JobConf):org.apache.hadoop.fs.FileSystem" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getFileSystem(x$1:org.apache.hadoop.mapred.JobConf):org.apache.hadoop.fs.FileSystem" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
     </li><li name="cascading.tap.hadoop.Hfs#getFullIdentifier" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getFullIdentifier(x$1:org.apache.hadoop.mapred.JobConf):String"></a>
       <a id="getFullIdentifier(JobConf):String"></a>
@@ -603,8 +603,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getFullIdentifier</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getFullIdentifier(x$1:org.apache.hadoop.mapred.JobConf):String" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getFullIdentifier(x$1:org.apache.hadoop.mapred.JobConf):String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → Tap</dd></dl></div>
@@ -620,8 +620,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getFullIdentifier</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getFullIdentifier(x$1:cascading.flow.FlowProcess[Config]):String" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getFullIdentifier(x$1:cascading.flow.FlowProcess[Config]):String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -637,12 +637,12 @@ underlying partitions to the path of the hive table.
         <span class="name">getIdentifier</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getIdentifier():String" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getIdentifier():String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → Tap</dd></dl></div>
-    </li><li name="cascading.tap.hive.HiveTap#getModifiedTime" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="cascading.tap.hadoop.Hfs#getModifiedTime" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getModifiedTime(x$1:org.apache.hadoop.mapred.JobConf):Long"></a>
       <a id="getModifiedTime(JobConf):Long"></a>
       <h4 class="signature">
@@ -654,11 +654,11 @@ underlying partitions to the path of the hive table.
         <span class="name">getModifiedTime</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getModifiedTime(x$1:org.apache.hadoop.mapred.JobConf):Long" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getModifiedTime(x$1:org.apache.hadoop.mapred.JobConf):Long" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>HiveTap → Hfs → Tap</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → Tap</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="symbol">classOf[java.io.IOException]</span>
@@ -677,8 +677,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getModifiedTime</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getModifiedTime(x$1:cascading.flow.FlowProcess[Config]):Long" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getModifiedTime(x$1:cascading.flow.FlowProcess[Config]):Long" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
@@ -700,8 +700,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getPath</span><span class="params">()</span><span class="result">: <span class="extype" name="org.apache.hadoop.fs.Path">Path</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getPath():org.apache.hadoop.fs.Path" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getPath():org.apache.hadoop.fs.Path" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
@@ -717,8 +717,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getReplication</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getReplication(x$1:org.apache.hadoop.mapred.JobConf):Int" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getReplication(x$1:org.apache.hadoop.mapred.JobConf):Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs</dd><dt>Annotations</dt><dd>
@@ -740,8 +740,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getScheme</span><span class="params">()</span><span class="result">: <span class="extype" name="cascading.scheme.Scheme">Scheme</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>, <span class="extype" name="org.apache.hadoop.mapred.RecordReader">RecordReader</span>[_, _], <span class="extype" name="org.apache.hadoop.mapred.OutputCollector">OutputCollector</span>[_, _], _, _]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getScheme():cascading.scheme.Scheme[Config,Input,Output,_,_]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getScheme():cascading.scheme.Scheme[Config,Input,Output,_,_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -757,8 +757,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getSinkFields</span><span class="params">()</span><span class="result">: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getSinkFields():cascading.tuple.Fields" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getSinkFields():cascading.tuple.Fields" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -774,8 +774,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getSinkMode</span><span class="params">()</span><span class="result">: <span class="extype" name="cascading.tap.SinkMode">SinkMode</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getSinkMode():cascading.tap.SinkMode" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getSinkMode():cascading.tap.SinkMode" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -791,8 +791,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getSize</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getSize(x$1:org.apache.hadoop.mapred.JobConf):Long" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getSize(x$1:org.apache.hadoop.mapred.JobConf):Long" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → FileType</dd><dt>Annotations</dt><dd>
@@ -814,8 +814,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getSourceFields</span><span class="params">()</span><span class="result">: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getSourceFields():cascading.tuple.Fields" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getSourceFields():cascading.tuple.Fields" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -831,8 +831,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getStepConfigDef</span><span class="params">()</span><span class="result">: <span class="extype" name="cascading.property.ConfigDef">ConfigDef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getStepConfigDef():cascading.property.ConfigDef" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getStepConfigDef():cascading.property.ConfigDef" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → FlowElement</dd></dl></div>
@@ -848,8 +848,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getTrace</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getTrace():String" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getTrace():String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → Traceable</dd></dl></div>
@@ -865,8 +865,8 @@ underlying partitions to the path of the hive table.
         <span class="name">getURIScheme</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="java.net.URI">URI</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@getURIScheme(x$1:org.apache.hadoop.mapred.JobConf):java.net.URI" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@getURIScheme(x$1:org.apache.hadoop.mapred.JobConf):java.net.URI" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
@@ -882,8 +882,8 @@ underlying partitions to the path of the hive table.
         <span class="name">hasConfigDef</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@hasConfigDef():Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@hasConfigDef():Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → FlowElement</dd></dl></div>
@@ -899,8 +899,8 @@ underlying partitions to the path of the hive table.
         <span class="name">hasStepConfigDef</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@hasStepConfigDef():Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@hasStepConfigDef():Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → FlowElement</dd></dl></div>
@@ -916,8 +916,8 @@ underlying partitions to the path of the hive table.
         <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@hashCode():Int" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → AnyRef → Any</dd></dl></div>
@@ -933,8 +933,8 @@ underlying partitions to the path of the hive table.
         <span class="name">isDirectory</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@isDirectory(x$1:org.apache.hadoop.mapred.JobConf):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@isDirectory(x$1:org.apache.hadoop.mapred.JobConf):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → FileType</dd><dt>Annotations</dt><dd>
@@ -956,8 +956,8 @@ underlying partitions to the path of the hive table.
         <span class="name">isEquivalentTo</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowElement">FlowElement</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@isEquivalentTo(x$1:cascading.flow.FlowElement):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@isEquivalentTo(x$1:cascading.flow.FlowElement):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → FlowElement</dd></dl></div>
@@ -973,8 +973,8 @@ underlying partitions to the path of the hive table.
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -990,8 +990,8 @@ underlying partitions to the path of the hive table.
         <span class="name">isKeep</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@isKeep():Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@isKeep():Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -1007,8 +1007,8 @@ underlying partitions to the path of the hive table.
         <span class="name">isReplace</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@isReplace():Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@isReplace():Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -1024,8 +1024,8 @@ underlying partitions to the path of the hive table.
         <span class="name">isSink</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@isSink():Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@isSink():Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -1041,8 +1041,8 @@ underlying partitions to the path of the hive table.
         <span class="name">isSource</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@isSource():Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@isSource():Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -1058,8 +1058,8 @@ underlying partitions to the path of the hive table.
         <span class="name">isTemporary</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@isTemporary():Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@isTemporary():Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -1075,8 +1075,8 @@ underlying partitions to the path of the hive table.
         <span class="name">isUpdate</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@isUpdate():Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@isUpdate():Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -1092,11 +1092,11 @@ underlying partitions to the path of the hive table.
         <span class="name">makeTemporaryPathDirString</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@makeTemporaryPathDirString(x$1:String):String" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@makeTemporaryPathDirString(x$1:String):String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
     </li><li name="cascading.tap.hadoop.Hfs#makeURIScheme" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="makeURIScheme(x$1:org.apache.hadoop.mapred.JobConf):java.net.URI"></a>
       <a id="makeURIScheme(JobConf):URI"></a>
@@ -1109,11 +1109,11 @@ underlying partitions to the path of the hive table.
         <span class="name">makeURIScheme</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <span class="extype" name="java.net.URI">URI</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@makeURIScheme(x$1:org.apache.hadoop.mapred.JobConf):java.net.URI" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@makeURIScheme(x$1:org.apache.hadoop.mapred.JobConf):java.net.URI" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -1126,8 +1126,8 @@ underlying partitions to the path of the hive table.
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -1143,8 +1143,8 @@ underlying partitions to the path of the hive table.
         <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@notify():Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -1160,8 +1160,8 @@ underlying partitions to the path of the hive table.
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@notifyAll():Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -1177,8 +1177,8 @@ underlying partitions to the path of the hive table.
         <span class="name">openForRead</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="org.apache.hadoop.mapred.RecordReader">RecordReader</span>[_, _]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.TupleEntryIterator">TupleEntryIterator</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@openForRead(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.RecordReader[_,_]):cascading.tuple.TupleEntryIterator" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@openForRead(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.RecordReader[_,_]):cascading.tuple.TupleEntryIterator" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → Tap</dd><dt>Annotations</dt><dd>
@@ -1200,8 +1200,8 @@ underlying partitions to the path of the hive table.
         <span class="name">openForRead</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.TupleEntryIterator">TupleEntryIterator</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@openForRead(x$1:cascading.flow.FlowProcess[Config]):cascading.tuple.TupleEntryIterator" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@openForRead(x$1:cascading.flow.FlowProcess[Config]):cascading.tuple.TupleEntryIterator" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
@@ -1223,8 +1223,8 @@ underlying partitions to the path of the hive table.
         <span class="name">openForWrite</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="org.apache.hadoop.mapred.OutputCollector">OutputCollector</span>[_, _]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.TupleEntryCollector">TupleEntryCollector</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@openForWrite(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.OutputCollector[_,_]):cascading.tuple.TupleEntryCollector" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@openForWrite(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.OutputCollector[_,_]):cascading.tuple.TupleEntryCollector" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → Tap</dd><dt>Annotations</dt><dd>
@@ -1246,8 +1246,8 @@ underlying partitions to the path of the hive table.
         <span class="name">openForWrite</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.TupleEntryCollector">TupleEntryCollector</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@openForWrite(x$1:cascading.flow.FlowProcess[Config]):cascading.tuple.TupleEntryCollector" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@openForWrite(x$1:cascading.flow.FlowProcess[Config]):cascading.tuple.TupleEntryCollector" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
@@ -1269,8 +1269,8 @@ underlying partitions to the path of the hive table.
         <span class="name">outgoingScopeFor</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.util.Set">Set</span>[<span class="extype" name="cascading.flow.planner.Scope">Scope</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.flow.planner.Scope">Scope</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@outgoingScopeFor(x$1:java.util.Set[cascading.flow.planner.Scope]):cascading.flow.planner.Scope" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@outgoingScopeFor(x$1:java.util.Set[cascading.flow.planner.Scope]):cascading.flow.planner.Scope" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → FlowElement</dd></dl></div>
@@ -1286,8 +1286,8 @@ underlying partitions to the path of the hive table.
         <span class="name">presentSinkFields</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@presentSinkFields(x$1:cascading.flow.FlowProcess[Config],x$2:cascading.tuple.Fields):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@presentSinkFields(x$1:cascading.flow.FlowProcess[Config],x$2:cascading.tuple.Fields):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -1303,8 +1303,8 @@ underlying partitions to the path of the hive table.
         <span class="name">presentSourceFields</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@presentSourceFields(x$1:cascading.flow.FlowProcess[Config],x$2:cascading.tuple.Fields):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@presentSourceFields(x$1:cascading.flow.FlowProcess[Config],x$2:cascading.tuple.Fields):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -1320,8 +1320,8 @@ underlying partitions to the path of the hive table.
         <span class="name">resolveIncomingOperationArgumentFields</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.planner.Scope">Scope</span></span>)</span><span class="result">: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@resolveIncomingOperationArgumentFields(x$1:cascading.flow.planner.Scope):cascading.tuple.Fields" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@resolveIncomingOperationArgumentFields(x$1:cascading.flow.planner.Scope):cascading.tuple.Fields" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → FlowElement</dd></dl></div>
@@ -1337,12 +1337,12 @@ underlying partitions to the path of the hive table.
         <span class="name">resolveIncomingOperationPassThroughFields</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.planner.Scope">Scope</span></span>)</span><span class="result">: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@resolveIncomingOperationPassThroughFields(x$1:cascading.flow.planner.Scope):cascading.tuple.Fields" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@resolveIncomingOperationPassThroughFields(x$1:cascading.flow.planner.Scope):cascading.tuple.Fields" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → FlowElement</dd></dl></div>
-    </li><li name="cascading.tap.hive.HiveTap#resourceExists" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="cascading.tap.hadoop.Hfs#resourceExists" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="resourceExists(x$1:org.apache.hadoop.mapred.JobConf):Boolean"></a>
       <a id="resourceExists(JobConf):Boolean"></a>
       <h4 class="signature">
@@ -1354,11 +1354,11 @@ underlying partitions to the path of the hive table.
         <span class="name">resourceExists</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@resourceExists(x$1:org.apache.hadoop.mapred.JobConf):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@resourceExists(x$1:org.apache.hadoop.mapred.JobConf):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>HiveTap → Hfs → Tap</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → Tap</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="symbol">classOf[java.io.IOException]</span>
@@ -1377,8 +1377,8 @@ underlying partitions to the path of the hive table.
         <span class="name">resourceExists</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@resourceExists(x$1:cascading.flow.FlowProcess[Config]):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@resourceExists(x$1:cascading.flow.FlowProcess[Config]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
@@ -1400,8 +1400,8 @@ underlying partitions to the path of the hive table.
         <span class="name">retrieveSinkFields</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@retrieveSinkFields(x$1:cascading.flow.FlowProcess[Config]):cascading.tuple.Fields" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@retrieveSinkFields(x$1:cascading.flow.FlowProcess[Config]):cascading.tuple.Fields" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -1417,8 +1417,8 @@ underlying partitions to the path of the hive table.
         <span class="name">retrieveSourceFields</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>)</span><span class="result">: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@retrieveSourceFields(x$1:cascading.flow.FlowProcess[Config]):cascading.tuple.Fields" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@retrieveSourceFields(x$1:cascading.flow.FlowProcess[Config]):cascading.tuple.Fields" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd></dl></div>
@@ -1434,8 +1434,8 @@ underlying partitions to the path of the hive table.
         <span class="name">rollbackResource</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@rollbackResource(x$1:Config):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@rollbackResource(x$1:Config):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap</dd><dt>Annotations</dt><dd>
@@ -1457,13 +1457,13 @@ underlying partitions to the path of the hive table.
         <span class="name">setScheme</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.scheme.Scheme">Scheme</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>, <span class="extype" name="org.apache.hadoop.mapred.RecordReader">RecordReader</span>[_, _], <span class="extype" name="org.apache.hadoop.mapred.OutputCollector">OutputCollector</span>[_, _], _, _]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@setScheme(x$1:cascading.scheme.Scheme[Config,Input,Output,_,_]):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@setScheme(x$1:cascading.scheme.Scheme[Config,Input,Output,_,_]):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap.html" class="extype" name="cascading.tap">cascading.tap</a>] </dd><dt>Definition Classes</dt><dd>Tap</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap#setStringPath" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="setStringPath(path:String):Unit"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../cascading$tap.html" class="extype" name="cascading.tap">cascading.tap</a>] </dd><dt>Definition Classes</dt><dd>Tap</dd></dl></div>
+    </li><li name="cascading.tap.hadoop.Hfs#setStringPath" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setStringPath(x$1:String):Unit"></a>
       <a id="setStringPath(String):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -1471,14 +1471,14 @@ underlying partitions to the path of the hive table.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setStringPath</span><span class="params">(<span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">setStringPath</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@setStringPath(path:String):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@setStringPath(x$1:String):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap">PartitionHiveParquetReadTap</a> → Hfs</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
     </li><li name="cascading.tap.hadoop.Hfs#setUriScheme" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setUriScheme(x$1:java.net.URI):Unit"></a>
       <a id="setUriScheme(URI):Unit"></a>
@@ -1491,11 +1491,11 @@ underlying partitions to the path of the hive table.
         <span class="name">setUriScheme</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.net.URI">URI</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@setUriScheme(x$1:java.net.URI):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@setUriScheme(x$1:java.net.URI):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
     </li><li name="cascading.tap.hadoop.Hfs#sinkConfInit" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sinkConfInit(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.JobConf):Unit"></a>
       <a id="sinkConfInit(FlowProcess[JobConf],JobConf):Unit"></a>
@@ -1508,8 +1508,8 @@ underlying partitions to the path of the hive table.
         <span class="name">sinkConfInit</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@sinkConfInit(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.JobConf):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@sinkConfInit(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.JobConf):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → Tap</dd></dl></div>
@@ -1525,8 +1525,8 @@ underlying partitions to the path of the hive table.
         <span class="name">sourceConfInit</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@sourceConfInit(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.JobConf):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@sourceConfInit(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.JobConf):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Hfs → Tap</dd></dl></div>
@@ -1542,11 +1542,11 @@ underlying partitions to the path of the hive table.
         <span class="name">sourceConfInitAddInputPath</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>, <span name="arg1">arg1: <span class="extype" name="org.apache.hadoop.fs.Path">Path</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@sourceConfInitAddInputPath(x$1:org.apache.hadoop.mapred.JobConf,x$2:org.apache.hadoop.fs.Path):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@sourceConfInitAddInputPath(x$1:org.apache.hadoop.mapred.JobConf,x$2:org.apache.hadoop.fs.Path):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
     </li><li name="cascading.tap.hadoop.Hfs#sourceConfInitComplete" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sourceConfInitComplete(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.JobConf):Unit"></a>
       <a id="sourceConfInitComplete(FlowProcess[JobConf],JobConf):Unit"></a>
@@ -1559,11 +1559,11 @@ underlying partitions to the path of the hive table.
         <span class="name">sourceConfInitComplete</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="cascading.flow.FlowProcess">FlowProcess</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</span>, <span name="arg1">arg1: <span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@sourceConfInitComplete(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.JobConf):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@sourceConfInitComplete(x$1:cascading.flow.FlowProcess[org.apache.hadoop.mapred.JobConf],x$2:org.apache.hadoop.mapred.JobConf):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../cascading$tap$hadoop.html" class="extype" name="cascading.tap.hadoop">cascading.tap.hadoop</a>] </dd><dt>Definition Classes</dt><dd>Hfs</dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -1576,8 +1576,8 @@ underlying partitions to the path of the hive table.
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -1593,8 +1593,8 @@ underlying partitions to the path of the hive table.
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@toString():String" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Tap → AnyRef → Any</dd></dl></div>
@@ -1610,8 +1610,8 @@ underlying partitions to the path of the hive table.
         <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@wait():Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -1633,8 +1633,8 @@ underlying partitions to the path of the hive table.
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -1656,8 +1656,8 @@ underlying partitions to the path of the hive table.
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetReadTap@wait(x$1:Long):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -1676,9 +1676,7 @@ underlying partitions to the path of the hive table.
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="cascading.tap.hive.HiveTap">
-              <h3>Inherited from <span class="extype" name="cascading.tap.hive.HiveTap">HiveTap</span></h3>
-            </div><div class="parent" name="cascading.tap.hadoop.Hfs">
+        <div class="parent" name="cascading.tap.hadoop.Hfs">
               <h3>Inherited from <span class="extype" name="cascading.tap.hadoop.Hfs">Hfs</span></h3>
             </div><div class="parent" name="cascading.tap.type.FileType">
               <h3>Inherited from <span class="extype" name="cascading.tap.type.FileType">FileType</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>]</h3>

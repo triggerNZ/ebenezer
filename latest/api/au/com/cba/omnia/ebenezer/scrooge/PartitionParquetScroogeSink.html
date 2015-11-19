@@ -1,22 +1,22 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>PartitionHiveParquetScroogeSink - au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink</title>
-          <meta name="description" content="PartitionHiveParquetScroogeSink - au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink" />
-          <meta name="keywords" content="PartitionHiveParquetScroogeSink au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink" />
+          <title>PartitionParquetScroogeSink - au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink</title>
+          <meta name="description" content="PartitionParquetScroogeSink - au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink" />
+          <meta name="keywords" content="PartitionParquetScroogeSink au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link href="../../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
-      <link href="../../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
-      <script type="text/javascript" src="../../../../../../../lib/jquery.js" id="jquery-js"></script>
-      <script type="text/javascript" src="../../../../../../../lib/jquery-ui.js"></script>
-      <script type="text/javascript" src="../../../../../../../lib/template.js"></script>
-      <script type="text/javascript" src="../../../../../../../lib/tools.tooltip.js"></script>
+      <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
       
       <script type="text/javascript">
          if(top === self) {
-            var url = '../../../../../../../index.html';
-            var hash = 'au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink';
+            var url = '../../../../../../index.html';
+            var hash = 'au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -28,15 +28,13 @@
         </head>
         <body class="type">
       <div id="definition">
-        <a href="PartitionHiveParquetScroogeSink$.html" title="See companion object"><img src="../../../../../../../lib/class_to_object_big.png" /></a>
-        <p id="owner"><a href="../../../../../../package.html" class="extype" name="au">au</a>.<a href="../../../../../package.html" class="extype" name="au.com">com</a>.<a href="../../../../package.html" class="extype" name="au.com.cba">cba</a>.<a href="../../../package.html" class="extype" name="au.com.cba.omnia">omnia</a>.<a href="../../package.html" class="extype" name="au.com.cba.omnia.ebenezer">ebenezer</a>.<a href="../package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge">scrooge</a>.<a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive">hive</a></p>
-        <h1><a href="PartitionHiveParquetScroogeSink$.html" title="See companion object">PartitionHiveParquetScroogeSink</a></h1><h3><span class="morelinks"><div>
-            Related Docs:
-            <a href="PartitionHiveParquetScroogeSink$.html" title="See companion object">object PartitionHiveParquetScroogeSink</a>
-            | <a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive">package hive</a>
+        <img src="../../../../../../lib/class_big.png" />
+        <p id="owner"><a href="../../../../../package.html" class="extype" name="au">au</a>.<a href="../../../../package.html" class="extype" name="au.com">com</a>.<a href="../../../package.html" class="extype" name="au.com.cba">cba</a>.<a href="../../package.html" class="extype" name="au.com.cba.omnia">omnia</a>.<a href="../package.html" class="extype" name="au.com.cba.omnia.ebenezer">ebenezer</a>.<a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge">scrooge</a></p>
+        <h1>PartitionParquetScroogeSink</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge">package scrooge</a>
           </div></span></h3><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       </div>
@@ -47,19 +45,13 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">PartitionHiveParquetScroogeSink</span><span class="tparams">[<span name="A">A</span>, <span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="location">location: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="append">append: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="valueSet">valueSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="partitionSet">partitionSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.Source">Source</span> with <span class="extype" name="com.twitter.scalding.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)] with <span class="extype" name="java.io.Serializable">Serializable</span> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <span class="name">PartitionParquetScroogeSink</span><span class="tparams">[<span name="A">A</span>, <span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="template">template: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.T">T</span>]</span>, <span name="valueSet">valueSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.T">T</span>]</span>, <span name="partitionSet">partitionSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.A">A</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.Source">Source</span> with <span class="extype" name="com.twitter.scalding.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.T">T</span>)] with <span class="extype" name="java.io.Serializable">Serializable</span> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A scalding sink to write out Scrooge Thrift structs to a partitioned hive table using parquet as
-underlying storage format.</p><p>Unfortunately read does not work since the ParquetInputSplit is an instance of
-mapreduce.FileSplit and cascading will ignore any partitioned input splits that aren't part of
-mapred.FileSplit.
-Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSource">PartitionHiveParquetScroogeSource</a> for read.
-</p></div><dl class="paramcmts block"><dt class="param">partitionColumns</dt><dd class="cmt"><p>a list of the partition columns formatted as <code>[(name, type)]</code>.</p></dd><dt class="param">append</dt><dd class="cmt"><p>iff true will add new files to an existing partition instead of overwritting it.
-</p></dd></dl><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/ad402395a1015c0e1e093d61d68208823afa35ed//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/PartitionHiveParquetScroogeSource.scala" target="_blank">PartitionHiveParquetScroogeSource.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A scalding sink to write out Scrooge Thrift structs using parquet as underlying storage format.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/03511b2bf7e838cbcee81a61ac47bc682de93655//core/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/PartitionParquetScroogeSink.scala" target="_blank">PartitionParquetScroogeSink.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)], <span class="extype" name="com.twitter.scalding.Source">Source</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.T">T</span>)], <span class="extype" name="com.twitter.scalding.Source">Source</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -77,7 +69,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink"><span>PartitionHiveParquetScroogeSink</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="com.twitter.scalding.typed.TypedSink"><span>TypedSink</span></li><li class="in" name="com.twitter.scalding.Source"><span>Source</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink"><span>PartitionParquetScroogeSink</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="com.twitter.scalding.typed.TypedSink"><span>TypedSink</span></li><li class="in" name="com.twitter.scalding.Source"><span>Source</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -97,24 +89,23 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(database:String,table:String,partitionColumns:List[(String,String)],location:Option[String],append:Boolean)(implicitm:Manifest[T],implicitvalueSet:com.twitter.scalding.TupleSetter[T],implicitpartitionSet:com.twitter.scalding.TupleSetter[A]):au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink[A,T]"></a>
-      <a id="&lt;init&gt;:PartitionHiveParquetScroogeSink[A,T]"></a>
+              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(template:String,path:String)(implicitm:Manifest[T],implicitvalueSet:com.twitter.scalding.TupleSetter[T],implicitpartitionSet:com.twitter.scalding.TupleSetter[A]):au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink[A,T]"></a>
+      <a id="&lt;init&gt;:PartitionParquetScroogeSink[A,T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">PartitionHiveParquetScroogeSink</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumns">partitionColumns: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="location">location: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="append">append: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="valueSet">valueSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>]</span>, <span name="partitionSet">partitionSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>]</span>)</span>
+        <span class="name">PartitionParquetScroogeSink</span><span class="params">(<span name="template">template: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.T">T</span>]</span>, <span name="valueSet">valueSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.T">T</span>]</span>, <span name="partitionSet">partitionSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.A">A</span>]</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@&lt;init&gt;(database:String,table:String,partitionColumns:List[(String,String)],location:Option[String],append:Boolean)(implicitm:Manifest[T],implicitvalueSet:com.twitter.scalding.TupleSetter[T],implicitpartitionSet:com.twitter.scalding.TupleSetter[A]):au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink[A,T]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@&lt;init&gt;(template:String,path:String)(implicitm:Manifest[T],implicitvalueSet:com.twitter.scalding.TupleSetter[T],implicitpartitionSet:com.twitter.scalding.TupleSetter[A]):au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink[A,T]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">partitionColumns</dt><dd class="cmt"><p>a list of the partition columns formatted as <code>[(name, type)]</code>.</p></dd><dt class="param">append</dt><dd class="cmt"><p>iff true will add new files to an existing partition instead of overwritting it.
-</p></dd></dl></div>
+      
     </li></ol>
             </div>
 
@@ -136,8 +127,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@!=(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -153,8 +144,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@##():Int" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -170,28 +161,11 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@==(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink#append" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="append:Boolean"></a>
-      <a id="append:Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">append</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@append:Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">iff true will add new files to an existing partition instead of overwritting it.</p>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -204,8 +178,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@asInstanceOf[T0]:T0" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -221,8 +195,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">checkFlowDefNotNull</span><span class="params">(<span class="implicit">implicit </span><span name="flowDef">flowDef: <span class="extype" name="cascading.flow.FlowDef">FlowDef</span></span>, <span name="mode">mode: <span class="extype" name="com.twitter.scalding.Mode">Mode</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@checkFlowDefNotNull(implicitflowDef:cascading.flow.FlowDef,implicitmode:com.twitter.scalding.Mode):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@checkFlowDefNotNull(implicitflowDef:cascading.flow.FlowDef,implicitmode:com.twitter.scalding.Mode):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Source</dd></dl></div>
@@ -238,11 +212,11 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@clone():Object" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
@@ -258,15 +232,15 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">contraMap</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="fn">fn: (<span class="extype" name="com.twitter.scalding.typed.TypedSink.contraMap.U">U</span>) ⇒ (<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[<span class="extype" name="com.twitter.scalding.typed.TypedSink.contraMap.U">U</span>]</span>
+        <span class="name">contraMap</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="fn">fn: (<span class="extype" name="com.twitter.scalding.typed.TypedSink.contraMap.U">U</span>) ⇒ (<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.T">T</span>)</span>)</span><span class="result">: <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[<span class="extype" name="com.twitter.scalding.typed.TypedSink.contraMap.U">U</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@contraMap[U](fn:U=&gt;T):com.twitter.scalding.typed.TypedSink[U]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@contraMap[U](fn:U=&gt;T):com.twitter.scalding.typed.TypedSink[U]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TypedSink</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink#createTap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink#createTap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="createTap(readOrWrite:com.twitter.scalding.AccessMode)(implicitmode:com.twitter.scalding.Mode):cascading.tap.Tap[_,_,_]"></a>
       <a id="createTap(AccessMode)(Mode):Tap[_,_,_]"></a>
       <h4 class="signature">
@@ -278,28 +252,11 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">createTap</span><span class="params">(<span name="readOrWrite">readOrWrite: <span class="extype" name="com.twitter.scalding.AccessMode">AccessMode</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="mode">mode: <span class="extype" name="com.twitter.scalding.Mode">Mode</span></span>)</span><span class="result">: <span class="extype" name="cascading.tap.Tap">Tap</span>[_, _, _]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@createTap(readOrWrite:com.twitter.scalding.AccessMode)(implicitmode:com.twitter.scalding.Mode):cascading.tap.Tap[_,_,_]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@createTap(readOrWrite:com.twitter.scalding.AccessMode)(implicitmode:com.twitter.scalding.Mode):cascading.tap.Tap[_,_,_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink">PartitionHiveParquetScroogeSink</a> → Source</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink#database" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="database:String"></a>
-      <a id="database:String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">database</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@database:String" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink">PartitionParquetScroogeSink</a> → Source</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -312,8 +269,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -329,11 +286,11 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@finalize():Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="symbol">classOf[java.lang.Throwable]</span>
@@ -352,12 +309,12 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@getClass():Class[_]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink#hdfsScheme" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink#hdfsScheme" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="hdfsScheme:cascading.scheme.Scheme[org.apache.hadoop.mapred.JobConf,org.apache.hadoop.mapred.RecordReader[_,_],org.apache.hadoop.mapred.OutputCollector[_,_],_,_]"></a>
       <a id="hdfsScheme:Scheme[JobConf,RecordReader[_,_],OutputCollector[_,_],_,_]"></a>
       <h4 class="signature">
@@ -369,8 +326,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">hdfsScheme</span><span class="result">: <span class="extype" name="cascading.scheme.Scheme">Scheme</span>[<span class="extype" name="org.apache.hadoop.mapred.JobConf">JobConf</span>, <span class="extype" name="org.apache.hadoop.mapred.RecordReader">RecordReader</span>[_, _], <span class="extype" name="org.apache.hadoop.mapred.OutputCollector">OutputCollector</span>[_, _], _, _]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@hdfsScheme:cascading.scheme.Scheme[org.apache.hadoop.mapred.JobConf,org.apache.hadoop.mapred.RecordReader[_,_],org.apache.hadoop.mapred.OutputCollector[_,_],_,_]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@hdfsScheme:cascading.scheme.Scheme[org.apache.hadoop.mapred.JobConf,org.apache.hadoop.mapred.RecordReader[_,_],org.apache.hadoop.mapred.OutputCollector[_,_],_,_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       
@@ -386,28 +343,11 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink#location" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="location:Option[String]"></a>
-      <a id="location:Option[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">location</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@location:Option[String]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -420,8 +360,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -437,8 +377,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@notify():Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -454,28 +394,45 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@notifyAll():Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink#partitionColumns" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="partitionColumns:List[(String,String)]"></a>
-      <a id="partitionColumns:List[(String,String)]"></a>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink#partition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="partition:au.com.cba.omnia.ebenezer.scrooge.TemplatePartition"></a>
+      <a id="partition:TemplatePartition"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">partitionColumns</span><span class="result">: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>
+        <span class="name">partition</span><span class="result">: <a href="TemplatePartition.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.TemplatePartition">TemplatePartition</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@partitionColumns:List[(String,String)]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@partition:au.com.cba.omnia.ebenezer.scrooge.TemplatePartition" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">a list of the partition columns formatted as <code>[(name, type)]</code>.</p>
+      
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink#path" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="path:String"></a>
+      <a id="path:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">path</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@path:String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="com.twitter.scalding.Source#read" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="read(implicitflowDef:cascading.flow.FlowDef,implicitmode:com.twitter.scalding.Mode):cascading.pipe.Pipe"></a>
       <a id="read(FlowDef,Mode):Pipe"></a>
@@ -488,12 +445,12 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">read</span><span class="params">(<span class="implicit">implicit </span><span name="flowDef">flowDef: <span class="extype" name="cascading.flow.FlowDef">FlowDef</span></span>, <span name="mode">mode: <span class="extype" name="com.twitter.scalding.Mode">Mode</span></span>)</span><span class="result">: <span class="extype" name="cascading.pipe.Pipe">Pipe</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@read(implicitflowDef:cascading.flow.FlowDef,implicitmode:com.twitter.scalding.Mode):cascading.pipe.Pipe" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@read(implicitflowDef:cascading.flow.FlowDef,implicitmode:com.twitter.scalding.Mode):cascading.pipe.Pipe" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Source</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink#setter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink#setter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setter[U&lt;:(A,T)]:com.twitter.scalding.TupleSetter[U]"></a>
       <a id="setter[U&lt;:(A,T)]:TupleSetter[U]"></a>
       <h4 class="signature">
@@ -502,15 +459,15 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setter</span><span class="tparams">[<span name="U">U &lt;: (<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)</span>]</span><span class="result">: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.setter.U">U</span>]</span>
+        <span class="name">setter</span><span class="tparams">[<span name="U">U &lt;: (<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.T">T</span>)</span>]</span><span class="result">: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.setter.U">U</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@setter[U&lt;:(A,T)]:com.twitter.scalding.TupleSetter[U]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@setter[U&lt;:(A,T)]:com.twitter.scalding.TupleSetter[U]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink">PartitionHiveParquetScroogeSink</a> → TypedSink</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink#sinkFields" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink">PartitionParquetScroogeSink</a> → TypedSink</dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink#sinkFields" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sinkFields:cascading.tuple.Fields"></a>
       <a id="sinkFields:Fields"></a>
       <h4 class="signature">
@@ -522,11 +479,11 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">sinkFields</span><span class="result">: <span class="extype" name="cascading.tuple.Fields">Fields</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@sinkFields:cascading.tuple.Fields" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@sinkFields:cascading.tuple.Fields" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink">PartitionHiveParquetScroogeSink</a> → TypedSink</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink">PartitionParquetScroogeSink</a> → TypedSink</dd></dl></div>
     </li><li name="com.twitter.scalding.Source#sourceId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sourceId:String"></a>
       <a id="sourceId:String"></a>
@@ -539,8 +496,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">sourceId</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@sourceId:String" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@sourceId:String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Source</dd></dl></div>
@@ -556,29 +513,29 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink#table" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="table:String"></a>
-      <a id="table:String"></a>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink#template" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="template:String"></a>
+      <a id="template:String"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">table</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">template</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@table:String" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@template:String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>
       <h4 class="signature">
@@ -590,11 +547,11 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@toString():String" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink">PartitionHiveParquetScroogeSink</a> → AnyRef → Any</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink">PartitionParquetScroogeSink</a> → AnyRef → Any</dd></dl></div>
     </li><li name="com.twitter.scalding.Source#transformForRead" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="transformForRead(pipe:cascading.pipe.Pipe):cascading.pipe.Pipe"></a>
       <a id="transformForRead(Pipe):Pipe"></a>
@@ -607,8 +564,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">transformForRead</span><span class="params">(<span name="pipe">pipe: <span class="extype" name="cascading.pipe.Pipe">Pipe</span></span>)</span><span class="result">: <span class="extype" name="cascading.pipe.Pipe">Pipe</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@transformForRead(pipe:cascading.pipe.Pipe):cascading.pipe.Pipe" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@transformForRead(pipe:cascading.pipe.Pipe):cascading.pipe.Pipe" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Source</dd></dl></div>
@@ -624,8 +581,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">transformForWrite</span><span class="params">(<span name="pipe">pipe: <span class="extype" name="cascading.pipe.Pipe">Pipe</span></span>)</span><span class="result">: <span class="extype" name="cascading.pipe.Pipe">Pipe</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@transformForWrite(pipe:cascading.pipe.Pipe):cascading.pipe.Pipe" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@transformForWrite(pipe:cascading.pipe.Pipe):cascading.pipe.Pipe" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Source</dd></dl></div>
@@ -641,8 +598,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">transformInTest</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@transformInTest:Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@transformInTest:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Source</dd></dl></div>
@@ -658,8 +615,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">validateTaps</span><span class="params">(<span name="mode">mode: <span class="extype" name="com.twitter.scalding.Mode">Mode</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@validateTaps(mode:com.twitter.scalding.Mode):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@validateTaps(mode:com.twitter.scalding.Mode):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Source</dd></dl></div>
@@ -675,8 +632,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@wait():Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -698,8 +655,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -721,8 +678,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@wait(x$1:Long):Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -744,8 +701,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name">writeFrom</span><span class="params">(<span name="pipe">pipe: <span class="extype" name="cascading.pipe.Pipe">Pipe</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="flowDef">flowDef: <span class="extype" name="cascading.flow.FlowDef">FlowDef</span></span>, <span name="mode">mode: <span class="extype" name="com.twitter.scalding.Mode">Mode</span></span>)</span><span class="result">: <span class="extype" name="cascading.pipe.Pipe">Pipe</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@writeFrom(pipe:cascading.pipe.Pipe)(implicitflowDef:cascading.flow.FlowDef,implicitmode:com.twitter.scalding.Mode):cascading.pipe.Pipe" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@writeFrom(pipe:cascading.pipe.Pipe)(implicitflowDef:cascading.flow.FlowDef,implicitmode:com.twitter.scalding.Mode):cascading.pipe.Pipe" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Source</dd></dl></div>
@@ -768,8 +725,8 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
         <span class="name deprecated" title="Deprecated: (Since version 0.9.0) replace with Mappable.toIterator">readAtSubmitter</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="mode">mode: <span class="extype" name="com.twitter.scalding.Mode">Mode</span></span>, <span name="conv">conv: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="com.twitter.scalding.Source.readAtSubmitter.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Stream">Stream</span>[<span class="extype" name="com.twitter.scalding.Source.readAtSubmitter.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink@readAtSubmitter[T](implicitmode:com.twitter.scalding.Mode,implicitconv:com.twitter.scalding.TupleConverter[T]):Stream[T]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" />
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink@readAtSubmitter[T](implicitmode:com.twitter.scalding.Mode,implicitconv:com.twitter.scalding.TupleConverter[T]):Stream[T]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Source</dd><dt>Annotations</dt><dd>
@@ -788,7 +745,7 @@ Instead use <a href="PartitionHiveParquetScroogeSource.html" class="extype" name
             </div><div class="parent" name="scala.Equals">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
             </div><div class="parent" name="com.twitter.scalding.typed.TypedSink">
-              <h3>Inherited from <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.PartitionHiveParquetScroogeSink.T">T</span>)]</h3>
+              <h3>Inherited from <span class="extype" name="com.twitter.scalding.typed.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.T">T</span>)]</h3>
             </div><div class="parent" name="com.twitter.scalding.Source">
               <h3>Inherited from <span class="extype" name="com.twitter.scalding.Source">Source</span></h3>
             </div><div class="parent" name="java.io.Serializable">

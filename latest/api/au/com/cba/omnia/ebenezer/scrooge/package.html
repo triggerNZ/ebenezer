@@ -100,8 +100,44 @@
       </a>
     </span>
       
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeReadTap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PartitionParquetScroogeReadTapextendsHfs"></a>
+      <a id="PartitionParquetScroogeReadTap:PartitionParquetScroogeReadTap"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="PartitionParquetScroogeReadTap.html"><span class="name">PartitionParquetScroogeReadTap</span></a><span class="result"> extends <span class="extype" name="cascading.tap.hadoop.Hfs">Hfs</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.package@PartitionParquetScroogeReadTapextendsHfs" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Custom tap for reading partitioned parquet files.</p><div class="fullcomment"><div class="comment cmt"><p>Custom tap for reading partitioned parquet files.</p><p>See <a href="PartitionParquetScroogeSource.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource">PartitionParquetScroogeSource</a> for use. This will add globs for all the
+underlying partitions to the path of <code>Hfs</code>.
+</p></div></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PartitionParquetScroogeSink[A,T&lt;:com.twitter.scrooge.ThriftStruct]extendsSourcewithcom.twitter.scalding.TypedSink[(A,T)]withSerializablewithProductwithSerializable"></a>
+      <a id="PartitionParquetScroogeSink[A,T&lt;:ThriftStruct]:PartitionParquetScroogeSink[A,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="PartitionParquetScroogeSink.html"><span class="name">PartitionParquetScroogeSink</span></a><span class="tparams">[<span name="A">A</span>, <span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="template">template: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.T">T</span>]</span>, <span name="valueSet">valueSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.T">T</span>]</span>, <span name="partitionSet">partitionSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.A">A</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.Source">Source</span> with <span class="extype" name="com.twitter.scalding.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink.T">T</span>)] with <span class="extype" name="java.io.Serializable">Serializable</span> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.package@PartitionParquetScroogeSink[A,T&lt;:com.twitter.scrooge.ThriftStruct]extendsSourcewithcom.twitter.scalding.TypedSink[(A,T)]withSerializablewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A scalding sink to write out Scrooge Thrift structs using parquet as underlying storage format.</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="PartitionParquetScroogeSource[A,T&lt;:com.twitter.scrooge.ThriftStruct]extendsFixedPathSourcewithcom.twitter.scalding.TypedSink[(A,T)]withMappable[(A,T)]withSerializablewithProductwithSerializable"></a>
+      <a id="PartitionParquetScroogeSource[A,T&lt;:com.twitter.scrooge.ThriftStruct]extendsSourcewithMappable[T]withSerializablewithProductwithSerializable"></a>
       <a id="PartitionParquetScroogeSource[A,T&lt;:ThriftStruct]:PartitionParquetScroogeSource[A,T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -109,14 +145,34 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="PartitionParquetScroogeSource.html"><span class="name">PartitionParquetScroogeSource</span></a><span class="tparams">[<span name="A">A</span>, <span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="template">template: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource.T">T</span>]</span>, <span name="valueConverter">valueConverter: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource.T">T</span>]</span>, <span name="valueSet">valueSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource.T">T</span>]</span>, <span name="ma">ma: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource.A">A</span>]</span>, <span name="partitionConverter">partitionConverter: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource.A">A</span>]</span>, <span name="partitionSet">partitionSet: <span class="extype" name="com.twitter.scalding.TupleSetter">TupleSetter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource.A">A</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.FixedPathSource">FixedPathSource</span> with <span class="extype" name="com.twitter.scalding.TypedSink">TypedSink</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource.T">T</span>)] with <span class="extype" name="com.twitter.scalding.Mappable">Mappable</span>[(<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource.A">A</span>, <span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource.T">T</span>)] with <span class="extype" name="java.io.Serializable">Serializable</span> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="PartitionParquetScroogeSource.html"><span class="name">PartitionParquetScroogeSource</span></a><span class="tparams">[<span name="A">A</span>, <span name="T">T &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>]</span><span class="params">(<span name="template">template: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource.T">T</span>]</span>, <span name="valueConverter">valueConverter: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource.T">T</span>]</span>, <span name="partitionConverter">partitionConverter: <span class="extype" name="com.twitter.scalding.TupleConverter">TupleConverter</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource.A">A</span>]</span>)</span><span class="result"> extends <span class="extype" name="com.twitter.scalding.Source">Source</span> with <span class="extype" name="com.twitter.scalding.Mappable">Mappable</span>[<span class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSource.T">T</span>] with <span class="extype" name="java.io.Serializable">Serializable</span> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.package@PartitionParquetScroogeSource[A,T&lt;:com.twitter.scrooge.ThriftStruct]extendsFixedPathSourcewithcom.twitter.scalding.TypedSink[(A,T)]withMappable[(A,T)]withSerializablewithProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.package@PartitionParquetScroogeSource[A,T&lt;:com.twitter.scrooge.ThriftStruct]extendsSourcewithMappable[T]withSerializablewithProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" />
       </a>
     </span>
       
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeWriteTap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PartitionParquetScroogeWriteTapextendsPartitionTap"></a>
+      <a id="PartitionParquetScroogeWriteTap:PartitionParquetScroogeWriteTap"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="PartitionParquetScroogeWriteTap.html"><span class="name">PartitionParquetScroogeWriteTap</span></a><span class="result"> extends <span class="extype" name="cascading.tap.hadoop.PartitionTap">PartitionTap</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.package@PartitionParquetScroogeWriteTapextendsPartitionTap" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Custom tap for writing partitioned parquet files., see <a href="PartitionParquetScroogeSink.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink">PartitionParquetScroogeSink</a></p><div class="fullcomment"><div class="comment cmt"><p>Custom tap for writing partitioned parquet files., see <a href="PartitionParquetScroogeSink.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink">PartitionParquetScroogeSink</a></p><p>Since <span class="extype" name="PartitionHiveParquetReadTap">PartitionHiveParquetReadTap</span> sets a custom path that includes the partitions as globbed
+directories this ensures that the identifiers between reading and writing are the same and,
+therefore, Cascading can identify the dependency between them correctly.
+</p></div></div>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeReadSupport" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ScroogeReadSupport[A&lt;:com.twitter.scrooge.ThriftStruct]extendsReadSupport[A]"></a>
       <a id="ScroogeReadSupport[A&lt;:ThriftStruct]:ScroogeReadSupport[A]"></a>
@@ -226,7 +282,24 @@
 
         <div id="values" class="values members">
               <h3>Value Members</h3>
-              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeTools" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSchemeSupport" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ParquetScroogeSchemeSupport"></a>
+      <a id="ParquetScroogeSchemeSupport:ParquetScroogeSchemeSupport"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ParquetScroogeSchemeSupport$.html"><span class="name">ParquetScroogeSchemeSupport</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.package@ParquetScroogeSchemeSupport" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeTools" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ParquetScroogeTools"></a>
       <a id="ParquetScroogeTools:ParquetScroogeTools"></a>
       <h4 class="signature">
@@ -243,6 +316,23 @@
       </a>
     </span>
       
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeTap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PartitionParquetScroogeTap"></a>
+      <a id="PartitionParquetScroogeTap:PartitionParquetScroogeTap"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="PartitionParquetScroogeTap$.html"><span class="name">PartitionParquetScroogeTap</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.package@PartitionParquetScroogeTap" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Provides utility functions for the PartitionParquetScroogeTaps.</p>
     </li><li name="au.com.cba.omnia.ebenezer.scrooge.ScroogeMetaHelper" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ScroogeMetaHelper"></a>
       <a id="ScroogeMetaHelper:ScroogeMetaHelper"></a>

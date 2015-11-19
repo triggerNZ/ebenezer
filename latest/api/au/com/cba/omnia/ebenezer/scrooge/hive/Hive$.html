@@ -51,7 +51,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Hive operations</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/ad402395a1015c0e1e093d61d68208823afa35ed//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/Hive.scala" target="_blank">Hive.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Hive operations</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/03511b2bf7e838cbcee81a61ac47bc682de93655//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/Hive.scala" target="_blank">Hive.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="https://github.com/CommBank/edge/index.html#au.com.cba.omnia.omnitool.ToResultantMonadOps" class="extype" target="_top">ToResultantMonadOps</a>, <a href="https://github.com/CommBank/edge/index.html#au.com.cba.omnia.omnitool.ResultantOps" class="extype" target="_top">ResultantOps</a>[<a href="Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>], <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
@@ -286,6 +286,57 @@ time Hive handles it badly and throws an SQL integrity exception.
 time Hive handles it badly and throws an SQL integrity exception.
 </p></div><dl class="paramcmts block"><dt class="param">database</dt><dd class="cmt"><p>Name of the database. Will be created if not found.</p></dd><dt class="param">table</dt><dd class="cmt"><p>Name of table to create.</p></dd><dt class="param">partitionColumns</dt><dd class="cmt"><p>A list of the partition columns formatted as <code>[(name, type.)]</code>.
                         If empty unpartitioned table will be created.</p></dd><dt class="param">location</dt><dd class="cmt"><p>Optional location for the hive table. Not set by default.</p></dd></dl></div>
+    </li><li name="au.com.cba.omnia.omnitool.ResultantOps#eitherError" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eitherError[A&lt;:&lt;?&gt;](v:&lt;?&gt;):M[A]"></a>
+      <a id="eitherError[A](⇒Either[(String,Throwable),A]):Hive[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eitherError</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="v">v: ⇒ <span class="extype" name="scala.Either">Either</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Throwable">Throwable</span>), <span class="extype" name="au.com.cba.omnia.omnitool.ResultantOps.eitherError.A">A</span>]</span>)</span><span class="result">: <a href="Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.omnitool.ResultantOps.eitherError.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.Hive$@eitherError[A](v:=&gt;Either[(String,Throwable),A]):M[A]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ResultantOps</dd></dl></div>
+    </li><li name="au.com.cba.omnia.omnitool.ResultantOps#eitherException" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eitherException[A&lt;:&lt;?&gt;](v:&lt;?&gt;):M[A]"></a>
+      <a id="eitherException[A](⇒Either[Throwable,A]):Hive[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eitherException</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="v">v: ⇒ <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="scala.Throwable">Throwable</span>, <span class="extype" name="au.com.cba.omnia.omnitool.ResultantOps.eitherException.A">A</span>]</span>)</span><span class="result">: <a href="Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.omnitool.ResultantOps.eitherException.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.Hive$@eitherException[A](v:=&gt;Either[Throwable,A]):M[A]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ResultantOps</dd></dl></div>
+    </li><li name="au.com.cba.omnia.omnitool.ResultantOps#eitherFail" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eitherFail[A&lt;:&lt;?&gt;](v:&lt;?&gt;):M[A]"></a>
+      <a id="eitherFail[A](⇒Either[String,A]):Hive[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eitherFail</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="v">v: ⇒ <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="au.com.cba.omnia.omnitool.ResultantOps.eitherFail.A">A</span>]</span>)</span><span class="result">: <a href="Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.omnitool.ResultantOps.eitherFail.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.Hive$@eitherFail[A](v:=&gt;Either[String,A]):M[A]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ResultantOps</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -458,6 +509,23 @@ time Hive handles it badly and throws an SQL integrity exception.
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.Hive$@forbidden(action:M[Boolean],message:String):M[Unit]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ResultantOps</dd></dl></div>
+    </li><li name="au.com.cba.omnia.omnitool.ResultantOps#fromTry" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="fromTry[A&lt;:&lt;?&gt;](v:&lt;?&gt;):M[A]"></a>
+      <a id="fromTry[A](⇒Try[A]):Hive[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">fromTry</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="v">v: ⇒ <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="au.com.cba.omnia.omnitool.ResultantOps.fromTry.A">A</span>]</span>)</span><span class="result">: <a href="Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="au.com.cba.omnia.omnitool.ResultantOps.fromTry.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.Hive$@fromTry[A](v:=&gt;scala.util.Try[A]):M[A]" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" />
       </a>
     </span>
@@ -734,6 +802,23 @@ time Hive handles it badly and throws an SQL integrity exception.
       </a>
     </span>
       <p class="shortcomment cmt">Runs the specified Hive query.</p><div class="fullcomment"><div class="comment cmt"><p>Runs the specified Hive query. Returns at most <code>maxRows</code></p></div></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#repair" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="repair(database:String,table:String):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[Unit]"></a>
+      <a id="repair(String,String):Hive[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">repair</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.Hive$@repair(database:String,table:String):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[Unit]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Repair/Register partitions with the Hive table.</p>
     </li><li name="au.com.cba.omnia.omnitool.ResultantOps#result" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="result[A](v:=&gt;au.com.cba.omnia.omnitool.Result[A]):M[A]"></a>
       <a id="result[A](⇒Result[A]):Hive[A]"></a>
