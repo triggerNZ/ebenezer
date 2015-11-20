@@ -49,7 +49,8 @@ Hive operations:
   existsTable should be false if table hasn't been created                   $noTable
   created table must exist                                                   $create
   creating table with different schema fails                                 $create2
-  can verify schema                                                          $strict
+  can verify schema with partitions                                          $strictWithPartitions
+  can verify schema without partitions                                       $strictWithoutPartitions
   can getPath for managed table                                              $pathManaged
   can getPath for unmanaged table                                            $pathUnmanaged
   query                                                                      $query
@@ -115,7 +116,20 @@ Hive operations:
     }
   }
 
-  def strict = {
+  def strictWithoutPartitions = {
+    val x = for {
+      _  <- Hive.createParquetTable[SimpleHive]("test", "utest", List.empty, None)
+      t1 <- Hive.existsTableStrict[SimpleHive]("test", "utest", List.empty, None)
+      t2 <- Hive.existsTableStrict[SimpleHive]("test", "utest", List("part1" -> "string"), None)
+      t3 <- Hive.existsTableStrict[SimpleHive]("test", "utest", List.empty, Some(new Path("/other")))
+      t4 <- Hive.existsTableStrict[SimpleHive]("test", "utest", List.empty, None, TextFormat())
+      t5 <- Hive.existsTableStrict[SimpleHive2]("test", "utest", List.empty, None)
+    } yield (t1, t2, t3, t4, t5)
+    
+    x must beValue((true, false, false, false, false))
+  }
+
+  def strictWithPartitions = {
     val x = for {
       _  <- Hive.createParquetTable[SimpleHive]("test", "test", List("part1" -> "string", "part2" -> "string"), None)
       t1 <- Hive.existsTableStrict[SimpleHive]("test", "test", List("part1" -> "string", "part2" -> "string"), None)

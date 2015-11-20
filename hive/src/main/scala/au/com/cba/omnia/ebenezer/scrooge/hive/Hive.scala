@@ -216,9 +216,13 @@ object Hive extends ResultantOps[Hive] with ToResultantMonadOps {
     val actualTable      = client.getTable(database, table)
     val expectedTable    = HiveMetadataTable[T](database, table, partitionColumns, format, location.map(fs.makeQualified(_)))
     val actualCols       = actualTable.getSd.getCols.asScala.map(c => (c.getName.toLowerCase, c.getType.toLowerCase)).toList
-    val actualPartCols   = actualTable.getPartitionKeys.asScala.map(c => (c.getName.toLowerCase, c.getType.toLowerCase)).toList
     val expectedCols     = expectedTable.getSd.getCols.asScala.map(c => (c.getName.toLowerCase, c.getType.toLowerCase)).toList
-    val expectedPartCols = expectedTable.getPartitionKeys.asScala.map(c => (c.getName.toLowerCase, c.getType.toLowerCase)).toList
+    //partition keys of unpartitioned table comes back from the metastore as an empty list
+    val actualPartCols   = actualTable.getPartitionKeys.asScala.map(pc => (pc.getName.toLowerCase, pc.getType.toLowerCase)).toList
+    //partition keys of unpartitioned table not submitted to the metastore will be null
+    val expectedPartCols = Option(expectedTable.getPartitionKeys).map(_.asScala.map(
+      pc => (pc.getName.toLowerCase, pc.getType.toLowerCase)).toList
+    ).getOrElse(List.empty)
     val warehouse        = conf.getVar(ConfVars.METASTOREWAREHOUSE)
     val actualPath       = fs.makeQualified(new Path(actualTable.getSd.getLocation))
     //Do we want to handle `default` database separately
