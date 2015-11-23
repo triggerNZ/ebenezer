@@ -32,12 +32,12 @@ import com.twitter.scalding.HadoopSchemeInstance
 import com.twitter.scrooge.ThriftStruct
 
 class ParquetScroogeScheme[A <: ThriftStruct : Manifest] extends ParquetValueScheme[A] {
-  def sinkConfInit(flow: FlowProcess[JobConf], tap: Tap[JobConf, RecordReader[_, _], OutputCollector[_, _]], conf: JobConf): Unit = {
+  override def sinkConfInit(flow: FlowProcess[JobConf], tap: Tap[JobConf, RecordReader[_, _], OutputCollector[_, _]], conf: JobConf): Unit = {
     conf.setOutputFormat(classOf[DeprecatedParquetOutputFormat[_]])
     ScroogeWriteSupport.setAsParquetSupportClass[A](conf)
   }
 
-  def sourceConfInit(flow: FlowProcess[JobConf], tap: Tap[JobConf, RecordReader[_, _], OutputCollector[_, _]], conf: JobConf): Unit = {
+  override def sourceConfInit(flow: FlowProcess[JobConf], tap: Tap[JobConf, RecordReader[_, _], OutputCollector[_, _]], conf: JobConf): Unit = {
     conf.setInputFormat(classOf[DeprecatedParquetInputFormat[_]])
     ScroogeReadSupport.setAsParquetSupportClass[A](conf)
   }
