@@ -16,6 +16,8 @@ package au.com.cba.omnia.ebenezer.example
 
 import scalaz.Scalaz._
 
+import org.apache.hadoop.fs.Path
+
 import com.twitter.scalding.Execution
 import com.twitter.scalding.typed.IterablePipe
 
@@ -45,10 +47,13 @@ object HiveExampleStep4 {
     }.run(conf).toOption.get).flatMap { p =>
       IterablePipe(data).map(c => c.id -> c)
         .writeExecution(PartitionParquetScroogeSink[String, Customer]("pid=%s", p))
-    }.flatMap(_ => Execution.from( {
-      Hive.repair(db, src) >>
-      Hive.createParquetTable[Customer](db, dst, List("pid" -> "string"))
-        .flatMap(_ => Hive.query(s"INSERT OVERWRITE TABLE $db.$dst PARTITION (pid) SELECT id, name, address, age, id as pid FROM $db.$src"))
-    }.run(conf))).map(_ => ())
+    }.flatMap(_ => Execution.from( 
+      (for {
+        path <- Hive.getPath(db, src)
+        _    <- Hive.addPartitions(db, src, List("pid"), data.map(c => new Path(path, s"pid=${c.id}")))
+        _    <- Hive.createParquetTable[Customer](db, dst, List("pid" -> "string"))
+        _    <- Hive.query(s"INSERT OVERWRITE TABLE $db.$dst PARTITION (pid) SELECT id, name, address, age, id as pid FROM $db.$src")
+      } yield ()).run(conf)
+    ))
   }
 }

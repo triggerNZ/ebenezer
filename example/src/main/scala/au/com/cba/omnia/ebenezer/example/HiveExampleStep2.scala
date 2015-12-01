@@ -16,6 +16,8 @@ package au.com.cba.omnia.ebenezer.example
 
 import scalaz.Scalaz._
 
+import org.apache.hadoop.fs.Path
+
 import com.twitter.scalding.Execution
 import com.twitter.scalding.typed.IterablePipe
 
@@ -44,14 +46,17 @@ object HiveExampleStep2 {
     }.run(conf).toOption.get).flatMap { p =>
       IterablePipe(data).map(c => c.id -> c)
         .writeExecution(PartitionParquetScroogeSink[String, Customer]("pid=%s", p))
-    }.flatMap(_ => Execution.from({
-      Hive.repair(db, srcTable) >>
-      Hive.createParquetTable[Customer](db, dstTable, List("pid" -> "string"))
-        .flatMap(_ => Hive.queries(List(
-          s"INSERT OVERWRITE TABLE $db.$dstTable PARTITION (pid) SELECT id, name, address, age, id as pid FROM $db.$srcTable",
-          "CREATE TABLE test (id string, age int)",
-          s"INSERT OVERWRITE TABLE TEST SELECT name, age from $db.$srcTable"
-        )))
-    }.run(conf)))
+    }.flatMap(_ => Execution.from(
+      (for {
+        path <- Hive.getPath(db, srcTable)
+        _    <- Hive.addPartitions(db, srcTable, List("pid"), data.map(c => new Path(path, s"pid=${c.id}")))
+        _    <- Hive.createParquetTable[Customer](db, dstTable, List("pid" -> "string"))
+        _    <- Hive.queries(List(
+                  s"INSERT OVERWRITE TABLE $db.$dstTable PARTITION (pid) SELECT id, name, address, age, id as pid FROM $db.$srcTable",
+                  "CREATE TABLE test (id string, age int)",
+                  s"INSERT OVERWRITE TABLE TEST SELECT name, age from $db.$srcTable"
+                ))
+      } yield ()).run(conf)
+    ))
   }
 }

@@ -19,8 +19,12 @@ import org.apache.hadoop.fs.Path
 import org.apache.hadoop.hive.conf.HiveConf
 import org.apache.hadoop.hive.metastore.IMetaStoreClient
 
+import com.twitter.scalding.Execution
+import com.twitter.scalding.typed.IterablePipe
+
 import scalaz.Scalaz._
 import scalaz.Equal
+import scalaz.\&/.This
 
 import org.specs2.matcher.Matcher
 import org.specs2.execute.{Result => SpecResult}
@@ -32,10 +36,13 @@ import au.com.cba.omnia.omnitool.{Result, Ok, Error}
 import au.com.cba.omnia.omnitool.test.OmnitoolProperties.resultantMonad
 import au.com.cba.omnia.omnitool.test.Arbitraries._
 
+import au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink
+import au.com.cba.omnia.ebenezer.ParquetLogging
+
 import au.com.cba.omnia.thermometer.core.Thermometer
 import au.com.cba.omnia.thermometer.hive.ThermometerHiveSpec
 
-object HiveSpec extends ThermometerHiveSpec { def is = s2"""
+object HiveSpec extends ThermometerHiveSpec with ParquetLogging { def is = sequential ^ s2"""
 Hive Operations
 ===============
 
@@ -58,6 +65,9 @@ Hive operations:
   queries must be run in order                                               $queriesOrdered
   query catches errors                                                       $queryError
   Hive existsTableStrict should accept parquet tables created using Hive DDL $hiveParquetMatch
+  to add partitions, partition columns must match table parition columns     $addPartitionsWithWrongPartitionColumns
+  to add partitions, partition paths must be compatible with table           $addPartitionsWithWrongPartitionPath
+  can add new partitions to a hive table                                     $addPartitions
 
 """
 
@@ -158,6 +168,65 @@ Hive operations:
     } yield path
 
     x must beValue(new Path(s"file:$dir/user/test"))
+  }
+
+  def addPartitionsWithWrongPartitionColumns = {
+    val x = for {
+      _    <- Hive.createParquetTable[SimpleHive]("test", "test", List("part1" -> "string", "part2" -> "string"))
+      path <- Hive.getPath("test", "test")
+      _    <- Hive.addPartitions("test", "test", List("part1", "part3"), List(new Path(s"$path/part1=1/part2=2")))
+    } yield ()
+
+    x.run(hiveConf) must beLike {
+      case Error(This("test.test does not have partitions - List(part1, part3).")) => ok
+    }
+  }
+
+  def addPartitionsWithWrongPartitionPath = {
+    val x = for {
+      _    <- Hive.createParquetTable[SimpleHive]("test", "test", List("part1" -> "string", "part2" -> "string"))
+      path <- Hive.getPath("test", "test")
+      _    <- Hive.addPartitions("test", "test", List("part1", "part2"), List(new Path(s"$path/part1=1/part3=2")))
+    } yield ()
+
+    x.run(hiveConf) must beLike {
+      case Error(This("part1=1/part3=2 does not match table partitions - List(part1, part2)")) => ok
+    }
+  }
+
+  def addPartitions = {
+    val database  = "comic"
+    val table     = "person"
+    val tablePath = s"file:$hiveWarehouse/comic.db/person"
+    val data      = List(
+      Person("Bruce", "Wayne", 40),
+      Person("Alfred", "Pennyworth", 61),
+      Person("Jane", "Pennyworth", 23)
+    )
+
+    val exec = Execution.from(
+      (for {
+        _    <- Hive.createParquetTable[Person](database, table, List("plastname" -> "string"))
+        path <- Hive.getPath(database, table)
+      } yield path.toString).run(hiveConf).toOption.get
+    ).flatMap { p =>
+      IterablePipe(data).map(c => c.lastname -> c)
+        .writeExecution(PartitionParquetScroogeSink[String, Person]("plastname=%s", p))
+    }.flatMap(_ => Execution.from(
+      (for {
+        path  <- Hive.getPath(database, table)
+        _     <- Hive.addPartitions(database, table, List("plastname"), 
+                   List(new Path(path, "plastname=Wayne"), new Path(path, "plastname=Pennyworth"))
+                 )
+        parts <- Hive.listPartitions(database, table)
+        recs  <- Hive.query(s"SELECT firstname from $database.$table")
+      } yield (parts, recs)).run(hiveConf)
+    ))
+
+    executesSuccessfully(exec) must_== Ok((
+      List(new Path(s"$tablePath/plastname=Pennyworth"), new Path(s"$tablePath/plastname=Wayne")),
+      List("Alfred", "Jane", "Bruce")
+    ))
   }
 
   def query = {

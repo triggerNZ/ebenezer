@@ -16,6 +16,8 @@ package au.com.cba.omnia.ebenezer.scrooge.hive
 
 import scala.collection.JavaConverters._
 import scala.util.control.NonFatal
+import scala.util.matching.Regex
+import scala.collection.mutable.{Map => MMap}
 
 import java.util.ArrayList
 
@@ -28,9 +30,13 @@ import org.apache.hadoop.fs.{FileSystem, Path}
 import org.apache.hadoop.hive.conf.HiveConf
 import org.apache.hadoop.hive.conf.HiveConf.ConfVars
 import org.apache.hadoop.hive.metastore.{HiveMetaHookLoader, HiveMetaStoreClient, IMetaStoreClient, RetryingMetaStoreClient}
-import org.apache.hadoop.hive.metastore.api.{Database, Table, AlreadyExistsException, NoSuchObjectException}
+import org.apache.hadoop.hive.metastore.api.{Database, Table, Partition, StorageDescriptor, AlreadyExistsException, NoSuchObjectException}
 import org.apache.hadoop.hive.ql.Driver
 import org.apache.hadoop.hive.ql.session.SessionState
+
+import org.apache.thrift.protocol.TBinaryProtocol
+import org.apache.thrift.transport.TMemoryBuffer
+
 
 import au.com.cba.omnia.omnitool.{Result, ResultantMonad, ResultantOps, ToResultantMonadOps}
 
@@ -319,8 +325,87 @@ object Hive extends ResultantOps[Hive] with ToResultantMonadOps {
       results <- body(driver) ensure cleanup(driver)
     } yield results
   }
+
+  /** List all partitions for a hive table
+    *
+    * @param database Name of the database. 
+    * @param table Name of table to create.
+    * @param maxSize Maximum number of partitions to be fetched. Defaulted to -1 which means there is no limit.
+    * @returns List of absolute hdfs partition paths contained in the hive table.
+    */
+  def listPartitions(database: String, table: String, maxSize: Short = -1): Hive[List[Path]] = 
+    for {
+      tPath <- Hive.getPath(database, table)
+      parts <- Hive.withClient(_.listPartitionNames(database, table, maxSize).asScala)
+    } yield parts.map(new Path(tPath, _)).toList
+
+  /** Add partitions to a hive table
+    *
+    * Please be aware that this implementation assumes that the Hive table is either a MANAGED_TABLE
+    * or an EXTERNAL_TABLE. It doesn't accomodate for VIRTUAL_VIEW or INDEX_TABLE.
+    *
+    * WARNING: This method is not thread safe. 
+    *
+    * @param database Name of the database. 
+    * @param table Name of table to create.
+    * @param partitionColumnNames A list of the partition columns names.
+    * @param paths A list of the absolute hdfs partition paths that needs to be added as partitions.
+    */
+  def addPartitions(
+    database: String, table: String,
+    partitionColumnNames: List[String], paths: List[Path]
+  ): Hive[Unit] = {
+    def pattern(cols: List[String]) = ("^" + cols.map(_ + "=([^/]+)").mkString("/") +"$").r
+
+    def partition(t: Table, partitionPattern: Regex, partitionPath: String): Result[Partition] = {
+      val partitionValues = partitionPattern.findAllMatchIn(partitionPath).map(_.subgroups).toList.flatten
+      if (partitionValues.isEmpty) 
+        Result.fail[Partition](s"""$partitionPath does not match table partitions - $partitionColumnNames""")
+      else 
+        Result.safe {
+          val now = (System.currentTimeMillis() / 1000).toInt
+          val nsd = t.getSd.deepCopy
+          Option(t.getSd.getLocation).fold(())(loc => nsd.setLocation(s"$loc/$partitionPath"))
+          new Partition(
+            partitionValues.asJava, t.getDbName(), t.getTableName(), now, 
+            now, nsd, MMap.empty[String, String].asJava
+          )
+        }
+    }
+
+    for {
+      _               <- Hive.mandatory(Hive.existsTable(database, table), s"$database.$table does not exist.")
+      mTable          <- Hive.withClient(_.getTable(database, table))
+      _               <- Hive.guard(
+                           mTable.getPartitionKeys.asScala.map(c => c.getName.toLowerCase) == 
+                             partitionColumnNames.map(_.toLowerCase),
+                           s"""$database.$table does not have partitions - $partitionColumnNames."""
+                         )
+      fs              <- Hive.withConf(FileSystem.get(_))
+      tablePath       <- Hive.value(fs.makeQualified(new Path(mTable.getSd.getLocation)).toString)
+      (valid, invalid) = paths.map(fs.makeQualified(_).toString).partition(_.startsWith(tablePath))
+      partitionPaths  <- if (invalid.isEmpty) Hive.value(valid.map(_.stripPrefix(tablePath + "/"))) else 
+                           Hive.fail[List[String]](s"$invalid are not valid partition paths for $database.$table")
+      partitionPattern = pattern(mTable.getPartitionKeys.asScala.map(c => c.getName).toList) // Using metadata for the pattern
+      partitions      <- Hive.result(partitionPaths.map(p => partition(mTable, partitionPattern, p)).sequence)
+      _               <- Hive.withClient(_.add_partitions(partitions.asJava))
+    } yield ()
+  }
   
-  /** Repair/Register partitions with the Hive table. */
+  /** Repair/Register partitions with the Hive table. 
+    * 
+    * Please be aware that if you have a large number of partitions,
+    * this '''could fail''' due to any of the following reasons :-
+    *  - Out of memory on the client side.
+    *  - Slow network would cause transportation issues while sending the 
+    *    huge object graph to the metastore.
+    *  - Out of memory on the metastore side.
+    *
+    * In these situations, it would be best to use [[addPartitions]].
+    *
+    * @param database Name of the database. 
+    * @param table Name of table to create.
+    */
   def repair(database: String, table: String): Hive[Unit] = 
     //For some reason when running msck, we can't use the table scoped with the db like db.table
     queries(List(s"USE $database", s"MSCK REPAIR TABLE $table")).map(_ => ())

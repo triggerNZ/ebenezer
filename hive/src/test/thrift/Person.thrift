@@ -12,8 +12,10 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-version in ThisBuild := "0.21.0"
+#@namespace scala au.com.cba.omnia.ebenezer.scrooge.hive
 
-uniqueVersionSettings
-
-licenses := Seq("Apache License, Version 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
+struct Person {
+  1: string firstname
+  2: string lastname
+  3: i32 age
+}
