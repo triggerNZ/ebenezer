@@ -51,7 +51,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Hive operations</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/25e7360abf92e8235b4444866730bbf3ba5f796c//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/Hive.scala" target="_blank">Hive.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Hive operations</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/CommBank/ebenezer/tree/1703a41814dd90aa7552386afd4144a04bbd4714//hive/src/main/scala/au/com/cba/omnia/ebenezer/scrooge/hive/Hive.scala" target="_blank">Hive.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="https://github.com/CommBank/edge/index.html#au.com.cba.omnia.omnitool.ToResultantMonadOps" class="extype" target="_top">ToResultantMonadOps</a>, <a href="https://github.com/CommBank/edge/index.html#au.com.cba.omnia.omnitool.ResultantOps" class="extype" target="_top">ResultantOps</a>[<a href="Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>], <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
@@ -165,6 +165,26 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ToResultantMonadOps</dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#addPartitions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="addPartitions(database:String,table:String,partitionColumnNames:List[String],paths:List[org.apache.hadoop.fs.Path]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[Unit]"></a>
+      <a id="addPartitions(String,String,List[String],List[Path]):Hive[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">addPartitions</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionColumnNames">partitionColumnNames: <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="paths">paths: <span class="extype" name="scala.List">List</span>[<span class="extype" name="org.apache.hadoop.fs.Path">Path</span>]</span>)</span><span class="result">: <a href="Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Unit" class="extype" target="_top">Unit</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.Hive$@addPartitions(database:String,table:String,partitionColumnNames:List[String],paths:List[org.apache.hadoop.fs.Path]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[Unit]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Add partitions to a hive table</p><div class="fullcomment"><div class="comment cmt"><p>Add partitions to a hive table</p><p>Please be aware that this implementation assumes that the Hive table is either a MANAGED_TABLE
+or an EXTERNAL_TABLE. It doesn't accomodate for VIRTUAL_VIEW or INDEX_TABLE.</p><p>WARNING: This method is not thread safe.
+</p></div><dl class="paramcmts block"><dt class="param">database</dt><dd class="cmt"><p>Name of the database.</p></dd><dt class="param">table</dt><dd class="cmt"><p>Name of table to create.</p></dd><dt class="param">partitionColumnNames</dt><dd class="cmt"><p>A list of the partition columns names.</p></dd><dt class="param">paths</dt><dd class="cmt"><p>A list of the absolute hdfs partition paths that needs to be added as partitions.
+</p></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -457,7 +477,7 @@ time Hive handles it badly and throws an SQL integrity exception.
     </span>
       <p class="shortcomment cmt">Checks if a table with the same name and schema already exists.</p>
     </li><li name="au.com.cba.omnia.omnitool.ResultantOps#fail" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="fail[A&lt;:&lt;?&gt;](message:&lt;?&gt;):M[A]"></a>
+      <a id="fail[A](message:String):M[A]"></a>
       <a id="fail[A](String):Hive[A]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -666,6 +686,25 @@ time Hive handles it badly and throws an SQL integrity exception.
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#listPartitions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="listPartitions(database:String,table:String,maxSize:Short):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[List[org.apache.hadoop.fs.Path]]"></a>
+      <a id="listPartitions(String,String,Short):Hive[List[Path]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">listPartitions</span><span class="params">(<span name="database">database: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="maxSize">maxSize: <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Short" class="extype" target="_top">Short</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="Hive.html" class="extype" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive">Hive</a>[<span class="extype" name="scala.List">List</span>[<span class="extype" name="org.apache.hadoop.fs.Path">Path</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#au.com.cba.omnia.ebenezer.scrooge.hive.Hive$@listPartitions(database:String,table:String,maxSize:Short):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[List[org.apache.hadoop.fs.Path]]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">List all partitions for a hive table
+</p><div class="fullcomment"><div class="comment cmt"><p>List all partitions for a hive table
+</p></div><dl class="paramcmts block"><dt class="param">database</dt><dd class="cmt"><p>Name of the database.</p></dd><dt class="param">table</dt><dd class="cmt"><p>Name of table to create.</p></dd><dt class="param">maxSize</dt><dd class="cmt"><p>Maximum number of partitions to be fetched. Defaulted to -1 which means there is no limit.</p></dd></dl></div>
     </li><li name="au.com.cba.omnia.omnitool.ResultantOps#mandatory" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="mandatory(action:M[Boolean],message:String):M[Unit]"></a>
       <a id="mandatory(Hive[Boolean],String):Hive[Unit]"></a>
@@ -802,7 +841,7 @@ time Hive handles it badly and throws an SQL integrity exception.
       </a>
     </span>
       <p class="shortcomment cmt">Runs the specified Hive query.</p><div class="fullcomment"><div class="comment cmt"><p>Runs the specified Hive query. Returns at most <code>maxRows</code></p></div></div>
-    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#repair" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#repair" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="repair(database:String,table:String):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[Unit]"></a>
       <a id="repair(String,String):Hive[Unit]"></a>
       <h4 class="signature">
@@ -818,7 +857,11 @@ time Hive handles it badly and throws an SQL integrity exception.
         <img src="../../../../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Repair/Register partitions with the Hive table.</p>
+      <p class="shortcomment cmt">Repair/Register partitions with the Hive table.</p><div class="fullcomment"><div class="comment cmt"><p>Repair/Register partitions with the Hive table.</p><p>Please be aware that if you have a large number of partitions,
+this <b>could fail</b> due to any of the following reasons :-</p><ul><li>Out of memory on the client side.</li><li>Slow network would cause transportation issues while sending the
+   huge object graph to the metastore.</li><li>Out of memory on the metastore side.</li></ul><p>In these situations, it would be best to use <a href="#addPartitions(database:String,table:String,partitionColumnNames:List[String],paths:List[org.apache.hadoop.fs.Path]):au.com.cba.omnia.ebenezer.scrooge.hive.Hive[Unit]" class="extmbr" name="au.com.cba.omnia.ebenezer.scrooge.hive.Hive#addPartitions">addPartitions</a>.
+</p></div><dl class="paramcmts block"><dt class="param">database</dt><dd class="cmt"><p>Name of the database.</p></dd><dt class="param">table</dt><dd class="cmt"><p>Name of table to create.
+</p></dd></dl></div>
     </li><li name="au.com.cba.omnia.omnitool.ResultantOps#result" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="result[A](v:=&gt;au.com.cba.omnia.omnitool.Result[A]):M[A]"></a>
       <a id="result[A](⇒Result[A]):Hive[A]"></a>
