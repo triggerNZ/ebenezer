@@ -388,7 +388,7 @@ object Hive extends ResultantOps[Hive] with ToResultantMonadOps {
                            Hive.fail[List[String]](s"$invalid are not valid partition paths for $database.$table")
       partitionPattern = pattern(mTable.getPartitionKeys.asScala.map(c => c.getName).toList) // Using metadata for the pattern
       partitions      <- Hive.result(partitionPaths.map(p => partition(mTable, partitionPattern, p)).sequence)
-      _               <- Hive.withClient(_.add_partitions(partitions.asJava))
+      _               <- Hive.withClient(_.add_partitions(partitions.asJava, true, false))
     } yield ()
   }
   

@@ -68,6 +68,7 @@ Hive operations:
   to add partitions, partition columns must match table parition columns     $addPartitionsWithWrongPartitionColumns
   to add partitions, partition paths must be compatible with table           $addPartitionsWithWrongPartitionPath
   can add new partitions to a hive table                                     $addPartitions
+  can add an existing partition again to a hive table                        $addExitingPartition
 
 """
 
@@ -227,6 +228,26 @@ Hive operations:
       List(new Path(s"$tablePath/plastname=Pennyworth"), new Path(s"$tablePath/plastname=Wayne")),
       List("Alfred", "Jane", "Bruce")
     ))
+  }
+
+  def addExitingPartition = {
+    val database  = "comic"
+    val table     = "person"
+    val tablePath = s"file:$hiveWarehouse/comic.db/person"
+
+    val x = for {
+      _     <- Hive.createParquetTable[Person](database, table, List("plastname" -> "string"))
+      path  <- Hive.getPath(database, table)
+      _     <- Hive.addPartitions(database, table, List("plastname"), 
+                 List(new Path(path, "plastname=Wayne"), new Path(path, "plastname=Pennyworth"))
+               )
+      _     <- Hive.addPartitions(database, table, List("plastname"), 
+                 List(new Path(path, "plastname=Wayne"), new Path(path, "plastname=Pennyworth"))
+               )
+      parts <- Hive.listPartitions(database, table)
+    } yield parts
+
+    x must beValue(List(new Path(s"$tablePath/plastname=Pennyworth"), new Path(s"$tablePath/plastname=Wayne")))
   }
 
   def query = {
