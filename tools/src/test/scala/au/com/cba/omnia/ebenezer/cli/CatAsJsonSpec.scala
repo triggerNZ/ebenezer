@@ -91,8 +91,8 @@ Types
     )
 
   def usage =
-    withData(name, data)(context => {
-      val result = context.glob(name </> "*.parquet").flatMap(
+    withData("cat", data)(context => {
+      val result = context.glob("cat" </> "*.parquet").flatMap(
         ParquetIntrospectTools.listFromPath(jobConf, _)
       )
         .map(CatAsJson.recordToJson(_))
@@ -102,8 +102,8 @@ Types
     })
 
   def checkFlattenedFields =
-    withData(name, data)(context => {
-      val result = context.glob(name </> "*.parquet").flatMap(
+    withData("flattened", data)(context => {
+      val result = context.glob("flattened" </> "*.parquet").flatMap(
         ParquetIntrospectTools.listFromPath(jobConf, _)
       )
         .flatMap(x => x.data.map(CatAsJson.fieldToJson(_)))

@@ -63,9 +63,9 @@ Introspect on all types
   )
 
   def usage =
-    withData(name, data)(context => {
+    withData("introspect", data)(context => {
       /* Gather all the parquet files and read each of them as "Records" of fields / value pairs */
-      val result = context.glob(name </> "*.parquet").flatMap(
+      val result = context.glob("introspect" </> "*.parquet").flatMap(
         ParquetIntrospectTools.listFromPath(jobConf, _))
 
       result.toSet must_== data.map(fromCustomer).toSet
