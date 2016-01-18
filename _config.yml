@@ -1,4 +1,4 @@
 name: ebenezer
 exclude: [Gemfile]
 markdown: kramdown
-releaseVersion:  "0.21.2-20160104234501-8e2043a"
+releaseVersion:  "0.21.3-20160118050516-0c6842d"
