@@ -30,7 +30,7 @@ import au.com.cba.omnia.omnitool.Result
 
 import au.com.cba.omnia.thermometer.hive.HiveSupport
 
-import au.com.cba.omnia.ebenezer.scrooge.hive.Hive
+import au.com.cba.omnia.beeswax.Hive
 
 /** Adds support functions for setting up tests using Hive. */
 trait HiveTestSupport { self: HiveSupport =>

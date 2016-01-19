@@ -23,8 +23,9 @@ import com.twitter.scalding.typed.IterablePipe
 
 import org.apache.hadoop.hive.conf.HiveConf
 
+import au.com.cba.omnia.beeswax.Hive
+
 import au.com.cba.omnia.ebenezer.ParquetLogging
-import au.com.cba.omnia.ebenezer.scrooge.hive.Hive
 import au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink
 
 object HiveExampleStep2 {

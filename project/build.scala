@@ -30,6 +30,7 @@ object build extends Build {
   val thermometerVersion   = "1.4.1-20160117233509-42defec"
   val omnitoolVersion      = "1.12.1-20160118033143-a5ca392"
   val humbugVersion        = "0.7.1-20160117233334-0be7ee9"
+  val beeswaxVersion       = "0.1.0-20160114052949-9ab22b6"
 
   lazy val standardSettings =
     Defaults.coreDefaultSettings ++
@@ -51,7 +52,7 @@ object build extends Build {
         ++ Seq(
           publishArtifact := false
         ),
-    aggregate = Seq(core, testProject, hive)
+    aggregate = Seq(core, testProject)
   )
 
   lazy val core = Project(
@@ -65,7 +66,7 @@ object build extends Build {
         ++ Seq(
           libraryDependencies ++=
             depend.hadoopClasspath ++ depend.hadoop() ++ depend.scalding() ++ depend.scalaz() ++
-            depend.parquet() ++ depend.omnia("humbug-core", humbugVersion) ++ 
+            depend.parquet() ++ depend.omnia("humbug-core", humbugVersion) ++ depend.omnia("beeswax", beeswaxVersion) ++
             depend.omnia("thermometer", thermometerVersion, "test"),
           scroogeThriftSourceFolder in Test <<= (sourceDirectory) { _ / "test" / "thrift" / "scrooge" },
           humbugThriftSourceFolder  in Test <<= (sourceDirectory) { _ / "test" / "thrift" / "humbug" },
@@ -83,24 +84,6 @@ object build extends Build {
         ++ Seq(
           libraryDependencies ++=
             depend.hadoopClasspath ++ depend.hadoop() ++ depend.parquet() ++ depend.omnia("thermometer-hive", thermometerVersion),
-          parallelExecution in Test := false
-        )
-  ).dependsOn(hive)
-
-  lazy val hive = Project(
-    id = "hive",
-    base = file("hive"),
-    settings =
-      standardSettings
-        ++ uniform.project("ebenezer-hive", "au.com.cba.omnia.ebenezer.hive")
-        ++ uniformThriftSettings
-        ++ Seq(
-          libraryDependencies ++=
-            depend.hadoopClasspath ++ depend.hadoop() ++ depend.parquet() ++ depend.hive() ++
-            depend.omnia("omnitool-core", omnitoolVersion) ++
-            depend.omnia("thermometer-hive", thermometerVersion, "test") ++ Seq(
-              "au.com.cba.omnia" %% "omnitool-core" % omnitoolVersion % "test" classifier "tests"
-            ),
           parallelExecution in Test := false
         )
   ).dependsOn(core)
@@ -137,7 +120,7 @@ object build extends Build {
             depend.hadoopClasspath ++ depend.hadoop() ++ depend.scalding() ++ depend.parquet() ++
             depend.omnia("thermometer-hive", thermometerVersion, "test")
         )
-  ).dependsOn(hive)
+  ).dependsOn(core)
    .dependsOn(testProject % "test")
 
   // lazy val compat = Project(

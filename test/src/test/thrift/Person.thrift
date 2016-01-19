@@ -12,28 +12,10 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-#@namespace scala au.com.cba.omnia.ebenezer.scrooge.hive
+#@namespace scala au.com.cba.omnia.ebenezer.test
 
-struct Primitives {
-  1: bool   boolean
-  2: byte   bytey
-  3: i16    short
-  4: i32    integer
-  5: i64    long
-  6: double doubley
-  7: string stringy
-}
-
-struct Listish {
-  1: i16 short
-  2: list<i32> listy
-}
-
-struct Mapish {
-  1: i16 short
-  2: map<i32, string> mapy
-}
-
-struct Nested {
-  1: map<i32, map<string, list<i32>>> nested
+struct Person {
+  1: string firstname
+  2: string lastname
+  3: i32 age
 }

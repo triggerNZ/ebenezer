@@ -12,10 +12,12 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-#@namespace scala au.com.cba.omnia.ebenezer.scrooge.hive
+#@namespace scala au.com.cba.omnia.ebenezer.test
 
-struct Person {
-  1: string firstname
-  2: string lastname
-  3: i32 age
+struct SimpleHive {
+  1: string  stringfield
+}
+
+struct SimpleHive2 {
+  1: string  stringfield2
 }

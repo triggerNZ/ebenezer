@@ -22,8 +22,9 @@ import org.apache.hadoop.hive.conf.HiveConf
 import com.twitter.scalding.{Execution, ExecutionApp}
 import com.twitter.scalding.typed.IterablePipe
 
+import au.com.cba.omnia.beeswax.Hive
+
 import au.com.cba.omnia.ebenezer.ParquetLogging
-import au.com.cba.omnia.ebenezer.scrooge.hive.Hive
 import au.com.cba.omnia.ebenezer.scrooge.PartitionParquetScroogeSink
 
 object HiveExampleStep1 extends ExecutionApp with ParquetLogging {

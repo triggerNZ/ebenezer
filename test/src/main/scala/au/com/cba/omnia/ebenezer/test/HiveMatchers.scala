@@ -22,7 +22,7 @@ import au.com.cba.omnia.omnitool.{Result, Ok, Error}
 
 import au.com.cba.omnia.thermometer.hive.HiveSupport
 
-import au.com.cba.omnia.ebenezer.scrooge.hive.Hive
+import au.com.cba.omnia.beeswax.Hive
 
 /** Provides matchers for `Hive`. */
 trait HiveMatchers { self: Specification with HiveSupport =>

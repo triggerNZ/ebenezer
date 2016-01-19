@@ -18,7 +18,7 @@ import scalaz.Scalaz._
 
 import au.com.cba.omnia.thermometer.hive.ThermometerHiveSpec
 
-import au.com.cba.omnia.ebenezer.scrooge.hive.Hive
+import au.com.cba.omnia.beeswax.Hive
 
 object HiveTestSupportSpec
   extends ThermometerHiveSpec
