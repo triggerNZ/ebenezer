@@ -27,8 +27,20 @@ import com.twitter.scalding.typed.PartitionUtil
 import com.twitter.scrooge.ThriftStruct
 
 /**
-  * A scalding sink to write out Scrooge Thrift structs using parquet as underlying storage format.
+  * A scalding sink to write out Scrooge Thrift structs as partitioned files using parquet as
+  * underlying storage format.
   *
+  * It expects tuples where the first part is the partition and the second part the values to write
+  * out.
+  *
+  * Unfortunately read does not work since the ParquetInputSplit is an instance of
+  * mapreduce.FileSplit and cascading will ignore any partitioned input splits that aren't part of
+  * mapred.FileSplit.
+  * Instead use [[PartitionParquetScroogeSource]] for read.
+  *
+  * @param template for the partition directory where `%s` is the placeholder for the partition
+  *   values e.g. `"col1=%s/col2=%s"`
+  * @param path the top level directory to write the partitions to
   */
 case class PartitionParquetScroogeSink[A, T <: ThriftStruct](template: String, path: String)(
   implicit m: Manifest[T], valueSet: TupleSetter[T], partitionSet: TupleSetter[A]
@@ -59,7 +71,8 @@ case class PartitionParquetScroogeSink[A, T <: ThriftStruct](template: String, p
 
   override def sinkFields =
     PartitionUtil.toFields(0, valueSet.arity + partitionSet.arity)
- 
+
+  /** Sets the setter to flatten the values and partition parts into a cascading tuple. */
   override def setter[U <: (A, T)] = PartitionUtil.setter[A, T, U](valueSet, partitionSet)
 
   override def toString: String =
