@@ -27,8 +27,20 @@ import com.twitter.scalding.typed.PartitionUtil
 import com.twitter.scrooge.ThriftStruct
 
 /**
-  * A scalding sink to write out Scrooge Thrift structs using parquet as underlying storage format.
+  * A scalding sink to write out Scrooge Thrift structs as partitioned files using parquet as
+  * underlying storage format.
   *
+  * It expects tuples where the first part is the partition and the second part the values to write
+  * out.
+  *
+  * Unfortunately read does not work since the ParquetInputSplit is an instance of
+  * mapreduce.FileSplit and cascading will ignore any partitioned input splits that aren't part of
+  * mapred.FileSplit.
+  * Instead use [[PartitionParquetScroogeSource]] for read.
+  *
+  * @param template for the partition directory where `%s` is the placeholder for the partition
+  *   values e.g. `"col1=%s/col2=%s"`
+  * @param path the top level directory to write the partitions to
   */
 case class PartitionParquetScroogeSink[A, T <: ThriftStruct](template: String, path: String)(
   implicit m: Manifest[T], valueSet: TupleSetter[T], partitionSet: TupleSetter[A]
@@ -59,7 +71,14 @@ case class PartitionParquetScroogeSink[A, T <: ThriftStruct](template: String, p
 
   override def sinkFields =
     PartitionUtil.toFields(0, valueSet.arity + partitionSet.arity)
- 
+
+  /*
+   Create a setter which is the union of value and partition, it is _not_ safe to pull this out as a
+   generic converter, because if anyone forgets to explicitly type annotate the A infers to Any and
+   you get default coverters (yes, scala libraries, particularly scalding do this, it is not ok, but
+   we must deal with it), so we hide it inside the Source so it can't be messed up. See also
+   converter.
+   */
   override def setter[U <: (A, T)] = PartitionUtil.setter[A, T, U](valueSet, partitionSet)
 
   override def toString: String =

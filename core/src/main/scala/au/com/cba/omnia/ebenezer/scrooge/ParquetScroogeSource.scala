@@ -21,6 +21,13 @@ import com.twitter.scalding._
 
 import com.twitter.scrooge.ThriftStruct
 
+/**
+  * A scalding source to read Scrooge Thrift structs from partitioned files using parquet as
+  * underlying storage format. It will ignore the partition columns and only read the thrift struct
+  * from the parquet file.
+  * 
+  * Use [[PartitionHiveParquetScroogeSink]] for write.
+  */
 case class ParquetScroogeSource[T <: ThriftStruct](p : String*)(
   implicit m : Manifest[T], conv: TupleConverter[T], set: TupleSetter[T]
 ) extends FixedPathSource(p: _*)
