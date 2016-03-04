@@ -72,13 +72,7 @@ case class PartitionParquetScroogeSink[A, T <: ThriftStruct](template: String, p
   override def sinkFields =
     PartitionUtil.toFields(0, valueSet.arity + partitionSet.arity)
 
-  /*
-   Create a setter which is the union of value and partition, it is _not_ safe to pull this out as a
-   generic converter, because if anyone forgets to explicitly type annotate the A infers to Any and
-   you get default coverters (yes, scala libraries, particularly scalding do this, it is not ok, but
-   we must deal with it), so we hide it inside the Source so it can't be messed up. See also
-   converter.
-   */
+  /** Sets the setter to flatten the values and partition parts into a cascading tuple. */
   override def setter[U <: (A, T)] = PartitionUtil.setter[A, T, U](valueSet, partitionSet)
 
   override def toString: String =

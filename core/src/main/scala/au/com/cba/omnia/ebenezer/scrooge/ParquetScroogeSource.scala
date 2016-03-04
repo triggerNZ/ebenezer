@@ -22,7 +22,7 @@ import com.twitter.scalding._
 import com.twitter.scrooge.ThriftStruct
 
 /**
-  * A scalding source to read Scrooge Thrift structs from partitioned files using parquet as
+  * A scalding source to read Scrooge Thrift structs from partitioned files using parquet as the
   * underlying storage format. It will ignore the partition columns and only read the thrift struct
   * from the parquet file.
   * 
