@@ -27,7 +27,7 @@ import au.com.cba.omnia.uniform.assembly.UniformAssemblyPlugin._
 import au.com.cba.omnia.humbug.HumbugSBT._
 
 object build extends Build {
-  val thermometerVersion   = "1.4.3-20160617114144-562e6e0"
+  val thermometerVersion   = "1.4.4-20160914011602-d120861"
   val omnitoolVersion      = "1.14.1-20160617114243-1143bc9"
   val humbugVersion        = "0.7.2-20160617114039-c10e869"
   val beeswaxVersion       = "0.1.2-20160619053150-80dbb0a"
