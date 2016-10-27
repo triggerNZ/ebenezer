@@ -15,9 +15,7 @@
 package au.com.cba.omnia.ebenezer
 package scrooge
 
-import org.apache.hadoop.mapred.JobConf
-import org.apache.hadoop.mapred.OutputCollector
-import org.apache.hadoop.mapred.RecordReader
+import org.apache.hadoop.mapred._
 
 import parquet.cascading.ParquetValueScheme
 import parquet.hadoop.mapred.DeprecatedParquetInputFormat
@@ -31,11 +29,15 @@ import com.twitter.scalding.HadoopSchemeInstance
 
 import com.twitter.scrooge.ThriftStruct
 
-class ParquetScroogeScheme[A <: ThriftStruct : Manifest] extends ParquetValueScheme[A] {
+class ParquetScroogeScheme[A <: ThriftStruct : Manifest](disableMarkSuccess: Boolean) extends ParquetValueScheme[A] {
   override def sinkConfInit(flow: FlowProcess[JobConf], tap: Tap[JobConf, RecordReader[_, _], OutputCollector[_, _]], conf: JobConf): Unit = {
     conf.setOutputFormat(classOf[DeprecatedParquetOutputFormat[_]])
+    if (disableMarkSuccess) {
+      conf.set("mapreduce.fileoutputcommitter.marksuccessfuljobs", "false")
+    }
     ScroogeWriteSupport.setAsParquetSupportClass[A](conf)
   }
+
 
   override def sourceConfInit(flow: FlowProcess[JobConf], tap: Tap[JobConf, RecordReader[_, _], OutputCollector[_, _]], conf: JobConf): Unit = {
     conf.setInputFormat(classOf[DeprecatedParquetInputFormat[_]])
@@ -45,5 +47,7 @@ class ParquetScroogeScheme[A <: ThriftStruct : Manifest] extends ParquetValueSch
 
 object ParquetScroogeSchemeSupport {
   def parquetHdfsScheme[T <: ThriftStruct](implicit m: Manifest[T]): cascading.scheme.Scheme[JobConf, RecordReader[_, _], OutputCollector[_, _], _, _] =
-    HadoopSchemeInstance(new ParquetScroogeScheme[T].asInstanceOf[Scheme[_, _, _, _, _]])
+    HadoopSchemeInstance(new ParquetScroogeScheme[T](false).asInstanceOf[Scheme[_, _, _, _, _]])
+  def parquetHdfsSchemeNoSuccessFlag[T <: ThriftStruct](implicit m: Manifest[T]): cascading.scheme.Scheme[JobConf, RecordReader[_, _], OutputCollector[_, _], _, _] =
+    HadoopSchemeInstance(new ParquetScroogeScheme[T](true).asInstanceOf[Scheme[_, _, _, _, _]])
 }

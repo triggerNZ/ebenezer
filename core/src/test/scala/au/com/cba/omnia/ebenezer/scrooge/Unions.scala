@@ -24,7 +24,7 @@ import au.com.cba.omnia.thermometer.core.ThermometerSpec
 import au.com.cba.omnia.thermometer.fact.PathFactoids._
 
 import au.com.cba.omnia.ebenezer.ParquetLogging
-import au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSourceSpec._
+import au.com.cba.omnia.ebenezer.scrooge.ParquetScroogeSourceWithSuccessSpec._
 import au.com.cba.omnia.ebenezer.test.Customers.{NewCustomer, OldCustomer}
 import au.com.cba.omnia.ebenezer.test.NestedCustomers.NestedA
 import au.com.cba.omnia.ebenezer.test.WideUnion._
